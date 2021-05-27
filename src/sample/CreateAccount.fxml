@@ -143,7 +143,7 @@
             </Pane>
             <ImageView fitHeight="332.0" fitWidth="317.0" layoutX="23.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../CreateAccountPic.png" />
+                  <Image url="@../Asset/CreateAccountPic.png" />
                </image>
             </ImageView>
 

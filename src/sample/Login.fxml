@@ -113,7 +113,7 @@
             </Hyperlink>
             <ImageView fitHeight="332.0" fitWidth="317.0" layoutX="342.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../LoginPic.png" />
+                  <Image url="@../Asset/LoginPic.png" />
                </image>
             </ImageView>
 
