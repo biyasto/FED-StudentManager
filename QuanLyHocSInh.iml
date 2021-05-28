@@ -23,5 +23,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" exported="" name="jfoenix-9.0.10" level="project" />
   </component>
 </module>

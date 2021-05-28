@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -110,7 +111,7 @@
             </Pane>
             <ImageView fitHeight="332.0" fitWidth="317.0" layoutX="23.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Asset/CreateAccountPic.png" />
+                  <Image url="@../Asset/Picture/CreateAccountPic.png" />
                </image>
             </ImageView>
 
