@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="66.0" layoutY="92.0">
+         <children>
+            <AnchorPane layoutX="334.0">
+               <children>
+                  <Button alignment="CENTER" layoutX="14.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView disable="true" fitHeight="57.0" fitWidth="58.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Asset/ButtonIcon/Setting.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text disable="true" layoutX="55.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="163.0">
+               <children>
+                  <Button alignment="CENTER" layoutX="14.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView disable="true" fitHeight="57.0" fitWidth="58.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Asset/ButtonIcon/Calender.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text disable="true" layoutX="50.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calender" />
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView disable="true" fitHeight="57.0" fitWidth="58.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Asset/ButtonIcon/UserInfo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text disable="true" layoutX="36.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Info" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="66.0" layoutY="235.0">
+         <children>
+            <AnchorPane>
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView disable="true" fitHeight="57.0" fitWidth="58.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Asset/ButtonIcon/Search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text disable="true" layoutX="28.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search User" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="348.0">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView disable="true" fitHeight="57.0" fitWidth="58.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Asset/ButtonIcon/AddUser.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text disable="true" layoutX="19.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Account" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="177.0">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView disable="true" fitHeight="57.0" fitWidth="58.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Asset/ButtonIcon/Classes.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text disable="true" layoutX="47.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
