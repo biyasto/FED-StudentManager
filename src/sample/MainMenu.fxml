@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="66.0" layoutY="92.0">
+      <AnchorPane layoutX="66.0" layoutY="115.0">
          <children>
-            <AnchorPane layoutX="334.0">
+            <AnchorPane layoutX="334.0" prefHeight="120.0" prefWidth="134.0">
                <children>
                   <Button alignment="CENTER" layoutX="14.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
                      <cursor>
@@ -24,6 +28,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Button>
                   <Text disable="true" layoutX="55.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" />
                </children>
@@ -41,6 +48,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Button>
                   <Text disable="true" layoutX="50.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calender" />
                </children>
@@ -58,13 +68,16 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Button>
                   <Text disable="true" layoutX="36.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Info" />
                </children>
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="66.0" layoutY="235.0">
+      <AnchorPane layoutX="66.0" layoutY="255.0">
          <children>
             <AnchorPane>
                <children>
@@ -79,6 +92,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Button>
                   <Text disable="true" layoutX="28.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search User" />
                </children>
@@ -96,6 +112,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Button>
                   <Text disable="true" layoutX="19.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Account" />
                </children>
@@ -113,11 +132,41 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Button>
-                  <Text disable="true" layoutX="47.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class" />
+                  <Text disable="true" layoutX="41.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Classes" />
                </children>
             </AnchorPane>
          </children>
       </AnchorPane>
+      <Pane layoutX="65.0" layoutY="56.0" prefHeight="44.0" prefWidth="468.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+         <effect>
+            <DropShadow height="4.32" radius="4.155" width="14.3" />
+         </effect>
+         <children>
+            <Text layoutX="12.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Lưu Ngọc Sáng!" textAlignment="CENTER" wrappingWidth="468.79999999999995">
+               <font>
+                  <Font name="Calibri Bold" size="23.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Button layoutX="533.0" layoutY="14.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="49.0" style="-fx-background-color: white; -fx-background-radius: 99999999999px;">
+         <graphic>
+            <ImageView disable="true" fitHeight="44.0" fitWidth="44.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Asset/Picture/UserAvatar.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>
