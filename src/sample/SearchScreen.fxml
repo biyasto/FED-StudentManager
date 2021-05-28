@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SearchScreen">
+   <children>
+      <Label layoutX="33.0" layoutY="21.0" prefHeight="43.0" prefWidth="287.0" text="USER INFORMATION">
+         <font>
+            <Font name="Arial Black" size="21.0" />
+         </font></Label>
+      <TextField layoutX="31.0" layoutY="84.0" prefHeight="25.0" prefWidth="370.0" promptText="Search by userID or name" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Button layoutX="514.0" layoutY="82.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="FIND" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <ChoiceBox layoutX="413.0" layoutY="82.0" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+      <AnchorPane layoutX="33.0" layoutY="137.0" prefHeight="126.0" prefWidth="534.0" style="-fx-background-radius: 45px; -fx-background-color: #EEE0E0;">
+         <children>
+            <Label layoutX="31.0" layoutY="14.0" prefHeight="17.0" prefWidth="48.0" text="Student" textFill="#736b6b" />
+            <Label layoutX="31.0" layoutY="32.0" text="LUU NGOC QUYNH">
+               <font>
+                  <Font name="SVN-Helves bold" size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="31.0" layoutY="81.0" prefHeight="18.0" prefWidth="66.0" text="ID:19520207" textFill="#736b6b" />
+            <Label layoutX="200.0" layoutY="81.0" text="Faculty: Software Engineering" textFill="#736b6b" />
+            <Circle fill="#ff1f1f" layoutX="395.0" layoutY="90.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="422.0" layoutY="81.0" text="1 year ago" />
+         </children></AnchorPane>
+      <Button layoutX="48.0" layoutY="337.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="BACK" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
