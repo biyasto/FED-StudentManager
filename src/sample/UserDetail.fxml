@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UserDetail">
+   <children>
+      <Label layoutX="33.0" layoutY="14.0" prefHeight="31.0" prefWidth="178.0" text="USER DETAILS">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="71.0" fitWidth="70.0" layoutX="116.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 10px;">
+         <image>
+            <Image url="@../../../../../Freepik%20Source/ing_47129_11376.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="21.0" layoutY="125.0" prefHeight="215.0" prefWidth="260.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 25px;">
+         <children>
+            <Label layoutX="21.0" layoutY="14.0" text="VÕ HOÀNG ĐỨC QUỲNH">
+               <font>
+                  <Font name="SVN-Helves bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="104.0" layoutY="42.0" text="Student">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="96.0" layoutY="74.0" text="19520207">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="108.0" text="Software Engineering">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="143.0" text="19520207@gm.uit.edu.vn">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="93.0" layoutY="179.0" text="1 year ago">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <Button layoutX="71.0" layoutY="350.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="EDIT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button layoutX="159.0" layoutY="350.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="BACK" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="312.0" layoutY="97.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="252.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="GET STUDENT GRADES" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="312.0" layoutY="144.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="252.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="GRADES STATISTICS" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="312.0" layoutY="197.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="252.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="INPUT STUDENT GRADES" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="312.0" layoutY="244.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="252.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="ADD TO PRESERVATIONS" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="312.0" layoutY="290.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="252.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="GRADUATION CHECK" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="312.0" layoutY="337.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="252.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="CHANGE PASSWORD" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
