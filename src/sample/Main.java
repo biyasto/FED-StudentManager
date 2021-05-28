@@ -11,9 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         //Test Layout chỗ này
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(
-                "Login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchScreen.fxml"));
         Parent root = loader.load();
         primaryStage.setTitle("8=>");
         primaryStage.setScene(new Scene(root, 300, 275));
