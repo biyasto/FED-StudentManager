@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="33.0" layoutY="14.0" prefHeight="31.0" prefWidth="178.0" text="USER DETAILS">
          <font>
@@ -19,7 +22,7 @@
       </ImageView>
       <AnchorPane layoutX="21.0" layoutY="125.0" prefHeight="215.0" prefWidth="260.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 25px;">
          <children>
-            <Label layoutX="21.0" layoutY="14.0" text="VÕ HOÀNG ĐỨC QUỲNH">
+            <Label layoutX="29.0" layoutY="14.0" prefHeight="27.0" prefWidth="226.0" text="VÕ HOÀNG ĐỨC QUỲNH" textAlignment="CENTER">
                <font>
                   <Font name="SVN-Helves bold" size="18.0" />
                </font>
@@ -34,7 +37,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="65.0" layoutY="108.0" text="Software Engineering">
+            <Label layoutX="65.0" layoutY="108.0" prefWidth="192.0" text="Software Engineering">
                <font>
                   <Font size="15.0" />
                </font>
@@ -44,11 +47,12 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="93.0" layoutY="179.0" text="1 year ago">
+            <Label layoutX="93.0" layoutY="179.0" text="2 hour ago">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
+            <Circle fill="#ff1f1f" layoutX="74.0" layoutY="190.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
          </children></AnchorPane>
       <Button layoutX="71.0" layoutY="350.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="EDIT" textFill="WHITE">
          <font>
