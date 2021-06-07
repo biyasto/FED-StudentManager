@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label disable="true" layoutX="33.0" layoutY="21.0" prefHeight="43.0" prefWidth="156.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" text="   Schedule" textAlignment="CENTER">
+         <font>
+            <Font name="Arial Black" size="21.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect></Label>
+      <Button layoutX="390.0" layoutY="335.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Print" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <ChoiceBox layoutX="270.0" layoutY="90.0" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+      <Button layoutX="48.0" layoutY="337.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <ChoiceBox layoutX="156.0" layoutY="90.0" prefHeight="30.0" prefWidth="58.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+      <Text layoutX="111.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Month" />
+      <Text layoutX="239.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year" />
+      <Button layoutX="490.0" layoutY="335.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="450.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Add Event" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="450.0" layoutY="241.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Event Info" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
