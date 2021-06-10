@@ -1,3 +1,4 @@
-package sample;
+package GUI.CreateAccount;
+
 public class Controller {
 }
