@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="475.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Login.Controller">
+<VBox prefHeight="475.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.LoginController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="432.0" prefWidth="679.0" VBox.vgrow="ALWAYS">
       <children>
@@ -32,7 +32,7 @@
             </Hyperlink>
             <ImageView fitHeight="332.0" fitWidth="317.0" layoutX="342.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Asset/Picture/LoginPic.png" />
+                  <Image url="@../asset/Picture/LoginPic.png" />
                </image>
             </ImageView>
 

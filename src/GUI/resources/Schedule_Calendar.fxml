@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Schedule_Calendar.Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.ScheduleCalendarController">
    <children>
       <Label disable="true" layoutX="33.0" layoutY="21.0" prefHeight="43.0" prefWidth="156.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" text="   Schedule" textAlignment="CENTER">
          <font>
