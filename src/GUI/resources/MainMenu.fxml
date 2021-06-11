@@ -17,7 +17,7 @@
          <children>
             <AnchorPane layoutX="334.0" prefHeight="120.0" prefWidth="134.0">
                <children>
-                  <Button alignment="CENTER" layoutX="14.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
+                  <Button fx:id="SettingButton" alignment="CENTER" layoutX="14.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -37,7 +37,7 @@
             </AnchorPane>
             <AnchorPane layoutX="163.0">
                <children>
-                  <Button alignment="CENTER" layoutX="14.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
+                  <Button fx:id="ScheduleButton" alignment="CENTER" layoutX="14.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -52,12 +52,12 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Text disable="true" layoutX="50.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calender" />
+                  <Text disable="true" layoutX="50.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedule" />
                </children>
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
+                  <Button fx:id="InfoButton" alignment="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -81,7 +81,7 @@
          <children>
             <AnchorPane>
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
+                  <Button fx:id="SearchUsersButton" alignment="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" textAlignment="CENTER" textOverrun="CLIP">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -106,7 +106,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <graphic>
-                        <ImageView disable="true" fitHeight="57.0" fitWidth="58.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="CreateAccountButton" disable="true" fitHeight="57.0" fitWidth="58.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../asset/ButtonIcon/AddUser.png" />
                            </image>
@@ -126,7 +126,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <graphic>
-                        <ImageView disable="true" fitHeight="57.0" fitWidth="58.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="ClassesButton" disable="true" fitHeight="57.0" fitWidth="58.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../asset/ButtonIcon/Classes.png" />
                            </image>
@@ -148,14 +148,14 @@
          <children>
             <Text layoutX="12.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Lưu Ngọc Sáng!" textAlignment="CENTER" wrappingWidth="468.79999999999995">
                <font>
-                  <Font name="Calibri Bold" size="23.0" />
+                  <Font name="Caliber Bold" size="23.0" />
                </font>
             </Text>
          </children>
       </Pane>
       <Button layoutX="533.0" layoutY="14.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="49.0" style="-fx-background-color: white; -fx-background-radius: 99999999999px;">
          <graphic>
-            <ImageView disable="true" fitHeight="44.0" fitWidth="44.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="AvatarButton" disable="true" fitHeight="44.0" fitWidth="44.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../asset/Picture/UserAvatar.png" />
                </image>
