@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CreateAccount.Controller">
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.CreateAccountController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="432.0" prefWidth="679.0" VBox.vgrow="ALWAYS">
       <children>
@@ -59,7 +59,7 @@
             </Pane>
             <ImageView fitHeight="332.0" fitWidth="317.0" layoutX="23.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Asset/Picture/CreateAccountPic.png" />
+                  <Image url="@../asset/Picture/CreateAccountPic.png" />
                </image>
             </ImageView>
 
