@@ -17,30 +17,30 @@
          <effect>
             <Blend />
          </effect></Label>
-      <Button layoutX="390.0" layoutY="335.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Print" textFill="WHITE">
+      <Button fx:id="PrintButton" layoutX="390.0" layoutY="335.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Print" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <ChoiceBox layoutX="270.0" layoutY="90.0" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
-      <Button layoutX="48.0" layoutY="337.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Back" textFill="WHITE">
+      <ChoiceBox fx:id="YearChoiceBox" layoutX="270.0" layoutY="90.0" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+      <Button fx:id="BackButton" layoutX="48.0" layoutY="337.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ChoiceBox layoutX="156.0" layoutY="90.0" prefHeight="30.0" prefWidth="58.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+      <ChoiceBox fx:id="MonthChoiceBox" layoutX="156.0" layoutY="90.0" prefHeight="30.0" prefWidth="58.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
       <Text layoutX="111.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Month" />
       <Text layoutX="239.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year" />
-      <Button layoutX="490.0" layoutY="335.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Save" textFill="WHITE">
+      <Button fx:id="SaveButton" layoutX="490.0" layoutY="335.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="450.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Add Event" textFill="WHITE">
+      <Button fx:id="AddButton" layoutX="450.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Add Event" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="450.0" layoutY="241.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Event Info" textFill="WHITE">
+      <Button fx:id="InfoButton" layoutX="450.0" layoutY="241.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Event Info" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
