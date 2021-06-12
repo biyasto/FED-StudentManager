@@ -6,15 +6,17 @@ public class StudentDTO {
     private boolean Gender;
     private String BirthDay;
     private String Email;
+    private String Pass;
     private int  Type;
     private String Faculty;
 
-    public StudentDTO(String id, String name, boolean gender, String birthDay, String email, int type, String faculty) {
+    public StudentDTO(String id, String name, boolean gender, String birthDay, String email, String pass, int type, String faculty) {
         Id = id;
         Name = name;
         Gender = gender;
         BirthDay = birthDay;
         Email = email;
+        Pass = pass;
         Type = type;
         Faculty = faculty;
     }
@@ -38,7 +40,7 @@ public class StudentDTO {
         Name = name;
     }
 
-    public boolean getGender() {
+    public boolean isGender() {
         return Gender;
     }
 
@@ -60,6 +62,14 @@ public class StudentDTO {
 
     public void setEmail(String email) {
         Email = email;
+    }
+
+    public String getPass() {
+        return Pass;
+    }
+
+    public void setPass(String pass) {
+        Pass = pass;
     }
 
     public int getType() {

@@ -17,18 +17,20 @@ public class StudentDAL {
 
     public static void main(String[] args) {
         StudentDAL dal = new StudentDAL();
-        List<StudentDTO> list = dal.GetALlStudent();
-        list.forEach(s -> {
-            System.out.println("Id>>" + s.getId());
-            System.out.println("Name>>" + s.getName());
-            System.out.println("Email>>" + s.getEmail());
-            System.out.println("Gender>>" + s.getGender());
-            System.out.println("Type>>" + s.getType());
-            System.out.println("Birthday>>" + s.getBirthDay());
-            System.out.println("Faculty>>" + s.getFaculty());
-            System.out.println();
-            System.out.println();
-        });
+//        List<StudentDTO> list = dal.GetALlStudent();
+//        list.forEach(s -> {
+//            System.out.println("Id>>" + s.getId());
+//            System.out.println("Name>>" + s.getName());
+//            System.out.println("Email>>" + s.getEmail());
+//            System.out.println("Gender>>" + s.isGender());
+//            System.out.println("Type>>" + s.getType());
+//            System.out.println("Birthday>>" + s.getBirthDay());
+//            System.out.println("Faculty>>" + s.getFaculty());
+//            System.out.println();
+//            System.out.println();
+//        });
+        StudentDTO s = new StudentDTO("01","Bảo Nhạc",true,"2001-07-23","@mgail","Binhdeptrai",1,"CNPM");
+        dal.InsertStudent(s);
     }
 
     public List<StudentDTO> GetALlStudent() {
@@ -65,4 +67,36 @@ public class StudentDAL {
         }
         return list;
     }
+    public int InsertStudent(StudentDTO s) {
+        String sql = "insert into Student values (?,?,?,?,?,?,?,?);";
+        int result = -1;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1,s.getId());
+            pres.setString(2,s.getName());
+            pres.setBoolean(3,s.isGender());
+            pres.setString(4,s.getBirthDay());
+            pres.setString(5,s.getEmail());
+            pres.setString(6,s.getPass());
+            pres.setInt(7,s.getType());
+            pres.setString(8,s.getFaculty());
+
+            result = pres.executeUpdate();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return result;
+    }
+
 }
