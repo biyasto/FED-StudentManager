@@ -6,17 +6,27 @@ public class TeacherDTO {
     private boolean Gender;
     private String BirthDay;
     private String Email;
+    private String Pass;
     private int Type;
     private String Faculty;
 
-    public TeacherDTO(String id, String name, boolean gender, String birthDay, String email, int type, String faculty) {
+    public TeacherDTO(String id, String name, boolean gender, String birthDay, String email,String pass, int type, String faculty) {
         Id = id;
         Name = name;
         Gender = gender;
         BirthDay = birthDay;
         Email = email;
+        Pass = pass;
         Type = type;
         Faculty = faculty;
+    }
+
+    public String getPass() {
+        return Pass;
+    }
+
+    public void setPass(String pass) {
+        Pass = pass;
     }
 
     public TeacherDTO() {

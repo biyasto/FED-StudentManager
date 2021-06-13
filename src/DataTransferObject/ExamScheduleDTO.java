@@ -3,25 +3,25 @@ package DataTransferObject;
 import java.util.Date;
 
 public class ExamScheduleDTO {
-    private String ClassID;
+    private String ClassId;
     private Date ExamDate;
-    private int Flag;
+    private int ExamType;
 
-    public ExamScheduleDTO(String classID, Date examDate, int flag) {
-        ClassID = classID;
+    public ExamScheduleDTO(String classId, Date examDate, int examType) {
+        ClassId = classId;
         ExamDate = examDate;
-        Flag = flag;
+        ExamType = examType;
     }
 
     public ExamScheduleDTO() {
     }
 
-    public String getClassID() {
-        return ClassID;
+    public String getClassId() {
+        return ClassId;
     }
 
-    public void setClassID(String classID) {
-        ClassID = classID;
+    public void setClassId(String classId) {
+        ClassId = classId;
     }
 
     public Date getExamDate() {
@@ -32,11 +32,11 @@ public class ExamScheduleDTO {
         ExamDate = examDate;
     }
 
-    public int getFlag() {
-        return Flag;
+    public int getExamType() {
+        return ExamType;
     }
 
-    public void setFlag(int flag) {
-        Flag = flag;
+    public void setExamType(int examType) {
+        ExamType = examType;
     }
 }
