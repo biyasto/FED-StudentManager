@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.NavigationController">
+   <left>
+      <Pane prefHeight="614.0" prefWidth="184.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="SearchClassButton" layoutX="19.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#OpenSearchClassesScreen" prefHeight="23.0" prefWidth="147.0" style="-fx-background-color: gray;" text="Search Classes">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="InfoButton" layoutX="19.0" layoutY="137.0" mnemonicParsing="false" onMouseClicked="#OpenInfomationScreen" prefHeight="24.0" prefWidth="147.0" style="-fx-background-color: gray;" text="Your Infomation">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+               <effect>
+                  <Blend />
+               </effect>
+            </Button>
+            <Button fx:id="ScheduleButton" layoutX="19.0" layoutY="187.0" mnemonicParsing="false" onMouseClicked="#OpenScheduleScreen" prefHeight="24.0" prefWidth="147.0" style="-fx-background-color: gray;" text="Schedule">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="SearchUsersButton" layoutX="18.0" layoutY="287.0" mnemonicParsing="false" onMouseClicked="#OpenSearchUserScreen" prefHeight="24.0" prefWidth="147.0" style="-fx-background-color: gray;" text="Search Users">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="Avatar" fitHeight="74.0" fitWidth="87.0" layoutX="55.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asset/Picture/UserAvatar.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="NameLabel" layoutX="76.0" layoutY="107.0" text="Name" textFill="#65ff62" />
+            <Button fx:id="CreateAccountButton" layoutX="18.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#OpenCreateAccounScreen" prefHeight="24.0" prefWidth="147.0" style="-fx-background-color: gray;" text="Create Account">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="SettingButton" layoutX="36.0" layoutY="547.0" mnemonicParsing="false" onMouseClicked="#OpenSettingScreen" prefHeight="39.0" prefWidth="20.0">
+               <graphic>
+                  <ImageView disable="true" fitHeight="33.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../asset/ButtonIcon/SettingButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="110.0" layoutY="547.0" mnemonicParsing="false" onMouseClicked="#Logout" prefHeight="39.0" prefWidth="20.0">
+               <graphic>
+                  <ImageView fx:id="LogoutButton" disable="true" fitHeight="33.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../asset/ButtonIcon/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+   </left>
+   <top>
+      <Pane prefHeight="29.0" prefWidth="896.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="867.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: red;">
+               <graphic>
+                  <ImageView disable="true" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../asset/ButtonIcon/CloseButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="835.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: gray;" />
+            <ImageView disable="true" fitHeight="15.0" fitWidth="15.0" layoutX="843.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asset/ButtonIcon/MinimizeButton.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
