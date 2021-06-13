@@ -16,7 +16,7 @@
    <left>
       <Pane prefHeight="634.0" prefWidth="217.0" style="-fx-background-color: #380b52;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="186.0" layoutY="1.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: red; -fx-background-radius: 45px; -fx-background-color: ;">
+            <Button layoutX="186.0" layoutY="1.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: red; -fx-background-radius: 45px;">
                <graphic>
                   <ImageView disable="true" fitHeight="15.0" fitWidth="15.0" preserveRatio="true">
                      <image>
@@ -45,7 +45,7 @@
             </AnchorPane>
             <AnchorPane layoutX="19.0" layoutY="176.0">
                <children>
-                  <Button fx:id="InfoButton" alignment="BASELINE_LEFT" layoutX="1.0" mnemonicParsing="false" onMouseClicked="#OpenInformationScreen" prefHeight="35.0" prefWidth="175.0" style="-fx-background-color: transparent;" text="  Your Infomation" textFill="WHITE">
+                  <Button fx:id="InfoButton" alignment="BASELINE_LEFT" layoutX="1.0" mnemonicParsing="false" onMouseClicked="#OpenInformationScreen" prefHeight="35.0" prefWidth="175.0" style="-fx-background-color: transparent;" stylesheets="@../css/MenuButton.css" text="  Your Infomation" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
@@ -55,7 +55,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../asset/ButtonIcon/SettingButton.png" />
+                              <Image url="@../asset/ButtonIcon/UserInfo.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -63,14 +63,14 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="SearchClassButton" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#OpenSearchClassesScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent;" stylesheets="@../css/MenuButton.css" text="  Search Classes" textFill="WHITE">
+                  <Button fx:id="SearchClassButton" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#OpenSearchClassesScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent;" text="  Search Classes" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../asset/ButtonIcon/SettingButton.png" />
+                              <Image url="@../asset/ButtonIcon/Classes.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -85,7 +85,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../asset/ButtonIcon/SettingButton.png" />
+                              <Image url="@../asset/ButtonIcon/Calender.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -100,7 +100,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../asset/ButtonIcon/SettingButton.png" />
+                              <Image url="@../asset/ButtonIcon/Search.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -115,7 +115,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../asset/ButtonIcon/SettingButton.png" />
+                              <Image url="@../asset/ButtonIcon/AddUser.png" />
                            </image>
                         </ImageView>
                      </graphic>
