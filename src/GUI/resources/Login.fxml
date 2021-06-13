@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="500.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.LoginController">
+<VBox prefHeight="635.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.LoginController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="448.0" prefWidth="737.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="131.0" layoutY="84.0" prefHeight="66.0" prefWidth="122.0" style="&#10;" text="Login" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+        <Label alignment="CENTER" layoutX="259.0" layoutY="170.0" prefHeight="66.0" prefWidth="122.0" style="&#10;" text="Login" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
           <font>
             <Font name="Arial Black" size="36.0" />
           </font>
         </Label>
-            <TextField fx:id="UserTextField" layoutX="52.0" layoutY="162.0" prefHeight="40.0" prefWidth="300.0" promptText="User Name" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+            <TextField fx:id="UserTextField" layoutX="170.0" layoutY="262.0" prefHeight="40.0" prefWidth="300.0" promptText="User Name" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
                <font>
                   <Font size="14.0" />
                </font></TextField>
-            <PasswordField fx:id="PasswordField" layoutX="52.0" layoutY="216.0" prefHeight="40.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+            <PasswordField fx:id="PasswordField" layoutX="170.0" layoutY="316.0" prefHeight="40.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
                <font>
                   <Font size="14.0" />
                </font></PasswordField>
-            <Button fx:id="LoginButton" layoutX="253.0" layoutY="299.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="31.0" prefWidth="83.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Log in" textFill="WHITE">
+            <Button fx:id="LoginButton" layoutX="371.0" layoutY="399.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="31.0" prefWidth="83.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Log in" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -31,12 +37,12 @@
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Button>
-            <Hyperlink fx:id="ForgetPasswordLink" layoutX="268.0" layoutY="261.0" text="Forget password?" textFill="#595353">
+            <Hyperlink fx:id="ForgetPasswordLink" layoutX="372.0" layoutY="367.0" text="Forget password?" textFill="#595353">
                <font>
                   <Font name="System Italic" size="10.0" />
                </font>
             </Hyperlink>
-            <ImageView fitHeight="360.0" fitWidth="352.0" layoutX="383.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="360.0" fitWidth="352.0" layoutX="499.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../asset/Picture/LoginPic.png" />
                </image>
@@ -56,6 +62,28 @@
                   <Font name="System Italic" size="11.0" />
                </font>
             </Label>
+            <AnchorPane layoutX="837.0" layoutY="-1.0">
+               <children>
+                  <Button layoutX="31.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: red; -fx-background-radius: 45px;">
+                     <graphic>
+                        <ImageView disable="true" fitHeight="15.0" fitWidth="15.0" preserveRatio="true">
+                           <image>
+                              <Image url="@../asset/ButtonIcon/CloseButton.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutY="1.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: gray; -fx-background-radius: 45px;">
+                     <graphic>
+                        <ImageView disable="true" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../asset/ButtonIcon/MinimizeButton.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
 
       </children>
     </AnchorPane>
