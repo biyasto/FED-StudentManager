@@ -7,6 +7,7 @@ import java.util.List;
 
 public class StudentBLL {
     private StudentDAL dal = new StudentDAL();
+
     public List<StudentDTO> GetALlStudent() {
         return dal.GetALlStudent();
     }
@@ -16,7 +17,7 @@ public class StudentBLL {
     public int UpdatePassword(StudentDTO s) {
         return UpdatePassword(s);
     }
-    public StudentDTO GetById(String id) {
-        return dal.GetById(id);
+    public StudentDTO GetStudent(String id, String password) {
+        return dal.GetStudent(id, password);
     }
 }

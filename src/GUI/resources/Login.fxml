@@ -15,14 +15,14 @@
             <Font name="Arial Black" size="36.0" />
           </font>
         </Label>
-            <PasswordField fx:id="PasswordField" layoutX="52.0" layoutY="216.0" prefHeight="40.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
-               <font>
-                  <Font size="14.0" />
-               </font></PasswordField>
             <TextField fx:id="UserTextField" layoutX="52.0" layoutY="162.0" prefHeight="40.0" prefWidth="300.0" promptText="User Name" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
                <font>
                   <Font size="14.0" />
                </font></TextField>
+            <PasswordField fx:id="PasswordField" layoutX="52.0" layoutY="216.0" prefHeight="40.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+               <font>
+                  <Font size="14.0" />
+               </font></PasswordField>
             <Button fx:id="LoginButton" layoutX="253.0" layoutY="299.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="31.0" prefWidth="83.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Log in" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />

@@ -16,7 +16,7 @@ public class TeacherBLL {
     public int UpdatePassword(TeacherDTO s) {
         return UpdatePassword(s);
     }
-    public TeacherDTO GetById(String id) {
-        return GetById(id);
+    public TeacherDTO GetTeacher(String id, String password) {
+        return dal.GetTeacher(id, password);
     }
 }

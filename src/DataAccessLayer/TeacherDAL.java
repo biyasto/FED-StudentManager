@@ -16,32 +16,32 @@ public class TeacherDAL {
     private PreparedStatement pres = null;
     private ResultSet rs = null;
 
-    public static void main(String[] args) {
-        TeacherDAL dal = new TeacherDAL();
-
-        TeacherDTO t1 = new TeacherDTO("01", "Bảo Nhạc", true, "2001-07-23", "@mgail", "999999999999", 1, "CNPM");
-        TeacherDTO t2 = new TeacherDTO("02", "Đỗ Thiếu Phủ", true, "2001-07-23", "@mgail", "8888888888", 1, "CNPM");
-        TeacherDTO t3 = new TeacherDTO("03", "Tế Đỗ", true, "2001-07-23", "@mgail", "999999999999", 1, "CNPM");
-
-
-        dal.UpdatePassword(t2);
-        List<TeacherDTO> list = dal.GetALlTeacher();
-            //dal.UpdatePassword(st);
-        //list.forEach(s -> {
-            TeacherDTO s = dal.GetById("02");
-            System.out.println("Id>>      " + s.getId());
-            System.out.println("Name>>    " + s.getName());
-            System.out.println("Email>>   " + s.getEmail());
-            System.out.println("Gender>>  " + s.isGender());
-            System.out.println("Type>>    " + s.getType());
-            System.out.println("Birthday>>" + s.getBirthDay());
-            System.out.println("Password>>" + s.getPass());
-            System.out.println("Faculty>> " + s.getFaculty());
-            System.out.println();
-            System.out.println();
-        //});
-
-    }
+//    public static void main(String[] args) {
+//        TeacherDAL dal = new TeacherDAL();
+//
+//        TeacherDTO t1 = new TeacherDTO("01", "Bảo Nhạc", true, "2001-07-23", "@mgail", "999999999999", 1, "CNPM");
+//        TeacherDTO t2 = new TeacherDTO("02", "Đỗ Thiếu Phủ", true, "2001-07-23", "@mgail", "8888888888", 1, "CNPM");
+//        TeacherDTO t3 = new TeacherDTO("03", "Tế Đỗ", true, "2001-07-23", "@mgail", "999999999999", 1, "CNPM");
+//
+//
+//        dal.UpdatePassword(t2);
+//        List<TeacherDTO> list = dal.GetALlTeacher();
+//            //dal.UpdatePassword(st);
+//        //list.forEach(s -> {
+//            TeacherDTO s = dal.GetById("02");
+//            System.out.println("Id>>      " + s.getId());
+//            System.out.println("Name>>    " + s.getName());
+//            System.out.println("Email>>   " + s.getEmail());
+//            System.out.println("Gender>>  " + s.isGender());
+//            System.out.println("Type>>    " + s.getType());
+//            System.out.println("Birthday>>" + s.getBirthDay());
+//            System.out.println("Password>>" + s.getPass());
+//            System.out.println("Faculty>> " + s.getFaculty());
+//            System.out.println();
+//            System.out.println();
+//        //});
+//
+//    }
 
     public List<TeacherDTO> GetALlTeacher() {
         List<TeacherDTO> list = new ArrayList<>();
@@ -136,15 +136,15 @@ public class TeacherDAL {
         return result;
     }
 
-    public TeacherDTO GetById(String id) {
-        String sql = "select * from Teacher where id =?";
-        int result = -1;
+    public TeacherDTO GetTeacher(String id, String password) {
+        String sql = "select * from Teacher where id =? and pass=?";
         TeacherDTO s = null;
         try {
             DBU = new DatabaseUtils();
             conn = DBU.createConnection();
             pres = conn.prepareStatement(sql);
             pres.setString(1, id);
+            pres.setString(2, password);
 
             rs = pres.executeQuery();
             if (rs.next()) {
