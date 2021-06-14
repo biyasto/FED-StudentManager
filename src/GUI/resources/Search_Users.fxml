@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SearchUsersController">
+<AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SearchUsersController">
    <children>
       <TextField fx:id="SearchIDTextfield" layoutX="33.0" layoutY="28.0" prefHeight="30.0" prefWidth="442.0" promptText="Search by ID of user" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
          <font>
