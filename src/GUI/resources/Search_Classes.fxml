@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SearchClassesController">
+<AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SearchClassesController">
    <children>
       <TextField fx:id="ClassIDTextfield" layoutX="33.0" layoutY="33.0" prefHeight="30.0" prefWidth="255.0" promptText="Search by Class ID" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
          <font>
@@ -18,7 +16,7 @@
          </font></Button>
       <AnchorPane fx:id="ClassBox" layoutX="33.0" layoutY="110.0" prefHeight="126.0" prefWidth="618.0" style="-fx-background-radius: 45px; -fx-background-color: #EEE0E0;">
          <children>
-            <Label fx:id="SubjectLabel" layoutX="65.0" layoutY="78.0" prefHeight="22.0" prefWidth="255.0" text="Introduction to Game Development" textFill="#736b6b">
+            <Label fx:id="SubjectLabel" layoutX="31.0" layoutY="76.0" prefHeight="22.0" prefWidth="255.0" text="Introduction to Game Development" textFill="#736b6b">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Label>

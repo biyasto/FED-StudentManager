@@ -23,7 +23,7 @@
                <font>
                   <Font size="14.0" />
                </font></PasswordField>
-            <Button fx:id="LoginButton" layoutX="371.0" layoutY="399.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="31.0" prefWidth="83.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Log in" textFill="WHITE">
+            <Button fx:id="LoginButton" layoutX="337.0" layoutY="398.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Log in" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
