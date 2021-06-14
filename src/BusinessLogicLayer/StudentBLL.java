@@ -20,4 +20,7 @@ public class StudentBLL {
     public StudentDTO GetStudent(String id, String password) {
         return dal.GetStudent(id, password);
     }
+    public int countStudents() {
+        return dal.countStudents();
+    }
 }

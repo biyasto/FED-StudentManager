@@ -80,6 +80,7 @@ public class StudentDAL {
             DBU = new DatabaseUtils();
             conn = DBU.createConnection();
             pres = conn.prepareStatement(sql);
+
             pres.setString(1, s.getId());
             pres.setString(2, s.getName());
             pres.setBoolean(3, s.isGender());
@@ -165,6 +166,32 @@ public class StudentDAL {
             }
         }
         return s;
+    }
+
+    public int countStudents() {
+        String sql = "select count(*) from Student;";
+        int count = 0;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+
+            rs = pres.executeQuery();
+            if(rs.next())
+                count = rs.getInt("count(*)");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return count;
     }
 
 }

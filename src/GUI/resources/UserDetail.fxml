@@ -11,7 +11,7 @@
    <children>
       <AnchorPane fx:id="InfoBox" layoutX="51.0" layoutY="54.0" prefHeight="215.0" prefWidth="582.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 25px;">
          <children>
-            <Label fx:id="NameLabel" alignment="CENTER" layoutX="257.0" layoutY="45.0" prefHeight="51.0" prefWidth="226.0" text="VÕ HOÀNG ĐỨC QUỲNH" textAlignment="CENTER">
+            <Label fx:id="NameLabel" alignment="CENTER" layoutX="257.0" layoutY="45.0" prefHeight="51.0" prefWidth="260.0" text="VÕ HOÀNG ĐỨC QUỲNH" textAlignment="CENTER">
                <font>
                   <Font name="SVN-Helves bold" size="18.0" />
                </font>
@@ -21,17 +21,17 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="IDLabel" alignment="CENTER" layoutX="338.0" layoutY="97.0" text="19520207">
+            <Label fx:id="IDLabel" alignment="CENTER" layoutX="257.0" layoutY="96.0" prefHeight="22.0" prefWidth="260.0" text="19520207" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="FacultyLabel" alignment="CENTER" layoutX="274.0" layoutY="135.0" prefWidth="192.0" text="Software Engineering">
+            <Label fx:id="FacultyLabel" alignment="CENTER" layoutX="257.0" layoutY="135.0" prefWidth="260.0" text="Software Engineering" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="EmailLabel" alignment="CENTER" layoutX="286.0" layoutY="168.0" text="19520207@gm.uit.edu.vn">
+            <Label fx:id="EmailLabel" alignment="CENTER" layoutX="257.0" layoutY="169.0" prefWidth="260.0" text="19520207@gm.uit.edu.vn" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>

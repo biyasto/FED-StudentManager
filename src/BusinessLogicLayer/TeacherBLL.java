@@ -7,16 +7,24 @@ import java.util.List;
 
 public class TeacherBLL {
     private TeacherDAL dal = new TeacherDAL();
+
     public List<TeacherDTO> GetALlTeacher() {
         return dal.GetALlTeacher();
     }
+
     public int InsertTeacher(TeacherDTO s) {
-        return InsertTeacher(s);
+        return dal.InsertTeacher(s);
     }
+
     public int UpdatePassword(TeacherDTO s) {
-        return UpdatePassword(s);
+        return dal.UpdatePassword(s);
     }
+
     public TeacherDTO GetTeacher(String id, String password) {
         return dal.GetTeacher(id, password);
+    }
+
+    public int countTeachers() {
+        return dal.countTeachers();
     }
 }
