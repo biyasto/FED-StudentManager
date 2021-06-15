@@ -29,14 +29,10 @@ public class StudentItemController {
     @FXML
     private ImageView Avatar;
 
-    private StudentDTO studentDTO;
-
     public void setData(StudentDTO student) {
-        studentDTO = student;
-        System.out.println(studentDTO.getName());
-        //NameLabel.setText(studentDTO.getName());
-        //IDLabel.setText("ID: " + studentDTO.getId());
-       // FacultyLabel.setText("Faculty: " + studentDTO.getFaculty());
+        NameLabel.setText(student.getName());
+        IDLabel.setText("ID: " + student.getId());
+        FacultyLabel.setText("Faculty: " + student.getFaculty());
     }
 
 }

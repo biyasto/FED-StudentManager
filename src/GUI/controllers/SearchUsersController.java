@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 import java.io.File;
@@ -59,11 +60,10 @@ public class SearchUsersController implements Initializable {
             try {
                 URL urlLayout = new File("src/GUI/resources/items/StudentItem.fxml").toURI().toURL();
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("src/GUI/resources/items/StudentItem.fxml"));
-                Node item = FXMLLoader.load(urlLayout);
+                fxmlLoader.setLocation(urlLayout);
+                Node item = fxmlLoader.load();
 
                 StudentItemController studentItemController = fxmlLoader.getController();
-                fxmlLoader.setController(studentItemController);
                 studentItemController.setData(student);
 
                 studentScrollPane.getChildren().add(item);
