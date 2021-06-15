@@ -15,24 +15,6 @@ public class SubjectDAL {
     private PreparedStatement pres = null;
     private ResultSet rs = null;
 
-    public static void main(String[] args) {
-        SubjectDAL dal = new SubjectDAL();
-        SubjectDTO s = new SubjectDTO("S01","Nhập môn game",4,"CNPM");
-        SubjectDTO s1 = new SubjectDTO("S02","Mạng máy tính",4,"KHMT");
-        SubjectDTO s2 = new SubjectDTO("S03","Cơ sở dữ liệu",4,"KHDL");
-//        dal.InsertSubject(s);
-//        dal.InsertSubject(s1);
-//        dal.InsertSubject(s2);
-
-        String name = dal.GetSubjectNameById("S03");
-        System.out.println("Name>>? " + name);
-
-
-
-    }
-
-
-
     public int InsertSubject(SubjectDTO s) {
         String sql = "insert into subject values (?,?,?,?);";
         int result = -1;

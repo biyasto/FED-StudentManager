@@ -15,28 +15,6 @@ public class StudentDAL {
     private PreparedStatement pres = null;
     private ResultSet rs = null;
 
-//    public static void main(String[] args) {
-//        StudentDAL dal = new StudentDAL();
-//        List<StudentDTO> list = dal.GetALlStudent();
-//        StudentDTO st = new StudentDTO("01", "Bảo Nhạc", true, "2001-07-23", "@mgail", "999999999999", 1, "CNPM");
-//        //dal.InsertStudent(s);
-//        dal.UpdatePassword(st);
-//       // list.forEach(s -> {
-//            StudentDTO s = dal.GetById("01");
-//            System.out.println("Id>>      " + s.getId());
-//            System.out.println("Name>>    " + s.getName());
-//            System.out.println("Email>>   " + s.getEmail());
-//            System.out.println("Gender>>  " + s.isGender());
-//            System.out.println("Type>>    " + s.getType());
-//            System.out.println("Birthday>>" + s.getBirthDay());
-//            System.out.println("Password>>" + s.getPass());
-//            System.out.println("Faculty>> " + s.getFaculty());
-//            System.out.println();
-//            System.out.println();
-//       // });
-//
-//    }
-
     public List<StudentDTO> GetALlStudent() {
         List<StudentDTO> list = new ArrayList<>();
         String sql = "select * from student";
