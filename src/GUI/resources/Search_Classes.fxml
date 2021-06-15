@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SearchClassesController">
    <children>
@@ -14,25 +17,15 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <AnchorPane fx:id="ClassBox" layoutX="33.0" layoutY="110.0" prefHeight="126.0" prefWidth="618.0" style="-fx-background-radius: 45px; -fx-background-color: #EEE0E0;">
-         <children>
-            <Label fx:id="SubjectLabel" layoutX="31.0" layoutY="76.0" prefHeight="22.0" prefWidth="255.0" text="Introduction to Game Development" textFill="#736b6b">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Label>
-            <Label fx:id="ClassIDLabel" layoutX="31.0" layoutY="32.0" text="SE102.L21.PMCL">
-               <font>
-                  <Font name="SVN-Helves bold" size="27.0" />
-               </font>
-            </Label>
-            <Label fx:id="TeacherLabel" layoutX="372.0" layoutY="52.0" prefHeight="18.0" prefWidth="184.0" text="Teacher: Đinh Nguyễn Anh D" textFill="#736b6b" />
-            <Label fx:id="FacultyLabel" layoutX="372.0" layoutY="30.0" text="Faculty: Software Engineering" textFill="#736b6b" />
-            <Label fx:id="AttendantsLabel" layoutX="376.0" layoutY="79.0" text="Attendents: 45" />
-         </children></AnchorPane>
       <TextField fx:id="SubjectNameTextfield" layoutX="317.0" layoutY="33.0" prefHeight="30.0" prefWidth="228.0" promptText="Search by  Name of subject" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
+      <ScrollPane layoutX="5.0" layoutY="84.0" prefHeight="503.0" prefWidth="676.0">
+         <content>
+            <VBox fx:id="studentScrollPane" alignment="CENTER" prefHeight="466.0" prefWidth="672.0" />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

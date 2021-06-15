@@ -37,5 +37,6 @@ public class StudentItemController {
     }
 
     public void openUserInfo(MouseEvent mouseEvent) {
+
     }
 }
