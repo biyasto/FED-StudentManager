@@ -41,17 +41,17 @@
                   <Image url="@../asset/Picture/LoginPic.png" />
                </image>
             </ImageView>
-            <Label fx:id="lblSuccessful" layoutX="57.0" layoutY="267.0" text="Successfully! Directing..." textFill="#00e22d" visible="false">
+            <Label fx:id="lblSuccessful" layoutX="170.0" layoutY="370.0" text="Successfully! Directing..." textFill="#00e22d" visible="false">
                <font>
                   <Font name="System Italic" size="11.0" />
                </font>
             </Label>
-            <Label fx:id="lblFail" layoutX="52.0" layoutY="267.0" text="Wrong user name or password" textFill="#ff4b4b" visible="false">
+            <Label fx:id="lblFail" layoutX="170.0" layoutY="370.0" text="Wrong user name or password" textFill="#ff4b4b" visible="false">
                <font>
                   <Font name="System Italic" size="11.0" />
                </font>
             </Label>
-            <Label fx:id="lblEmpty" layoutX="52.0" layoutY="267.0" text="Please full fill information" textFill="#ff4833" visible="false">
+            <Label fx:id="lblEmpty" layoutX="170.0" layoutY="370.0" text="Please full fill information" textFill="#ff4833" visible="false">
                <font>
                   <Font name="System Italic" size="11.0" />
                </font>

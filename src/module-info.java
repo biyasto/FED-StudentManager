@@ -7,4 +7,6 @@ module QuanLyHocSInh {
     opens GUI;
     opens GUI.resources;
     opens GUI.controllers;
+    opens GUI.resources.items;
+    opens GUI.controllers.items;
 }
