@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="StudentInfoBox" onMouseClicked="#openUserInfo" prefHeight="155.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.StudentItemController">
+<AnchorPane fx:id="StudentInfoBox" prefHeight="155.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.StudentItemController">
    <children>
-      <Pane layoutY="11.0" prefHeight="136.0" prefWidth="628.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+      <Pane layoutY="11.0" onMouseClicked="#openUserInfo" prefHeight="136.0" prefWidth="628.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
          <children>
             <Label fx:id="PositionLabel" layoutX="24.0" layoutY="14.0" prefHeight="17.0" prefWidth="170.0" text="Student" textFill="#736b6b" />
             <Label fx:id="NameLabel" layoutX="78.0" layoutY="43.0" prefHeight="39.0" prefWidth="443.0" text="LUU NGOC QUYNH">
