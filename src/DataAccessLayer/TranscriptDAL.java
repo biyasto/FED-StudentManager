@@ -1,5 +1,14 @@
 package DataAccessLayer;
 
+import DataTransferObject.TranscriptDTO;
+import Utils.DatabaseUtils;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 public class TranscriptDAL {
     private DatabaseUtils DBU = null;
     private Connection conn = null;
