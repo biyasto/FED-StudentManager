@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="StudentInfoBox" prefHeight="158.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.StudentItemController">
+<AnchorPane fx:id="StudentInfoBox" prefHeight="158.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.ClassItemController">
    <cursor>
       <Cursor fx:constant="HAND" />
    </cursor>
@@ -18,7 +18,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="ClassIDLabel" layoutX="83.0" layoutY="14.0" prefHeight="39.0" prefWidth="309.0" text="SE102.L21.PMCL">
+            <Label fx:id="ClassIDLabel" alignment="CENTER" layoutX="13.0" layoutY="21.0" prefHeight="39.0" prefWidth="362.0" text="SE102.L21.PMCL">
                <font>
                   <Font name="SVN-Helves bold" size="27.0" />
                </font>
