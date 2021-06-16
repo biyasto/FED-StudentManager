@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="StudentInfoBox" prefHeight="155.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.StudentItemController">
+<AnchorPane fx:id="StudentInfoBox" prefHeight="155.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.ClassGradeItem">
    <children>
       <AnchorPane fx:id="GradeBox" layoutY="10.0" prefHeight="136.0" prefWidth="675.0" style="-fx-background-color: #22BFAC; -fx-background-radius: 45px;">
          <children>
