@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #958FA3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.UserDetailController">
+<AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.UserDetailController">
    <children>
       <AnchorPane fx:id="InfoBox" layoutX="51.0" layoutY="54.0" prefHeight="215.0" prefWidth="582.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 25px;">
          <children>
@@ -32,7 +32,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Pane prefHeight="215.0" prefWidth="219.0" style="-fx-background-color: #1C9C8D; -fx-background-radius: 25 0 25 25;">
+            <Pane prefHeight="215.0" prefWidth="219.0" style="-fx-background-color: #6FC3B6; -fx-background-radius: 25 0 25 25;">
                <children>
                   <ImageView fx:id="UserAvatar" fitHeight="101.0" fitWidth="130.0" layoutX="59.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 10px;">
                      <image>

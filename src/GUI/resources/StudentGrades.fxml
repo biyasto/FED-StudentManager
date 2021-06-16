@@ -61,7 +61,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <AnchorPane style="-fx-background-color: #8544DA; -fx-background-radius: 0 0 45 0;">
+      <AnchorPane style="-fx-background-color: #AD9BAA; -fx-background-radius: 0 0 45 0;">
          <children>
             <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="14.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                <image>

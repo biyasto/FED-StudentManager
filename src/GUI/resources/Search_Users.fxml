@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #1C9C8D;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SearchUsersController">
+<AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SearchUsersController">
    <children>
       <TextField fx:id="SearchIDTextfield" layoutX="33.0" layoutY="28.0" prefHeight="30.0" prefWidth="442.0" promptText="Search by ID of user" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
          <font>
@@ -26,7 +26,7 @@
       </TextField>
       <ScrollPane layoutX="6.0" layoutY="129.0" prefHeight="469.0" prefWidth="676.0">
          <content>
-            <VBox fx:id="studentScrollPane" alignment="CENTER" prefHeight="466.0" prefWidth="672.0" style="-fx-background-color: BFBCC8;" />
+            <VBox fx:id="studentScrollPane" alignment="CENTER" prefHeight="466.0" prefWidth="672.0" style="-fx-background-color: #FFFFFF;" />
          </content>
       </ScrollPane>
    </children>

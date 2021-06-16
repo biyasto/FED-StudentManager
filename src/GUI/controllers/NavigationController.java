@@ -57,16 +57,15 @@ public class NavigationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(studentUser != null) {
-            NameLabel.setText(studentUser.getName());
+
             CreateAccountButton.setVisible(false);
             SearchUsersButton.setVisible(false);
         }
         else if(teacherUser != null) {
-            NameLabel.setText(teacherUser.getName());
             CreateAccountButton.setVisible(false);
         }
         else {
-            NameLabel.setText("ADMIN");
+
         }
         try {
             openInformationScreen();

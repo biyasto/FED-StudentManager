@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.StudentGradesController">
    <children>
-      <Pane prefHeight="58.0" prefWidth="685.0" style="-fx-background-radius: 0 0 45 45; -fx-background-color: #877D8C;">
+      <Pane prefHeight="58.0" prefWidth="685.0" style="-fx-background-radius: 0 0 45 45; -fx-background-color: #AD9BAA;">
          <children>
             <Label fx:id="Subject" layoutX="263.0" layoutY="16.0" prefHeight="21.0" prefWidth="362.0" text="Introduce to Game development">
                <font>

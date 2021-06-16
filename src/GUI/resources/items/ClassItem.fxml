@@ -23,7 +23,7 @@
                   <Font name="SVN-Helves bold" size="27.0" />
                </font>
             </Label>
-            <Pane layoutX="393.0" opacity="0.58" prefHeight="146.0" prefWidth="235.0" style="-fx-background-radius: 45 0 45 0; -fx-background-color: #5D5661;">
+            <Pane layoutX="393.0" opacity="0.58" prefHeight="146.0" prefWidth="235.0" style="-fx-background-radius: 45 0 45 0; -fx-background-color: #627264;">
                <children>
                   <Label fx:id="TeacherLabel" alignment="TOP_LEFT" layoutX="19.0" layoutY="80.0" prefHeight="39.0" prefWidth="242.0" text="Teacher: Đinh Nguyễn Anh D" textFill="WHITE">
                      <font>
