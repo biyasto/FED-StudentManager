@@ -1,6 +1,7 @@
 package GUI.controllers.items;
 
 import DataTransferObject.StudentDTO;
+import DataTransferObject.TeacherDTO;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -30,13 +31,26 @@ public class StudentItemController {
     @FXML
     private ImageView Avatar;
 
-   public void setData(StudentDTO student) {
-        NameLabel.setText(student.getName());
-        IDLabel.setText("ID: " + student.getId());
-        FacultyLabel.setText("Faculty: " + student.getFaculty());
+    private StudentDTO studentDTO = null;
+    private TeacherDTO teacherDTO = null;
+
+    public void setDataStudent(StudentDTO student) {
+        studentDTO = student;
+        PositionLabel.setText("Student");
+        NameLabel.setText(studentDTO.getName());
+        IDLabel.setText("ID: " + studentDTO.getId());
+        FacultyLabel.setText("Faculty: " + studentDTO.getFaculty());
+    }
+
+    public void setDataTeacher(TeacherDTO teacher) {
+        teacherDTO = teacher;
+        PositionLabel.setText("Teacher");
+        NameLabel.setText(teacherDTO.getName());
+        IDLabel.setText("ID: " + teacherDTO.getId());
+        FacultyLabel.setText("Faculty: " + teacherDTO.getFaculty());
     }
 
     public void openUserInfo(MouseEvent mouseEvent) {
-
+        System.out.println(studentDTO.getName());
     }
 }

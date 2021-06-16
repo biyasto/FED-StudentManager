@@ -11,16 +11,24 @@ public class StudentBLL {
     public List<StudentDTO> GetALlStudent() {
         return dal.GetALlStudent();
     }
+
     public int InsertStudent(StudentDTO s) {
         return dal.InsertStudent(s);
     }
+
     public int UpdatePassword(StudentDTO s) {
-        return UpdatePassword(s);
+        return dal.UpdatePassword(s);
     }
+
     public StudentDTO GetStudent(String id, String password) {
         return dal.GetStudent(id, password);
     }
+
     public int countStudents() {
         return dal.countStudents();
+    }
+
+    public List<StudentDTO> getStudentsByClassId(String classID) {
+        return dal.getStudentsByClassId(classID);
     }
 }

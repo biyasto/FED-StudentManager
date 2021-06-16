@@ -15,6 +15,7 @@ import javafx.scene.layout.StackPane;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -67,6 +68,11 @@ public class NavigationController implements Initializable {
         else {
             NameLabel.setText("ADMIN");
         }
+        try {
+            openInformationScreen();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -84,10 +90,7 @@ public class NavigationController implements Initializable {
 
     @FXML
     void OpenInformationScreen(MouseEvent event) throws IOException {
-        URL url = new File("src/GUI/resources/UserDetail.fxml").toURI().toURL();
-        Parent createAccountScreen = FXMLLoader.load(url);
-        container.getChildren().removeAll();
-        container.getChildren().setAll(createAccountScreen);
+        openInformationScreen();
     }
 
     @FXML
@@ -117,6 +120,13 @@ public class NavigationController implements Initializable {
     @FXML
     void OpenSettingScreen(MouseEvent event) {
 
+    }
+
+    void openInformationScreen() throws IOException {
+        URL url = new File("src/GUI/resources/UserDetail.fxml").toURI().toURL();
+        Parent createAccountScreen = FXMLLoader.load(url);
+        container.getChildren().removeAll();
+        container.getChildren().setAll(createAccountScreen);
     }
 
 }
