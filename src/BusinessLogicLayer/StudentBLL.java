@@ -27,4 +27,6 @@ public class StudentBLL {
     public int countStudents() {
         return dal.countStudents();
     }
+
+    public List<StudentDTO> getStudentsByClassId(){return dal.getStudentsByClassId();}
 }
