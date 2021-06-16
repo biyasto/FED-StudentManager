@@ -10,7 +10,7 @@
       <Cursor fx:constant="HAND" />
    </cursor>
    <children>
-      <AnchorPane fx:id="ClassBox" layoutX="5.0" layoutY="9.0" prefHeight="126.0" prefWidth="628.0" style="-fx-background-radius: 45px; -fx-background-color: #EEE0E0;">
+      <AnchorPane fx:id="ClassBox" layoutX="15.0" layoutY="9.0" prefHeight="126.0" prefWidth="628.0" style="-fx-background-radius: 45px; -fx-background-color: #EEE0E0;">
          <children>
             <Label fx:id="SubjectLabel" alignment="TOP_LEFT" layoutX="31.0" layoutY="76.0" prefHeight="46.0" prefWidth="331.0" text="Introduction to Game Development" textFill="#736b6b">
                <font>
