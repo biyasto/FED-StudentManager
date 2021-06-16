@@ -2,16 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.StudentGradesController">
    <children>
-      <Pane prefHeight="58.0" prefWidth="685.0" style="-fx-background-radius: 0 0 45 45; -fx-background-color: #AD9BAA;">
+      <Pane prefHeight="136.0" prefWidth="686.0" style="-fx-background-radius: 0 0 45 45; -fx-background-color: #AD9BAA;">
          <children>
             <Label fx:id="Subject" layoutX="263.0" layoutY="16.0" prefHeight="21.0" prefWidth="362.0" text="Introduce to Game development">
                <font>
@@ -23,39 +21,23 @@
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-         </children>
-      </Pane>
-      <AnchorPane fx:id="GradeBox" layoutX="19.0" layoutY="72.0" prefHeight="136.0" prefWidth="648.0" style="-fx-background-color: #22BFAC; -fx-background-radius: 45px;">
-         <children>
-            <AnchorPane layoutX="195.0" layoutY="33.0" prefHeight="87.0" prefWidth="400.0" style="-fx-background-color: #4A1B88; -fx-background-radius: 35px;">
-               <children>
-                  <Label fx:id="Grade1Label" layoutX="19.0" layoutY="22.0" text="Attendance" textFill="WHITE" />
-                  <TextField fx:id="Grade1Textfield" layoutX="13.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-                  <Label fx:id="Grade2Label" layoutX="118.0" layoutY="22.0" text="Quiz" textFill="WHITE" />
-                  <TextField fx:id="Grade2Textfield" layoutX="110.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-                  <Label fx:id="Grade3Label" layoutX="209.0" layoutY="22.0" text="Project" textFill="WHITE" />
-                  <TextField fx:id="Grade3Textfield" layoutX="203.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-                  <Label fx:id="Grade4Label" layoutX="300.0" layoutY="22.0" text="Exam" textFill="WHITE" />
-                  <TextField fx:id="Grade4Textfield" layoutX="294.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-               </children></AnchorPane>
-            <Label fx:id="SumGradeLabel" layoutX="611.0" layoutY="63.0" prefHeight="26.0" prefWidth="29.0" text="69">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="73.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../asset/Picture/UserAvatar.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="StudentNam" layoutX="59.0" layoutY="87.0" text="Phạm Hoài Bảo">
+            <Label fx:id="StudentNam1" layoutX="47.0" layoutY="70.0" text="Teacher: Nguen Van An">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="StudentID" layoutX="84.0" layoutY="111.0" text="19520406" />
+            <Label fx:id="StudentNam11" layoutX="450.0" layoutY="70.0" text="Attendant: 39">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="StudentNam12" layoutX="47.0" layoutY="102.0" text="Teacher ID: Anvn">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
-      </AnchorPane>
+      </Pane>
       <Button fx:id="SaveButton" layoutX="598.0" layoutY="546.0" mnemonicParsing="false" style="-fx-background-color: #9575cd;" text="SAVE ALL" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -66,5 +48,10 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <ScrollPane fx:id="GradesPanel" layoutX="15.0" layoutY="151.0" prefHeight="382.0" prefWidth="654.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+        </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
