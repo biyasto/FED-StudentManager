@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SearchClassesController">
+<AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #1C9C8D;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SearchClassesController">
    <children>
       <TextField fx:id="ClassIDTextfield" layoutX="33.0" layoutY="33.0" prefHeight="30.0" prefWidth="255.0" promptText="Search by Class ID" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
          <font>
@@ -22,9 +22,9 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <ScrollPane layoutX="5.0" layoutY="84.0" prefHeight="503.0" prefWidth="676.0">
+      <ScrollPane layoutX="5.0" layoutY="84.0" prefHeight="517.0" prefWidth="675.0" style="-fx-background-color: #958FA3;">
          <content>
-            <VBox fx:id="studentScrollPane" alignment="CENTER" prefHeight="466.0" prefWidth="672.0" />
+            <VBox fx:id="studentScrollPane" alignment="CENTER" prefHeight="507.0" prefWidth="674.0" style="-fx-background-color: #BFBCC8;" />
          </content>
       </ScrollPane>
    </children>

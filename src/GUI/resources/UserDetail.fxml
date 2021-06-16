@@ -5,23 +5,19 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.UserDetailController">
+<AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #958FA3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.UserDetailController">
    <children>
       <AnchorPane fx:id="InfoBox" layoutX="51.0" layoutY="54.0" prefHeight="215.0" prefWidth="582.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 25px;">
          <children>
-            <Label fx:id="NameLabel" alignment="CENTER" layoutX="257.0" layoutY="45.0" prefHeight="51.0" prefWidth="260.0" text="VÕ HOÀNG ĐỨC QUỲNH" textAlignment="CENTER">
+            <Label fx:id="NameLabel" alignment="CENTER" layoutX="228.0" layoutY="45.0" prefHeight="51.0" prefWidth="339.0" text="VÕ HOÀNG ĐỨC QUỲNH" textAlignment="CENTER">
                <font>
-                  <Font name="SVN-Helves bold" size="18.0" />
+                  <Font name="System Bold" size="21.0" />
                </font>
             </Label>
             <Label fx:id="PositionLabel" alignment="CENTER" layoutX="30.0" layoutY="23.0" text="Student">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Label fx:id="IDLabel" alignment="CENTER" layoutX="257.0" layoutY="96.0" prefHeight="22.0" prefWidth="260.0" text="19520207" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>
@@ -36,11 +32,20 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <ImageView fx:id="UserAvatar" fitHeight="101.0" fitWidth="130.0" layoutX="92.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 10px;">
-               <image>
-                  <Image url="@../asset/Picture/UserAvatar.png" />
-               </image>
-            </ImageView>
+            <Pane prefHeight="215.0" prefWidth="219.0" style="-fx-background-color: #1C9C8D; -fx-background-radius: 25 0 25 25;">
+               <children>
+                  <ImageView fx:id="UserAvatar" fitHeight="101.0" fitWidth="130.0" layoutX="59.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 10px;">
+                     <image>
+                        <Image url="@../asset/Picture/UserAvatar.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="IDLabel" alignment="CENTER" layoutX="26.0" layoutY="149.0" prefHeight="22.0" prefWidth="168.0" text="19520207" textAlignment="CENTER">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children></AnchorPane>
       <Button layoutX="67.0" layoutY="328.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="252.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="GET STUDENT GRADES" textFill="WHITE">
          <font>

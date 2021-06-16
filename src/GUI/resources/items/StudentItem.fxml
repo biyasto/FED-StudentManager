@@ -10,21 +10,37 @@
 
 <AnchorPane fx:id="StudentInfoBox" prefHeight="155.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.StudentItemController">
    <children>
-      <Pane layoutY="11.0" onMouseClicked="#openUserInfo" prefHeight="136.0" prefWidth="628.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+      <Pane layoutY="11.0" onMouseClicked="#openUserInfo" prefHeight="136.0" prefWidth="628.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45 0 45 0;">
          <children>
-            <Label fx:id="PositionLabel" layoutX="24.0" layoutY="14.0" prefHeight="17.0" prefWidth="170.0" text="Student" textFill="#736b6b" />
-            <Label fx:id="NameLabel" layoutX="78.0" layoutY="43.0" prefHeight="39.0" prefWidth="443.0" text="LUU NGOC QUYNH">
+            <Label fx:id="NameLabel" alignment="CENTER" layoutX="113.0" layoutY="25.0" prefHeight="110.0" prefWidth="392.0" text="LUU NGOC QUYNH">
                <font>
                   <Font name="SVN-Helves bold" size="27.0" />
                </font>
             </Label>
-            <Label fx:id="IDLabel" layoutX="48.0" layoutY="89.0" prefHeight="18.0" prefWidth="250.0" text="ID:19520207" textFill="#736b6b" />
-            <Label fx:id="FacultyLabel" layoutX="312.0" layoutY="89.0" prefHeight="17.0" prefWidth="213.0" text="Faculty: Software Engineering" textFill="#736b6b" />
-            <ImageView fx:id="Avatar" fitHeight="88.0" fitWidth="92.0" layoutX="518.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../asset/Picture/UserAvatar.png" />
-               </image>
-            </ImageView>
+            <Label fx:id="FacultyLabel" layoutX="134.0" layoutY="6.0" prefHeight="17.0" prefWidth="372.0" text="Faculty: Software Engineering" textFill="#736b6b">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Pane layoutX="507.0" prefHeight="136.0" prefWidth="121.0" style="-fx-background-color: #DFDDE3; -fx-background-radius: 45 0 45 0;">
+               <children>
+                  <ImageView fx:id="Avatar" fitHeight="88.0" fitWidth="92.0" layoutX="17.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../asset/Picture/UserAvatar.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane opacity="0.58" prefHeight="136.0" prefWidth="110.0" style="-fx-background-radius: 45 0 45 0; -fx-background-color: #5D5661;">
+               <children>
+                  <Label fx:id="PositionLabel" layoutX="25.0" layoutY="35.0" prefHeight="17.0" prefWidth="170.0" text="Student" textFill="WHITE" />
+                  <Label fx:id="IDLabel" layoutX="14.0" layoutY="78.0" prefHeight="18.0" prefWidth="250.0" text="ID:19520207" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>

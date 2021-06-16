@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.StudentGradesController">
    <children>
-      <AnchorPane fx:id="GradeBox" layoutX="19.0" layoutY="125.0" prefHeight="136.0" prefWidth="648.0" style="-fx-background-color: #9575cd; -fx-background-radius: 45px;">
+      <AnchorPane fx:id="GradeBox" layoutX="19.0" layoutY="125.0" prefHeight="136.0" prefWidth="648.0" style="-fx-background-color: #22BFAC; -fx-background-radius: 45px;">
          <children>
-            <AnchorPane layoutX="209.0" layoutY="33.0" prefHeight="87.0" prefWidth="386.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 35px;">
+            <AnchorPane layoutX="209.0" layoutY="33.0" prefHeight="87.0" prefWidth="386.0" style="-fx-background-color: #4A1B88; -fx-background-radius: 35px;">
                <children>
-                  <Label fx:id="Grade1Label" layoutX="19.0" layoutY="22.0" text="Attendance" />
+                  <Label fx:id="Grade1Label" layoutX="19.0" layoutY="22.0" text="Attendance" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                   <TextField fx:id="Grade1Textfield" layoutX="13.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-                  <Label fx:id="Grade2Label" layoutX="118.0" layoutY="22.0" text="Quiz" />
+                  <Label fx:id="Grade2Label" layoutX="118.0" layoutY="22.0" text="Quiz" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                   <TextField fx:id="Grade2Textfield" layoutX="110.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-                  <Label fx:id="Grade3Label" layoutX="209.0" layoutY="22.0" text="Project" />
+                  <Label fx:id="Grade3Label" layoutX="209.0" layoutY="22.0" text="Project" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                   <TextField fx:id="Grade3Textfield" layoutX="203.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-                  <Label fx:id="Grade4Label" layoutX="300.0" layoutY="22.0" text="Exam" />
+                  <Label fx:id="Grade4Label" layoutX="300.0" layoutY="22.0" text="Exam" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                   <TextField fx:id="Grade4Textfield" layoutX="294.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
                </children></AnchorPane>
-            <Label fx:id="SumGradeLabel" layoutX="604.0" layoutY="58.0" prefHeight="26.0" prefWidth="29.0" text="69" textFill="WHITE">
+            <Label fx:id="SumGradeLabel" layoutX="604.0" layoutY="68.0" prefHeight="26.0" prefWidth="29.0" text="69" textFill="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
@@ -29,9 +45,9 @@
                <font>
                   <Font name="System Bold" size="17.0" />
                </font></Label>
-            <Label fx:id="Subject" layoutX="14.0" layoutY="66.0" prefHeight="40.0" prefWidth="173.0" text="Introduce to Game Development" textFill="WHITE">
+            <Label fx:id="Subject" layoutX="14.0" layoutY="66.0" prefHeight="53.0" prefWidth="174.0" text="Introduce to Game Development" textFill="WHITE">
                <font>
-                  <Font size="11.0" />
+                  <Font name="System Bold" size="12.0" />
                </font></Label>
          </children>
       </AnchorPane>
@@ -45,20 +61,24 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <AnchorPane layoutX="48.0" layoutY="14.0">
+      <AnchorPane style="-fx-background-color: #8544DA; -fx-background-radius: 0 0 45 0;">
          <children>
-            <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="14.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../asset/Picture/UserAvatar.png" />
                </image>
             </ImageView>
+            <Pane layoutX="79.0" layoutY="-7.0" prefHeight="122.0" prefWidth="174.0">
+               <children>
+                  <Label fx:id="StudentNam" layoutX="30.0" layoutY="41.0" text="Phạm Quỳnh Bảo">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="StudentID" layoutX="61.0" layoutY="74.0" text="19520406" />
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
-      <Label fx:id="StudentNam" layoutX="159.0" layoutY="40.0" text="Phạm Quỳnh Bảo">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="StudentID" layoutX="184.0" layoutY="60.0" text="19520406" />
    </children>
 </AnchorPane>
