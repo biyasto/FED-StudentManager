@@ -139,9 +139,9 @@
       </Pane>
    </left>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #958FA3;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="602.0" prefWidth="685.0" style="-fx-background-color: #958FA3;" BorderPane.alignment="CENTER">
          <children>
-            <StackPane fx:id="container" layoutY="35.0" prefHeight="600.0" prefWidth="685.0" />
+            <StackPane fx:id="container" layoutY="35.0" prefHeight="600.0" prefWidth="685.0" style="-fx-background-radius: 45 45 0 0;" />
             <AnchorPane layoutX="619.0">
                <children>
                   <Button layoutX="31.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: red; -fx-background-radius: 45px;">
