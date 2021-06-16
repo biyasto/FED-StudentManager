@@ -3,14 +3,15 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="StudentInfoBox" prefHeight="155.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.StudentItemController">
+<AnchorPane fx:id="StudentInfoBox" prefHeight="155.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.StudentItemController">
    <children>
-      <AnchorPane fx:id="GradeBox" layoutY="10.0" prefHeight="136.0" prefWidth="648.0" style="-fx-background-color: #22BFAC; -fx-background-radius: 45px;">
+      <AnchorPane fx:id="GradeBox" layoutY="10.0" prefHeight="136.0" prefWidth="675.0" style="-fx-background-color: #22BFAC; -fx-background-radius: 45px;">
          <children>
             <AnchorPane layoutX="195.0" layoutY="33.0" prefHeight="87.0" prefWidth="400.0" style="-fx-background-color: #4A1B88; -fx-background-radius: 35px;">
                <children>
@@ -24,10 +25,13 @@
                   <TextField fx:id="Grade4Textfield" layoutX="294.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
                </children>
             </AnchorPane>
-            <Label fx:id="SumGradeLabel" layoutX="611.0" layoutY="63.0" prefHeight="26.0" prefWidth="29.0" text="69">
+            <Label fx:id="SumGradeLabel" layoutX="620.0" layoutY="63.0" prefHeight="26.0" prefWidth="29.0" text="69">
                <font>
-                  <Font size="19.0" />
+                  <Font name="System Bold" size="19.0" />
                </font>
+               <effect>
+                  <Blend />
+               </effect>
             </Label>
             <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="73.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>

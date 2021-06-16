@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="StudentInfoBox" prefHeight="158.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.ClassItemController">
+<AnchorPane fx:id="StudentInfoBox" prefHeight="158.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.ClassItemController">
    <cursor>
       <Cursor fx:constant="HAND" />
    </cursor>
    <children>
-      <AnchorPane fx:id="ClassBox" layoutX="1.0" layoutY="7.0" prefHeight="120.0" prefWidth="628.0" style="-fx-background-radius: 45 0 45 0; -fx-background-color: #EEE0E0;">
+      <AnchorPane fx:id="ClassBox" layoutX="1.0" layoutY="7.0" prefHeight="146.0" prefWidth="675.0" style="-fx-background-radius: 45 0 45 0; -fx-background-color: #EEE0E0;">
          <children>
             <Label fx:id="SubjectLabel" alignment="CENTER" layoutX="14.0" layoutY="73.0" prefHeight="59.0" prefWidth="361.0" text="Introduction to Game Development" textFill="#736b6b">
                <font>
@@ -23,7 +23,7 @@
                   <Font name="SVN-Helves bold" size="27.0" />
                </font>
             </Label>
-            <Pane layoutX="393.0" opacity="0.58" prefHeight="146.0" prefWidth="235.0" style="-fx-background-radius: 45 0 45 0; -fx-background-color: #627264;">
+            <Pane layoutX="416.0" opacity="0.58" prefHeight="146.0" prefWidth="258.0" style="-fx-background-radius: 45 0 45 0; -fx-background-color: #627264;">
                <children>
                   <Label fx:id="TeacherLabel" alignment="TOP_LEFT" layoutX="19.0" layoutY="80.0" prefHeight="39.0" prefWidth="242.0" text="Teacher: Đinh Nguyễn Anh D" textFill="WHITE">
                      <font>
