@@ -4,28 +4,35 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SearchClassesController">
    <children>
-      <TextField fx:id="ClassIDTextfield" layoutX="33.0" layoutY="33.0" prefHeight="30.0" prefWidth="255.0" promptText="Search by Class ID" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
-         <font>
-            <Font size="14.0" />
-         </font></TextField>
-      <Button fx:id="FindButton" layoutX="557.0" layoutY="33.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="FIND" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <TextField fx:id="SubjectNameTextfield" layoutX="317.0" layoutY="33.0" prefHeight="30.0" prefWidth="228.0" promptText="Search by  Name of subject" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
       <ScrollPane layoutX="5.0" layoutY="84.0" prefHeight="517.0" prefWidth="675.0" style="-fx-background-color: #958FA3;">
          <content>
             <VBox fx:id="studentScrollPane" alignment="CENTER" prefHeight="507.0" prefWidth="674.0" />
          </content>
       </ScrollPane>
+      <Pane layoutX="11.0" layoutY="14.0" prefHeight="63.0" prefWidth="660.0" style="-fx-background-color: #AD9BAA; -fx-background-radius: 20 0 20 0;">
+         <children>
+            <TextField fx:id="ClassIDTextfield" layoutX="14.0" layoutY="19.0" prefHeight="30.0" prefWidth="255.0" promptText="Search by Class ID" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Button fx:id="FindButton" layoutX="546.0" layoutY="19.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="FIND" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <TextField fx:id="SubjectNameTextfield" layoutX="276.0" layoutY="19.0" prefHeight="30.0" prefWidth="228.0" promptText="Search by  Name of subject" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -16,7 +16,7 @@
    <left>
       <Pane prefHeight="634.0" prefWidth="215.0" style="-fx-background-color: #534D56;" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutY="510.0" prefHeight="125.0" prefWidth="215.0" style="-fx-background-color: #6FC3B6; -fx-background-radius: 60 0 0 0;">
+            <AnchorPane layoutY="510.0" prefHeight="125.0" prefWidth="215.0" style="-fx-background-color: #627264; -fx-background-radius: 60 0 0 0;">
                <children>
                   <Button fx:id="SettingButton" layoutX="125.0" layoutY="43.0" mnemonicParsing="false" onMouseClicked="#OpenSettingScreen" pickOnBounds="false" prefHeight="39.0" prefWidth="20.0" style="-fx-background-radius: 45px; -fx-background-color: #DFDDE3;">
                      <graphic>
@@ -127,7 +127,7 @@
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="162.0" prefWidth="215.0" style="-fx-background-color: #AD9BAA; -fx-background-radius: 0 0 60 0;">
+            <AnchorPane prefHeight="140.0" prefWidth="215.0" style="-fx-background-color: #AD9BAA; -fx-background-radius: 0 0 60 0;">
                <children>
                   <ImageView fx:id="Avatar" fitHeight="74.0" fitWidth="87.0" layoutX="61.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
