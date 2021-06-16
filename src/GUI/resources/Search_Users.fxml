@@ -17,7 +17,7 @@
             <VBox fx:id="studentScrollPane" alignment="CENTER" prefHeight="442.0" prefWidth="672.0" style="-fx-background-color: #FFFFFF;" />
          </content>
       </ScrollPane>
-      <Pane layoutX="7.0" layoutY="11.0" prefHeight="103.0" prefWidth="664.0" style="-fx-background-color: #AD9BAA; -fx-background-radius: 20 0 20 0;">
+      <Pane layoutX="7.0" layoutY="11.0" prefHeight="103.0" prefWidth="664.0" style="-fx-background-radius: 20 0 20 0;">
          <children>
             <TextField fx:id="SearchNameTextfield" layoutX="14.0" layoutY="57.0" prefHeight="30.0" prefWidth="311.0" promptText="Search by Name of user" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
                <font>
@@ -36,7 +36,11 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Label fx:id="lblNotFound" layoutX="102.0" layoutY="125.0" text="Label" />
-      <Label fx:id="lblEmpty" layoutX="158.0" layoutY="125.0" text="Label" />
+      <Pane layoutX="45.0" layoutY="118.0" prefHeight="30.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="lblNotFound" layoutX="14.0" layoutY="7.0" text="Not found" textFill="RED" visible="false" />
+            <Label fx:id="lblEmpty" layoutX="14.0" layoutY="7.0" text="Emty" textFill="RED" visible="false" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

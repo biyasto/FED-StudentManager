@@ -28,7 +28,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Pane layoutX="106.0" layoutY="76.0" prefHeight="58.0" prefWidth="276.0" style="-fx-background-color: #AD9BAA; -fx-background-radius: 20 0 20 0;">
+      <Pane layoutX="106.0" layoutY="76.0" prefHeight="58.0" prefWidth="276.0">
          <children>
             <ChoiceBox fx:id="YearChoiceBox" layoutX="164.0" layoutY="14.0" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
             <ChoiceBox fx:id="MonthChoiceBox" layoutX="63.0" layoutY="11.0" prefHeight="30.0" prefWidth="58.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />

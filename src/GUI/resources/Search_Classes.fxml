@@ -35,7 +35,11 @@
             </TextField>
          </children>
       </Pane>
-      <Label fx:id="lblNotFound" layoutX="28.0" layoutY="86.0" text="Label" />
-      <Label fx:id="lblEmpty" layoutX="77.0" layoutY="86.0" text="Label" />
+      <Pane layoutX="28.0" layoutY="65.0" prefHeight="42.0" prefWidth="239.0">
+         <children>
+            <Label fx:id="lblNotFound" layoutX="24.0" layoutY="13.0" text="Not Found" textFill="RED" visible="false" />
+            <Label fx:id="lblEmpty" layoutX="24.0" layoutY="13.0" text="Emty" textFill="RED" visible="false" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

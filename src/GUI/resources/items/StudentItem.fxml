@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="StudentInfoBox" prefHeight="155.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.StudentItemController">
    <children>
-      <Pane layoutY="11.0" onMouseClicked="#openUserInfo" prefHeight="136.0" prefWidth="675.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45 0 45 0;">
+      <Pane layoutY="11.0" onMouseClicked="#openUserInfo" prefHeight="136.0" prefWidth="675.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 0 45 0 0;">
          <children>
             <Label fx:id="NameLabel" alignment="CENTER" layoutX="113.0" layoutY="25.0" prefHeight="110.0" prefWidth="392.0" text="LUU NGOC QUYNH">
                <font>
@@ -22,7 +22,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Pane layoutX="554.0" prefHeight="136.0" prefWidth="121.0" style="-fx-background-color: #B5DFCA; -fx-background-radius: 45 0 45 0;">
+            <Pane layoutX="554.0" prefHeight="136.0" prefWidth="121.0" style="-fx-background-color: #B5DFCA; -fx-background-radius: 45 45 0 0;">
                <children>
                   <ImageView fx:id="Avatar" fitHeight="88.0" fitWidth="92.0" layoutX="17.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -31,7 +31,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane opacity="0.58" prefHeight="136.0" prefWidth="110.0" style="-fx-background-radius: 45 0 45 0; -fx-background-color: #627264;">
+            <Pane opacity="0.58" prefHeight="136.0" prefWidth="110.0" style="-fx-background-radius: 0 0 45 0; -fx-background-color: #627264;">
                <children>
                   <Label fx:id="PositionLabel" alignment="CENTER" layoutX="14.0" layoutY="35.0" prefHeight="17.0" prefWidth="88.0" text="Student" textFill="WHITE" />
                   <Label fx:id="IDLabel" alignment="CENTER" layoutX="14.0" layoutY="78.0" prefHeight="18.0" prefWidth="94.0" text="ID:19520207" textFill="WHITE">
