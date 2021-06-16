@@ -174,6 +174,42 @@ public class TeacherDAL {
         return s;
     }
 
+    public TeacherDTO GetTeacherByID(String id) {
+        String sql = "select * from Teacher where id=?";
+        TeacherDTO s = null;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, id);
+
+            rs = pres.executeQuery();
+            if (rs.next()) {
+                s = new TeacherDTO();
+                s.setId(rs.getString("id"));
+                s.setName(rs.getString("name"));
+                s.setGender(rs.getBoolean("gender"));
+                s.setEmail(rs.getString("email"));
+                s.setFaculty(rs.getString("faculty"));
+                s.setBirthDay(rs.getString("birthday"));
+                s.setPass(rs.getString("pass"));
+                s.setType(rs.getInt("userType"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return s;
+    }
+
     public int countTeachers() {
         String sql = "select count(*) from Teacher;";
         int count = 0;

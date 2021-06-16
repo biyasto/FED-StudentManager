@@ -6,7 +6,13 @@ import DataTransferObject.SubjectClassDTO;
 import java.util.List;
 
 public class SubjectClassBLL {
-    private SubjectClassDAL subjectClassDTO = new SubjectClassDAL();
+    SubjectClassDAL dal = new SubjectClassDAL();
 
-    public List<SubjectClassDTO> getAllSubjectClass(){return subjectClassDTO.getAllSubjectClass();}
+    public List<SubjectClassDTO> getAllSubjectClass() {
+        return dal.getAllSubjectClass();
+    }
+
+    public List<SubjectClassDTO> getClassesByStudentId(String id) {
+        return dal.getClassesByStudentId(id);
+    }
 }

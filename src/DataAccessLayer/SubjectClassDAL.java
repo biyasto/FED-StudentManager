@@ -1,7 +1,6 @@
 package DataAccessLayer;
 
 import DataTransferObject.SubjectClassDTO;
-import DataTransferObject.SubjectDTO;
 import Utils.DatabaseUtils;
 
 import java.sql.Connection;
@@ -32,7 +31,6 @@ public class SubjectClassDAL {
                 s.setSubjectId(rs.getString("subjectId"));
                 s.setSchoolYear(rs.getInt("schoolYear"));
                 s.setSemester(rs.getInt("semester"));
-                s.setFaculty(rs.getString("faculty"));
 
                 list.add(s);
             }
@@ -67,7 +65,6 @@ public class SubjectClassDAL {
                 s.setSubjectId(rs.getString("subjectId"));
                 s.setSchoolYear(rs.getInt("schoolYear"));
                 s.setSemester(rs.getInt("semester"));
-                s.setFaculty(rs.getString("faculty"));
 
                 list.add(s);
             }

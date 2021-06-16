@@ -6,17 +6,15 @@ public class SubjectClassDTO {
     private String SubjectId;
     private int SchoolYear;
     private int Semester;
-    private String Faculty;
 
 
 
-    public SubjectClassDTO(String classId, String headMaster, String subjectId, int schoolYear, int semester, String faculty) {
+    public SubjectClassDTO(String classId, String headMaster, String subjectId, int schoolYear, int semester) {
         ClassId = classId;
         HeadMaster = headMaster;
         SubjectId = subjectId;
         SchoolYear = schoolYear;
         Semester = semester;
-        Faculty = faculty;
     }
 
     public SubjectClassDTO() {
@@ -52,14 +50,6 @@ public class SubjectClassDTO {
 
     public void setSchoolYear(int schoolYear) {
         SchoolYear = schoolYear;
-    }
-
-    public String getFaculty() {
-        return Faculty;
-    }
-
-    public void setFaculty(String faculty) {
-        Faculty = faculty;
     }
 
     public int getSemester() {

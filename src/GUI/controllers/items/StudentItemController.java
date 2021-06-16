@@ -31,21 +31,26 @@ public class StudentItemController {
     @FXML
     private ImageView Avatar;
 
+    private StudentDTO studentDTO = null;
+    private TeacherDTO teacherDTO = null;
+
     public void setDataStudent(StudentDTO student) {
+        studentDTO = student;
         PositionLabel.setText("Student");
-        NameLabel.setText(student.getName());
-        IDLabel.setText("ID: " + student.getId());
-        FacultyLabel.setText("Faculty: " + student.getFaculty());
+        NameLabel.setText(studentDTO.getName());
+        IDLabel.setText("ID: " + studentDTO.getId());
+        FacultyLabel.setText("Faculty: " + studentDTO.getFaculty());
     }
 
     public void setDataTeacher(TeacherDTO teacher) {
+        teacherDTO = teacher;
         PositionLabel.setText("Teacher");
-        NameLabel.setText(teacher.getName());
-        IDLabel.setText("ID: " + teacher.getId());
-        FacultyLabel.setText("Faculty: " + teacher.getFaculty());
+        NameLabel.setText(teacherDTO.getName());
+        IDLabel.setText("ID: " + teacherDTO.getId());
+        FacultyLabel.setText("Faculty: " + teacherDTO.getFaculty());
     }
 
     public void openUserInfo(MouseEvent mouseEvent) {
-        System.out.println("abc");
+        System.out.println(studentDTO.getName());
     }
 }

@@ -43,10 +43,9 @@ public class SubjectDAL {
     }
 
 
-    public String GetSubjectNameById(String id) {
+    public SubjectDTO GetSubjectById(String id) {
+        SubjectDTO subjectDTO = null;
         String sql = "select * from subject where subjectid =?";
-        int result = -1;
-        String name = null;
         try {
             DBU = new DatabaseUtils();
             conn = DBU.createConnection();
@@ -55,7 +54,11 @@ public class SubjectDAL {
 
             rs = pres.executeQuery();
             if (rs.next()) {
-                name = rs.getString("subjectName");
+                subjectDTO = new SubjectDTO();
+                subjectDTO.setSubjectID(rs.getString("subjectId"));
+                subjectDTO.setSubjectName(rs.getString("subjectName"));
+                subjectDTO.setCredits(rs.getInt("credit"));
+                subjectDTO.setFaculty(rs.getString("faculty"));
             }
 
         } catch (Exception e) {
@@ -69,7 +72,7 @@ public class SubjectDAL {
                 ex.printStackTrace();
             }
         }
-        return name;
+        return subjectDTO;
     }
 
     public List<SubjectDTO> getSubjectsByStudentId(String id){
