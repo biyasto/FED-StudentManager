@@ -172,13 +172,14 @@ public class StudentDAL {
         return count;
     }
 
-    public List<StudentDTO> getStudentsByClassId(){
+    public List<StudentDTO> getStudentsByClassId(String classID){
         List<StudentDTO> list = new ArrayList<>();
         String sql = "select s3.* from subjectclass s1, studentclass s2, student s3 where s1.classId = ? and s1.classId = s2.classId and s2.studentId = s3.id;";
         try {
             DBU = new DatabaseUtils();
             conn = DBU.createConnection();
             pres = conn.prepareStatement(sql);
+            pres.setString(1, classID);
             rs = pres.executeQuery();
 
             while (rs.next()) {

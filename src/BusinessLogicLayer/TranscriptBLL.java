@@ -8,6 +8,7 @@ import java.util.List;
 public class TranscriptBLL {
     private TranscriptDAL dal = new TranscriptDAL();
 
-    public List<TranscriptDTO> GetALlTranscript() { return dal.GetALlTranscript(); }
-
+    public List<TranscriptDTO> GetTranscriptOfClass(String classID, String studentID) {
+        return dal.GetTranscriptOfClass(classID, studentID);
+    }
 }
