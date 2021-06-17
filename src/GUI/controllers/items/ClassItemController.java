@@ -4,10 +4,21 @@ import DataTransferObject.StudentDTO;
 import DataTransferObject.SubjectClassDTO;
 import DataTransferObject.SubjectDTO;
 import DataTransferObject.TeacherDTO;
+import GUI.controllers.ClassGradesController;
+import GUI.controllers.NavigationController;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 public class ClassItemController {
@@ -37,6 +48,8 @@ public class ClassItemController {
     private SubjectDTO subject = null;
     private SubjectClassDTO subjectClass = null;
 
+    public static StackPane container = NavigationController.containerNav;
+
     public void setData(List<StudentDTO> studentList, TeacherDTO teacher, SubjectDTO subject, SubjectClassDTO subjectClass) {
         this.studentList = studentList;
         this.teacher = teacher;
@@ -50,4 +63,16 @@ public class ClassItemController {
         AttendantsLabel.setText("Attendants: " + studentList.size());
     }
 
+    @FXML
+    void showClass(MouseEvent event) throws IOException {
+        URL urlLayout = new File("src/GUI/resources/ClassGrades.fxml").toURI().toURL();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(urlLayout);
+        Node item = fxmlLoader.load();
+
+        ClassGradesController classGradesController = fxmlLoader.getController();
+        classGradesController.setData(studentList, teacher, subject, subjectClass);
+
+        container.getChildren().addAll(item);
+    }
 }

@@ -5,53 +5,54 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.StudentGradesController">
+<AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.ClassGradesController">
    <children>
       <Pane prefHeight="136.0" prefWidth="686.0" style="-fx-background-radius: 0 0 45 45; -fx-background-color: #AD9BAA;">
          <children>
-            <Label fx:id="Subject" layoutX="263.0" layoutY="16.0" prefHeight="21.0" prefWidth="362.0" text="Introduce to Game development">
+            <Label fx:id="SubjectName" alignment="CENTER" layoutX="232.0" layoutY="24.0" prefHeight="70.0" prefWidth="424.0" text="Introduce to Game development">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="ClassID" layoutX="50.0" layoutY="15.0" text="SE102.L11.PMCL">
+            <Label fx:id="ClassID" layoutX="18.0" layoutY="23.0" prefHeight="47.0" prefWidth="199.0" text="SE102.L11.PMCL">
                <font>
-                  <Font name="System Bold" size="19.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="StudentNam1" layoutX="47.0" layoutY="70.0" text="Teacher: Nguen Van An">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="StudentNam11" layoutX="450.0" layoutY="70.0" text="Attendant: 39">
+            <Label fx:id="teacherName" layoutX="29.0" layoutY="105.0" text="Teacher: Nguen Van An">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="StudentNam12" layoutX="47.0" layoutY="102.0" text="Teacher ID: Anvn">
+            <Label fx:id="attendantNum" layoutX="565.0" layoutY="105.0" text="Attendant: 39">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="facultyName" layoutX="29.0" layoutY="81.0" text="Faculty: ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Button fx:id="SaveButton" layoutX="598.0" layoutY="546.0" mnemonicParsing="false" style="-fx-background-color: #9575cd;" text="SAVE ALL" textFill="WHITE">
+      <Button fx:id="SaveButton" layoutX="599.0" layoutY="564.0" mnemonicParsing="false" style="-fx-background-color: #9575cd;" text="SAVE ALL" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="UpdateButton" layoutX="522.0" layoutY="546.0" mnemonicParsing="false" style="-fx-background-color: #9575cd;" text="Update" textFill="WHITE">
+      <Button fx:id="UpdateButton" layoutX="522.0" layoutY="564.0" mnemonicParsing="false" style="-fx-background-color: #9575cd;" text="Update" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ScrollPane fx:id="GradesPanel" layoutX="15.0" layoutY="151.0" prefHeight="382.0" prefWidth="654.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-        </content>
+      <ScrollPane fx:id="GradesPanel" hbarPolicy="NEVER" layoutX="2.0" layoutY="151.0" prefHeight="406.0" prefWidth="680.0">
+         <content>
+            <VBox fx:id="studentGrades" prefHeight="404.0" prefWidth="677.0" />
+         </content>
       </ScrollPane>
    </children>
 </AnchorPane>

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="StudentInfoBox" prefHeight="155.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.ClassGradeItem">
+<AnchorPane fx:id="StudentInfoBox" prefHeight="155.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.ClassGradeItemController">
    <children>
       <AnchorPane fx:id="GradeBox" layoutY="10.0" prefHeight="136.0" prefWidth="675.0" style="-fx-background-color: #EAE0D5; -fx-background-radius: 0 45 0 0;">
          <children>
@@ -41,7 +41,7 @@
                         <Image url="@../../asset/Picture/UserAvatar.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="StudentNam" alignment="CENTER" layoutX="-4.0" layoutY="87.0" prefHeight="20.0" prefWidth="173.0" text="Phạm Hoài Bảo">
+                  <Label fx:id="StudentName" alignment="CENTER" layoutX="-4.0" layoutY="87.0" prefHeight="20.0" prefWidth="173.0" text="Phạm Hoài Bảo">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

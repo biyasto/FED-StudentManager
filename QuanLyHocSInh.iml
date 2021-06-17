@@ -27,7 +27,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://C:/Users/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.25.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../Users/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.25.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -55,6 +55,15 @@
       <library>
         <CLASSES>
           <root url="jar://$USER_HOME$/Documents/mysql-connector-java-8.0.25.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.25.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

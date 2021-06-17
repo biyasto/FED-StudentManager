@@ -12,9 +12,9 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SearchUsersController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" layoutX="6.0" layoutY="156.0" prefHeight="443.0" prefWidth="676.0" vbarPolicy="ALWAYS">
+      <ScrollPane hbarPolicy="NEVER" layoutX="6.0" layoutY="135.0" prefHeight="464.0" prefWidth="676.0" vbarPolicy="ALWAYS">
          <content>
-            <VBox fx:id="studentScrollPane" alignment="CENTER" prefHeight="442.0" prefWidth="672.0" style="-fx-background-color: #FFFFFF;" />
+            <VBox fx:id="studentScrollPane" prefHeight="462.0" prefWidth="672.0" style="-fx-background-color: #FFFFFF;" />
          </content>
       </ScrollPane>
       <Pane layoutX="7.0" layoutY="11.0" prefHeight="103.0" prefWidth="664.0" style="-fx-background-radius: 20 0 20 0;">
@@ -32,11 +32,11 @@
             </TextField>
          </children>
       </Pane>
-      <Button fx:id="FindButton" layoutX="510.0" layoutY="68.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="FIND" textFill="WHITE">
+      <Button fx:id="FindButton" layoutX="510.0" layoutY="68.0" mnemonicParsing="false" onMouseClicked="#findUser" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="FIND" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Pane layoutX="45.0" layoutY="118.0" prefHeight="30.0" prefWidth="200.0">
+      <Pane layoutX="30.0" layoutY="103.0" prefHeight="30.0" prefWidth="200.0">
          <children>
             <Label fx:id="lblNotFound" layoutX="14.0" layoutY="7.0" text="Not found" textFill="RED" visible="false" />
             <Label fx:id="lblEmpty" layoutX="14.0" layoutY="7.0" text="Emty" textFill="RED" visible="false" />

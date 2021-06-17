@@ -59,6 +59,9 @@ public class NavigationController implements Initializable {
     public static StudentDTO studentUser = LoginController.studentUser;
     public static TeacherDTO teacherUser = LoginController.teacherUser;
 
+    //this is a reference of container above, use for pass data to another screen
+    public static StackPane containerNav = null;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(studentUser != null) {
@@ -77,6 +80,7 @@ public class NavigationController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        containerNav = container;
     }
 
     @FXML
