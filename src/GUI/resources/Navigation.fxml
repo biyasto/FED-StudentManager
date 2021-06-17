@@ -1,110 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.NavigationController">
-   <left>
-      <Pane prefHeight="635.0" prefWidth="215.0" style="-fx-background-color: #534D56; -fx-background-radius: 0 45 0 0;" BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane layoutX="19.0" layoutY="133.0">
-               <children>
-                  <Button fx:id="InfoButton" alignment="BASELINE_LEFT" layoutX="1.0" mnemonicParsing="false" onMouseClicked="#OpenInformationScreen" prefHeight="35.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" stylesheets="@../css/Style1.css" text="  Your Information" textFill="WHITE">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                     <effect>
-                        <Blend />
-                     </effect>
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../asset/ButtonIcon/UserInfo.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="menu-item" />
-                        <String fx:value="label" />
-                     </styleClass>
-                  </Button>
-                  <Button fx:id="SearchClassButton" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#OpenSearchClassesScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" text="  Search Classes" textFill="WHITE">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../asset/ButtonIcon/Classes.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="ScheduleButton" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#OpenScheduleScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" text="  Schedule" textFill="WHITE">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../asset/ButtonIcon/Calender.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="SearchUsersButton" alignment="BASELINE_LEFT" layoutY="150.0" mnemonicParsing="false" onMouseClicked="#OpenSearchUserScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" text="  Search Users" textFill="WHITE">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../asset/ButtonIcon/Search.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="CreateAccountButton" alignment="BASELINE_LEFT" layoutY="198.0" mnemonicParsing="false" onMouseClicked="#OpenCreateAccountScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" text="  Create Account" textFill="WHITE">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../asset/ButtonIcon/AddUser.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-            </AnchorPane>
-         </children>
-      </Pane>
-   </left>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.NavigationController">
    <center>
-      <Pane prefHeight="548.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="577.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <children>
-            <StackPane fx:id="container" layoutX="-1.0" layoutY="-1.0" prefHeight="600.0" prefWidth="685.0" />
+            <StackPane fx:id="container" layoutX="-1.0" layoutY="5.0" prefHeight="594.0" prefWidth="685.0" />
          </children>
       </Pane>
    </center>
@@ -125,7 +38,7 @@
                <children>
                   <Button layoutX="122.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="38.0" prefWidth="31.0" style="-fx-background-color: transparent; -fx-background-radius: 45px;">
                      <graphic>
-                        <ImageView fx:id="btnClose" disable="true" fitHeight="22.0" fitWidth="22.0" preserveRatio="true" onMouseClicked='#btnCloseAction'>
+                        <ImageView fx:id="btnClose" disable="true" fitHeight="22.0" fitWidth="22.0" onMouseClicked="#btnCloseAction" preserveRatio="true">
                            <image>
                               <Image url="@../asset/ButtonIcon/close.png" />
                            </image>
@@ -167,4 +80,100 @@
          </children>
       </Pane>
    </top>
+   <left>
+      <Pane prefHeight="614.0" prefWidth="215.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="635.0" prefWidth="215.0" style="-fx-background-color: #534D56; -fx-background-radius: 0 45 0 0;">
+               <children>
+                  <AnchorPane layoutX="19.0" layoutY="133.0">
+                     <children>
+                        <Button fx:id="InfoButton" alignment="BASELINE_LEFT" layoutX="1.0" mnemonicParsing="false" onMouseClicked="#OpenInformationScreen" prefHeight="35.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" stylesheets="@../css/Style1.css" text="  Your Information" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                           <effect>
+                              <Blend />
+                           </effect>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../asset/ButtonIcon/UserInfo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <styleClass>
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="SearchClassButton" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#OpenSearchClassesScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" text="  Search Classes" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../asset/ButtonIcon/Classes.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="ScheduleButton" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#OpenScheduleScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" text="  Schedule" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../asset/ButtonIcon/Calender.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="SearchUsersButton" alignment="BASELINE_LEFT" layoutY="150.0" mnemonicParsing="false" onMouseClicked="#OpenSearchUserScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" text="  Search Users" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../asset/ButtonIcon/Search.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="CreateAccountButton" alignment="BASELINE_LEFT" layoutY="198.0" mnemonicParsing="false" onMouseClicked="#OpenCreateAccountScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" text="  Create Account" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../asset/ButtonIcon/AddUser.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </left>
 </BorderPane>
