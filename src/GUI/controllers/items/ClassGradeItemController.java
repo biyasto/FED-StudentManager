@@ -64,21 +64,27 @@ public class ClassGradeItemController {
         StudentName.setText(student.getName());
         StudentID.setText(student.getId());
 
+        int sum = 0;
         if(!transcriptList.isEmpty()) {
             for(TranscriptDTO item: transcriptList) {
                 if(item.getFlag() == 1) {
                     Grade1Textfield.setText(String.valueOf(item.getMarks()));
+                    sum+=item.getMarks();
                 }
                 else if(item.getFlag() == 2) {
                     Grade2Textfield.setText(String.valueOf(item.getMarks()));
+                    sum+=item.getMarks();
                 }
                 else if(item.getFlag() == 3) {
                     Grade3Textfield.setText(String.valueOf(item.getMarks()));
+                    sum+=item.getMarks();
                 }
                 else if(item.getFlag() == 4) {
                     Grade4Textfield.setText(String.valueOf(item.getMarks()));
+                    sum+=item.getMarks();
                 }
             }
         }
+        SumGradeLabel.setText(String.valueOf(sum));
     }
 }
