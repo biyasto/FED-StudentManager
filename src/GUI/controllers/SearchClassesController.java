@@ -39,7 +39,11 @@ public class SearchClassesController implements Initializable {
 
     @FXML
     void findClassByClassIdOrSubjectName(MouseEvent event) {
-        findClassByClassId(ClassIDTextfield.getText());
+        if (!ClassIDTextfield.getText().equals("")){
+            findClassByClassId(ClassIDTextfield.getText());
+        }else if (!SubjectNameTextfield.getText().equals("")){
+            findClassBySubjectName(SubjectNameTextfield.getText());
+        }
     }
 
     @Override
@@ -89,9 +93,25 @@ public class SearchClassesController implements Initializable {
 
             bindData(teacherDTO, subjectDTO, subjectClass);
         }
+
+        ClassIDTextfield.setText("");
     }
 
     void findClassBySubjectName(String name){
+        classScrollPane.getChildren().clear();
+        SubjectClassBLL subjectClassBLL = new SubjectClassBLL();
+        classList = subjectClassBLL.getClassesBySubjectName(name);
 
+        for(SubjectClassDTO subjectClass: classList) {
+            SubjectBLL subjectBLL = new SubjectBLL();
+            TeacherBLL teacherBLL = new TeacherBLL();
+
+            SubjectDTO subjectDTO = subjectBLL.GetSubjectById(subjectClass.getSubjectId());
+            TeacherDTO teacherDTO = teacherBLL.GetTeacherByID(subjectClass.getHeadMaster());
+
+            bindData(teacherDTO, subjectDTO, subjectClass);
+        }
+
+        ClassIDTextfield.setText("");
     }
 }
