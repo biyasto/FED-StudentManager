@@ -2,6 +2,7 @@ package GUI.controllers;
 
 import DataTransferObject.StudentDTO;
 import DataTransferObject.TeacherDTO;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
@@ -50,6 +52,9 @@ public class NavigationController implements Initializable {
 
     @FXML
     private StackPane container;
+
+    @FXML
+    private ImageView btnClose;
 
     public static StudentDTO studentUser = LoginController.studentUser;
     public static TeacherDTO teacherUser = LoginController.teacherUser;
@@ -126,6 +131,10 @@ public class NavigationController implements Initializable {
         Parent createAccountScreen = FXMLLoader.load(url);
         container.getChildren().removeAll();
         container.getChildren().setAll(createAccountScreen);
+    }
+    @FXML
+    private void btnCloseAction(){
+        Platform.exit();
     }
 
 }
