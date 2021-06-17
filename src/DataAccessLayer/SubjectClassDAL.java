@@ -50,12 +50,81 @@ public class SubjectClassDAL {
 
     public List<SubjectClassDTO> getClassesByStudentId(String id){
         List<SubjectClassDTO> list = new ArrayList<>();
-        String sql = "select s1.classId, s1.headMaster, s1.subjectId, s1.schoolYear, s1.semester from subjectclass s1, studentclass s2 where s1.classId = s2.classId and s2.studentId = ?";
+        String sql = "select s1.* from subjectclass s1, studentclass s2 where s1.classId = s2.classId and s2.studentId = ?";
         try {
             DBU = new DatabaseUtils();
             conn = DBU.createConnection();
             pres = conn.prepareStatement(sql);
             pres.setString(1, id);
+            rs = pres.executeQuery();
+
+            while (rs.next()) {
+                SubjectClassDTO s = new SubjectClassDTO();
+                s.setClassId(rs.getString("classId"));
+                s.setHeadMaster(rs.getString("headMaster"));
+                s.setSubjectId(rs.getString("subjectId"));
+                s.setSchoolYear(rs.getInt("schoolYear"));
+                s.setSemester(rs.getInt("semester"));
+
+                list.add(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return list;
+    }
+
+    public List<SubjectClassDTO> getClassesByClassId(String id){
+        List<SubjectClassDTO> list = new ArrayList<>();
+        String sql = "select * from subjectclass where classId = ?";
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, id);
+            rs = pres.executeQuery();
+
+            while (rs.next()) {
+                SubjectClassDTO s = new SubjectClassDTO();
+                s.setClassId(rs.getString("classId"));
+                s.setHeadMaster(rs.getString("headMaster"));
+                s.setSubjectId(rs.getString("subjectId"));
+                s.setSchoolYear(rs.getInt("schoolYear"));
+                s.setSemester(rs.getInt("semester"));
+
+                list.add(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return list;
+    }
+
+    public List<SubjectClassDTO> getClassesBySubjectName(String name){
+        List<SubjectClassDTO> list = new ArrayList<>();
+        String sql = "select s1.* from subjectclass s1, subject s2 where s2.subjectname = ? and s1.subjectId = s2.subjectId";
+
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, name);
             rs = pres.executeQuery();
 
             while (rs.next()) {

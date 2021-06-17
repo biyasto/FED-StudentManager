@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.io.File;
@@ -35,6 +36,11 @@ public class SearchClassesController implements Initializable {
     private VBox classScrollPane;
 
     private List<SubjectClassDTO> classList = new ArrayList<>();
+
+    @FXML
+    void findClassByClassIdOrSubjectName(MouseEvent event) {
+        findClassByClassId(ClassIDTextfield.getText());
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -67,5 +73,25 @@ public class SearchClassesController implements Initializable {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    void findClassByClassId(String id){
+        classScrollPane.getChildren().clear();
+        SubjectClassBLL subjectClassBLL = new SubjectClassBLL();
+        classList = subjectClassBLL.getClassesByClassId(id);
+
+        for(SubjectClassDTO subjectClass: classList) {
+            SubjectBLL subjectBLL = new SubjectBLL();
+            TeacherBLL teacherBLL = new TeacherBLL();
+
+            SubjectDTO subjectDTO = subjectBLL.GetSubjectById(subjectClass.getSubjectId());
+            TeacherDTO teacherDTO = teacherBLL.GetTeacherByID(subjectClass.getHeadMaster());
+
+            bindData(teacherDTO, subjectDTO, subjectClass);
+        }
+    }
+
+    void findClassBySubjectName(String name){
+
     }
 }

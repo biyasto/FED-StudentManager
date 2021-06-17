@@ -12,8 +12,9 @@
       <TextField fx:id="ClassIDTextfield" layoutX="33.0" layoutY="33.0" prefHeight="30.0" prefWidth="255.0" promptText="Search by Class ID" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
          <font>
             <Font size="14.0" />
-         </font></TextField>
-      <Button fx:id="FindButton" layoutX="557.0" layoutY="33.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="FIND" textFill="WHITE">
+         </font>
+      </TextField>
+      <Button fx:id="FindButton" layoutX="557.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#findClassByClassIdOrSubjectName" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="FIND" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
