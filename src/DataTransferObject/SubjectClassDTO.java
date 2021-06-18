@@ -5,14 +5,14 @@ public class SubjectClassDTO {
     private String HeadMaster;
     private String SubjectId;
     private int SchoolYear;
-    private int Faculty;
+    private int Semester;
 
-    public SubjectClassDTO(String classId, String headMaster, String subjectId, int schoolYear, int faculty) {
+    public SubjectClassDTO(String classId, String headMaster, String subjectId, int schoolYear, int semester) {
         ClassId = classId;
         HeadMaster = headMaster;
         SubjectId = subjectId;
         SchoolYear = schoolYear;
-        Faculty = faculty;
+        Semester = semester;
     }
 
     public SubjectClassDTO() {
@@ -50,11 +50,11 @@ public class SubjectClassDTO {
         SchoolYear = schoolYear;
     }
 
-    public int getFaculty() {
-        return Faculty;
+    public int getSemester() {
+        return Semester;
     }
 
-    public void setFaculty(int faculty) {
-        Faculty = faculty;
+    public void setSemester(int semester) {
+        Semester = semester;
     }
 }
