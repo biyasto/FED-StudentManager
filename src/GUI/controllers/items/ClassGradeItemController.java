@@ -1,16 +1,19 @@
 package GUI.controllers.items;
 
+import BusinessLogicLayer.TranscriptBLL;
 import DataTransferObject.StudentDTO;
 import DataTransferObject.TranscriptDTO;
+import GUI.controllers.NavigationController;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 
-import java.net.URL;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class ClassGradeItemController {
 
@@ -53,6 +56,16 @@ public class ClassGradeItemController {
     @FXML
     private Label StudentID;
 
+    @FXML
+    private Button btnEdit;
+
+    @FXML
+    private Button btnOK;
+
+    @FXML
+    private Button btnBack;
+
+
     private StudentDTO student = null;
     private List<TranscriptDTO> transcriptList = null;
 
@@ -87,4 +100,61 @@ public class ClassGradeItemController {
         }
         SumGradeLabel.setText(String.valueOf(sum));
     }
+
+    @FXML
+    void enableEdit(MouseEvent event) {
+        Grade1Textfield.setEditable(true);
+        Grade2Textfield.setEditable(true);
+        Grade3Textfield.setEditable(true);
+        Grade4Textfield.setEditable(true);
+        btnOK.setVisible(true);
+    }
+
+    @FXML
+    void updateGrade(MouseEvent event) {
+        TranscriptBLL transcriptBLL = new TranscriptBLL();
+        int result = -1;
+        for(TranscriptDTO transcript: transcriptList) {
+            if(transcript.getFlag() == 1) {
+                transcript.setMarks(Double.parseDouble(Grade1Textfield.getText()));
+                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
+                if(result == -1) {
+                    //update failed, handle here
+                    break;
+                }
+            }
+            else if(transcript.getFlag() == 2) {
+                transcript.setMarks(Double.parseDouble(Grade2Textfield.getText()));
+                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
+                if(result == -1) {
+                    //update failed, handle here
+                    break;
+                }
+            }
+            else if(transcript.getFlag() == 3) {
+                transcript.setMarks(Double.parseDouble(Grade3Textfield.getText()));
+                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
+                if(result == -1) {
+                    //update failed, handle here
+                    break;
+                }
+            }
+            else if(transcript.getFlag() == 4) {
+                transcript.setMarks(Double.parseDouble(Grade4Textfield.getText()));
+                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
+                if(result == -1) {
+                    //update failed, handle here
+                    break;
+                }
+            }
+        }
+        if(result != -1) {
+            btnOK.setVisible(false);
+            Grade1Textfield.setEditable(false);
+            Grade2Textfield.setEditable(false);
+            Grade3Textfield.setEditable(false);
+            Grade4Textfield.setEditable(false);
+        }
+    }
+
 }

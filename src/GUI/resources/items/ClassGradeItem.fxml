@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
@@ -14,26 +15,26 @@
    <children>
       <AnchorPane fx:id="GradeBox" layoutY="10.0" prefHeight="136.0" prefWidth="675.0" style="-fx-background-color: #EAE0D5; -fx-background-radius: 0 45 0 0;">
          <children>
-            <AnchorPane layoutX="195.0" layoutY="33.0" prefHeight="87.0" prefWidth="400.0" style="-fx-background-color: #4A1B88; -fx-background-radius: 35px;">
+            <AnchorPane layoutX="203.0" layoutY="33.0" prefHeight="87.0" prefWidth="394.0" style="-fx-background-color: #4A1B88; -fx-background-radius: 35px;">
                <children>
-                  <Label fx:id="Grade1Label" layoutX="19.0" layoutY="22.0" text="Attendance" textFill="WHITE" />
-                  <TextField fx:id="Grade1Textfield" layoutX="13.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-                  <Label fx:id="Grade2Label" layoutX="118.0" layoutY="22.0" text="Quiz" textFill="WHITE" />
-                  <TextField fx:id="Grade2Textfield" layoutX="110.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-                  <Label fx:id="Grade3Label" layoutX="209.0" layoutY="22.0" text="Project" textFill="WHITE" />
-                  <TextField fx:id="Grade3Textfield" layoutX="203.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-                  <Label fx:id="Grade4Label" layoutX="300.0" layoutY="22.0" text="Exam" textFill="WHITE" />
-                  <TextField fx:id="Grade4Textfield" layoutX="294.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
+                  <Label fx:id="Grade1Label" layoutX="13.0" layoutY="22.0" text="Attendance" textFill="WHITE" />
+                  <TextField fx:id="Grade1Textfield" editable="false" layoutX="13.0" layoutY="40.0" prefHeight="26.0" prefWidth="60.0" />
+                  <Label fx:id="Grade2Label" layoutX="102.0" layoutY="22.0" text="Quiz" textFill="WHITE" />
+                  <TextField fx:id="Grade2Textfield" editable="false" layoutX="101.0" layoutY="40.0" prefHeight="25.0" prefWidth="60.0" />
+                  <Label fx:id="Grade3Label" layoutX="189.0" layoutY="22.0" text="Project" textFill="WHITE" />
+                  <TextField fx:id="Grade3Textfield" editable="false" layoutX="188.0" layoutY="40.0" prefHeight="25.0" prefWidth="60.0" />
+                  <Label fx:id="Grade4Label" layoutX="275.0" layoutY="22.0" text="Exam" textFill="WHITE" />
+                  <TextField fx:id="Grade4Textfield" editable="false" layoutX="274.0" layoutY="40.0" prefHeight="25.0" prefWidth="60.0" />
+                  <Label fx:id="SumGradeLabel" layoutX="353.0" layoutY="37.0" prefHeight="26.0" prefWidth="29.0" text="69" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
                </children>
             </AnchorPane>
-            <Label fx:id="SumGradeLabel" layoutX="620.0" layoutY="63.0" prefHeight="26.0" prefWidth="29.0" text="69">
-               <font>
-                  <Font name="System Bold" size="19.0" />
-               </font>
-               <effect>
-                  <Blend />
-               </effect>
-            </Label>
             <Pane layoutX="-1.0" prefHeight="138.0" prefWidth="168.0" style="-fx-background-radius: 0 45 0 0; -fx-background-color: #C6AC8F;">
                <children>
                   <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="47.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -49,6 +50,30 @@
                   <Label fx:id="StudentID" alignment="CENTER" layoutX="3.0" layoutY="107.0" prefHeight="17.0" prefWidth="159.0" text="19520406" />
                </children>
             </Pane>
+            <Button fx:id="btnOK" layoutX="635.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#updateGrade" pickOnBounds="false" prefHeight="39.0" prefWidth="20.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView accessibleRole="BUTTON" disable="true" fitHeight="33.0" fitWidth="23.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../../asset/ButtonIcon/check.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnEdit" layoutX="603.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#enableEdit" pickOnBounds="false" prefHeight="39.0" prefWidth="20.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView accessibleRole="BUTTON" disable="true" fitHeight="33.0" fitWidth="23.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../../asset/ButtonIcon/edit_icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </children>

@@ -10,7 +10,7 @@ public class DatabaseUtils {
     private String driver = "com.mysql.cj.jdbc.Driver";
     private String url = "jdbc:mysql://localhost:3306/StudentManagement";
     private String user = "root";
-    private String pass = "admin";
+    private String pass = "123456";
 
     public DatabaseUtils() {
     }

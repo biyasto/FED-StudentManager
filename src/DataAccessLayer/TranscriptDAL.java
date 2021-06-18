@@ -82,4 +82,29 @@ public class TranscriptDAL {
         }
         return list;
     }
+
+    public int UpdateTranscript(Double marks, String id) {
+        String sql = "update transcript set marks = ? where transcriptid = ?;";
+        int result = -1;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+
+            pres.setDouble(1, marks);
+            pres.setString(2, id);
+
+            result = pres.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return result;
+    }
 }

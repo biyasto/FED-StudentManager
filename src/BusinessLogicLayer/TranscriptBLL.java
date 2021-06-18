@@ -11,4 +11,8 @@ public class TranscriptBLL {
     public List<TranscriptDTO> GetTranscriptOfClass(String classID, String studentID) {
         return dal.GetTranscriptOfClass(classID, studentID);
     }
+
+    public int UpdateTranscript(Double marks, String id) {
+        return dal.UpdateTranscript(marks, id);
+    }
 }

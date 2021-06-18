@@ -2,15 +2,19 @@ package GUI.controllers.items;
 
 import DataTransferObject.StudentDTO;
 import DataTransferObject.TeacherDTO;
+import GUI.controllers.NavigationController;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
 
 public class StudentItemController {
     @FXML
@@ -34,6 +38,8 @@ public class StudentItemController {
     private StudentDTO studentDTO = null;
     private TeacherDTO teacherDTO = null;
 
+    public static StackPane container = NavigationController.containerNav;
+
     public void setDataStudent(StudentDTO student) {
         studentDTO = student;
         PositionLabel.setText("Student");
@@ -50,7 +56,15 @@ public class StudentItemController {
         FacultyLabel.setText("Faculty: " + teacherDTO.getFaculty());
     }
 
-    public void openUserInfo(MouseEvent mouseEvent) {
-        System.out.println(studentDTO.getName());
+    public void openUserInfo(MouseEvent mouseEvent) throws IOException {
+        URL urlLayout = new File("src/GUI/resources/items/UserInfor_admin.fxml").toURI().toURL();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(urlLayout);
+        Node item = fxmlLoader.load();
+
+        UserInfor_admin_Controller userInfor_admin_controller = fxmlLoader.getController();
+        userInfor_admin_controller.setData(studentDTO);
+
+        container.getChildren().addAll(item);
     }
 }
