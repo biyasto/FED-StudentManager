@@ -23,6 +23,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class SearchClassesController implements Initializable {
@@ -104,7 +105,7 @@ public class SearchClassesController implements Initializable {
                 classScrollPane.getChildren().clear();
 
                 for(SubjectClassDTO subjectClass: classList) {
-                    if(subjectClass.getClassId().contains(findID)) {
+                    if(subjectClass.getClassId().contains(findID.toUpperCase())) {
                         loadDataIntoTable(subjectClass);
                         isFound = true;
                         break;
@@ -119,7 +120,7 @@ public class SearchClassesController implements Initializable {
                     SubjectBLL subjectBLL = new SubjectBLL();
                     SubjectDTO subjectDTO = subjectBLL.GetSubjectById(subjectClass.getSubjectId());
 
-                    if(subjectDTO.getSubjectName().contains(findName)) {
+                    if(subjectDTO.getSubjectName().contains(findName.toUpperCase())) {
                         loadDataIntoTable(subjectClass);
                         isFound = true;
                     }

@@ -38,7 +38,7 @@
       <Pane layoutX="28.0" layoutY="65.0" prefHeight="30.0" prefWidth="239.0">
          <children>
             <Label fx:id="lblNotFound" layoutX="24.0" layoutY="6.0" text="Not Found" textFill="RED" visible="false" />
-            <Label fx:id="lblEmpty" layoutX="24.0" layoutY="5.0" text="Emty" textFill="RED" visible="false" />
+            <Label fx:id="lblEmpty" layoutX="24.0" layoutY="5.0" text="Empty" textFill="RED" visible="false" />
          </children>
       </Pane>
    </children>

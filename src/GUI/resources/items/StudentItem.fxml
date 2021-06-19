@@ -22,7 +22,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Pane layoutX="544.0" prefHeight="103.0" prefWidth="110.0" style="-fx-background-color: #B5DFCA; -fx-background-radius: 45 45 0 0;">
+            <Pane layoutX="544.0" prefHeight="103.0" prefWidth="110.0" style="-fx-background-color: #B5DFCA; -fx-background-radius: 0 45 0 45;">
                <children>
                   <ImageView fx:id="Avatar" fitHeight="69.0" fitWidth="71.0" layoutX="17.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>

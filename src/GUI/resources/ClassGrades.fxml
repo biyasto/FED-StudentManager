@@ -11,29 +11,29 @@
 
 <AnchorPane fx:id="classPane" prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.ClassGradesController">
    <children>
-      <Pane prefHeight="136.0" prefWidth="686.0" style="-fx-background-radius: 0 0 45 45; -fx-background-color: #AD9BAA;">
+      <Pane prefHeight="136.0" prefWidth="686.0" style="-fx-background-radius: 45 45 45 45; -fx-background-color: #AD9BAA;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
          <children>
-            <Label fx:id="SubjectName" alignment="CENTER" layoutX="232.0" layoutY="24.0" prefHeight="70.0" prefWidth="424.0" text="Introduce to Game development">
+            <Label fx:id="SubjectName" alignment="CENTER" layoutX="237.0" layoutY="12.0" prefHeight="70.0" prefWidth="424.0" text="Introduce to Game development">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="ClassID" layoutX="18.0" layoutY="23.0" prefHeight="47.0" prefWidth="199.0" text="SE102.L11.PMCL">
+            <Label fx:id="ClassID" layoutX="30.0" layoutY="23.0" prefHeight="47.0" prefWidth="199.0" text="SE102.L11.PMCL">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="teacherName" layoutX="29.0" layoutY="105.0" text="Teacher: Nguen Van An">
+            <Label fx:id="teacherName" layoutX="30.0" layoutY="95.0" text="Teacher: Nguyen Van An">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="attendantNum" layoutX="565.0" layoutY="105.0" text="Attendant: 39">
+            <Label fx:id="attendantNum" layoutX="541.0" layoutY="95.0" text="Attendant: 39">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="facultyName" layoutX="29.0" layoutY="81.0" text="Faculty: ">
+            <Label fx:id="facultyName" layoutX="30.0" layoutY="72.0" text="Faculty: ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
