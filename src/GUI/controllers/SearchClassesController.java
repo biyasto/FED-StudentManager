@@ -104,7 +104,7 @@ public class SearchClassesController implements Initializable {
                 classScrollPane.getChildren().clear();
 
                 for(SubjectClassDTO subjectClass: classList) {
-                    if(subjectClass.getClassId().equals(findID)) {
+                    if(subjectClass.getClassId().contains(findID)) {
                         loadDataIntoTable(subjectClass);
                         isFound = true;
                         break;
@@ -119,7 +119,7 @@ public class SearchClassesController implements Initializable {
                     SubjectBLL subjectBLL = new SubjectBLL();
                     SubjectDTO subjectDTO = subjectBLL.GetSubjectById(subjectClass.getSubjectId());
 
-                    if(subjectDTO.getSubjectName().equals(findName)) {
+                    if(subjectDTO.getSubjectName().contains(findName)) {
                         loadDataIntoTable(subjectClass);
                         isFound = true;
                     }
