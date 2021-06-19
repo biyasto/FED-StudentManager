@@ -1,6 +1,7 @@
 package DataAccessLayer;
 
 import DataTransferObject.ExamScheduleDTO;
+import DataTransferObject.StudentDTO;
 import Utils.DatabaseUtils;
 
 import java.sql.Connection;
@@ -32,7 +33,9 @@ public class ExamScheduleDAL {
                 ExamScheduleDTO s = new ExamScheduleDTO();
                 s.setClassId(rs.getString("classId"));
                 s.setExamDate(rs.getDate("examdate"));
-                s.setExamType(rs.getInt("flag"));
+                s.setFlag(rs.getInt("flag"));
+                s.setTimeStart(rs.getTime("examStart"));
+                s.setTimeEnd(rs.getTime("examEnd"));
 
                 list.add(s);
             }
@@ -48,5 +51,33 @@ public class ExamScheduleDAL {
             }
         }
         return list;
+    }
+
+    public int addNewEvent(ExamScheduleDTO event) {
+        String sqlInsert = "insert into examschedule values (?,?,?,?,?);";
+        int result = -1;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sqlInsert);
+
+            pres.setString(1, event.getClassId());
+            pres.setDate(2, event.getExamDate());
+            pres.setInt(3, event.getFlag());
+            pres.setTime(4, event.getTimeStart());
+            pres.setTime(5, event.getTimeEnd());
+
+            result = pres.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return result;
     }
 }

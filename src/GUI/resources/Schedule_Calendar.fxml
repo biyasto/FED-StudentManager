@@ -47,7 +47,7 @@
       </Pane>
       <ScrollPane hbarPolicy="NEVER" layoutX="3.0" layoutY="66.0" prefHeight="475.0" prefWidth="677.0">
          <content>
-            <VBox alignment="TOP_CENTER" prefHeight="471.0" prefWidth="674.0" />
+            <VBox fx:id="eventScrollPane" alignment="TOP_CENTER" prefHeight="471.0" prefWidth="674.0" />
          </content>
       </ScrollPane>
    </children>
