@@ -13,12 +13,12 @@
    <children>
       <AnchorPane fx:id="ClassBox" layoutX="1.0" layoutY="7.0" onMouseClicked="#showClass" prefHeight="113.0" prefWidth="651.0" style="-fx-background-radius: 0 45 0 45; -fx-background-color: #EEE0E0;" AnchorPane.leftAnchor="5.0">
          <children>
-            <Label fx:id="SubjectLabel" alignment="CENTER" layoutX="13.0" layoutY="53.0" onMouseClicked="#showClass" prefHeight="59.0" prefWidth="361.0" text="Introduction to Game Development" textFill="#736b6b">
+            <Label fx:id="SubjectLabel" alignment="CENTER" layoutX="13.0" layoutY="53.0" prefHeight="59.0" prefWidth="361.0" text="Introduction to Game Development" textFill="#736b6b">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="ClassIDLabel" alignment="CENTER" layoutX="13.0" layoutY="14.0" onMouseClicked="#showClass" prefHeight="39.0" prefWidth="362.0" text="SE102.L21.PMCL">
+            <Label fx:id="ClassIDLabel" alignment="CENTER" layoutX="13.0" layoutY="14.0" prefHeight="39.0" prefWidth="362.0" text="SE102.L21.PMCL">
                <font>
                   <Font name="SVN-Helves bold" size="27.0" />
                </font>
