@@ -16,7 +16,7 @@
             <VBox fx:id="classScrollPane" alignment="TOP_CENTER" prefHeight="475.0" prefWidth="674.0" />
          </content>
       </ScrollPane>
-      <Pane layoutX="51.0" layoutY="2.0" prefHeight="118.0" prefWidth="622.0" style="-fx-background-color: transparent; -fx-background-radius: 20 0 20 0;">
+      <Pane layoutX="51.0" layoutY="2.0" prefHeight="118.0" prefWidth="622.0" style="-fx-background-color: transparent; -fx-background-radius: 20 0 20 0;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
             <TextField fx:id="ClassIDTextfield" layoutX="14.0" layoutY="59.0" prefHeight="30.0" prefWidth="202.0" promptText="Search by Class ID" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
                <font>

@@ -29,7 +29,7 @@ public class EventItemController {
     private Label lblEventDate;
 
     @FXML
-    private Label ShiftLabel;
+    private Label lblShift;
 
     @FXML
     private Label lblStartTime;
@@ -63,7 +63,8 @@ public class EventItemController {
 
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         lblEventDate.setText(df.format(examSchedule.getExamDate()));
-        lblStartTime.setText(examSchedule.getTimeStart().toString());
-        lblEndTime.setText(examSchedule.getTimeEnd().toString());
+
+        int shift = examSchedule.getShift();
+        lblShift.setText(String.valueOf(shift));
     }
 }

@@ -7,18 +7,18 @@ public class ExamScheduleDTO {
     private String classId;
     private java.sql.Date examDate;
     private int flag;
-    private Time timeStart;
-    private Time timeEnd;
+    private int shift;
+    private Time totalTime;
 
     public ExamScheduleDTO() {
     }
 
-    public ExamScheduleDTO(String classId, java.sql.Date examDate, int flag, Time timeStart, Time timeEnd) {
+    public ExamScheduleDTO(String classId, Date examDate, int flag, int shift, Time totalTime) {
         this.classId = classId;
         this.examDate = examDate;
         this.flag = flag;
-        this.timeStart = timeStart;
-        this.timeEnd = timeEnd;
+        this.shift = shift;
+        this.totalTime = totalTime;
     }
 
     public String getClassId() {
@@ -33,7 +33,7 @@ public class ExamScheduleDTO {
         return examDate;
     }
 
-    public void setExamDate(java.sql.Date examDate) {
+    public void setExamDate(Date examDate) {
         this.examDate = examDate;
     }
 
@@ -45,19 +45,19 @@ public class ExamScheduleDTO {
         this.flag = flag;
     }
 
-    public Time getTimeStart() {
-        return timeStart;
+    public int getShift() {
+        return shift;
     }
 
-    public void setTimeStart(Time timeStart) {
-        this.timeStart = timeStart;
+    public void setShift(int shift) {
+        this.shift = shift;
     }
 
-    public Time getTimeEnd() {
-        return timeEnd;
+    public Time getTotalTime() {
+        return totalTime;
     }
 
-    public void setTimeEnd(Time timeEnd) {
-        this.timeEnd = timeEnd;
+    public void setTotalTime(Time totalTime) {
+        this.totalTime = totalTime;
     }
 }

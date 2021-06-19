@@ -34,8 +34,8 @@ public class ExamScheduleDAL {
                 s.setClassId(rs.getString("classId"));
                 s.setExamDate(rs.getDate("examdate"));
                 s.setFlag(rs.getInt("flag"));
-                s.setTimeStart(rs.getTime("examStart"));
-                s.setTimeEnd(rs.getTime("examEnd"));
+                s.setShift(rs.getInt("shift"));
+                s.setTotalTime(rs.getTime("totalTime"));
 
                 list.add(s);
             }
@@ -64,8 +64,8 @@ public class ExamScheduleDAL {
             pres.setString(1, event.getClassId());
             pres.setDate(2, event.getExamDate());
             pres.setInt(3, event.getFlag());
-            pres.setTime(4, event.getTimeStart());
-            pres.setTime(5, event.getTimeEnd());
+            pres.setInt(4, event.getShift());
+            pres.setTime(5, event.getTotalTime());
 
             result = pres.executeUpdate();
         } catch (Exception e) {

@@ -118,4 +118,5 @@ public class CreateClassController implements Initializable {
     void back(MouseEvent event) {
         container.getChildren().removeAll(CreateClassPane);
     }
+
 }

@@ -97,9 +97,6 @@ public class ClassGradesController {
 
     @FXML
     void back(MouseEvent event) {
-        for (Node p: container.getChildren()){
-            System.out.println(p.getId());
-        }
         container.getChildren().removeAll(classPane);
     }
 }

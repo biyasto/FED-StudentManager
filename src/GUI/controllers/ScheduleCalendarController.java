@@ -8,12 +8,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +31,7 @@ public class ScheduleCalendarController implements Initializable {
     @FXML
     public Button BackButton;
     @FXML
-    public Button AddButton;
+    public Button btnAddEvent;
     @FXML
     public Button PrintButton;
     @FXML
@@ -48,6 +51,13 @@ public class ScheduleCalendarController implements Initializable {
         //load all class into table
         for(ExamScheduleDTO event: eventList)
             loadDataIntoTable(event);
+    }
+
+    @FXML
+    void addExamEvent(MouseEvent event) throws IOException {
+        URL url = new File("src/GUI/resources/AddExamEvent.fxml").toURI().toURL();
+        Parent createAccountScreen = FXMLLoader.load(url);
+        container.getChildren().add(createAccountScreen);
     }
 
     void loadDataIntoTable(ExamScheduleDTO examSchedule) {

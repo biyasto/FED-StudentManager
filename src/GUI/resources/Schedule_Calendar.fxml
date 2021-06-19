@@ -20,7 +20,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="AddButton" layoutX="293.0" layoutY="551.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Add Event" textFill="WHITE">
+      <Button fx:id="btnAddEvent" layoutX="293.0" layoutY="551.0" mnemonicParsing="false" onMouseClicked="#addExamEvent" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Add Event" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
