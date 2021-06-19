@@ -8,6 +8,10 @@ import java.util.List;
 public class SubjectBLL {
     SubjectDAL dal = new SubjectDAL();
 
+    public List<SubjectDTO> GetAllSubject() {
+        return dal.GetAllSubject();
+    }
+
     public int InsertSubject(SubjectDTO s) {
         return dal.InsertSubject(s);
     }
@@ -15,5 +19,6 @@ public class SubjectBLL {
     public SubjectDTO GetSubjectById(String id) {
         return dal.GetSubjectById(id);
     }
+
     public List<SubjectDTO> getSubjectsByStudentId(String id){return dal.getSubjectsByStudentId(id);}
 }
