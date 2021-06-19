@@ -17,7 +17,7 @@ public class SubjectClassBLL {
         return dal.getClassesByStudentId(id);
     }
 
-    public List<SubjectClassDTO> getClassesByClassId(String id){return dal.getClassesByClassId(id);}
+    public SubjectClassDTO getClassById(String id){return dal.getClassById(id);}
 
     public List<SubjectClassDTO> getClassesBySubjectName(String name){ return dal.getClassesBySubjectName(name); }
 
