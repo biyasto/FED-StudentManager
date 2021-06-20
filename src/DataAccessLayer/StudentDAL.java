@@ -84,15 +84,15 @@ public class StudentDAL {
         return result;
     }
 
-    public int UpdatePassword(StudentDTO s) {
+    public int UpdatePassword(String id, String password) {
         String sql = "update Student set pass = ? where id = ?";
         int result = -1;
         try {
             DBU = new DatabaseUtils();
             conn = DBU.createConnection();
             pres = conn.prepareStatement(sql);
-            pres.setString(1, s.getPass());
-            pres.setString(2, s.getId());
+            pres.setString(1, password);
+            pres.setString(2, id);
 
             result = pres.executeUpdate();
 

@@ -34,7 +34,7 @@ public class ExamScheduleDAL {
                 s.setClassId(rs.getString("classId"));
                 s.setExamDate(rs.getDate("examdate"));
                 s.setFlag(rs.getInt("flag"));
-                s.setShift(rs.getInt("shifts"));
+                s.setShift(rs.getInt("shift"));
                 s.setTotalTime(rs.getTime("totalTime"));
 
                 list.add(s);
