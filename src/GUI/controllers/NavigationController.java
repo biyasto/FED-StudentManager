@@ -103,7 +103,7 @@ public class NavigationController implements Initializable {
 
     @FXML
     void OpenScheduleScreen(MouseEvent event) throws IOException {
-        URL url = new File("src/GUI/resources/Schedule_Event.fxml").toURI().toURL();
+        URL url = new File("src/GUI/resources/Schedule_Calendar.fxml").toURI().toURL();
         Parent createAccountScreen = FXMLLoader.load(url);
         container.getChildren().removeAll();
         container.getChildren().setAll(createAccountScreen);

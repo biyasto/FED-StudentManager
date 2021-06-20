@@ -9,6 +9,10 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.File;
@@ -16,6 +20,10 @@ import java.net.URL;
 import java.util.List;
 
 public class ClassGradesController {
+
+    @FXML
+    private AnchorPane classPane;
+
     @FXML
     private Label SubjectName;
 
@@ -48,7 +56,7 @@ public class ClassGradesController {
     private SubjectDTO subject = null;
     private SubjectClassDTO subjectClass = null;
 
-    //private List<TranscriptDTO> transcriptList = new ArrayList<>();
+    private StackPane container = NavigationController.containerNav;
 
     public void setData(List<StudentDTO> studentList, TeacherDTO teacher, SubjectDTO subject, SubjectClassDTO subjectClass) {
         this.studentList = studentList;
@@ -66,7 +74,6 @@ public class ClassGradesController {
     }
 
     void showClass() {
-        //System.out.println(studentList);
         for(StudentDTO student: studentList) {
             TranscriptBLL transcriptBLL = new TranscriptBLL();
             List<TranscriptDTO> transcriptOfOneStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
@@ -86,5 +93,10 @@ public class ClassGradesController {
                 e.printStackTrace();
             }
         }
+    }
+
+    @FXML
+    void back(MouseEvent event) {
+        container.getChildren().removeAll(classPane);
     }
 }

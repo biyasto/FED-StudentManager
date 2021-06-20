@@ -45,4 +45,36 @@ public class StudentCLassDAL {
         }
         return list;
     }
+
+    public List<StudentCLassDTO> getAllClassOfStudent(String id){
+        List<StudentCLassDTO> list = new ArrayList<>();
+        String sql = "select * from StudentClass where studentId = ?";
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, id);
+            rs = pres.executeQuery();
+
+            while (rs.next()) {
+                StudentCLassDTO s = new StudentCLassDTO();
+                s.setClassId(rs.getString("classId"));
+                s.setStudentId(rs.getString("studentId"));
+                s.setTranScriptId(rs.getString("transcriptId"));
+
+                list.add(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return list;
+    }
 }

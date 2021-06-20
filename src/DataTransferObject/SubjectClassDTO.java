@@ -59,4 +59,9 @@ public class SubjectClassDTO {
     public void setSemester(int semester) {
         Semester = semester;
     }
+
+    @Override
+    public String toString() {
+        return this.getClassId();
+    }
 }

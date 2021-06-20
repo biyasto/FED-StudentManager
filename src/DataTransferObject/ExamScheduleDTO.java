@@ -1,42 +1,63 @@
 package DataTransferObject;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Time;
 
 public class ExamScheduleDTO {
-    private String ClassId;
-    private Date ExamDate;
-    private int ExamType;
-
-    public ExamScheduleDTO(String classId, Date examDate, int examType) {
-        ClassId = classId;
-        ExamDate = examDate;
-        ExamType = examType;
-    }
+    private String classId;
+    private java.sql.Date examDate;
+    private int flag;
+    private int shift;
+    private Time totalTime;
 
     public ExamScheduleDTO() {
     }
 
+    public ExamScheduleDTO(String classId, Date examDate, int flag, int shift, Time totalTime) {
+        this.classId = classId;
+        this.examDate = examDate;
+        this.flag = flag;
+        this.shift = shift;
+        this.totalTime = totalTime;
+    }
+
     public String getClassId() {
-        return ClassId;
+        return classId;
     }
 
     public void setClassId(String classId) {
-        ClassId = classId;
+        this.classId = classId;
     }
 
     public Date getExamDate() {
-        return ExamDate;
+        return examDate;
     }
 
     public void setExamDate(Date examDate) {
-        ExamDate = examDate;
+        this.examDate = examDate;
     }
 
-    public int getExamType() {
-        return ExamType;
+    public int getFlag() {
+        return flag;
     }
 
-    public void setExamType(int examType) {
-        ExamType = examType;
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
+
+    public int getShift() {
+        return shift;
+    }
+
+    public void setShift(int shift) {
+        this.shift = shift;
+    }
+
+    public Time getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(Time totalTime) {
+        this.totalTime = totalTime;
     }
 }

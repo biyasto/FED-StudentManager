@@ -73,6 +73,6 @@ public class ClassItemController {
         ClassGradesController classGradesController = fxmlLoader.getController();
         classGradesController.setData(studentList, teacher, subject, subjectClass);
 
-        container.getChildren().addAll(item);
+        container.getChildren().add(item);
     }
 }

@@ -8,7 +8,7 @@ public class DatabaseUtils {
 
     private Connection conn;
     private String driver = "com.mysql.cj.jdbc.Driver";
-    private String url = "jdbc:mysql://localhost:3306/StudentManagement";
+    private String url = "jdbc:mysql://localhost:3306/StudentManagement?useSSL=false&useUnicode=true&characterEncoding=UTF-8";
     private String user = "root";
     private String pass = "admin";
 

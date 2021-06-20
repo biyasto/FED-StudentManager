@@ -15,6 +15,39 @@ public class SubjectDAL {
     private PreparedStatement pres = null;
     private ResultSet rs = null;
 
+    public List<SubjectDTO> GetAllSubject() {
+        List<SubjectDTO> list = new ArrayList<>();
+        String sql = "select * from subject";
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+
+            rs = pres.executeQuery();
+            while (rs.next()) {
+                SubjectDTO subjectDTO = new SubjectDTO();
+                subjectDTO.setSubjectID(rs.getString("subjectId"));
+                subjectDTO.setSubjectName(rs.getString("subjectName"));
+                subjectDTO.setCredits(rs.getInt("credit"));
+                subjectDTO.setFaculty(rs.getString("faculty"));
+
+                list.add(subjectDTO);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return list;
+    }
+
     public int InsertSubject(SubjectDTO s) {
         String sql = "insert into subject values (?,?,?,?);";
         int result = -1;

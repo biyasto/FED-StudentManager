@@ -17,12 +17,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class SearchClassesController implements Initializable {
@@ -31,6 +33,9 @@ public class SearchClassesController implements Initializable {
 
     @FXML
     private Button FindButton;
+
+    @FXML
+    private Button btnCreateNewClass;
 
     @FXML
     private TextField SubjectNameTextfield;
@@ -44,6 +49,7 @@ public class SearchClassesController implements Initializable {
     @FXML
     private Label lblEmpty;
 
+    private StackPane container = NavigationController.containerNav;
     private List<SubjectClassDTO> classList = new ArrayList<>();
 
     @Override
@@ -102,9 +108,8 @@ public class SearchClassesController implements Initializable {
         else {
             if(!findID.isEmpty()) {
                 classScrollPane.getChildren().clear();
-
                 for(SubjectClassDTO subjectClass: classList) {
-                    if(subjectClass.getClassId().equals(findID)) {
+                    if(subjectClass.getClassId().contains(findID.toUpperCase())) {
                         loadDataIntoTable(subjectClass);
                         isFound = true;
                         break;
@@ -113,13 +118,12 @@ public class SearchClassesController implements Initializable {
             }
             else {
                 classScrollPane.getChildren().clear();
-
                 for(SubjectClassDTO subjectClass: classList) {
                     //find subject base on class
                     SubjectBLL subjectBLL = new SubjectBLL();
                     SubjectDTO subjectDTO = subjectBLL.GetSubjectById(subjectClass.getSubjectId());
 
-                    if(subjectDTO.getSubjectName().equals(findName)) {
+                    if(subjectDTO.getSubjectName().toUpperCase().contains(findName.toUpperCase())) {
                         loadDataIntoTable(subjectClass);
                         isFound = true;
                     }
@@ -134,6 +138,21 @@ public class SearchClassesController implements Initializable {
                 lblNotFound.setVisible(true);
                 lblEmpty.setVisible(false);
             }
+        }
+    }
+
+    @FXML
+    void createNewClass(MouseEvent event) {
+        try {
+            URL urlLayout = new File("src/GUI/resources/CreateClass.fxml").toURI().toURL();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(urlLayout);
+            Node item = fxmlLoader.load();
+
+            container.getChildren().add(item);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

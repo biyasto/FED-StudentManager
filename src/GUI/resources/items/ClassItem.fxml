@@ -6,19 +6,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="StudentInfoBox" prefHeight="158.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.ClassItemController">
+<AnchorPane fx:id="StudentInfoBox" prefHeight="130.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.ClassItemController">
    <cursor>
       <Cursor fx:constant="HAND" />
    </cursor>
    <children>
-      <AnchorPane fx:id="ClassBox" layoutX="1.0" layoutY="7.0" onMouseClicked="#showClass" prefHeight="113.0" prefWidth="651.0" style="-fx-background-radius: 0 45 0 0; -fx-background-color: #EEE0E0;">
+      <AnchorPane fx:id="ClassBox" layoutX="1.0" layoutY="7.0" onMouseClicked="#showClass" prefHeight="113.0" prefWidth="651.0" style="-fx-background-radius: 0 45 0 45; -fx-background-color: #EEE0E0;" AnchorPane.leftAnchor="5.0">
          <children>
-            <Label fx:id="SubjectLabel" alignment="CENTER" layoutX="13.0" layoutY="53.0" onMouseClicked="#showClass" prefHeight="59.0" prefWidth="361.0" text="Introduction to Game Development" textFill="#736b6b">
+            <Label fx:id="SubjectLabel" alignment="CENTER" layoutX="13.0" layoutY="53.0" prefHeight="59.0" prefWidth="361.0" text="Introduction to Game Development" textFill="#736b6b">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="ClassIDLabel" alignment="CENTER" layoutX="13.0" layoutY="14.0" onMouseClicked="#showClass" prefHeight="39.0" prefWidth="362.0" text="SE102.L21.PMCL">
+            <Label fx:id="ClassIDLabel" alignment="CENTER" layoutX="13.0" layoutY="14.0" prefHeight="39.0" prefWidth="362.0" text="SE102.L21.PMCL">
                <font>
                   <Font name="SVN-Helves bold" size="27.0" />
                </font>

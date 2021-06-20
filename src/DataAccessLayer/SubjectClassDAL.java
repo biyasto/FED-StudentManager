@@ -83,8 +83,8 @@ public class SubjectClassDAL {
         return list;
     }
 
-    public List<SubjectClassDTO> getClassesByClassId(String id){
-        List<SubjectClassDTO> list = new ArrayList<>();
+    public SubjectClassDTO getClassById(String id){
+        SubjectClassDTO subjectClass = null;
         String sql = "select * from subjectclass where classId = ?";
         try {
             DBU = new DatabaseUtils();
@@ -94,14 +94,12 @@ public class SubjectClassDAL {
             rs = pres.executeQuery();
 
             while (rs.next()) {
-                SubjectClassDTO s = new SubjectClassDTO();
-                s.setClassId(rs.getString("classId"));
-                s.setHeadMaster(rs.getString("headMaster"));
-                s.setSubjectId(rs.getString("subjectId"));
-                s.setSchoolYear(rs.getInt("schoolYear"));
-                s.setSemester(rs.getInt("semester"));
-
-                list.add(s);
+                subjectClass = new SubjectClassDTO();
+                subjectClass.setClassId(rs.getString("classId"));
+                subjectClass.setHeadMaster(rs.getString("headMaster"));
+                subjectClass.setSubjectId(rs.getString("subjectId"));
+                subjectClass.setSchoolYear(rs.getInt("schoolYear"));
+                subjectClass.setSemester(rs.getInt("semester"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -114,7 +112,7 @@ public class SubjectClassDAL {
                 ex.printStackTrace();
             }
         }
-        return list;
+        return subjectClass;
     }
 
     public List<SubjectClassDTO> getClassesBySubjectName(String name){
@@ -152,4 +150,6 @@ public class SubjectClassDAL {
         }
         return list;
     }
+
+
 }
