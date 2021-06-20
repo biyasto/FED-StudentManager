@@ -24,6 +24,10 @@ public class TeacherBLL {
         return dal.GetTeacher(id, password);
     }
 
+    public TeacherDTO GetTeacherByID(String id) {
+        return dal.GetTeacherByID(id);
+    }
+
     public int countTeachers() {
         return dal.countTeachers();
     }

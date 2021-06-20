@@ -7,6 +7,8 @@ public class SubjectClassDTO {
     private int SchoolYear;
     private int Semester;
 
+
+
     public SubjectClassDTO(String classId, String headMaster, String subjectId, int schoolYear, int semester) {
         ClassId = classId;
         HeadMaster = headMaster;

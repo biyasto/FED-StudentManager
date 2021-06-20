@@ -172,4 +172,40 @@ public class StudentDAL {
         return count;
     }
 
+    public List<StudentDTO> getStudentsByClassId(String classID){
+        List<StudentDTO> list = new ArrayList<>();
+        String sql = "select s3.* from subjectclass s1, studentclass s2, student s3 where s1.classId = ? and s1.classId = s2.classId and s2.studentId = s3.id;";
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, classID);
+            rs = pres.executeQuery();
+
+            while (rs.next()) {
+                StudentDTO s = new StudentDTO();
+                s.setId(rs.getString("id"));
+                s.setName(rs.getString("name"));
+                s.setGender(rs.getBoolean("gender"));
+                s.setEmail(rs.getString("email"));
+                s.setFaculty(rs.getString("faculty"));
+                s.setBirthDay(rs.getString("birthday"));
+                s.setPass(rs.getString("pass"));
+                s.setType(rs.getInt("userType"));
+
+                list.add(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return list;
+    }
 }

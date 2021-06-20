@@ -2,64 +2,57 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.StudentGradesController">
+<AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.ClassGradesController">
    <children>
-      <AnchorPane fx:id="GradeBox" layoutX="23.0" layoutY="55.0" prefHeight="136.0" prefWidth="648.0" style="-fx-background-color: #9575cd; -fx-background-radius: 45px;">
+      <Pane prefHeight="136.0" prefWidth="686.0" style="-fx-background-radius: 0 0 45 45; -fx-background-color: #AD9BAA;">
          <children>
-            <AnchorPane layoutX="209.0" layoutY="33.0" prefHeight="87.0" prefWidth="386.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 35px;">
-               <children>
-                  <Label fx:id="Grade1Label" layoutX="19.0" layoutY="22.0" text="Attendance" />
-                  <TextField fx:id="Grade1Textfield" layoutX="13.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-                  <Label fx:id="Grade2Label" layoutX="118.0" layoutY="22.0" text="Quiz" />
-                  <TextField fx:id="Grade2Textfield" layoutX="110.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-                  <Label fx:id="Grade3Label" layoutX="209.0" layoutY="22.0" text="Project" />
-                  <TextField fx:id="Grade3Textfield" layoutX="203.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-                  <Label fx:id="Grade4Label" layoutX="300.0" layoutY="22.0" text="Exam" />
-                  <TextField fx:id="Grade4Textfield" layoutX="294.0" layoutY="40.0" prefHeight="25.0" prefWidth="80.0" />
-               </children></AnchorPane>
-            <Label fx:id="SumGradeLabel" layoutX="604.0" layoutY="58.0" prefHeight="26.0" prefWidth="29.0" text="69" textFill="WHITE">
+            <Label fx:id="SubjectName" alignment="CENTER" layoutX="232.0" layoutY="24.0" prefHeight="70.0" prefWidth="424.0" text="Introduce to Game development">
                <font>
-                  <Font size="19.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="73.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../asset/Picture/UserAvatar.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="StudentNam" layoutX="59.0" layoutY="87.0" text="Phạm Hoài Bảo">
+            <Label fx:id="ClassID" layoutX="18.0" layoutY="23.0" prefHeight="47.0" prefWidth="199.0" text="SE102.L11.PMCL">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="teacherName" layoutX="29.0" layoutY="105.0" text="Teacher: Nguen Van An">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="StudentID" layoutX="84.0" layoutY="111.0" text="19520406" />
+            <Label fx:id="attendantNum" layoutX="565.0" layoutY="105.0" text="Attendant: 39">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="facultyName" layoutX="29.0" layoutY="81.0" text="Faculty: ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
-      </AnchorPane>
-      <Button fx:id="SaveButton" layoutX="598.0" layoutY="546.0" mnemonicParsing="false" style="-fx-background-color: #9575cd;" text="SAVE ALL" textFill="WHITE">
+      </Pane>
+      <Button fx:id="SaveButton" layoutX="599.0" layoutY="564.0" mnemonicParsing="false" style="-fx-background-color: #9575cd;" text="SAVE ALL" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="UpdateButton" layoutX="522.0" layoutY="546.0" mnemonicParsing="false" style="-fx-background-color: #9575cd;" text="Update" textFill="WHITE">
+      <Button fx:id="UpdateButton" layoutX="522.0" layoutY="564.0" mnemonicParsing="false" style="-fx-background-color: #9575cd;" text="Update" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="ClassID" layoutX="88.0" layoutY="14.0" text="SE102.L11.PMCL">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label fx:id="Subject" layoutX="299.0" layoutY="19.0" text="Introduce to Game development">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
+      <ScrollPane fx:id="GradesPanel" hbarPolicy="NEVER" layoutX="2.0" layoutY="151.0" prefHeight="406.0" prefWidth="680.0">
+         <content>
+            <VBox fx:id="studentGrades" prefHeight="404.0" prefWidth="677.0" />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

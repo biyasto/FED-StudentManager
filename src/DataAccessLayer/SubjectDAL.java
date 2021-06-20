@@ -43,10 +43,9 @@ public class SubjectDAL {
     }
 
 
-    public String GetSubjectNameById(String id) {
+    public SubjectDTO GetSubjectById(String id) {
+        SubjectDTO subjectDTO = null;
         String sql = "select * from subject where subjectid =?";
-        int result = -1;
-        String name = null;
         try {
             DBU = new DatabaseUtils();
             conn = DBU.createConnection();
@@ -55,7 +54,11 @@ public class SubjectDAL {
 
             rs = pres.executeQuery();
             if (rs.next()) {
-                name = rs.getString("subjectName");
+                subjectDTO = new SubjectDTO();
+                subjectDTO.setSubjectID(rs.getString("subjectId"));
+                subjectDTO.setSubjectName(rs.getString("subjectName"));
+                subjectDTO.setCredits(rs.getInt("credit"));
+                subjectDTO.setFaculty(rs.getString("faculty"));
             }
 
         } catch (Exception e) {
@@ -69,7 +72,43 @@ public class SubjectDAL {
                 ex.printStackTrace();
             }
         }
-        return name;
+        return subjectDTO;
     }
 
+    public List<SubjectDTO> getSubjectsByStudentId(String id){
+        List<SubjectDTO> list = new ArrayList<>();
+        String sql = "select s2.subjectId, s2.subjectName, s2.credit, s2.faculty " +
+                "from StudentClass s1, Subject s2, SubjectClass s3 " +
+                "where s1.classId = s3.classId and " +
+                "s2.subjectId = s3.subjectId and " +
+                "s1.studentId = ?";
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, id);
+            rs = pres.executeQuery();
+
+            while (rs.next()) {
+                SubjectDTO s = new SubjectDTO();
+                s.setSubjectID(rs.getString("subjectId"));
+                s.setSubjectName(rs.getString("subjectName"));
+                s.setCredits(rs.getInt("credit"));
+                s.setFaculty(rs.getString("faculty"));
+
+                list.add(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return list;
+    }
 }

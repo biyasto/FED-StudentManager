@@ -35,6 +35,12 @@ public class LoginController {
     private Hyperlink ForgetPasswordLink;
 
     @FXML
+    private Button hideButton;
+
+    @FXML
+    private Button CloseButton;
+
+    @FXML
     private Label lblSuccessful;
 
     @FXML
@@ -115,6 +121,17 @@ public class LoginController {
             }
         }
 
+    }
+    @FXML
+    private void closeButtonAction(){
+        Stage stage = (Stage) CloseButton.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private void hideButtonAction(){
+        Stage stage = (Stage) hideButton.getScene().getWindow();
+        stage.setIconified(true);
     }
 
 }
