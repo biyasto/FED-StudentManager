@@ -45,6 +45,7 @@ public class EventItemController {
     @FXML
     private Label lblTypeExam;
 
+    private String startTime = null;
     private ExamScheduleDTO examSchedule = null;
     private SubjectDTO subject = null;
 
@@ -70,10 +71,11 @@ public class EventItemController {
         lblShift.setText(String.valueOf(shift));
 
         lblStartTime.setText(loadStartTime(examSchedule.getShift()));
+
+        lblEndTime.setText(loadEndTime(examSchedule.getShift(),examSchedule.getTotalTime()));
     }
 
     public String loadStartTime(int shift) {
-        String startTime = "00:00:00";
         switch (shift) {
             case 1:
                 startTime = "07:30:00";
@@ -92,11 +94,19 @@ public class EventItemController {
     }
 
     public String loadEndTime(int shift, Time total) {
-        return "";
+        int start = timeStringToInt(startTime);
+        int end = timeStringToInt(total.toString());
+        int sumMinute = start + end;
+        Time timeEnd = Time.valueOf(LocalTime.of(sumMinute/60, sumMinute%60, 0));
+        return timeEnd.toString();
+    }
+    public static int timeStringToInt(String time)
+    {
+        String[]  convertStringArr = new String[3];
+        convertStringArr = time.split(":");
+        int sum =0;
+        sum = Integer.parseInt(convertStringArr[0])*60 + Integer.parseInt(convertStringArr[1]) +Integer.parseInt(convertStringArr[2])/60;
+        return sum;
     }
 
-    public static void main(String[] args) {
-        Time t = new Time(01, 30, 00);
-        System.out.println(t.toString());
-    }
 }
