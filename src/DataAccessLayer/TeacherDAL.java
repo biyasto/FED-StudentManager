@@ -16,33 +16,6 @@ public class TeacherDAL {
     private PreparedStatement pres = null;
     private ResultSet rs = null;
 
-//    public static void main(String[] args) {
-//        TeacherDAL dal = new TeacherDAL();
-//
-//        TeacherDTO t1 = new TeacherDTO("01", "Bảo Nhạc", true, "2001-07-23", "@mgail", "999999999999", 1, "CNPM");
-//        TeacherDTO t2 = new TeacherDTO("02", "Đỗ Thiếu Phủ", true, "2001-07-23", "@mgail", "8888888888", 1, "CNPM");
-//        TeacherDTO t3 = new TeacherDTO("03", "Tế Đỗ", true, "2001-07-23", "@mgail", "999999999999", 1, "CNPM");
-//
-//
-//        dal.UpdatePassword(t2);
-//        List<TeacherDTO> list = dal.GetALlTeacher();
-//            //dal.UpdatePassword(st);
-//        //list.forEach(s -> {
-//            TeacherDTO s = dal.GetById("02");
-//            System.out.println("Id>>      " + s.getId());
-//            System.out.println("Name>>    " + s.getName());
-//            System.out.println("Email>>   " + s.getEmail());
-//            System.out.println("Gender>>  " + s.isGender());
-//            System.out.println("Type>>    " + s.getType());
-//            System.out.println("Birthday>>" + s.getBirthDay());
-//            System.out.println("Password>>" + s.getPass());
-//            System.out.println("Faculty>> " + s.getFaculty());
-//            System.out.println();
-//            System.out.println();
-//        //});
-//
-//    }
-
     public List<TeacherDTO> GetALlTeacher() {
         List<TeacherDTO> list = new ArrayList<>();
         String sql = "select * from teacher";

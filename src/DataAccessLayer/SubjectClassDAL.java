@@ -153,5 +153,33 @@ public class SubjectClassDAL {
         return list;
     }
 
+    public int InsertSubjectClass(SubjectClassDTO s) {
+        String sql = "insert into subjectclass values (?,?,?,?,?);";
+        int result = -1;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, s.getClassId());
+            pres.setString(2, s.getHeadMaster());
+            pres.setString(3, s.getSubjectId());
+            pres.setInt(4, s.getSchoolYear());
+            pres.setInt(5, s.getSemester());
+
+            result = pres.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return result;
+    }
+
 
 }
