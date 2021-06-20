@@ -123,6 +123,6 @@ public class AddExamEventController implements Initializable {
 
     void loadDefaultExamDate(){
         Date date = new Date();
-        examDate.setValue(LocalDate.of(2021, 6, 30));
+        examDate.setValue(LocalDate.of(2021,20,20));
     }
 }

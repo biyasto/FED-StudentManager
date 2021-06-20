@@ -56,8 +56,9 @@ public class ScheduleCalendarController implements Initializable {
     @FXML
     void addExamEvent(MouseEvent event) throws IOException {
         URL url = new File("src/GUI/resources/AddExamEvent.fxml").toURI().toURL();
-        Parent createAccountScreen = FXMLLoader.load(url);
-        container.getChildren().add(createAccountScreen);
+        Parent createExamEvent = FXMLLoader.load(url);
+        container.getChildren().removeAll();
+        container.getChildren().add(createExamEvent);
     }
 
     void loadDataIntoTable(ExamScheduleDTO examSchedule) {

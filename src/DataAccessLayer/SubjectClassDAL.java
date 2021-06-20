@@ -1,6 +1,7 @@
 package DataAccessLayer;
 
 import DataTransferObject.SubjectClassDTO;
+import DataTransferObject.SubjectDTO;
 import Utils.DatabaseUtils;
 
 import java.sql.Connection;
@@ -14,6 +15,7 @@ public class SubjectClassDAL {
     private Connection conn = null;
     private PreparedStatement pres = null;
     private ResultSet rs = null;
+
 
     public List<SubjectClassDTO> getAllSubjectClass(){
         List<SubjectClassDTO> list = new ArrayList<>();

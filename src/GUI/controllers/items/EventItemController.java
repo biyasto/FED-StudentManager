@@ -7,8 +7,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.List;
 
 public class EventItemController {
@@ -52,9 +54,9 @@ public class EventItemController {
         this.subject = subject;
         this.examSchedule = examSchedule;
 
-        if (examSchedule.getFlag() == 0){
+        if (examSchedule.getFlag() == 0) {
             lblTypeExam.setText("Mid-term Examination");
-        }else if (examSchedule.getFlag() == 1){
+        } else if (examSchedule.getFlag() == 1) {
             lblTypeExam.setText("Final Examination");
         }
         lblSubjectName.setText(subject.getSubjectName());
@@ -66,5 +68,35 @@ public class EventItemController {
 
         int shift = examSchedule.getShift();
         lblShift.setText(String.valueOf(shift));
+
+        lblStartTime.setText(loadStartTime(examSchedule.getShift()));
+    }
+
+    public String loadStartTime(int shift) {
+        String startTime = "00:00:00";
+        switch (shift) {
+            case 1:
+                startTime = "07:30:00";
+                break;
+            case 2:
+                startTime = "09:30:00";
+                break;
+            case 3:
+                startTime = "13:30:00";
+                break;
+            case 4:
+                startTime = "15:30:00";
+                break;
+        }
+        return startTime;
+    }
+
+    public String loadEndTime(int shift, Time total) {
+        return "";
+    }
+
+    public static void main(String[] args) {
+        Time t = new Time(01, 30, 00);
+        System.out.println(t.toString());
     }
 }

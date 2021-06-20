@@ -58,8 +58,9 @@ public class SearchClassesController implements Initializable {
         classList = subjectClassBLL.getAllSubjectClass();
 
         //load all class into table
-        for(SubjectClassDTO subjectClass: classList)
+        for(SubjectClassDTO subjectClass: classList) {
             loadDataIntoTable(subjectClass);
+        }
 
     }
 
