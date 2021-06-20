@@ -87,8 +87,10 @@ public class CreateClassController implements Initializable {
             //Data for subject choice box, whenever user change faculty, subject choice box will be updated automatically
             List<String> subjectListChoice = new ArrayList<>();
             for(SubjectDTO subject: subjectList) {
-                if(subject.getFaculty().equals(newValue)) {
-                    subjectListChoice.add(subject.getSubjectID() + "-" + subject.getSubjectName());
+                if(subject.getFaculty() != null) {
+                    if (subject.getFaculty().equals(newValue)){
+                        subjectListChoice.add(subject.getSubjectID() + "-" + subject.getSubjectName());
+                    }
                 }
             }
             ObservableList<String> dataSubject = FXCollections.observableArrayList();

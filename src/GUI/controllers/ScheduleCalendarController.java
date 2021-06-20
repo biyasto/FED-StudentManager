@@ -94,14 +94,12 @@ public class ScheduleCalendarController implements Initializable {
 
     void loadExamEventWithMonthAndYear(int month, int year){
         eventScrollPane.getChildren().clear();
-        System.out.println("choose date: "+month + "/" + year);
         Calendar cal = Calendar.getInstance();
 
         for(ExamScheduleDTO event: eventList){
             cal.setTime(event.getExamDate());
             int eventMonth = cal.get(Calendar.MONTH) + 1;
             int eventYear = cal.get(Calendar.YEAR);
-            System.out.println("Event date: " + eventMonth + "/" + eventYear);
             if (eventMonth == month && eventYear == year){
                 loadDataIntoTable(event);
             }

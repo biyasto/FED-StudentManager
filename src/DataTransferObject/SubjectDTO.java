@@ -47,4 +47,9 @@ public class SubjectDTO {
     public void setFaculty(String faculty) {
         Faculty = faculty;
     }
+
+    @Override
+    public String toString() {
+        return this.getSubjectName();
+    }
 }

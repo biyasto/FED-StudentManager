@@ -15,39 +15,66 @@
    <children>
       <Pane layoutX="26.0" layoutY="76.0" prefHeight="470.0" prefWidth="310.0">
          <children>
-            <Text fill="#665b5b" layoutX="24.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+            <Text fill="#665b5b" layoutX="175.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text fill="#665b5b" layoutX="23.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+            <Text fill="#665b5b" layoutX="19.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text fill="#665b5b" layoutX="23.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class ID">
+            <Text fill="#665b5b" layoutX="23.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class ID">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text fill="#665b5b" layoutX="28.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shift">
+            <Text fill="#665b5b" layoutX="28.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shift">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Button fx:id="btnCreate" layoutX="116.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#createEvent" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 45px;" text="Create" textFill="WHITE">
+            <Button fx:id="btnCreate" layoutX="107.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#createEvent" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 45px;" text="Create" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <DatePicker fx:id="examDate" layoutX="16.0" layoutY="265.0" prefHeight="30.0" prefWidth="173.0" style="-fx-background-color: #EEE0E0; -fx-border-radius: 45 0 0 45;" />
-            <ChoiceBox fx:id="choiceBoxClassId" layoutX="15.0" layoutY="54.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
-            <ChoiceBox fx:id="choiceBoxFlag" layoutX="15.0" layoutY="126.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
-            <ChoiceBox fx:id="choiceBoxShift" layoutX="16.0" layoutY="199.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
-            <ChoiceBox fx:id="choiceBoxTotalTime" layoutX="198.0" layoutY="266.0" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
-            <Text fill="#665b5b" layoutX="200.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="During (min)">
+            <DatePicker fx:id="examDate" layoutX="12.0" layoutY="272.0" prefHeight="30.0" prefWidth="282.0" style="-fx-background-color: #EEE0E0; -fx-border-radius: 45 0 0 45;" />
+            <ChoiceBox fx:id="choiceBoxClassId" layoutX="12.0" layoutY="125.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <ChoiceBox fx:id="choiceBoxFlag" layoutX="164.0" layoutY="124.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <ChoiceBox fx:id="choiceBoxShift" layoutX="13.0" layoutY="199.0" prefHeight="30.0" prefWidth="174.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <ChoiceBox fx:id="choiceBoxTotalTime" layoutX="199.0" layoutY="199.0" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <Text fill="#665b5b" layoutX="211.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="During (min)">
                <font>
                   <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#665b5b" layoutX="174.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="choiceBoxSubject" layoutX="163.0" layoutY="54.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <Text fill="#665b5b" layoutX="21.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="choiceBoxFaculty" layoutX="13.0" layoutY="53.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <Text fx:id="lblEmpty" fill="RED" layoutX="15.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please full fill all information" textAlignment="CENTER" visible="false" wrappingWidth="281.3637390136719">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font>
+            </Text>
+            <Text fx:id="lblSuccess" fill="#06a600" layoutX="13.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Examination Event Create Success!" textAlignment="CENTER" visible="false" wrappingWidth="281.48182678222656">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font>
+            </Text>
+            <Text fx:id="lblError" fill="RED" layoutX="13.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error, please try later!" textAlignment="CENTER" visible="false" wrappingWidth="278.99803924560547">
+               <font>
+                  <Font name="System Italic" size="10.0" />
                </font>
             </Text>
          </children>
