@@ -21,4 +21,8 @@ public class SubjectClassBLL {
 
     public List<SubjectClassDTO> getClassesBySubjectName(String name){ return dal.getClassesBySubjectName(name); }
 
+    public int InsertSubjectClass(SubjectClassDTO s) {
+        return dal.InsertSubjectClass(s);
+    }
+
 }

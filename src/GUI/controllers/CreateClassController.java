@@ -1,7 +1,11 @@
 package GUI.controllers;
 
 import BusinessLogicLayer.SubjectBLL;
+import BusinessLogicLayer.SubjectClassBLL;
+import BusinessLogicLayer.TeacherBLL;
+import DataTransferObject.SubjectClassDTO;
 import DataTransferObject.SubjectDTO;
+import DataTransferObject.TeacherDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -40,13 +44,10 @@ public class CreateClassController implements Initializable {
     private Text lblError;
 
     @FXML
-    private Text lblWrongPass;
-
-    @FXML
     private ChoiceBox<String> FacultyChoiceBox;
 
     @FXML
-    private TextField TeacherID;
+    private ChoiceBox<String> TeacherChoiceBox;
 
     @FXML
     private Button btnCreate;
@@ -67,6 +68,9 @@ public class CreateClassController implements Initializable {
         SubjectBLL subjectBLL = new SubjectBLL();
         List<SubjectDTO> subjectList = subjectBLL.GetAllSubject();
 
+        TeacherBLL teacherBLL = new TeacherBLL();
+        List<TeacherDTO> teacherList = teacherBLL.GetALlTeacher();
+
         List<String> facultyList = new ArrayList<>();
         for(SubjectDTO subject: subjectList) {
             if(!facultyList.contains(subject.getFaculty())) {
@@ -80,17 +84,27 @@ public class CreateClassController implements Initializable {
         FacultyChoiceBox.setItems(dataFaculty);
 
         FacultyChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            //whenever user change faculty, subject choice box will be updated
+            //Data for subject choice box, whenever user change faculty, subject choice box will be updated automatically
             List<String> subjectListChoice = new ArrayList<>();
             for(SubjectDTO subject: subjectList) {
                 if(subject.getFaculty().equals(newValue)) {
-                    subjectListChoice.add(subject.getSubjectName());
+                    subjectListChoice.add(subject.getSubjectID() + "-" + subject.getSubjectName());
                 }
             }
-
             ObservableList<String> dataSubject = FXCollections.observableArrayList();
             dataSubject.setAll(subjectListChoice);
             SubjectChoiceBox.setItems(dataSubject);
+
+            //Data for teacher choice box, whenever user change faculty, teacher choice box will be updated automatically
+            List<String> teacherListChoice = new ArrayList<>();
+            for(TeacherDTO teacher: teacherList) {
+                if(teacher.getFaculty().equals(newValue)) {
+                    teacherListChoice.add(teacher.getId() + "-" + teacher.getName());
+                }
+            }
+            ObservableList<String> dataTeacher = FXCollections.observableArrayList();
+            dataTeacher.setAll(teacherListChoice);
+            TeacherChoiceBox.setItems(dataTeacher);
         });
 
         //data for school year
@@ -111,7 +125,53 @@ public class CreateClassController implements Initializable {
 
     @FXML
     void createClass(MouseEvent event) {
+        String faculty = FacultyChoiceBox.getValue();
+        String schoolYear = SchoolYearChoiceBox.getValue();
+        String semester = SemesterChoiceBox.getValue();
+        String classId = ClassID.getText();
 
+        String subjectChoice = SubjectChoiceBox.getValue();
+        String teacherChoice = TeacherChoiceBox.getValue();
+
+        if(faculty.isEmpty()
+        || schoolYear.isEmpty()
+        || semester.isEmpty()
+        || classId.isEmpty()
+        || subjectChoice.isEmpty()
+        || teacherChoice.isEmpty()) {
+            lblEmpty.setVisible(true);
+            lblError.setVisible(false);
+            lblSuccess.setVisible(false);
+        }
+        else {
+            String[] strSubject = subjectChoice.split("-");
+            String subjectId = strSubject[0];
+
+            String[] strTeacher = teacherChoice.split("-");
+            String teacherId = strTeacher[0];
+
+            SubjectClassDTO subjectClassDTO = new SubjectClassDTO(
+                    classId,
+                    teacherId,
+                    subjectId,
+                    Integer.parseInt(schoolYear),
+                    Integer.parseInt(semester)
+            );
+
+            SubjectClassBLL subjectClassBLL = new SubjectClassBLL();
+            int result = subjectClassBLL.InsertSubjectClass(subjectClassDTO);
+
+            if(result != -1) {
+                lblEmpty.setVisible(false);
+                lblError.setVisible(false);
+                lblSuccess.setVisible(true);
+            }
+            else {
+                lblEmpty.setVisible(false);
+                lblError.setVisible(true);
+                lblSuccess.setVisible(false);
+            }
+        }
     }
 
     @FXML

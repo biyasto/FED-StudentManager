@@ -15,51 +15,59 @@
    <children>
       <Pane layoutX="26.0" layoutY="76.0" prefHeight="470.0" prefWidth="310.0">
          <children>
-            <TextField fx:id="ClassID" cache="true" layoutX="15.0" layoutY="206.0" prefHeight="33.0" prefWidth="279.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
-            <Text fill="#665b5b" layoutX="32.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject">
+            <TextField fx:id="ClassID" cache="true" layoutX="15.0" layoutY="281.0" prefHeight="33.0" prefWidth="279.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+            <Text fill="#665b5b" layoutX="32.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text fill="#665b5b" layoutX="31.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class ID">
+            <Text fill="#665b5b" layoutX="31.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class ID">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <ChoiceBox fx:id="SubjectChoiceBox" layoutX="16.0" layoutY="129.0" prefHeight="33.0" prefWidth="279.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
-            <Text fx:id="lblEmpty" fill="RED" layoutX="56.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please full fill all information" visible="false" />
-            <Text fx:id="lblSuccess" fill="#06a600" layoutX="56.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Create Success!" visible="false" />
-            <Text fx:id="lblError" fill="RED" layoutX="53.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error, please try later!" visible="false" />
-            <Text fx:id="lblWrongPass" fill="RED" layoutX="53.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password incorrect" visible="false" />
-            <Text fill="#665b5b" layoutX="23.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty">
+            <ChoiceBox fx:id="SubjectChoiceBox" layoutX="16.0" layoutY="126.0" prefHeight="33.0" prefWidth="279.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+            <Text fx:id="lblEmpty" fill="RED" layoutX="24.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please full fill all information" visible="false">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font></Text>
+            <Text fx:id="lblSuccess" fill="#06a600" layoutX="26.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Create Success!" visible="false">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font></Text>
+            <Text fx:id="lblError" fill="RED" layoutX="24.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error, please try later!" visible="false">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font></Text>
+            <Text fill="#665b5b" layoutX="32.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
             <ChoiceBox fx:id="FacultyChoiceBox" layoutX="16.0" layoutY="50.0" prefHeight="33.0" prefWidth="279.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
-            <TextField fx:id="TeacherID" cache="true" layoutX="16.0" layoutY="287.0" prefHeight="33.0" prefWidth="279.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
-            <Text fill="#665b5b" layoutX="27.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher ID">
+            <Text fill="#665b5b" layoutX="27.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Button fx:id="btnCreate" layoutX="109.0" layoutY="422.0" mnemonicParsing="false" onMouseClicked="#createClass" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 45px;" text="Create" textFill="WHITE">
+            <Button fx:id="btnCreate" layoutX="109.0" layoutY="428.0" mnemonicParsing="false" onMouseClicked="#createClass" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 45px;" text="Create" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Text fill="#665b5b" layoutX="28.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="School Year">
+            <Text fill="#665b5b" layoutX="28.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="School Year">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <ChoiceBox fx:id="SchoolYearChoiceBox" layoutX="15.0" layoutY="363.0" prefHeight="33.0" prefWidth="113.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
-            <Text fill="#665b5b" layoutX="192.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semester">
+            <ChoiceBox fx:id="SchoolYearChoiceBox" layoutX="15.0" layoutY="358.0" prefHeight="33.0" prefWidth="113.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+            <Text fill="#665b5b" layoutX="192.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semester">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <ChoiceBox fx:id="SemesterChoiceBox" layoutX="178.0" layoutY="363.0" prefHeight="33.0" prefWidth="113.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+            <ChoiceBox fx:id="SemesterChoiceBox" layoutX="178.0" layoutY="358.0" prefHeight="33.0" prefWidth="113.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+            <ChoiceBox fx:id="TeacherChoiceBox" layoutX="16.0" layoutY="205.0" prefHeight="33.0" prefWidth="279.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
          </children>
       </Pane>
       <ImageView fitHeight="365.0" fitWidth="339.0" layoutX="330.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
