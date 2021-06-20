@@ -1,27 +1,28 @@
 package GUI.controllers.items;
 
-import BusinessLogicLayer.StudentClassBLL;
-import BusinessLogicLayer.SubjectBLL;
-import BusinessLogicLayer.SubjectClassBLL;
-import BusinessLogicLayer.TranscriptBLL;
+import BusinessLogicLayer.*;
 import DataTransferObject.*;
 import GUI.controllers.NavigationController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class UserInfor_admin_Controller {
 
@@ -72,6 +73,32 @@ public class UserInfor_admin_Controller {
     @FXML
     private Button btnBack_pnGrade;
 
+    //component of change password panel
+
+    @FXML
+    private AnchorPane panelChangePassword;
+
+    @FXML
+    private Button btnBack_pnChangePass;
+
+    @FXML
+    private Label lblCurPass;
+
+    @FXML
+    private TextField txtPass;
+
+    @FXML
+    private TextField txtConfirmPass;
+
+    @FXML
+    private Text lblEmpty;
+
+    @FXML
+    private Text lblSuccess;
+
+    @FXML
+    private Text lblError;
+
     private StudentDTO student = null;
     private StackPane container = NavigationController.containerNav;
 
@@ -87,6 +114,11 @@ public class UserInfor_admin_Controller {
         EmailLabel.setText(student.getEmail());
 
         setDataForGradePane(student);
+        setDataForChangePassPane(student);
+    }
+
+    private void setDataForChangePassPane(StudentDTO student) {
+        lblCurPass.setText(student.getPass());
     }
 
     private void setDataForGradePane(StudentDTO student) {
@@ -127,7 +159,9 @@ public class UserInfor_admin_Controller {
 
     @FXML
     void openStudentGrade(MouseEvent event) {
+        panelMenu.setVisible(false);
         panelGrade.setVisible(true);
+        panelChangePassword.setVisible(false);
     }
 
     @FXML
@@ -136,8 +170,40 @@ public class UserInfor_admin_Controller {
     }
 
     @FXML
-    void changePassword(MouseEvent event) {
+    void openChangePasswordPane(MouseEvent event) {
+        panelMenu.setVisible(false);
+        panelGrade.setVisible(false);
+        panelChangePassword.setVisible(true);
+    }
 
+    @FXML
+    void changePassword(MouseEvent event) {
+        String password = txtPass.getText();
+        String confirmPass = txtConfirmPass.getText();
+        if(password.isEmpty() || confirmPass.isEmpty()) {
+            lblEmpty.setVisible(true);
+            lblError.setVisible(false);
+            lblSuccess.setVisible(false);
+        }
+        else if(!password.equals(confirmPass)) {
+            lblEmpty.setVisible(false);
+            lblError.setVisible(true);
+            lblSuccess.setVisible(false);
+        }
+        else {
+            StudentBLL studentBLL = new StudentBLL();
+            int result = studentBLL.UpdatePassword(IDLabel.getText(), password);
+            if(result != -1) {
+                lblEmpty.setVisible(false);
+                lblError.setVisible(false);
+                lblSuccess.setVisible(true);
+            }
+            else {
+                lblEmpty.setVisible(false);
+                lblError.setVisible(true);
+                lblSuccess.setVisible(false);
+            }
+        }
     }
 
     @FXML
@@ -146,7 +212,9 @@ public class UserInfor_admin_Controller {
     }
 
     @FXML
-    void backToPrevious(MouseEvent event) {
+    void backToMenu(MouseEvent event) {
+        panelMenu.setVisible(true);
         panelGrade.setVisible(false);
+        panelChangePassword.setVisible(false);
     }
 }

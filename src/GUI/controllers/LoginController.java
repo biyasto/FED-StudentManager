@@ -4,6 +4,7 @@ import BusinessLogicLayer.StudentBLL;
 import BusinessLogicLayer.TeacherBLL;
 import DataTransferObject.StudentDTO;
 import DataTransferObject.TeacherDTO;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -14,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -54,14 +56,13 @@ public class LoginController {
         String userName = UserTextField.getText();
         String password = PasswordField.getText();
 
-        if(userName.isEmpty() || password.isEmpty()) {
+        if (userName.isEmpty() || password.isEmpty()) {
             //empty information
             lblSuccessful.setVisible(false);
             lblFail.setVisible(false);
             lblEmpty.setVisible(true);
-        }
-        else {
-            if(userName.equals("admin") && password.equals("admin")) {
+        } else {
+            if (userName.equals("admin") && password.equals("admin")) {
                 //call main menu of admin account
                 try {
                     Node node = (Node) event.getSource();
@@ -75,12 +76,10 @@ public class LoginController {
                     Parent root = FXMLLoader.load(url);
                     stage.setScene(new Scene(root));
                     stage.show();
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
-            else {
+            } else {
                 //connect to database and execute query
                 TeacherBLL teacherBLL = new TeacherBLL();
                 StudentBLL studentBLL = new StudentBLL();
@@ -88,13 +87,12 @@ public class LoginController {
                 studentUser = studentBLL.GetStudent(userName, password);
                 teacherUser = teacherBLL.GetTeacher(userName, password);
 
-                if(studentUser == null && teacherUser == null) {
+                if (studentUser == null && teacherUser == null) {
                     //wrong userName or Password
                     lblSuccessful.setVisible(false);
                     lblFail.setVisible(true);
                     lblEmpty.setVisible(false);
-                }
-                else {
+                } else {
                     //problem: cannot show label Successful
                     //TAO THỀ LÀ TAO ĐÉO HIỂU TẠI SAO LUÔN ???
                     lblFail.setVisible(false);
@@ -113,8 +111,7 @@ public class LoginController {
                         Parent root = FXMLLoader.load(url);
                         stage.setScene(new Scene(root));
                         stage.show();
-                    }
-                    catch (Exception e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
@@ -122,14 +119,30 @@ public class LoginController {
         }
 
     }
+
     @FXML
-    private void closeButtonAction(){
+    public void HyperLinkAction(ActionEvent event) throws InterruptedException, IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        //set delay for smooth animation
+        TimeUnit.SECONDS.sleep(1);
+        stage.close();
+
+        URL url = new File("src/GUI/resources/ForgotPassword_FindAccount.fxml").toURI().toURL();
+        Parent root = FXMLLoader.load(url);
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void closeButtonAction() {
         Stage stage = (Stage) CloseButton.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    private void hideButtonAction(){
+    private void hideButtonAction() {
         Stage stage = (Stage) hideButton.getScene().getWindow();
         stage.setIconified(true);
     }

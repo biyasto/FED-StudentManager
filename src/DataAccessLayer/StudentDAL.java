@@ -84,15 +84,15 @@ public class StudentDAL {
         return result;
     }
 
-    public int UpdatePassword(StudentDTO s) {
+    public int UpdatePassword(String id, String password) {
         String sql = "update Student set pass = ? where id = ?";
         int result = -1;
         try {
             DBU = new DatabaseUtils();
             conn = DBU.createConnection();
             pres = conn.prepareStatement(sql);
-            pres.setString(1, s.getPass());
-            pres.setString(2, s.getId());
+            pres.setString(1, password);
+            pres.setString(2, id);
 
             result = pres.executeUpdate();
 
@@ -145,7 +145,41 @@ public class StudentDAL {
         }
         return s;
     }
+    public StudentDTO GetStudentByID(String id) {
+        String sql = "select * from student where id =?";
+        StudentDTO s = null;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, id);
 
+            rs = pres.executeQuery();
+            if (rs.next()) {
+                s = new StudentDTO();
+                s.setId(rs.getString("id"));
+                s.setName(rs.getString("name"));
+                s.setGender(rs.getBoolean("gender"));
+                s.setEmail(rs.getString("email"));
+                s.setFaculty(rs.getString("faculty"));
+                s.setBirthDay(rs.getString("birthday"));
+                s.setPass(rs.getString("pass"));
+                s.setType(rs.getInt("userType"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return s;
+    }
     public int countStudents() {
         String sql = "select count(*) from Student;";
         int count = 0;

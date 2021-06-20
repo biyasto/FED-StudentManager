@@ -16,8 +16,10 @@ public class StudentBLL {
         return dal.InsertStudent(s);
     }
 
-    public int UpdatePassword(StudentDTO s) {
-        return dal.UpdatePassword(s);
+    public StudentDTO GetStudentByID(String id) {return dal.GetStudentByID(id);};
+
+    public int UpdatePassword(String id, String password) {
+        return dal.UpdatePassword(id, password);
     }
 
     public StudentDTO GetStudent(String id, String password) {
