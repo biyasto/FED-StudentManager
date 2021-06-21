@@ -83,17 +83,19 @@ public class TranscriptDAL {
         return transcriptDTO;
     }
 
-    //NOT FIX YET
-    public int UpdateTranscript(Double marks, String id) {
-        String sql = "update transcript set marks = ? where transcriptid = ?;";
+    public int UpdateTranscript(TranscriptDTO transcript) {
+        String sql = "update transcript set mark1=?, mark2=?, mark3=?, mark4=? where transcriptid = ?;";
         int result = -1;
         try {
             DBU = new DatabaseUtils();
             conn = DBU.createConnection();
             pres = conn.prepareStatement(sql);
 
-            pres.setDouble(1, marks);
-            pres.setString(2, id);
+            pres.setDouble(1, transcript.getMark1());
+            pres.setDouble(2, transcript.getMark2());
+            pres.setDouble(3, transcript.getMark3());
+            pres.setDouble(4, transcript.getMark4());
+            pres.setInt(5, transcript.getTranscriptId());
 
             result = pres.executeUpdate();
         } catch (Exception e) {

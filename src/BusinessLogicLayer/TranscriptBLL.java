@@ -10,7 +10,7 @@ public class TranscriptBLL {
         return dal.GetTranscriptOfClass(classID, studentID);
     }
 
-    public int UpdateTranscript(Double marks, String id) {
-        return dal.UpdateTranscript(marks, id);
+    public int UpdateTranscript(TranscriptDTO transcript) {
+        return dal.UpdateTranscript(transcript);
     }
 }

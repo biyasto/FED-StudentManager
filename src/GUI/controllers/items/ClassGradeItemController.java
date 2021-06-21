@@ -102,49 +102,42 @@ public class ClassGradeItemController {
 
     @FXML
     void updateGrade(MouseEvent event) {
-//        TranscriptBLL transcriptBLL = new TranscriptBLL();
-//        int result = -1;
-//        for(TranscriptDTO transcript: transcript) {
-//            if(transcript.getFlag() == 1) {
-//                transcript.setMarks(Double.parseDouble(Grade1Textfield.getText()));
-//                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
-//                if(result == -1) {
-//                    //update failed, handle here
-//                    break;
-//                }
-//            }
-//            else if(transcript.getFlag() == 2) {
-//                transcript.setMarks(Double.parseDouble(Grade2Textfield.getText()));
-//                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
-//                if(result == -1) {
-//                    //update failed, handle here
-//                    break;
-//                }
-//            }
-//            else if(transcript.getFlag() == 3) {
-//                transcript.setMarks(Double.parseDouble(Grade3Textfield.getText()));
-//                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
-//                if(result == -1) {
-//                    //update failed, handle here
-//                    break;
-//                }
-//            }
-//            else if(transcript.getFlag() == 4) {
-//                transcript.setMarks(Double.parseDouble(Grade4Textfield.getText()));
-//                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
-//                if(result == -1) {
-//                    //update failed, handle here
-//                    break;
-//                }
-//            }
-//        }
-//        if(result != -1) {
-//            btnOK.setVisible(false);
-//            Grade1Textfield.setEditable(false);
-//            Grade2Textfield.setEditable(false);
-//            Grade3Textfield.setEditable(false);
-//            Grade4Textfield.setEditable(false);
-//        }
+        try {
+            double mark1 = Double.parseDouble(Grade1Textfield.getText());
+            double mark2 = Double.parseDouble(Grade2Textfield.getText());
+            double mark3 = Double.parseDouble(Grade3Textfield.getText());
+            double mark4 = Double.parseDouble(Grade4Textfield.getText());
+
+            if(mark1 < 0 || mark1 > 10
+            || mark2 < 0 || mark2 > 10
+            || mark3 < 0 || mark3 > 10
+            || mark4 < 0 || mark4 > 10) {
+                //invalid input, handle here
+            }
+            else {
+                TranscriptBLL transcriptBLL = new TranscriptBLL();
+                int result = -1;
+
+                transcript.setMark1(mark1);
+                transcript.setMark2(mark2);
+                transcript.setMark3(mark3);
+                transcript.setMark4(mark4);
+
+                result = transcriptBLL.UpdateTranscript(transcript);
+
+                if(result != -1) {
+                    //update successfully
+                    btnOK.setVisible(false);
+                    Grade1Textfield.setEditable(false);
+                    Grade2Textfield.setEditable(false);
+                    Grade3Textfield.setEditable(false);
+                    Grade4Textfield.setEditable(false);
+                }
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
