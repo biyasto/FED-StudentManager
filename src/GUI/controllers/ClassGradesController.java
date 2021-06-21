@@ -96,6 +96,24 @@ public class ClassGradesController {
     }
 
     @FXML
+    void inputGrades(MouseEvent event) {
+        try {
+            URL urlLayout = new File("src/GUI/resources/InputGrades.fxml").toURI().toURL();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(urlLayout);
+            Node item = fxmlLoader.load();
+
+            InputGradesController inputGradesController = fxmlLoader.getController();
+            inputGradesController.setData(studentList, teacher, subject, subjectClass);
+
+            container.getChildren().addAll(item);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void back(MouseEvent event) {
         container.getChildren().removeAll(classPane);
     }
