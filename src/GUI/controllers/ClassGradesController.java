@@ -76,7 +76,7 @@ public class ClassGradesController {
     void showClass() {
         for(StudentDTO student: studentList) {
             TranscriptBLL transcriptBLL = new TranscriptBLL();
-            List<TranscriptDTO> transcriptOfOneStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
+            TranscriptDTO transcriptOfOneStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
 
             try {
                 URL urlLayout = new File("src/GUI/resources/items/ClassGradeItem.fxml").toURI().toURL();

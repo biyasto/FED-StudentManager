@@ -134,7 +134,7 @@ public class UserInfor_admin_Controller {
                     //get classId and className to set data for grade item
                     SubjectClassDTO subjectClass = subjectClassBLL.getClassById(studentCLass.getClassId());
                     SubjectDTO subject = subjectBLL.GetSubjectById(subjectClass.getSubjectId());
-                    List<TranscriptDTO> transcriptOfStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
+                    TranscriptDTO transcriptOfStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
 
                     bindData(subjectClass, subject, transcriptOfStudent);
                 }
@@ -145,7 +145,7 @@ public class UserInfor_admin_Controller {
         }
     }
 
-    void bindData(SubjectClassDTO subjectClass, SubjectDTO subject, List<TranscriptDTO> transcriptOfStudent) throws IOException {
+    void bindData(SubjectClassDTO subjectClass, SubjectDTO subject, TranscriptDTO transcriptOfStudent) throws IOException {
         URL urlLayout = new File("src/GUI/resources/items/StudentGradeItem.fxml").toURI().toURL();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(urlLayout);

@@ -3,17 +3,15 @@ package GUI.controllers.items;
 import BusinessLogicLayer.TranscriptBLL;
 import DataTransferObject.StudentDTO;
 import DataTransferObject.TranscriptDTO;
-import GUI.controllers.NavigationController;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 
-import java.util.List;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
 
 public class ClassGradeItemController {
 
@@ -67,38 +65,30 @@ public class ClassGradeItemController {
 
 
     private StudentDTO student = null;
-    private List<TranscriptDTO> transcriptList = null;
+    private TranscriptDTO transcript = null;
 
 
-    public void setData(StudentDTO student, List<TranscriptDTO> transcriptList) {
+    public void setData(StudentDTO student, TranscriptDTO transcriptDTO) {
         this.student = student;
-        this.transcriptList = transcriptList;
+        this.transcript = transcriptDTO;
 
         StudentName.setText(student.getName());
         StudentID.setText(student.getId());
 
-        int sum = 0;
-        if(!transcriptList.isEmpty()) {
-            for(TranscriptDTO item: transcriptList) {
-                if(item.getFlag() == 1) {
-                    Grade1Textfield.setText(String.valueOf(item.getMarks()));
-                    sum+=item.getMarks();
-                }
-                else if(item.getFlag() == 2) {
-                    Grade2Textfield.setText(String.valueOf(item.getMarks()));
-                    sum+=item.getMarks();
-                }
-                else if(item.getFlag() == 3) {
-                    Grade3Textfield.setText(String.valueOf(item.getMarks()));
-                    sum+=item.getMarks();
-                }
-                else if(item.getFlag() == 4) {
-                    Grade4Textfield.setText(String.valueOf(item.getMarks()));
-                    sum+=item.getMarks();
-                }
-            }
+        double avg = 0;
+        if(transcript != null) {
+            Grade1Textfield.setText(String.valueOf(transcript.getMark1()));
+            Grade2Textfield.setText(String.valueOf(transcript.getMark2()));
+            Grade3Textfield.setText(String.valueOf(transcript.getMark3()));
+            Grade4Textfield.setText(String.valueOf(transcript.getMark4()));
+
+            avg = transcript.getMark1() * 0.1
+                + transcript.getMark2() * 0.2
+                + transcript.getMark3() * 0.2
+                + transcript.getMark4() * 0.5;
         }
-        SumGradeLabel.setText(String.valueOf(sum));
+        DecimalFormat df = new DecimalFormat("#.#");
+        SumGradeLabel.setText(df.format(avg));
     }
 
     @FXML
@@ -112,49 +102,49 @@ public class ClassGradeItemController {
 
     @FXML
     void updateGrade(MouseEvent event) {
-        TranscriptBLL transcriptBLL = new TranscriptBLL();
-        int result = -1;
-        for(TranscriptDTO transcript: transcriptList) {
-            if(transcript.getFlag() == 1) {
-                transcript.setMarks(Double.parseDouble(Grade1Textfield.getText()));
-                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
-                if(result == -1) {
-                    //update failed, handle here
-                    break;
-                }
-            }
-            else if(transcript.getFlag() == 2) {
-                transcript.setMarks(Double.parseDouble(Grade2Textfield.getText()));
-                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
-                if(result == -1) {
-                    //update failed, handle here
-                    break;
-                }
-            }
-            else if(transcript.getFlag() == 3) {
-                transcript.setMarks(Double.parseDouble(Grade3Textfield.getText()));
-                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
-                if(result == -1) {
-                    //update failed, handle here
-                    break;
-                }
-            }
-            else if(transcript.getFlag() == 4) {
-                transcript.setMarks(Double.parseDouble(Grade4Textfield.getText()));
-                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
-                if(result == -1) {
-                    //update failed, handle here
-                    break;
-                }
-            }
-        }
-        if(result != -1) {
-            btnOK.setVisible(false);
-            Grade1Textfield.setEditable(false);
-            Grade2Textfield.setEditable(false);
-            Grade3Textfield.setEditable(false);
-            Grade4Textfield.setEditable(false);
-        }
+//        TranscriptBLL transcriptBLL = new TranscriptBLL();
+//        int result = -1;
+//        for(TranscriptDTO transcript: transcript) {
+//            if(transcript.getFlag() == 1) {
+//                transcript.setMarks(Double.parseDouble(Grade1Textfield.getText()));
+//                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
+//                if(result == -1) {
+//                    //update failed, handle here
+//                    break;
+//                }
+//            }
+//            else if(transcript.getFlag() == 2) {
+//                transcript.setMarks(Double.parseDouble(Grade2Textfield.getText()));
+//                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
+//                if(result == -1) {
+//                    //update failed, handle here
+//                    break;
+//                }
+//            }
+//            else if(transcript.getFlag() == 3) {
+//                transcript.setMarks(Double.parseDouble(Grade3Textfield.getText()));
+//                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
+//                if(result == -1) {
+//                    //update failed, handle here
+//                    break;
+//                }
+//            }
+//            else if(transcript.getFlag() == 4) {
+//                transcript.setMarks(Double.parseDouble(Grade4Textfield.getText()));
+//                result = transcriptBLL.UpdateTranscript(transcript.getMarks(), transcript.getTranscriptId());
+//                if(result == -1) {
+//                    //update failed, handle here
+//                    break;
+//                }
+//            }
+//        }
+//        if(result != -1) {
+//            btnOK.setVisible(false);
+//            Grade1Textfield.setEditable(false);
+//            Grade2Textfield.setEditable(false);
+//            Grade3Textfield.setEditable(false);
+//            Grade4Textfield.setEditable(false);
+//        }
     }
 
 }

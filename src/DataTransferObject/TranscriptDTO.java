@@ -1,50 +1,60 @@
 package DataTransferObject;
 
 public class TranscriptDTO {
-    private String TranscriptId;
-    private String SubjectId;
-    private double Marks;
-    private int Flag;
-
-    public TranscriptDTO(String transcriptId, String subjectId, double marks, int flag) {
-        TranscriptId = transcriptId;
-        SubjectId = subjectId;
-        Marks = marks;
-        Flag = flag;
-    }
+    private int TranscriptId;
+    private double Mark1;
+    private double Mark2;
+    private double Mark3;
+    private double Mark4;
 
     public TranscriptDTO() {
     }
 
-    public String getTranscriptId() {
+    public TranscriptDTO(int transcriptId, double mark1, double mark2, double mark3, double mark4) {
+        TranscriptId = transcriptId;
+        Mark1 = mark1;
+        Mark2 = mark2;
+        Mark3 = mark3;
+        Mark4 = mark4;
+    }
+
+    public int getTranscriptId() {
         return TranscriptId;
     }
 
-    public void setTranscriptId(String transcriptId) {
+    public void setTranscriptId(int transcriptId) {
         TranscriptId = transcriptId;
     }
 
-    public String getSubjectId() {
-        return SubjectId;
+    public double getMark1() {
+        return Mark1;
     }
 
-    public void setSubjectId(String subjectId) {
-        SubjectId = subjectId;
+    public void setMark1(double mark1) {
+        Mark1 = mark1;
     }
 
-    public double getMarks() {
-        return Marks;
+    public double getMark2() {
+        return Mark2;
     }
 
-    public void setMarks(double marks) {
-        Marks = marks;
+    public void setMark2(double mark2) {
+        Mark2 = mark2;
     }
 
-    public int getFlag() {
-        return Flag;
+    public double getMark3() {
+        return Mark3;
     }
 
-    public void setFlag(int flag) {
-        Flag = flag;
+    public void setMark3(double mark3) {
+        Mark3 = mark3;
+    }
+
+    public double getMark4() {
+        return Mark4;
+    }
+
+    public void setMark4(double mark4) {
+        Mark4 = mark4;
     }
 }

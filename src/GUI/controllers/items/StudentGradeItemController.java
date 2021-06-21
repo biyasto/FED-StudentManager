@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class StudentGradeItemController {
@@ -51,30 +52,23 @@ public class StudentGradeItemController {
     @FXML
     private Label lblClassName;
 
-    public void setData(SubjectClassDTO subjectClass, SubjectDTO subject, List<TranscriptDTO> transcriptOfStudent) {
+    public void setData(SubjectClassDTO subjectClass, SubjectDTO subject, TranscriptDTO transcriptOfStudent) {
         lblClassID.setText(subjectClass.getClassId());
         lblClassName.setText(subject.getSubjectName());
 
         double avg = 0.0;
-        for(TranscriptDTO transcript: transcriptOfStudent) {
-            if(transcript.getFlag() == 1) {
-                Grade1Textfield.setText(String.valueOf(transcript.getMarks()));
-                avg += transcript.getMarks();
-            }
-            else if(transcript.getFlag() == 2) {
-                Grade2Textfield.setText(String.valueOf(transcript.getMarks()));
-                avg += transcript.getMarks();
-            }
-            else if(transcript.getFlag() == 3) {
-                Grade3Textfield.setText(String.valueOf(transcript.getMarks()));
-                avg += transcript.getMarks();
-            }
-            else if(transcript.getFlag() == 4) {
-                Grade4Textfield.setText(String.valueOf(transcript.getMarks()));
-                avg += transcript.getMarks();
-            }
-        }
+        if(transcriptOfStudent != null) {
+            Grade1Textfield.setText(String.valueOf(transcriptOfStudent.getMark1()));
+            Grade2Textfield.setText(String.valueOf(transcriptOfStudent.getMark2()));
+            Grade3Textfield.setText(String.valueOf(transcriptOfStudent.getMark3()));
+            Grade4Textfield.setText(String.valueOf(transcriptOfStudent.getMark4()));
 
-        lblAvgGrade.setText(String.valueOf(avg));
+            avg = transcriptOfStudent.getMark1() * 0.1
+                + transcriptOfStudent.getMark2() * 0.2
+                + transcriptOfStudent.getMark3() * 0.2
+                + transcriptOfStudent.getMark4() * 0.5;
+        }
+        DecimalFormat df = new DecimalFormat("#.#");
+        lblAvgGrade.setText(df.format(avg));
     }
 }

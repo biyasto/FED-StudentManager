@@ -26,10 +26,11 @@ public class TranscriptDAL {
 
             while (rs.next()) {
                 TranscriptDTO s = new TranscriptDTO();
-                s.setTranscriptId(rs.getString("transcriptId"));
-                s.setSubjectId(rs.getString("subjectId"));
-                s.setMarks(rs.getDouble("marks"));
-                s.setFlag(rs.getInt("flag"));
+                s.setTranscriptId(rs.getInt("transcriptId"));
+                s.setMark1(rs.getDouble("mark1"));
+                s.setMark2(rs.getDouble("mark2"));
+                s.setMark3(rs.getDouble("mark3"));
+                s.setMark4(rs.getDouble("mark4"));
 
                 list.add(s);
             }
@@ -47,8 +48,8 @@ public class TranscriptDAL {
         return list;
     }
 
-    public List<TranscriptDTO> GetTranscriptOfClass(String classID, String studentID) {
-        List<TranscriptDTO> list = new ArrayList<>();
+    public TranscriptDTO GetTranscriptOfClass(String classID, String studentID) {
+        TranscriptDTO transcriptDTO = null;
         String sql = "select t.* from transcript t, studentclass s where s.studentId = ? and s.classId = ? and s.transcriptId = t.transcriptId;";
         try {
             DBU = new DatabaseUtils();
@@ -61,13 +62,12 @@ public class TranscriptDAL {
             rs = pres.executeQuery();
 
             while (rs.next()) {
-                TranscriptDTO s = new TranscriptDTO();
-                s.setTranscriptId(rs.getString("transcriptId"));
-                s.setSubjectId(rs.getString("subjectId"));
-                s.setMarks(rs.getDouble("marks"));
-                s.setFlag(rs.getInt("flag"));
-
-                list.add(s);
+                transcriptDTO = new TranscriptDTO();
+                transcriptDTO.setTranscriptId(rs.getInt("transcriptId"));
+                transcriptDTO.setMark1(rs.getDouble("mark1"));
+                transcriptDTO.setMark2(rs.getDouble("mark2"));
+                transcriptDTO.setMark3(rs.getDouble("mark3"));
+                transcriptDTO.setMark4(rs.getDouble("mark4"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,9 +80,10 @@ public class TranscriptDAL {
                 ex.printStackTrace();
             }
         }
-        return list;
+        return transcriptDTO;
     }
 
+    //NOT FIX YET
     public int UpdateTranscript(Double marks, String id) {
         String sql = "update transcript set marks = ? where transcriptid = ?;";
         int result = -1;
