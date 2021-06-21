@@ -18,22 +18,22 @@
       </ScrollPane>
       <Pane layoutX="51.0" layoutY="2.0" prefHeight="118.0" prefWidth="622.0" style="-fx-background-color: transparent; -fx-background-radius: 20 0 20 0;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
-            <TextField fx:id="ClassIDTextfield" layoutX="14.0" layoutY="59.0" prefHeight="30.0" prefWidth="202.0" promptText="Search by Class ID" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+            <TextField fx:id="ClassIDTextfield" layoutX="319.0" layoutY="66.0" prefHeight="30.0" prefWidth="233.0" promptText="Search by Class ID" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="FindButton" layoutX="247.0" layoutY="59.0" mnemonicParsing="false" onMouseClicked="#findClass" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="FIND" textFill="WHITE">
+            <Button fx:id="FindButton" layoutX="572.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#findClass" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="FIND" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <TextField fx:id="SubjectNameTextfield" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="312.0" promptText="Search by  Name of subject" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+            <TextField fx:id="SubjectNameTextfield" layoutX="319.0" layoutY="29.0" prefHeight="30.0" prefWidth="332.0" promptText="Search by Name of subject" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="btnCreateNewClass" layoutX="475.0" layoutY="59.0" mnemonicParsing="false" onMouseClicked="#createNewClass" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="CREATE NEW CLASS" textFill="WHITE">
+            <Button fx:id="btnCreateNewClass" layoutX="9.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#createNewClass" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="CREATE NEW CLASS" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

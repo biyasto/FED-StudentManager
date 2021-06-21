@@ -22,10 +22,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class SearchClassesController implements Initializable {
     @FXML
@@ -61,7 +58,6 @@ public class SearchClassesController implements Initializable {
         for(SubjectClassDTO subjectClass: classList) {
             loadDataIntoTable(subjectClass);
         }
-
     }
 
     void loadDataIntoTable(SubjectClassDTO subjectClass) {
