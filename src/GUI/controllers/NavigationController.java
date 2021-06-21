@@ -48,13 +48,13 @@ public class NavigationController implements Initializable {
     private Button SettingButton;
 
     @FXML
-    private ImageView LogoutButton;
+    private Button LogoutButton;
 
     @FXML
     private StackPane container;
 
     @FXML
-    private ImageView btnClose;
+    private Button btnClose;
 
     public static StudentDTO studentUser = LoginController.studentUser;
     public static TeacherDTO teacherUser = LoginController.teacherUser;
@@ -83,10 +83,7 @@ public class NavigationController implements Initializable {
         containerNav = container;
     }
 
-    @FXML
-    void Logout(MouseEvent event) {
 
-    }
 
     @FXML
     void OpenCreateAccountScreen(MouseEvent event) throws IOException {
@@ -142,5 +139,13 @@ public class NavigationController implements Initializable {
         System.out.println("close");
         System.exit(0);
     }
+    @FXML
+    public void btnMinimizeAction(MouseEvent mouseEvent) {
 
+    }
+
+    @FXML
+    void Logout(MouseEvent event) {
+
+    }
 }

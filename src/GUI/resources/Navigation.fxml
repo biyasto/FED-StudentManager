@@ -37,23 +37,29 @@
                 <TextField layoutX="351.0" layoutY="18.0" prefHeight="31.0" prefWidth="257.0" promptText="Search" />
                 <AnchorPane layoutX="728.0" layoutY="14.0" prefHeight="39.0" prefWidth="154.0">
                     <children>
-                        <Button cancelButton="true" layoutX="122.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="38.0" prefWidth="31.0" style="-fx-background-color: transparent; -fx-background-radius: 45px;">
+                        <Button fx:id="btnClose" cancelButton="true" layoutX="122.0" mnemonicParsing="false" onMouseClicked="#btnCloseAction" pickOnBounds="false" prefHeight="38.0" prefWidth="36.0" style="-fx-background-color: transparent; -fx-background-radius: 45px;">
                             <graphic>
-                                <ImageView fx:id="btnClose" fitHeight="22.0" fitWidth="22.0" onMouseClicked="#btnCloseAction" preserveRatio="true">
+                                <ImageView fitHeight="22.0" fitWidth="22.0" preserveRatio="true">
                                     <image>
                                         <Image url="@../asset/ButtonIcon/close.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                         </Button>
-                        <Button layoutX="86.0" layoutY="6.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="27.0" prefWidth="31.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;">
+                        <Button fx:id="Minimizebtn" layoutX="86.0" layoutY="6.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="27.0" prefWidth="31.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;">
                             <graphic>
-                                <ImageView disable="true" fitHeight="29.0" fitWidth="20.0" preserveRatio="true">
+                                <ImageView disable="true" fitHeight="29.0" fitWidth="20.0" onMouseClicked="#btnMinimizeAction" preserveRatio="true">
                                     <image>
                                         <Image url="@../asset/ButtonIcon/minimize.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                         </Button>
                         <Button fx:id="SettingButton" layoutX="6.0" mnemonicParsing="false" onMouseClicked="#OpenSettingScreen" pickOnBounds="false" prefHeight="39.0" prefWidth="20.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;">
                             <graphic>
@@ -67,14 +73,17 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </Button>
-                        <Button layoutX="45.0" mnemonicParsing="false" onMouseClicked="#Logout" pickOnBounds="false" prefHeight="39.0" prefWidth="20.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;">
+                        <Button fx:id="LogoutButton" layoutX="45.0" mnemonicParsing="false" onMouseClicked="#Logout" pickOnBounds="false" prefHeight="39.0" prefWidth="20.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;">
                             <graphic>
-                                <ImageView fx:id="LogoutButton" accessibleRole="BUTTON" disable="true" fitHeight="33.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView accessibleRole="BUTTON" disable="true" fitHeight="33.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../asset/ButtonIcon/logout.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                         </Button>
                     </children>
                 </AnchorPane>
