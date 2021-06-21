@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SearchClassesController">
@@ -16,24 +17,24 @@
             <VBox fx:id="classScrollPane" alignment="TOP_CENTER" prefHeight="475.0" prefWidth="674.0" />
          </content>
       </ScrollPane>
-      <Pane layoutX="51.0" layoutY="2.0" prefHeight="118.0" prefWidth="622.0" style="-fx-background-color: transparent; -fx-background-radius: 20 0 20 0;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <Pane layoutX="51.0" layoutY="2.0" prefHeight="118.0" prefWidth="665.0" style="-fx-background-color: transparent; -fx-background-radius: 20 0 20 0;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
-            <TextField fx:id="ClassIDTextfield" layoutX="319.0" layoutY="66.0" prefHeight="30.0" prefWidth="233.0" promptText="Search by Class ID" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+            <TextField fx:id="ClassIDTextfield" layoutX="29.0" layoutY="51.0" prefHeight="30.0" prefWidth="263.0" promptText="Search by Class ID" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="FindButton" layoutX="572.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#findClass" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="FIND" textFill="WHITE">
+            <Button fx:id="FindButton" layoutX="318.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#findClass" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="FIND" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <TextField fx:id="SubjectNameTextfield" layoutX="319.0" layoutY="29.0" prefHeight="30.0" prefWidth="332.0" promptText="Search by Name of subject" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+            <TextField fx:id="SubjectNameTextfield" layoutX="29.0" layoutY="14.0" prefHeight="30.0" prefWidth="368.0" promptText="Search by Name of subject" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="btnCreateNewClass" layoutX="9.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#createNewClass" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="CREATE NEW CLASS" textFill="WHITE">
+            <Button fx:id="btnCreateNewClass" layoutX="494.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#createNewClass" prefHeight="46.0" prefWidth="132.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="CREATE NEW CLASS" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -48,6 +49,7 @@
                   <Font name="System Italic" size="12.0" />
                </font>
             </Label>
+            <Line endX="27.600006103515625" endY="70.39999389648438" layoutX="416.0" layoutY="48.0" startX="27.600006103515625" startY="-48.0" />
          </children>
       </Pane>
    </children>

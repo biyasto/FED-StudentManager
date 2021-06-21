@@ -15,7 +15,7 @@
    <children>
       <Pane layoutX="26.0" layoutY="76.0" prefHeight="470.0" prefWidth="310.0">
          <children>
-            <Text fill="#665b5b" layoutX="175.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+            <Text fill="#665b5b" layoutX="170.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -25,38 +25,37 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text fill="#665b5b" layoutX="23.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class ID">
+            <Text fill="#665b5b" layoutX="19.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class ID">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text fill="#665b5b" layoutX="28.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shift">
+            <Text fill="#665b5b" layoutX="19.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shift">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Button fx:id="btnCreate" layoutX="107.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#createEvent" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 45px;" text="Create" textFill="WHITE">
+            <Button fx:id="btnCreate" layoutX="111.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#createEvent" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: #5F3566; -fx-background-radius: 45px;" text="Create" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <DatePicker fx:id="examDate" layoutX="12.0" layoutY="272.0" prefHeight="30.0" prefWidth="282.0" style="-fx-background-color: #EEE0E0; -fx-border-radius: 45 0 0 45;" />
             <ChoiceBox fx:id="choiceBoxClassId" layoutX="12.0" layoutY="125.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
             <ChoiceBox fx:id="choiceBoxFlag" layoutX="164.0" layoutY="124.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
-            <ChoiceBox fx:id="choiceBoxShift" layoutX="13.0" layoutY="199.0" prefHeight="30.0" prefWidth="174.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
-            <ChoiceBox fx:id="choiceBoxTotalTime" layoutX="199.0" layoutY="199.0" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
-            <Text fill="#665b5b" layoutX="211.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="During (min)">
+            <ChoiceBox fx:id="choiceBoxShift" layoutX="13.0" layoutY="199.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <ChoiceBox fx:id="choiceBoxTotalTime" layoutX="163.0" layoutY="199.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <Text fill="#665b5b" layoutX="170.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="During (min)">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text fill="#665b5b" layoutX="174.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject">
+            <Text fill="#665b5b" layoutX="170.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
             <ChoiceBox fx:id="choiceBoxSubject" layoutX="163.0" layoutY="54.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
-            <Text fill="#665b5b" layoutX="21.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty">
+            <Text fill="#665b5b" layoutX="21.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -77,6 +76,11 @@
                   <Font name="System Italic" size="10.0" />
                </font>
             </Text>
+            <Pane layoutX="16.0" layoutY="272.0" prefHeight="37.0" prefWidth="281.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+               <children>
+                  <DatePicker fx:id="examDate" layoutX="12.0" layoutY="3.0" prefHeight="30.0" prefWidth="257.0" style="-fx-control-inner-background: #EEE0E0; -fx-border-radius: 45 0 0 45;" />
+               </children>
+            </Pane>
          </children>
       </Pane>
       <ImageView fitHeight="365.0" fitWidth="339.0" layoutX="332.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
