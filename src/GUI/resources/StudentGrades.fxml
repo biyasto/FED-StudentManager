@@ -41,11 +41,11 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label fx:id="ClassID" layoutX="29.0" layoutY="40.0" text="SE102.L11.PMCL" textFill="WHITE">
+            <Label fx:id="ClassID" layoutX="22.0" layoutY="50.0" text="SE102.L11.PMCL" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font></Label>
-            <Label fx:id="Subject" layoutX="14.0" layoutY="66.0" prefHeight="53.0" prefWidth="174.0" text="Introduce to Game Development" textFill="WHITE">
+            <Label fx:id="Subject" layoutX="22.0" layoutY="63.0" prefHeight="53.0" prefWidth="174.0" text="Introduce to Game Development" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>

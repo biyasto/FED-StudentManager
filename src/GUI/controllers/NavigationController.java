@@ -136,9 +136,11 @@ public class NavigationController implements Initializable {
         container.getChildren().removeAll();
         container.getChildren().setAll(createAccountScreen);
     }
+
     @FXML
-    private void btnCloseAction(){
-        Platform.exit();
+    void btnCloseAction(MouseEvent event) {
+        System.out.println("close");
+        System.exit(0);
     }
 
 }
