@@ -147,6 +147,11 @@ public class AddExamEventController implements Initializable {
         }
         ObservableList<String> facultyList = FXCollections.observableArrayList(faculties);
         choiceBoxFaculty.setItems(facultyList);
+
+        //Set default for choicebox
+        choiceBoxFaculty.getSelectionModel().selectFirst();
+        String currentSelectedItem = choiceBoxFaculty.getSelectionModel().getSelectedItem();
+        loadChoiceBoxSubject(currentSelectedItem);
     }
 
     void loadChoiceBoxSubject(String faculty){
@@ -160,6 +165,12 @@ public class AddExamEventController implements Initializable {
         }
         ObservableList<SubjectDTO> subjectList = FXCollections.observableArrayList(subjectsWithFaculty);
         choiceBoxSubject.setItems(subjectList);
+
+        //set default for choicebox
+        choiceBoxSubject.getSelectionModel().selectFirst();
+        SubjectDTO currentSelectedItem = choiceBoxSubject.getSelectionModel().getSelectedItem();
+        loadChoiceBoxClassId(currentSelectedItem.getSubjectID());
+
     }
     void loadChoiceBoxClassId(String subjectId){
         List<SubjectClassDTO> subjectClasses = new SubjectClassBLL().getAllSubjectClass();
@@ -171,11 +182,17 @@ public class AddExamEventController implements Initializable {
         }
         ObservableList<SubjectClassDTO> classes = FXCollections.observableArrayList(subjectClassWithSubjectId);
         choiceBoxClassId.setItems(classes);
+
+        choiceBoxClassId.getSelectionModel().selectFirst();
+
     }
 
     void loadChoiceBoxType(){
         ObservableList<String> values = FXCollections.observableArrayList("Mid-term","Final");
         choiceBoxFlag.setItems(values);
+
+        //set default
+        choiceBoxFlag.getSelectionModel().selectFirst();
     }
 
     void loadChoiceBoxShift(){
@@ -186,11 +203,17 @@ public class AddExamEventController implements Initializable {
             "Shift 4: start at 15h30"
         );
         choiceBoxShift.setItems(values);
+
+        //set default
+        choiceBoxShift.getSelectionModel().selectFirst();
     }
 
     void loadChoiceBoxTotalTime(){
         ObservableList<Integer> values = FXCollections.observableArrayList(45, 60, 90);
         choiceBoxTotalTime.setItems(values);
+
+        //set default
+        choiceBoxTotalTime.getSelectionModel().selectFirst();
     }
 
     void loadDefaultExamDate(){
