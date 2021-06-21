@@ -24,10 +24,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ScheduleCalendarController implements Initializable {
 
@@ -53,14 +50,16 @@ public class ScheduleCalendarController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadChoiceBoxMonth();
+        loadChoiceBoxYear();
+
         eventList = new ExamScheduleBLL().getAllExamSchedule();
+        //sort theo event date
+        eventList.sort(Comparator.comparing(d -> d.getExamDate().toLocalDate()));
 
         //load all class into table
         for(ExamScheduleDTO event: eventList)
             loadDataIntoTable(event);
-
-        loadChoiceBoxMonth();
-        loadChoiceBoxYear();
 
         MonthChoiceBox.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
