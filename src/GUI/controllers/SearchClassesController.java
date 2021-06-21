@@ -35,7 +35,7 @@ public class SearchClassesController implements Initializable {
     private Button FindButton;
 
     @FXML
-    private Button btnCreateNewClass;
+    private Button NewClassButton;
 
     @FXML
     private TextField SubjectNameTextfield;
@@ -49,19 +49,26 @@ public class SearchClassesController implements Initializable {
     @FXML
     private Label lblEmpty;
 
+    public static StudentDTO student = NavigationController.studentUser;
+    public static TeacherDTO teacher = NavigationController.teacherUser;
+    private static SubjectClassBLL subjectClassBLL = new SubjectClassBLL();
     private StackPane container = NavigationController.containerNav;
     private List<SubjectClassDTO> classList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SubjectClassBLL subjectClassBLL = new SubjectClassBLL();
-        classList = subjectClassBLL.getAllSubjectClass();
 
-        //load all class into table
-        for(SubjectClassDTO subjectClass: classList) {
+        if (student != null) {
+            classList = subjectClassBLL.getClassesByStudentId(student.getId());
+        } else if (teacher != null) {
+            classList = subjectClassBLL.getClassesByTeacherId(teacher.getId());
+        } else {
+            classList = subjectClassBLL.getAllSubjectClass();
+        }
+        //load class into table
+        for (SubjectClassDTO subjectClass : classList) {
             loadDataIntoTable(subjectClass);
         }
-
     }
 
     void loadDataIntoTable(SubjectClassDTO subjectClass) {
@@ -87,8 +94,7 @@ public class SearchClassesController implements Initializable {
             classItemController.setData(studentList, teacher, subject, subjectClass);
 
             classScrollPane.getChildren().add(item);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -102,40 +108,37 @@ public class SearchClassesController implements Initializable {
         ClassIDTextfield.clear();
         SubjectNameTextfield.clear();
 
-        if(findID.isEmpty() && findName.isEmpty()) {
+        if (findID.isEmpty() && findName.isEmpty()) {
             lblNotFound.setVisible(false);
             lblEmpty.setVisible(true);
-        }
-        else {
-            if(!findID.isEmpty()) {
+        } else {
+            if (!findID.isEmpty()) {
                 classScrollPane.getChildren().clear();
-                for(SubjectClassDTO subjectClass: classList) {
-                    if(subjectClass.getClassId().contains(findID.toUpperCase())) {
+                for (SubjectClassDTO subjectClass : classList) {
+                    if (subjectClass.getClassId().contains(findID.toUpperCase())) {
                         loadDataIntoTable(subjectClass);
                         isFound = true;
                         break;
                     }
                 }
-            }
-            else {
+            } else {
                 classScrollPane.getChildren().clear();
-                for(SubjectClassDTO subjectClass: classList) {
+                for (SubjectClassDTO subjectClass : classList) {
                     //find subject base on class
                     SubjectBLL subjectBLL = new SubjectBLL();
                     SubjectDTO subjectDTO = subjectBLL.GetSubjectById(subjectClass.getSubjectId());
 
-                    if(subjectDTO.getSubjectName().toUpperCase().contains(findName.toUpperCase())) {
+                    if (subjectDTO.getSubjectName().toUpperCase().contains(findName.toUpperCase())) {
                         loadDataIntoTable(subjectClass);
                         isFound = true;
                     }
                 }
             }
 
-            if(isFound) {
+            if (isFound) {
                 lblNotFound.setVisible(false);
                 lblEmpty.setVisible(false);
-            }
-            else {
+            } else {
                 lblNotFound.setVisible(true);
                 lblEmpty.setVisible(false);
             }
@@ -151,8 +154,7 @@ public class SearchClassesController implements Initializable {
             Node item = fxmlLoader.load();
 
             container.getChildren().add(item);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

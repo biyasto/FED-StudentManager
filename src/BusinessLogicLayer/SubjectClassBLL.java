@@ -19,6 +19,8 @@ public class SubjectClassBLL {
 
     public SubjectClassDTO getClassById(String id){return dal.getClassById(id);}
 
+    public List<SubjectClassDTO> getClassesByTeacherId(String id){return dal.getClassesByTeacherId(id);};
+
     public List<SubjectClassDTO> getClassesBySubjectName(String name){ return dal.getClassesBySubjectName(name); }
 
     public int InsertSubjectClass(SubjectClassDTO s) {

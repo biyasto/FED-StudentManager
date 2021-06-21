@@ -12,6 +12,7 @@ public class StudentClassBLL {
     public List<StudentCLassDTO> getAllStudentClass(){return studentClass.getAllStudentClass();}
 
 
+
     public List<StudentCLassDTO> getAllClassOfStudent(String id){
         return studentClass.getAllClassOfStudent(id);
     }
