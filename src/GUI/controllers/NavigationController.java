@@ -24,6 +24,9 @@ import java.util.ResourceBundle;
 public class NavigationController implements Initializable {
 
     @FXML
+    private  Button Minimizebtn;
+
+    @FXML
     private Button SearchClassButton;
 
     @FXML
@@ -62,6 +65,9 @@ public class NavigationController implements Initializable {
     //this is a reference of container above, use for pass data to another screen
     public static StackPane containerNav = null;
 
+    public NavigationController() {
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(studentUser != null) {
@@ -81,45 +87,56 @@ public class NavigationController implements Initializable {
             e.printStackTrace();
         }
         containerNav = container;
+        SetStyle();
     }
 
 
 
     @FXML
     void OpenCreateAccountScreen(MouseEvent event) throws IOException {
+
         URL url = new File("src/GUI/resources/CreateAccount.fxml").toURI().toURL();
         Parent createAccountScreen = FXMLLoader.load(url);
         container.getChildren().removeAll();
         container.getChildren().setAll(createAccountScreen);
+
     }
 
     @FXML
     void OpenInformationScreen(MouseEvent event) throws IOException {
         openInformationScreen();
+
     }
 
     @FXML
     void OpenScheduleScreen(MouseEvent event) throws IOException {
+
         URL url = new File("src/GUI/resources/Schedule_Calendar.fxml").toURI().toURL();
         Parent createAccountScreen = FXMLLoader.load(url);
         container.getChildren().removeAll();
         container.getChildren().setAll(createAccountScreen);
+
     }
 
     @FXML
     void OpenSearchClassesScreen(MouseEvent event) throws IOException {
+
         URL url = new File("src/GUI/resources/Search_Classes.fxml").toURI().toURL();
         Parent createAccountScreen = FXMLLoader.load(url);
         container.getChildren().removeAll();
         container.getChildren().setAll(createAccountScreen);
+
     }
 
     @FXML
     void OpenSearchUserScreen(MouseEvent event) throws IOException {
+
         URL url = new File("src/GUI/resources/Search_Users.fxml").toURI().toURL();
         Parent createAccountScreen = FXMLLoader.load(url);
         container.getChildren().removeAll();
         container.getChildren().setAll(createAccountScreen);
+
+
     }
 
     @FXML
@@ -128,6 +145,7 @@ public class NavigationController implements Initializable {
     }
 
     void openInformationScreen() throws IOException {
+
         URL url = new File("src/GUI/resources/UserDetail.fxml").toURI().toURL();
         Parent createAccountScreen = FXMLLoader.load(url);
         container.getChildren().removeAll();
@@ -148,4 +166,14 @@ public class NavigationController implements Initializable {
     void Logout(MouseEvent event) {
 
     }
+    void SetStyle()
+    {
+        InfoButton.setStyle("");
+        ScheduleButton.setStyle("");
+        SearchClassButton.setStyle("");
+        SearchUsersButton.setStyle("");
+        CreateAccountButton.setStyle("");
+    }
+
+
 }
