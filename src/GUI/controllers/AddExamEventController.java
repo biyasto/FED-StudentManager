@@ -125,6 +125,7 @@ public class AddExamEventController implements Initializable {
         choiceBoxFaculty.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+
                 String faculty = choiceBoxFaculty.getItems().get((Integer) t1);
                 loadChoiceBoxSubject(faculty);
             }
@@ -132,8 +133,10 @@ public class AddExamEventController implements Initializable {
         choiceBoxSubject.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                SubjectDTO s = choiceBoxSubject.getItems().get((Integer) t1);
-                loadChoiceBoxClassId(s.getSubjectID());
+                if ((Integer) t1 != -1){
+                    SubjectDTO s = choiceBoxSubject.getItems().get((Integer) t1);
+                    loadChoiceBoxClassId(s.getSubjectID());
+                }
             }
         });
     }
