@@ -15,36 +15,36 @@
    <children>
       <Pane layoutX="26.0" layoutY="76.0" prefHeight="470.0" prefWidth="310.0">
          <children>
-            <Text fill="#665b5b" layoutX="170.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+            <Text fill="#665b5b" layoutX="167.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text fill="#665b5b" layoutX="19.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+            <Text fill="#665b5b" layoutX="16.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text fill="#665b5b" layoutX="19.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class ID">
+            <Text fill="#665b5b" layoutX="16.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class ID">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text fill="#665b5b" layoutX="19.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shift">
+            <Text fill="#665b5b" layoutX="16.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shift">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Button fx:id="btnCreate" layoutX="111.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#createEvent" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: #5F3566; -fx-background-radius: 45px;" text="Create" textFill="WHITE">
+            <Button fx:id="btnCreate" layoutX="108.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#createEvent" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: #5F3566; -fx-background-radius: 45px;" text="Create" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <ChoiceBox fx:id="choiceBoxClassId" layoutX="12.0" layoutY="125.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
-            <ChoiceBox fx:id="choiceBoxFlag" layoutX="164.0" layoutY="124.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
-            <ChoiceBox fx:id="choiceBoxShift" layoutX="13.0" layoutY="199.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
-            <ChoiceBox fx:id="choiceBoxTotalTime" layoutX="163.0" layoutY="199.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
-            <Text fill="#665b5b" layoutX="170.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="During (min)">
+            <ChoiceBox fx:id="choiceBoxClassId" layoutX="9.0" layoutY="179.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <ChoiceBox fx:id="choiceBoxFlag" layoutX="161.0" layoutY="178.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <ChoiceBox fx:id="choiceBoxShift" layoutX="10.0" layoutY="253.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <ChoiceBox fx:id="choiceBoxTotalTime" layoutX="160.0" layoutY="253.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <Text fill="#665b5b" layoutX="167.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="During (min)">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -76,11 +76,23 @@
                   <Font name="System Italic" size="10.0" />
                </font>
             </Text>
-            <Pane layoutX="16.0" layoutY="272.0" prefHeight="37.0" prefWidth="281.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+            <Pane layoutX="13.0" layoutY="326.0" prefHeight="37.0" prefWidth="281.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
                <children>
                   <DatePicker fx:id="examDate" layoutX="12.0" layoutY="3.0" prefHeight="30.0" prefWidth="257.0" style="-fx-control-inner-background: #EEE0E0; -fx-border-radius: 45 0 0 45;" />
                </children>
             </Pane>
+            <Text fill="#665b5b" layoutX="171.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semester ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="choiceBoxSemester" layoutX="164.0" layoutY="112.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <Text fill="#665b5b" layoutX="22.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="choiceBoxYear" layoutX="14.0" layoutY="111.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
          </children>
       </Pane>
       <ImageView fitHeight="365.0" fitWidth="339.0" layoutX="332.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">

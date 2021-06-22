@@ -38,11 +38,16 @@ public class CreateController {
     void openEvent(MouseEvent event) {
 
     }
-    void SetStyle()
-    { // Thêm hàm này vô Init để set style cho button
-        EventBtn.setStyle("");
-        ClassBtn.setStyle("");
-        AccountBtn.setStyle("");
+
+    public void OpenSubject(javafx.scene.input.MouseEvent mouseEvent) {
     }
 
+    public void OpenAccount(javafx.scene.input.MouseEvent mouseEvent) {
+    }
+
+    public void OpenClass(javafx.scene.input.MouseEvent mouseEvent) {
+    }
+
+    public void openEvent(javafx.scene.input.MouseEvent mouseEvent) {
+    }
 }

@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -188,5 +189,8 @@ public class UserDetailController implements Initializable {
         studentGradeItemController.setData(subjectClass, subject, transcriptOfStudent);
 
         gradeScrollPane.getChildren().addAll(item);
+    }
+
+    public void Refresh(MouseEvent mouseEvent) {
     }
 }

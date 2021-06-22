@@ -176,4 +176,6 @@ public class NavigationController implements Initializable {
     }
 
 
+    public void OpenGradesScreen(MouseEvent mouseEvent) {
+    }
 }

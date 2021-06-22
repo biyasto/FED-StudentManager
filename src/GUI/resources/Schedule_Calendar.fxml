@@ -50,5 +50,10 @@
             <VBox fx:id="eventScrollPane" alignment="TOP_CENTER" prefHeight="471.0" prefWidth="674.0" />
          </content>
       </ScrollPane>
+      <Button fx:id="btnRefesh" layoutX="194.0" layoutY="551.0" mnemonicParsing="false" onMouseClicked="#RefreshPane" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Refesh" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

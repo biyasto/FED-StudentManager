@@ -143,4 +143,7 @@ public class ScheduleCalendarController implements Initializable {
         ObservableList<Integer> values = FXCollections.observableArrayList(years);
         YearChoiceBox.setItems(values);
     }
+
+    public void RefreshPane(MouseEvent mouseEvent) {
+    }
 }
