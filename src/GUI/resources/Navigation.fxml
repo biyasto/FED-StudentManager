@@ -94,9 +94,9 @@
             <children>
                 <Pane prefHeight="635.0" prefWidth="215.0" style="-fx-background-color: #534D56; -fx-background-radius: 0 45 0 0;">
                     <children>
-                        <AnchorPane layoutX="19.0" layoutY="133.0">
+                        <AnchorPane layoutY="133.0" prefHeight="228.0" prefWidth="215.0">
                             <children>
-                                <Button fx:id="InfoButton" alignment="BASELINE_LEFT" layoutX="1.0" mnemonicParsing="false" onMouseClicked="#OpenInformationScreen" prefHeight="35.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="  Your Information" textFill="WHITE">
+                                <Button fx:id="InfoButton" alignment="BASELINE_LEFT" layoutX="1.0" mnemonicParsing="false" onMouseClicked="#OpenInformationScreen" prefHeight="35.0" prefWidth="208.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="     Your Information" textFill="WHITE">
                                     <font>
                                         <Font name="Arial Bold" size="15.0" />
                                     </font>
@@ -114,7 +114,7 @@
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </Button>
-                                <Button fx:id="SearchClassButton" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#OpenSearchClassesScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="  Search Classes" textFill="WHITE">
+                                <Button fx:id="SearchClassButton" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#OpenSearchClassesScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="     Search Classes" textFill="WHITE">
                                     <font>
                                         <Font name="Arial Bold" size="15.0" />
                                     </font>
@@ -129,7 +129,7 @@
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </Button>
-                                <Button fx:id="ScheduleButton" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#OpenScheduleScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="  Schedule" textFill="WHITE">
+                                <Button fx:id="ScheduleButton" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#OpenScheduleScreen" prefHeight="30.0" prefWidth="211.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="     Schedule" textFill="WHITE">
                                     <font>
                                         <Font name="Arial Bold" size="15.0" />
                                     </font>
@@ -144,7 +144,7 @@
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </Button>
-                                <Button fx:id="SearchUsersButton" alignment="BASELINE_LEFT" layoutY="150.0" mnemonicParsing="false" onMouseClicked="#OpenSearchUserScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="  Search Users" textFill="WHITE">
+                                <Button fx:id="SearchUsersButton" alignment="BASELINE_LEFT" layoutY="150.0" mnemonicParsing="false" onMouseClicked="#OpenSearchUserScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="     Search Users" textFill="WHITE">
                                     <font>
                                         <Font name="Arial Bold" size="15.0" />
                                     </font>
@@ -159,7 +159,7 @@
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </Button>
-                                <Button fx:id="CreateAccountButton" alignment="BASELINE_LEFT" layoutY="198.0" mnemonicParsing="false" onMouseClicked="#OpenCreateAccountScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="  Create Account" textFill="WHITE">
+                                <Button fx:id="CreateAccountButton" alignment="BASELINE_LEFT" layoutY="198.0" mnemonicParsing="false" onMouseClicked="#OpenCreateAccountScreen" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="     Create Account" textFill="WHITE">
                                     <font>
                                         <Font name="Arial Bold" size="15.0" />
                                     </font>

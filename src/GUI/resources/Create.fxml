@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.CreateController">
+   <children>
+      <AnchorPane fx:id="panelGradeStatistic" layoutX="-6.0" layoutY="82.0" prefHeight="517.0" prefWidth="694.0">
+         <children>
+            <VBox layoutX="6.0" layoutY="7.0" prefHeight="517.0" prefWidth="688.0" />
+         </children>
+      </AnchorPane>
+      <Pane layoutX="164.0" prefHeight="77.0" prefWidth="359.0" style="-fx-background-color: #AD9BAA; -fx-background-radius: 0 0 30 30;">
+         <children>
+            <Button fx:id="EventBtn" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#openEvent" prefHeight="42.0" prefWidth="110.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 3px;" styleClass="context-menu" stylesheets="@../css/Style1.css" text="Create Event" textOverrun="CLIP">
+               <graphic>
+                  <ImageView fitHeight="19.0" fitWidth="21.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../asset/ButtonIcon/Event.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="ClassBtn" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="234.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#OpenClass" prefHeight="42.0" prefWidth="110.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 3px;" styleClass="context-menu" stylesheets="@../css/Style1.css" text="Create Class" textOverrun="CLIP">
+               <graphic>
+                  <ImageView fitHeight="19.0" fitWidth="21.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../asset/ButtonIcon/Classes_black.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="AccountBtn" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="124.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#OpenAccount" prefHeight="42.0" prefWidth="110.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 3px;" styleClass="context-menu" stylesheets="@../css/Style1.css" text="Create Account" textOverrun="CLIP">
+               <graphic>
+                  <ImageView fitHeight="19.0" fitWidth="21.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../asset/ButtonIcon/UserBlack.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
