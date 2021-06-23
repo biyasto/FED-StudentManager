@@ -1,5 +1,7 @@
 package DataTransferObject;
 
+import java.io.File;
+
 public class TeacherDTO {
     private String Id;
     private String Name;
@@ -10,7 +12,7 @@ public class TeacherDTO {
     private int Type;
     private String Faculty;
 
-    public TeacherDTO(String id, String name, boolean gender, String birthDay, String email,String pass, int type, String faculty) {
+    public TeacherDTO(String id, String name, boolean gender, String birthDay, String email, String pass, int type, String faculty) {
         Id = id;
         Name = name;
         Gender = gender;
