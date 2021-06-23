@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -21,56 +20,48 @@
       <children>
             <Pane layoutX="385.0" layoutY="86.0" prefHeight="350.0" prefWidth="263.0">
                <children>
-                  <TextField fx:id="NameTextField" cache="true" layoutX="-1.0" layoutY="14.0" prefHeight="33.0" prefWidth="240.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
-                  <Text fill="#665b5b" layoutX="6.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty">
+                  <TextField fx:id="NameTextField" cache="true" layoutX="-1.0" layoutY="25.0" prefHeight="33.0" prefWidth="240.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+                  <Text fill="#665b5b" layoutX="6.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="#665b5b" layoutX="6.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+                  <ChoiceBox fx:id="FacultyChoiceBox" layoutX="-1.0" layoutY="178.0" prefHeight="33.0" prefWidth="240.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+                  <ChoiceBox fx:id="GenderChoiceBox" layoutY="262.0" prefHeight="33.0" prefWidth="107.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+                  <Text fill="#665b5b" layoutX="6.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <PasswordField fx:id="PasswordField" layoutX="-1.0" layoutY="166.0" prefHeight="33.0" prefWidth="240.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
-                  <Text fill="#665b5b" layoutX="6.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password">
+                  <ChoiceBox fx:id="PositionChoiceBox" layoutX="131.0" layoutY="262.0" prefHeight="33.0" prefWidth="107.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+                  <Text fill="#665b5b" layoutX="137.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Position">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <PasswordField fx:id="CPasswordField" layoutX="-1.0" layoutY="225.0" prefHeight="33.0" prefWidth="240.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
-                  <ChoiceBox fx:id="FacultyChoiceBox" layoutX="-1.0" layoutY="116.0" prefHeight="33.0" prefWidth="240.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
-                  <ChoiceBox fx:id="GenderChoiceBox" layoutY="280.0" prefHeight="33.0" prefWidth="107.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
-                  <Text fill="#665b5b" layoutX="6.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender">
+                  <Text fill="#665b5b" layoutX="7.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <ChoiceBox fx:id="PositionChoiceBox" layoutX="131.0" layoutY="280.0" prefHeight="33.0" prefWidth="107.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
-                  <Text fill="#665b5b" layoutX="132.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Position">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Text>
-                  <Text fill="#665b5b" layoutX="7.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Text>
-                  <Button layoutY="64.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="240.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+                  <Button layoutY="98.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="240.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
                      <graphic>
                         <DatePicker fx:id="DoBPicker" prefHeight="67.0" prefWidth="224.0" style="-fx-background-color: #EEE0E0; -fx-control-inner-background: #EEE0E0; fx-border-style: solid inside;" />
                      </graphic>
                   </Button>
-                  <Text fx:id="lblEmpty" fill="RED" layoutX="56.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please full fill all information" visible="false" />
-                  <Text fill="#665b5b" layoutX="7.0" layoutY="4.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name">
+                  <Text fx:id="lblEmpty" fill="RED" layoutX="56.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please full fill all information" visible="false" />
+                  <Text fill="#665b5b" layoutX="7.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name" visible="false">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fx:id="lblSuccess" fill="#06a600" layoutX="56.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Create Success!" visible="false" />
-                  <Text fx:id="lblError" fill="RED" layoutX="53.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error, please try later!" visible="false" />
-                  <Text fx:id="lblWrongPass" fill="RED" layoutX="53.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password incorrect" visible="false" />
+                  <Text fx:id="lblSuccess" fill="#06a600" layoutX="56.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Create Success!" visible="false" />
+                  <Text fx:id="lblError" fill="RED" layoutX="53.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error, please try later!" visible="false" />
+                  <Text fill="#665b5b" layoutX="6.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full name">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
             <ImageView fitHeight="350.0" fitWidth="349.0" layoutX="23.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
@@ -78,7 +69,7 @@
                   <Image url="@../asset/Picture/CreateAccountPic.png" />
                </image>
             </ImageView>
-            <Button fx:id="CreateButton" layoutX="543.0" layoutY="447.0" mnemonicParsing="false" onMouseClicked="#createAccount" prefHeight="18.0" prefWidth="77.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Create" textFill="WHITE">
+            <Button fx:id="CreateButton" layoutX="540.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#createAccount" prefHeight="18.0" prefWidth="77.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Create" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

@@ -135,12 +135,12 @@ public class CreateClassController implements Initializable {
         String subjectChoice = SubjectChoiceBox.getValue();
         String teacherChoice = TeacherChoiceBox.getValue();
 
-        if(faculty.isEmpty()
-        || schoolYear.isEmpty()
-        || semester.isEmpty()
+        if(faculty == null
+        || schoolYear == null
+        || semester == null
         || classId.isEmpty()
-        || subjectChoice.isEmpty()
-        || teacherChoice.isEmpty()) {
+        || subjectChoice == null
+        || teacherChoice == null) {
             lblEmpty.setVisible(true);
             lblError.setVisible(false);
             lblSuccess.setVisible(false);

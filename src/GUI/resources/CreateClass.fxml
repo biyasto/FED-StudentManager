@@ -27,7 +27,7 @@
                </font>
             </Text>
             <ChoiceBox fx:id="SubjectChoiceBox" layoutX="16.0" layoutY="99.0" prefHeight="33.0" prefWidth="279.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
-            <Text fx:id="lblEmpty" fill="RED" layoutX="24.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please full fill all information" visible="false">
+            <Text fx:id="lblEmpty" fill="RED" layoutX="24.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please full fill all information" visible="false">
                <font>
                   <Font name="System Italic" size="10.0" />
                </font></Text>

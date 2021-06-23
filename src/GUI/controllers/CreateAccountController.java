@@ -17,17 +17,13 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class CreateAccountController implements Initializable {
     @FXML
     private TextField NameTextField;
-
-    @FXML
-    private PasswordField PasswordField;
-
-    @FXML
-    private PasswordField CPasswordField;
 
     @FXML
     private ChoiceBox<String> FacultyChoiceBox;
@@ -53,18 +49,14 @@ public class CreateAccountController implements Initializable {
     @FXML
     private Text lblError;
 
-    @FXML
-    private Text lblWrongPass;
-
     String id;
     String email;
     String fullName;
     String dateOfBirth;
-    String faculty;
-    String password;
-    String confirmPassword;
-    String gender;
-    String position;
+    String faculty = "";
+    String password = "";
+    String gender = "";
+    String position = "";
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -105,7 +97,7 @@ public class CreateAccountController implements Initializable {
         PositionChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> position = newValue);
 
         //format Date picker to display
-        StringConverter<LocalDate> converter = new StringConverter<LocalDate>() {
+        StringConverter<LocalDate> converter = new StringConverter<>() {
             final DateTimeFormatter dateFormatter =
                     DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -117,6 +109,7 @@ public class CreateAccountController implements Initializable {
                     return "";
                 }
             }
+
             @Override
             public LocalDate fromString(String string) {
                 if (string != null && !string.isEmpty()) {
@@ -128,13 +121,13 @@ public class CreateAccountController implements Initializable {
         };
         DoBPicker.setConverter(converter);
         DoBPicker.setPromptText("dd/mm/yyyy");
+        DoBPicker.setValue(LocalDate.now());
     }
 
     @FXML
     void createAccount(MouseEvent event) {
         fullName = NameTextField.getText();
-        password = PasswordField.getText();
-        confirmPassword = CPasswordField.getText();
+        password = createPassword();
 
         //format chosen date of birth to store in the database
         try {
@@ -144,37 +137,22 @@ public class CreateAccountController implements Initializable {
         }
         catch (Exception e) {
             lblEmpty.setVisible(false);
-            lblWrongPass.setVisible(false);
             lblError.setVisible(true);
             lblSuccess.setVisible(false);
             e.printStackTrace();
         }
 
-        if(position.equals("Student"))
-            createID(1);
-        else
-            createID(2);
-
         if(fullName.isEmpty()
            || dateOfBirth.isEmpty()
            || faculty.isEmpty()
-           || password.isEmpty()
-           || confirmPassword.isEmpty()
            || gender.isEmpty()
            || position.isEmpty()) {
             lblEmpty.setVisible(true);
             lblError.setVisible(false);
             lblSuccess.setVisible(false);
         }
-        else if(!password.equals(confirmPassword)) {
+        else if(id.isEmpty() || email.isEmpty() || password.isEmpty()) {
             lblEmpty.setVisible(false);
-            lblWrongPass.setVisible(true);
-            lblError.setVisible(false);
-            lblSuccess.setVisible(false);
-        }
-        else if(id.isEmpty() || email.isEmpty()) {
-            lblEmpty.setVisible(false);
-            lblWrongPass.setVisible(false);
             lblError.setVisible(true);
             lblSuccess.setVisible(false);
         }
@@ -184,6 +162,7 @@ public class CreateAccountController implements Initializable {
                 gder = false;
 
             if(position.equals("Student")) {
+                createID(1);
                 StudentDTO studentDTO = new StudentDTO(
                         id,
                         fullName,
@@ -199,18 +178,17 @@ public class CreateAccountController implements Initializable {
                 int result = studentBLL.InsertStudent(studentDTO);
                 if(result == -1) {
                     lblEmpty.setVisible(false);
-                    lblWrongPass.setVisible(false);
                     lblError.setVisible(true);
                     lblSuccess.setVisible(false);
                 }
                 else {
                     lblEmpty.setVisible(false);
-                    lblWrongPass.setVisible(false);
                     lblError.setVisible(false);
                     lblSuccess.setVisible(true);
                 }
             }
             else {
+                createID(2);
                 TeacherDTO teacherDTO = new TeacherDTO(
                         id,
                         fullName,
@@ -226,13 +204,11 @@ public class CreateAccountController implements Initializable {
                 int result = teacherBLL.InsertTeacher(teacherDTO);
                 if(result == -1) {
                     lblEmpty.setVisible(false);
-                    lblWrongPass.setVisible(false);
                     lblError.setVisible(true);
                     lblSuccess.setVisible(false);
                 }
                 else {
                     lblEmpty.setVisible(false);
-                    lblWrongPass.setVisible(false);
                     lblError.setVisible(false);
                     lblSuccess.setVisible(true);
                 }
@@ -285,6 +261,17 @@ public class CreateAccountController implements Initializable {
             email = split[split.length - 1] + email;
             return email + "@gm.uit.edu.vn";
         }
+    }
+
+    //auto generate random password with 6 characters
+    String createPassword() {
+        String pass = "";
+        Random rd = new Random();
+        for(int i = 0; i < 6; i++) {
+            char ch = (char) (97 + rd.nextInt(26));
+            pass += ch;
+        }
+        return pass;
     }
 
     //this class use for remove vietnamese accent in a String

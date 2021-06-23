@@ -19,11 +19,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.util.StringConverter;
 
 import java.net.URL;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class AddExamEventController implements Initializable {
@@ -197,7 +199,30 @@ public class AddExamEventController implements Initializable {
     }
 
     void loadDefaultExamDate(){
-        Date date = new Date();
+        //format Date picker to display
+        StringConverter<LocalDate> converter = new StringConverter<>() {
+            final DateTimeFormatter dateFormatter =
+                    DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+            @Override
+            public String toString(LocalDate date) {
+                if (date != null) {
+                    return dateFormatter.format(date);
+                } else {
+                    return "";
+                }
+            }
+
+            @Override
+            public LocalDate fromString(String string) {
+                if (string != null && !string.isEmpty()) {
+                    return LocalDate.parse(string, dateFormatter);
+                } else {
+                    return null;
+                }
+            }
+        };
+        examDate.setConverter(converter);
         examDate.setValue(LocalDate.now());
     }
 
