@@ -95,10 +95,10 @@ public class NavigationController implements Initializable {
     @FXML
     void OpenCreateAccountScreen(MouseEvent event) throws IOException {
 
-        URL url = new File("src/GUI/resources/CreateAccount.fxml").toURI().toURL();
-        Parent createAccountScreen = FXMLLoader.load(url);
+        URL url = new File("src/GUI/resources/Create.fxml").toURI().toURL();
+        Parent createScreen = FXMLLoader.load(url);
         container.getChildren().removeAll();
-        container.getChildren().setAll(createAccountScreen);
+        container.getChildren().setAll(createScreen);
 
     }
 
@@ -112,9 +112,9 @@ public class NavigationController implements Initializable {
     void OpenScheduleScreen(MouseEvent event) throws IOException {
 
         URL url = new File("src/GUI/resources/Schedule_Calendar.fxml").toURI().toURL();
-        Parent createAccountScreen = FXMLLoader.load(url);
+        Parent createScheduleScreen = FXMLLoader.load(url);
         container.getChildren().removeAll();
-        container.getChildren().setAll(createAccountScreen);
+        container.getChildren().setAll(createScheduleScreen);
 
     }
 
@@ -122,9 +122,9 @@ public class NavigationController implements Initializable {
     void OpenSearchClassesScreen(MouseEvent event) throws IOException {
 
         URL url = new File("src/GUI/resources/Search_Classes.fxml").toURI().toURL();
-        Parent createAccountScreen = FXMLLoader.load(url);
+        Parent createSearchClassesScreen = FXMLLoader.load(url);
         container.getChildren().removeAll();
-        container.getChildren().setAll(createAccountScreen);
+        container.getChildren().setAll(createSearchClassesScreen);
 
     }
 
@@ -132,9 +132,9 @@ public class NavigationController implements Initializable {
     void OpenSearchUserScreen(MouseEvent event) throws IOException {
 
         URL url = new File("src/GUI/resources/Search_Users.fxml").toURI().toURL();
-        Parent createAccountScreen = FXMLLoader.load(url);
+        Parent createSearchUserScreen = FXMLLoader.load(url);
         container.getChildren().removeAll();
-        container.getChildren().setAll(createAccountScreen);
+        container.getChildren().setAll(createSearchUserScreen);
 
 
     }

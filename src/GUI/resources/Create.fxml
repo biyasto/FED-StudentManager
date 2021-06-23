@@ -5,17 +5,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.CreateController">
    <children>
-      <AnchorPane fx:id="panelGradeStatistic" layoutX="-6.0" layoutY="107.0" prefHeight="517.0" prefWidth="694.0">
-         <children>
-            <VBox layoutX="6.0" layoutY="27.0" prefHeight="498.0" prefWidth="688.0" />
-         </children>
-      </AnchorPane>
-      <Pane layoutX="73.0" layoutY="14.0" prefHeight="78.0" prefWidth="541.0" style="-fx-background-color: #AD9BAA; -fx-background-radius: 30 30 30 30;">
+      <Pane layoutX="73.0" layoutY="1.0" prefHeight="78.0" prefWidth="541.0" style="-fx-background-color: #AD9BAA; -fx-background-radius: 30 30 30 30;">
          <children>
             <Button fx:id="EventBtn" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="29.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#openEvent" prefHeight="42.0" prefWidth="110.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 3px;" text="Create Event" textOverrun="CLIP">
                <graphic>
@@ -65,6 +60,11 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
+         </children>
+      </Pane>
+      <Pane layoutY="82.0" prefHeight="518.0" prefWidth="696.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <StackPane fx:id="createContainer" prefHeight="518.0" prefWidth="696.0" />
          </children>
       </Pane>
    </children>

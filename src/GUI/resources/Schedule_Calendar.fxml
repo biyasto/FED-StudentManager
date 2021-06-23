@@ -1,45 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.ScheduleCalendarController">
+<AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.ScheduleCalendarController">
    <children>
-      <Button fx:id="PrintButton" layoutX="490.0" layoutY="551.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Print" textFill="WHITE">
+      <Button fx:id="PrintButton" layoutX="490.0" layoutY="555.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Print" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button fx:id="SaveButton" layoutX="591.0" layoutY="551.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Save" textFill="WHITE">
+      <Button fx:id="SaveButton" layoutX="591.0" layoutY="555.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnAddEvent" layoutX="293.0" layoutY="551.0" mnemonicParsing="false" onMouseClicked="#addExamEvent" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Add Event" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="InfoButton" layoutX="387.0" layoutY="551.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Event Info" textFill="WHITE">
+      <Button fx:id="InfoButton" layoutX="387.0" layoutY="555.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Event Info" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
       <Pane layoutX="14.0" layoutY="8.0" prefHeight="58.0" prefWidth="276.0">
          <children>
-            <ChoiceBox fx:id="YearChoiceBox" layoutX="164.0" layoutY="14.0" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+            <ChoiceBox fx:id="YearChoiceBox" layoutX="180.0" layoutY="11.0" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
             <ChoiceBox fx:id="MonthChoiceBox" layoutX="63.0" layoutY="11.0" prefHeight="30.0" prefWidth="58.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
             <Text layoutX="21.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Month">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text layoutX="132.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year">
+            <Text layoutX="149.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Text>
@@ -50,7 +40,7 @@
             <VBox fx:id="eventScrollPane" alignment="TOP_CENTER" prefHeight="471.0" prefWidth="674.0" />
          </content>
       </ScrollPane>
-      <Button fx:id="btnRefesh" layoutX="194.0" layoutY="551.0" mnemonicParsing="false" onMouseClicked="#RefreshPane" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Refesh" textFill="WHITE">
+      <Button fx:id="btnRefesh" layoutX="290.0" layoutY="555.0" mnemonicParsing="false" onMouseClicked="#RefreshPane" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Refesh" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
