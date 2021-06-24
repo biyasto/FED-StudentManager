@@ -8,14 +8,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
@@ -40,13 +39,7 @@ public class ClassGradesController {
     private Label facultyName;
 
     @FXML
-    private Button SaveButton;
-
-    @FXML
-    private Button UpdateButton;
-
-    @FXML
-    private ScrollPane GradesPanel;
+    private Button btnAddStudent;
 
     @FXML
     private VBox studentGrades;
@@ -56,7 +49,7 @@ public class ClassGradesController {
     private SubjectDTO subject = null;
     private SubjectClassDTO subjectClass = null;
 
-    private StackPane container = NavigationController.containerNav;
+    private final StackPane container = NavigationController.containerNav;
 
     public void setData(List<StudentDTO> studentList, TeacherDTO teacher, SubjectDTO subject, SubjectClassDTO subjectClass) {
         this.studentList = studentList;
@@ -111,6 +104,20 @@ public class ClassGradesController {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void addStudents(MouseEvent event) throws IOException {
+        //open add students form
+        URL urlLayout = new File("src/GUI/resources/AddStudent.fxml").toURI().toURL();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(urlLayout);
+        Node item = fxmlLoader.load();
+
+        AddStudentController addStudentController = fxmlLoader.getController();
+        addStudentController.setData(studentList, teacher, subject, subjectClass);
+
+        container.getChildren().add(item);
     }
 
     @FXML

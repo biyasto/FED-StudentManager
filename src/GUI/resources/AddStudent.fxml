@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="classPane" prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="addStudentPane" prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.AddStudentController">
    <children>
-      <Button fx:id="btnBack" layoutX="14.0" layoutY="543.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="20.0" prefWidth="64.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Back" textFill="WHITE">
+      <Button fx:id="btnBack" layoutX="9.0" layoutY="568.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="20.0" prefWidth="64.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Back" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -20,7 +20,7 @@
             <Font name="Arial Black" size="11.0" />
          </font>
       </Button>
-      <Button fx:id="btnInputGrade" layoutX="515.0" layoutY="543.0" mnemonicParsing="false" onMouseClicked="#inputGrades" prefHeight="24.0" prefWidth="142.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Add Users" textFill="WHITE">
+      <Button fx:id="btnAdd" layoutX="527.0" layoutY="543.0" mnemonicParsing="false" onMouseClicked="#addStudents" prefHeight="24.0" prefWidth="130.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Add Users" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -28,46 +28,13 @@
             <Font name="Arial Black" size="11.0" />
          </font>
       </Button>
-      <AnchorPane fx:id="ClassBox" layoutX="17.0" layoutY="14.0" onMouseClicked="#showClass" prefHeight="113.0" prefWidth="651.0" style="-fx-background-radius: 0 45 0 45; -fx-background-color: #EEE0E0;">
-         <children>
-            <Label fx:id="SubjectLabel" alignment="CENTER" layoutX="13.0" layoutY="53.0" prefHeight="59.0" prefWidth="361.0" text="Introduction to Game Development" textFill="#736b6b">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-            <Label fx:id="ClassIDLabel" alignment="CENTER" layoutX="13.0" layoutY="14.0" prefHeight="39.0" prefWidth="362.0" text="SE102.L21.PMCL">
-               <font>
-                  <Font name="SVN-Helves bold" size="27.0" />
-               </font>
-            </Label>
-            <Pane layoutX="416.0" opacity="0.58" prefHeight="112.0" prefWidth="236.0" style="-fx-background-radius: 0 45 0 45; -fx-background-color: #22333B;">
-               <children>
-                  <Label fx:id="TeacherLabel" alignment="TOP_LEFT" layoutX="18.0" layoutY="43.0" prefHeight="39.0" prefWidth="242.0" text="Teacher: Đinh Nguyễn Anh D" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="FacultyLabel" alignment="TOP_LEFT" layoutX="18.0" layoutY="14.0" prefHeight="39.0" prefWidth="223.0" text="Faculty: Software Engineering" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="AttendantsLabel" layoutX="18.0" layoutY="66.0" prefHeight="32.0" prefWidth="167.0" text="Attendents: 45" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-         </children>
-      </AnchorPane>
-      <TextArea fx:id="Textfield" layoutX="372.0" layoutY="163.0" prefHeight="360.0" prefWidth="286.0" />
+      <TextArea fx:id="Textfield" layoutX="372.0" layoutY="163.0" prefHeight="342.0" prefWidth="286.0" />
       <ImageView fitHeight="360.0" fitWidth="316.0" layoutX="30.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asset/Picture/LoginPic.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnBack1" layoutX="372.0" layoutY="543.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="24.0" prefWidth="142.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Delete Users" textFill="WHITE">
+      <Button fx:id="btnDelete" layoutX="372.0" layoutY="543.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="129.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Delete Users" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -75,5 +42,49 @@
             <Font name="Arial Black" size="11.0" />
          </font>
       </Button>
+      <Pane layoutX="1.0" prefHeight="136.0" prefWidth="686.0" style="-fx-background-radius: 45 45 45 45; -fx-background-color: #AD9BAA;">
+         <children>
+            <Label fx:id="SubjectName" alignment="CENTER" layoutX="237.0" layoutY="12.0" prefHeight="70.0" prefWidth="424.0" text="Introduce to Game development">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="ClassID" layoutX="30.0" layoutY="23.0" prefHeight="47.0" prefWidth="199.0" text="SE102.L11.PMCL">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="teacherName" layoutX="30.0" layoutY="95.0" text="Teacher: Nguyen Van An">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="attendantNum" layoutX="541.0" layoutY="95.0" text="Attendant: 39">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="facultyName" layoutX="30.0" layoutY="72.0" text="Faculty: ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label fx:id="lblSuccess" layoutX="372.0" layoutY="515.0" text="Added Successfully!" textFill="#0ac400" visible="false">
+         <font>
+            <Font name="System Italic" size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblFailed" layoutX="372.0" layoutY="515.0" text="Error, please try again" textFill="RED" visible="false">
+         <font>
+            <Font name="System Italic" size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblExist" layoutX="372.0" layoutY="515.0" text="This student has already existed in this class" textFill="RED" visible="false">
+         <font>
+            <Font name="System Italic" size="11.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

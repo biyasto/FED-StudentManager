@@ -96,14 +96,28 @@ public class InputGradesController {
             TranscriptBLL transcriptBLL = new TranscriptBLL();
             TranscriptDTO transcriptOfOneStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
 
+            Double mark1 = null;
+            Double mark2 = null;
+            Double mark3 = null;
+            Double mark4 = null;
+
+            if(transcriptOfOneStudent.getMark1() != -1)
+                mark1 = transcriptOfOneStudent.getMark1();
+            if(transcriptOfOneStudent.getMark2() != -1)
+                mark2 = transcriptOfOneStudent.getMark2();
+            if(transcriptOfOneStudent.getMark3() != -1)
+                mark3 = transcriptOfOneStudent.getMark3();
+            if(transcriptOfOneStudent.getMark4() != -1)
+                mark4 = transcriptOfOneStudent.getMark4();
+
             StudentGrade studentGrade = new StudentGrade(
                     student.getId(),
                     student.getName(),
                     transcriptOfOneStudent.getTranscriptId(),
-                    transcriptOfOneStudent.getMark1(),
-                    transcriptOfOneStudent.getMark2(),
-                    transcriptOfOneStudent.getMark3(),
-                    transcriptOfOneStudent.getMark4()
+                    mark1,
+                    mark2,
+                    mark3,
+                    mark4
             );
 
             list.add(studentGrade);
@@ -126,12 +140,26 @@ public class InputGradesController {
     }
 
     private void updateGrade(StudentGrade studentGrade) {
+        Double mark1 = studentGrade.getMark1();
+        Double mark2 = studentGrade.getMark2();
+        Double mark3 = studentGrade.getMark3();
+        Double mark4 = studentGrade.getMark4();
+
+        if(mark1 == null)
+            mark1 = -1.0;
+        if(mark2 == null)
+            mark2 = -1.0;
+        if(mark3 == null)
+            mark3 = -1.0;
+        if(mark4 == null)
+            mark4 = -1.0;
+
         TranscriptDTO transcript = new TranscriptDTO(
                 studentGrade.getTranscriptId(),
-                studentGrade.getMark1(),
-                studentGrade.getMark2(),
-                studentGrade.getMark3(),
-                studentGrade.getMark4()
+                mark1,
+                mark2,
+                mark3,
+                mark4
         );
         TranscriptBLL transcriptBLL = new TranscriptBLL();
         transcriptBLL.UpdateTranscript(transcript);

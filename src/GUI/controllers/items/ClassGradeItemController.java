@@ -77,15 +77,23 @@ public class ClassGradeItemController {
 
         double avg = 0;
         if(transcript != null) {
-            Grade1Textfield.setText(String.valueOf(transcript.getMark1()));
-            Grade2Textfield.setText(String.valueOf(transcript.getMark2()));
-            Grade3Textfield.setText(String.valueOf(transcript.getMark3()));
-            Grade4Textfield.setText(String.valueOf(transcript.getMark4()));
+            if(transcript.getMark1() != -1) {
+                Grade1Textfield.setText(String.valueOf(transcript.getMark1()));
+                avg += transcript.getMark1() * 0.1;
+            }
+            if(transcript.getMark2() != -1) {
+                Grade2Textfield.setText(String.valueOf(transcript.getMark2()));
+                avg += transcript.getMark2() * 0.2;
+            }
+            if(transcript.getMark3() != -1) {
+                Grade3Textfield.setText(String.valueOf(transcript.getMark3()));
+                avg += transcript.getMark3() * 0.2;
+            }
+            if(transcript.getMark4() != -1) {
+                Grade4Textfield.setText(String.valueOf(transcript.getMark4()));
+                avg += transcript.getMark4() * 0.5;
+            }
 
-            avg = transcript.getMark1() * 0.1
-                + transcript.getMark2() * 0.2
-                + transcript.getMark3() * 0.2
-                + transcript.getMark4() * 0.5;
         }
         DecimalFormat df = new DecimalFormat("#.#");
         SumGradeLabel.setText(df.format(avg));
@@ -103,15 +111,29 @@ public class ClassGradeItemController {
     @FXML
     void updateGrade(MouseEvent event) {
         try {
-            double mark1 = Double.parseDouble(Grade1Textfield.getText());
-            double mark2 = Double.parseDouble(Grade2Textfield.getText());
-            double mark3 = Double.parseDouble(Grade3Textfield.getText());
-            double mark4 = Double.parseDouble(Grade4Textfield.getText());
+            String str1 = Grade1Textfield.getText();
+            String str2 = Grade2Textfield.getText();
+            String str3 = Grade3Textfield.getText();
+            String str4 = Grade4Textfield.getText();
 
-            if(mark1 < 0 || mark1 > 10
-            || mark2 < 0 || mark2 > 10
-            || mark3 < 0 || mark3 > 10
-            || mark4 < 0 || mark4 > 10) {
+            double mark1 = -1;
+            double mark2 = -1;
+            double mark3 = -1;
+            double mark4 = -1;
+
+            if(!str1.isEmpty())
+                mark1 = Double.parseDouble(str1);
+            if(!str2.isEmpty())
+                mark2 = Double.parseDouble(str2);
+            if(!str3.isEmpty())
+                mark3 = Double.parseDouble(str3);
+            if(!str4.isEmpty())
+                mark4 = Double.parseDouble(str4);
+
+            if(mark1 < -1 || mark1 > 10
+            || mark2 < -1 || mark2 > 10
+            || mark3 < -1 || mark3 > 10
+            || mark4 < -1 || mark4 > 10) {
                 //invalid input, handle here
             }
             else {

@@ -110,4 +110,59 @@ public class TranscriptDAL {
         }
         return result;
     }
+
+    public int countTranscripts() {
+        String sql = "select count(*) from Transcript;";
+        int count = 0;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+
+            rs = pres.executeQuery();
+            if(rs.next())
+                count = rs.getInt("count(*)");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return count;
+    }
+
+    public int InsertTranscript(int transcriptID) {
+        String sql = "insert into Transcript values (?,?,?,?,?);";
+        int result = -1;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+
+            pres.setInt(1, transcriptID);
+            pres.setDouble(2, -1);
+            pres.setDouble(3, -1);
+            pres.setDouble(4, -1);
+            pres.setDouble(5, -1);
+
+            result = pres.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return result;
+    }
 }

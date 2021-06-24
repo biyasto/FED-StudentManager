@@ -11,9 +11,11 @@ public class StudentClassBLL {
 
     public List<StudentCLassDTO> getAllStudentClass(){return studentClass.getAllStudentClass();}
 
-
-
     public List<StudentCLassDTO> getAllClassOfStudent(String id){
         return studentClass.getAllClassOfStudent(id);
+    }
+
+    public int InsertStudent(String studentID, String classID, int transcriptID) {
+        return studentClass.InsertStudent(studentID, classID, transcriptID);
     }
 }

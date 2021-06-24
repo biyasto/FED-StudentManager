@@ -242,4 +242,31 @@ public class StudentDAL {
         }
         return list;
     }
+
+    public boolean checkExits(String id) {
+        String sql = "select * from Student where id =?";
+        boolean result = false;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, id);
+
+            rs = pres.executeQuery();
+            if(rs.next())
+                result = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return result;
+    }
 }

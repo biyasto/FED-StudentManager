@@ -13,4 +13,12 @@ public class TranscriptBLL {
     public int UpdateTranscript(TranscriptDTO transcript) {
         return dal.UpdateTranscript(transcript);
     }
+
+    public int countTranscripts() {
+        return dal.countTranscripts();
+    }
+
+    public int InsertTranscript(int transcriptID) {
+        return dal.InsertTranscript(transcriptID);
+    }
 }

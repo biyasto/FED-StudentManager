@@ -33,4 +33,8 @@ public class StudentBLL {
     public List<StudentDTO> getStudentsByClassId(String classID) {
         return dal.getStudentsByClassId(classID);
     }
+
+    public boolean checkExits(String id) {
+        return dal.checkExits(id);
+    }
 }
