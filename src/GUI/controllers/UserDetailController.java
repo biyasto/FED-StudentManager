@@ -64,8 +64,8 @@ public class UserDetailController implements Initializable {
     public static TeacherDTO teacherUser = NavigationController.teacherUser;
 
     private List<StudentCLassDTO> studentCLassList = new ArrayList<>();
-    private List<Integer> schoolList = new ArrayList<>();
-    private List<Integer> semesterList = new ArrayList<>();
+    private final List<Integer> schoolList = new ArrayList<>();
+    private final List<Integer> semesterList = new ArrayList<>();
 
     private int yearFilter = 0;
     private int semesterFilter = 0;

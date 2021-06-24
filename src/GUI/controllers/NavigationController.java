@@ -59,6 +59,9 @@ public class NavigationController implements Initializable {
     @FXML
     private Button btnClose;
 
+    @FXML
+    private Button GradesButton;
+
     public static StudentDTO studentUser = LoginController.studentUser;
     public static TeacherDTO teacherUser = LoginController.teacherUser;
 
@@ -71,15 +74,15 @@ public class NavigationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(studentUser != null) {
-
             CreateAccountButton.setVisible(false);
             SearchUsersButton.setVisible(false);
         }
         else if(teacherUser != null) {
+            GradesButton.setVisible(false);
             CreateAccountButton.setVisible(false);
         }
         else {
-
+            GradesButton.setVisible(false);
         }
         try {
             openInformationScreen();
@@ -176,6 +179,10 @@ public class NavigationController implements Initializable {
     }
 
 
-    public void OpenGradesScreen(MouseEvent mouseEvent) {
+    public void OpenGradesScreen(MouseEvent mouseEvent) throws IOException {
+        URL url = new File("src/GUI/resources/MyGrade.fxml").toURI().toURL();
+        Parent myGradeScreen = FXMLLoader.load(url);
+        container.getChildren().removeAll();
+        container.getChildren().setAll(myGradeScreen);
     }
 }

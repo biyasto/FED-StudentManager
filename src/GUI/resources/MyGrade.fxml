@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="inforPane" prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.MyGradeController">
+   <children>
+      <AnchorPane fx:id="panelGradeStatistic" layoutX="4.0" layoutY="214.0" prefHeight="380.0" prefWidth="678.0">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" layoutX="-1.0" layoutY="67.0" prefHeight="306.0" prefWidth="678.0">
+               <content>
+                  <VBox fx:id="gradeScrollPane" prefHeight="306.0" prefWidth="660.0" />
+               </content>
+            </ScrollPane>
+            <ChoiceBox fx:id="SemesterChoiceBox" layoutX="333.0" layoutY="14.0" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+            <Text fill="#665b5b" layoutX="273.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semester">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="SchoolYearChoiceBox" layoutX="135.0" layoutY="14.0" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+            <Text fill="#665b5b" layoutX="62.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="School Year">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Label fx:id="lblSemesterGPA" alignment="TOP_LEFT" layoutX="499.0" layoutY="21.0" prefHeight="22.0" prefWidth="159.0" text="semester GPA:" textAlignment="CENTER" textFill="#665b5b">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="InfoBox" layoutX="14.0" layoutY="16.0" prefHeight="190.0" prefWidth="503.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 25px;">
+         <children>
+            <Label fx:id="NameLabel" alignment="CENTER" layoutX="204.0" layoutY="19.0" prefHeight="51.0" prefWidth="294.0" text="VÕ HOÀNG ĐỨC QUỲNH" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="PositionLabel" alignment="CENTER" layoutX="30.0" layoutY="23.0" text="Student">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="FacultyLabel" alignment="CENTER" layoutX="205.0" layoutY="70.0" prefHeight="22.0" prefWidth="294.0" text="Software Engineering" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="EmailLabel" alignment="CENTER" layoutX="205.0" layoutY="95.0" prefHeight="22.0" prefWidth="294.0" text="19520207@gm.uit.edu.vn" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="190.0" prefWidth="203.0" style="-fx-background-color: #6FC3B6; -fx-background-radius: 25 0 25 25;">
+               <children>
+                  <ImageView fx:id="UserAvatar" fitHeight="101.0" fitWidth="130.0" layoutX="51.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 10px;">
+                     <image>
+                        <Image url="@../asset/Picture/UserAvatar.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="IDLabel" alignment="CENTER" layoutX="18.0" layoutY="132.0" prefHeight="22.0" prefWidth="168.0" text="19520207" textAlignment="CENTER">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label fx:id="lblCredit" alignment="CENTER" layoutX="205.0" layoutY="121.0" prefHeight="22.0" prefWidth="294.0" text="Accumulated credits" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblGPA" alignment="CENTER" layoutX="205.0" layoutY="143.0" prefHeight="22.0" prefWidth="294.0" text="GPA" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button fx:id="RefeshButton" layoutX="538.0" layoutY="124.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="122.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" text="Refesh" textFill="#616161">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnPrintPDF" layoutX="538.0" layoutY="76.0" mnemonicParsing="false" onMouseClicked="#printPDF" prefHeight="34.0" prefWidth="122.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" text="Print Grade (PDF)" textFill="#616161">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

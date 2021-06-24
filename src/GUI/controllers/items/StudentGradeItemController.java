@@ -56,17 +56,25 @@ public class StudentGradeItemController {
         lblClassID.setText(subjectClass.getClassId());
         lblClassName.setText(subject.getSubjectName());
 
-        double avg = 0.0;
+        double avg = 0;
         if(transcriptOfStudent != null) {
-            Grade1Textfield.setText(String.valueOf(transcriptOfStudent.getMark1()));
-            Grade2Textfield.setText(String.valueOf(transcriptOfStudent.getMark2()));
-            Grade3Textfield.setText(String.valueOf(transcriptOfStudent.getMark3()));
-            Grade4Textfield.setText(String.valueOf(transcriptOfStudent.getMark4()));
+            if(transcriptOfStudent.getMark1() != -1) {
+                Grade1Textfield.setText(String.valueOf(transcriptOfStudent.getMark1()));
+                avg += transcriptOfStudent.getMark1() * 0.1;
+            }
+            if(transcriptOfStudent.getMark2() != -1) {
+                Grade2Textfield.setText(String.valueOf(transcriptOfStudent.getMark2()));
+                avg += transcriptOfStudent.getMark2() * 0.2;
+            }
+            if(transcriptOfStudent.getMark3() != -1) {
+                Grade3Textfield.setText(String.valueOf(transcriptOfStudent.getMark3()));
+                avg += transcriptOfStudent.getMark3() * 0.2;
+            }
+            if(transcriptOfStudent.getMark4() != -1) {
+                Grade4Textfield.setText(String.valueOf(transcriptOfStudent.getMark4()));
+                avg += transcriptOfStudent.getMark4() * 0.5;
+            }
 
-            avg = transcriptOfStudent.getMark1() * 0.1
-                + transcriptOfStudent.getMark2() * 0.2
-                + transcriptOfStudent.getMark3() * 0.2
-                + transcriptOfStudent.getMark4() * 0.5;
         }
         DecimalFormat df = new DecimalFormat("#.#");
         lblAvgGrade.setText(df.format(avg));
