@@ -20,6 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import javax.xml.transform.Source;
 import java.io.File;
 import java.net.URL;
 import java.util.*;
@@ -77,7 +78,9 @@ public class SearchClassesController implements Initializable {
         TeacherDTO teacherDTO = teacherBLL.GetTeacherByID(subjectClass.getHeadMaster());
         List<StudentDTO> studentList = studentBLL.getStudentsByClassId(subjectClass.getClassId());
 
+
         bindData(studentList, teacherDTO, subjectDTO, subjectClass);
+
     }
 
     void bindData(List<StudentDTO> studentList, TeacherDTO teacher, SubjectDTO subject, SubjectClassDTO subjectClass) {
@@ -89,6 +92,7 @@ public class SearchClassesController implements Initializable {
 
             ClassItemController classItemController = fxmlLoader.getController();
             classItemController.setData(studentList, teacher, subject, subjectClass);
+
 
             classScrollPane.getChildren().add(item);
         } catch (Exception e) {
