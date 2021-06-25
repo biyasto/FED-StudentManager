@@ -118,6 +118,7 @@ public class SubjectClassDAL {
         return list;
     }
 
+
     public SubjectClassDTO getClassById(String id){
         SubjectClassDTO subjectClass = null;
         String sql = "select * from subjectclass where classId = ?";

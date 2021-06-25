@@ -4,6 +4,7 @@ module QuanLyHocSInh {
     requires javafx.controls;
     requires java.sql;
     requires mysql.connector.java;
+    requires itextpdf;
     opens GUI;
     opens GUI.resources;
     opens GUI.controllers;

@@ -93,7 +93,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnPrintPDF" layoutX="538.0" layoutY="76.0" mnemonicParsing="false" onMouseClicked="#printPDF" prefHeight="34.0" prefWidth="122.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" text="Print Grade (PDF)" textFill="#616161">
+      <Button fx:id="btnPrintPDF" layoutX="538.0" layoutY="76.0" mnemonicParsing="false" onAction="#printPDF" onMouseClicked="#printPDF" prefHeight="34.0" prefWidth="122.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" text="Print Grade (PDF)" textFill="#616161">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
