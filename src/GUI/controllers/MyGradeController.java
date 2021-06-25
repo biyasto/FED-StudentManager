@@ -84,7 +84,7 @@ public class MyGradeController implements Initializable {
     private StudentDTO studentUser = NavigationController.studentUser;
 
     private List<StudentCLassDTO> studentCLassList = new ArrayList<>();
-    private final List<String> schoolList = new ArrayList<>();
+    private final List<String> schoolYearList = new ArrayList<>();
     private final List<String> semesterList = new ArrayList<>();
 
     private String yearFilter = "All";
@@ -105,7 +105,7 @@ public class MyGradeController implements Initializable {
 
         //init combobox's data
         ObservableList<String> dataSchoolYear = FXCollections.observableArrayList();
-        dataSchoolYear.setAll(schoolList);
+        dataSchoolYear.setAll(schoolYearList);
         SchoolYearChoiceBox.setItems(dataSchoolYear);
         SchoolYearChoiceBox.setValue("All");          //set default value
         SchoolYearChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -124,7 +124,7 @@ public class MyGradeController implements Initializable {
     }
 
     void loadGradeFirstTime(StudentDTO student) {
-        schoolList.add("All");
+        schoolYearList.add("All");
         semesterList.add("All");
 
         double sumGPA = 0.0;
@@ -146,8 +146,8 @@ public class MyGradeController implements Initializable {
                     SubjectDTO subject = subjectBLL.GetSubjectById(subjectClass.getSubjectId());
                     TranscriptDTO transcriptOfStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
 
-                    if(!schoolList.contains(String.valueOf(subjectClass.getSchoolYear())))
-                        schoolList.add(String.valueOf(subjectClass.getSchoolYear()));
+                    if(!schoolYearList.contains(String.valueOf(subjectClass.getSchoolYear())))
+                        schoolYearList.add(String.valueOf(subjectClass.getSchoolYear()));
 
                     if(!semesterList.contains(String.valueOf(subjectClass.getSemester())))
                         semesterList.add(String.valueOf(subjectClass.getSemester()));
