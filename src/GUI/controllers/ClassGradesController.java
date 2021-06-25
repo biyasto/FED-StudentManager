@@ -42,6 +42,9 @@ public class ClassGradesController {
     private Button btnAddStudent;
 
     @FXML
+    private Button btnExport;
+
+    @FXML
     private VBox studentGrades;
 
     private List<StudentDTO> studentList = null;
