@@ -69,7 +69,7 @@
             <Font name="Arial Black" size="11.0" />
          </font>
       </Button>
-      <Button fx:id="btnExport" layoutX="345.0" layoutY="565.0" mnemonicParsing="false" onMouseClicked="#addStudents" prefHeight="24.0" prefWidth="101.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Export PDF" textFill="WHITE">
+      <Button fx:id="btnExport" layoutX="345.0" layoutY="565.0" mnemonicParsing="false" onAction="#export" onMouseClicked="#addStudents" prefHeight="24.0" prefWidth="101.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Export PDF" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

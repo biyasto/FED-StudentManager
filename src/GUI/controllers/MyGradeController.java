@@ -438,12 +438,13 @@ public class MyGradeController implements Initializable {
         Paragraph prgName = new Paragraph("Name: " + studentUser.getName(), listFont.get(4));
         document.add(prgName);
         Paragraph prgId = new Paragraph("Id: " + studentUser.getId(), listFont.get(4));
-        prgId.setSpacingAfter(10);
+
         document.add(prgId);
         Paragraph prgSchoolYear = new Paragraph("School year: " + yearFilter, listFont.get(4));
         document.add(prgSchoolYear);
 
         Paragraph prgSemester = new Paragraph("Semester: " + semesterFilter, listFont.get(4));
+        prgSemester.setSpacingAfter(10);
         document.add(prgSemester);
 
         //Header table
@@ -458,7 +459,7 @@ public class MyGradeController implements Initializable {
                     SubjectBLL subjectBLL = new SubjectBLL();
                     TranscriptBLL transcriptBLL = new TranscriptBLL();
 
-                    //get classId and className to set data for grade item
+                    //get data
                     SubjectClassDTO subjectClass = subjectClassBLL.getClassById(studentCLass.getClassId());
                     SubjectDTO subject = subjectBLL.GetSubjectById(subjectClass.getSubjectId());
                     TranscriptDTO transcriptOfStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), studentUser.getId());
