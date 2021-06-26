@@ -21,4 +21,8 @@ public class SubjectBLL {
     }
 
     public List<SubjectDTO> getSubjectsByStudentId(String id){return dal.getSubjectsByStudentId(id);}
+
+    public int countSubject() {
+        return dal.countSubject();
+    }
 }

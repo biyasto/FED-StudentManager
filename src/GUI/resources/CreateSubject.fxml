@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="CreateSubjectPane" prefHeight="530.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.CreateSubjectController">
+   <children>
+      <Pane layoutX="25.0" layoutY="124.0" prefHeight="339.0" prefWidth="310.0">
+         <children>
+            <TextField fx:id="SubjectName" cache="true" layoutX="16.0" layoutY="118.0" prefHeight="33.0" prefWidth="279.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+            <Text fill="#665b5b" layoutX="31.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject name">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fx:id="lblEmpty" fill="RED" layoutX="26.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please full fill all information" visible="false">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font>
+            </Text>
+            <Text fx:id="lblSuccess" fill="#06a600" layoutX="26.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Create Success!" visible="false">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font>
+            </Text>
+            <Text fx:id="lblError" fill="RED" layoutX="26.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error, please try later!" visible="false">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font>
+            </Text>
+            <Text fill="#665b5b" layoutX="32.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="FacultyChoiceBox" layoutX="16.0" layoutY="44.0" prefHeight="33.0" prefWidth="279.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+            <Button fx:id="btnCreate" layoutX="116.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#createSubject" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 45px;" text="Create" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Text fill="#665b5b" layoutX="32.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Credit">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="creditChoiceBox" layoutX="16.0" layoutY="188.0" prefHeight="33.0" prefWidth="124.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="365.0" fitWidth="339.0" layoutX="330.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset/Picture/CreateAccountPic.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="203.0" layoutY="27.0" prefHeight="54.0" prefWidth="266.0" text="Create Subject" textFill="#616161">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

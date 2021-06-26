@@ -10,6 +10,7 @@ import javafx.scene.layout.StackPane;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -56,8 +57,11 @@ public class CreateController implements Initializable {
     }
 
     @FXML
-    void OpenSubject(MouseEvent event) {
-
+    void OpenSubject(MouseEvent event) throws IOException {
+        URL url = new File("src/GUI/resources/CreateSubject.fxml").toURI().toURL();
+        Parent createScreen = FXMLLoader.load(url);
+        createContainer.getChildren().removeAll();
+        createContainer.getChildren().setAll(createScreen);
     }
 
     @FXML

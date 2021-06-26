@@ -75,6 +75,32 @@ public class SubjectDAL {
         return result;
     }
 
+    public int countSubject() {
+        String sql = "select count(*) from Subject;";
+        int count = 0;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+
+            rs = pres.executeQuery();
+            if(rs.next())
+                count = rs.getInt("count(*)");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return count;
+    }
+
 
     public SubjectDTO GetSubjectById(String id) {
         SubjectDTO subjectDTO = null;
