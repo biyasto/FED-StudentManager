@@ -97,7 +97,7 @@ public class MyGradeController implements Initializable {
     @FXML
     private Button btnPrintPDF;
 
-    private StudentDTO studentUser = NavigationController.studentUser;
+    private final StudentDTO studentUser = NavigationController.studentUser;
     private final static PdfPTable markTable = new PdfPTable(7);
     private List<StudentCLassDTO> studentCLassList = new ArrayList<>();
     private final List<String> schoolYearList = new ArrayList<>();
@@ -105,7 +105,7 @@ public class MyGradeController implements Initializable {
 
     private String yearFilter = "All";
     private String semesterFilter = "All";
-    private final DecimalFormat df = new DecimalFormat("##.#");
+    private final DecimalFormat df = new DecimalFormat("##.##");
     private int credit = 0;
 
     @Override
@@ -169,7 +169,7 @@ public class MyGradeController implements Initializable {
                     if (!semesterList.contains(String.valueOf(subjectClass.getSemester())))
                         semesterList.add(String.valueOf(subjectClass.getSemester()));
 
-                    sumGPA += calculateAvg(transcriptOfStudent);
+                    sumGPA += calculateAvg(subjectClass, transcriptOfStudent);
                     num++;
                     credit += subject.getCredits();
 
@@ -208,19 +208,19 @@ public class MyGradeController implements Initializable {
                         credit += subject.getCredits();
                     } else if (yearFilter.equals("All") && String.valueOf(subjectClass.getSemester()).equals(semesterFilter)) {
                         bindData(subjectClass, subject, transcriptOfStudent);
-                        sumGPA += calculateAvg(transcriptOfStudent);
+                        sumGPA += calculateAvg(subjectClass, transcriptOfStudent);
                         credit += subject.getCredits();
                         num++;
                     } else if (semesterFilter.equals("All") && String.valueOf(subjectClass.getSchoolYear()).equals(yearFilter)) {
                         bindData(subjectClass, subject, transcriptOfStudent);
-                        sumGPA += calculateAvg(transcriptOfStudent);
+                        sumGPA += calculateAvg(subjectClass, transcriptOfStudent);
                         credit += subject.getCredits();
                         num++;
                     } else {
                         if (String.valueOf(subjectClass.getSemester()).equals(semesterFilter)
                                 && String.valueOf(subjectClass.getSchoolYear()).equals(yearFilter)) {
                             bindData(subjectClass, subject, transcriptOfStudent);
-                            sumGPA += calculateAvg(transcriptOfStudent);
+                            sumGPA += calculateAvg(subjectClass, transcriptOfStudent);
                             credit += subject.getCredits();
                             num++;
                         }
@@ -240,11 +240,19 @@ public class MyGradeController implements Initializable {
         }
     }
 
-    double calculateAvg(TranscriptDTO transcript) {
-        return transcript.getMark1() * 0.1
-                + transcript.getMark2() * 0.2
-                + transcript.getMark3() * 0.2
-                + transcript.getMark4() * 0.5;
+    double calculateAvg(SubjectClassDTO subjectClass ,TranscriptDTO transcript) {
+        double avg = 0;
+        if(transcript != null) {
+            if(transcript.getMark1() != -1)
+                avg += transcript.getMark1() * subjectClass.getAttendance() * 0.1;
+            if(transcript.getMark2() != -1)
+                avg += transcript.getMark2() * subjectClass.getQuiz() * 0.1;
+            if(transcript.getMark3() != -1)
+                avg += transcript.getMark3() * subjectClass.getPractice() * 0.1;
+            if(transcript.getMark4() != -1)
+                avg += transcript.getMark4() * subjectClass.getFinal() * 0.1;
+        }
+        return avg;
     }
 
     void bindData(SubjectClassDTO subjectClass, SubjectDTO subject, TranscriptDTO transcriptOfStudent) throws IOException {
