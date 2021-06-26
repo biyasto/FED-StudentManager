@@ -106,6 +106,7 @@ public class MyGradeController implements Initializable {
     private String yearFilter = "All";
     private String semesterFilter = "All";
     private final DecimalFormat df = new DecimalFormat("##.#");
+    private int credit = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -145,7 +146,7 @@ public class MyGradeController implements Initializable {
 
         double sumGPA = 0.0;
         int num = 0;
-        int credit = 0;
+        credit = 0;
 
         StudentClassBLL studentClassBLL = new StudentClassBLL();
         studentCLassList = studentClassBLL.getAllClassOfStudent(student.getId());
@@ -188,6 +189,7 @@ public class MyGradeController implements Initializable {
     void loadGradeFilter() {
         double sumGPA = 0.0;
         int num = 0;
+        credit = 0;
         gradeScrollPane.getChildren().clear();
         if (!studentCLassList.isEmpty()) {
             for (StudentCLassDTO studentCLass : studentCLassList) {
@@ -203,19 +205,23 @@ public class MyGradeController implements Initializable {
 
                     if (yearFilter.equals("All") && semesterFilter.equals("All")) {
                         bindData(subjectClass, subject, transcriptOfStudent);
+                        credit += subject.getCredits();
                     } else if (yearFilter.equals("All") && String.valueOf(subjectClass.getSemester()).equals(semesterFilter)) {
                         bindData(subjectClass, subject, transcriptOfStudent);
                         sumGPA += calculateAvg(transcriptOfStudent);
+                        credit += subject.getCredits();
                         num++;
                     } else if (semesterFilter.equals("All") && String.valueOf(subjectClass.getSchoolYear()).equals(yearFilter)) {
                         bindData(subjectClass, subject, transcriptOfStudent);
                         sumGPA += calculateAvg(transcriptOfStudent);
+                        credit += subject.getCredits();
                         num++;
                     } else {
                         if (String.valueOf(subjectClass.getSemester()).equals(semesterFilter)
                                 && String.valueOf(subjectClass.getSchoolYear()).equals(yearFilter)) {
                             bindData(subjectClass, subject, transcriptOfStudent);
                             sumGPA += calculateAvg(transcriptOfStudent);
+                            credit += subject.getCredits();
                             num++;
                         }
                     }
@@ -227,7 +233,10 @@ public class MyGradeController implements Initializable {
             if (num != 0) {
                 double semesterGPA = sumGPA / num;
                 lblSemesterGPA.setText("semester GPA: " + df.format(semesterGPA));
+                lblCredit.setText("Accumulated credits: " + credit);
+                lblGPA.setText("GPA: " + df.format(semesterGPA));
             }
+
         }
     }
 
@@ -362,7 +371,7 @@ public class MyGradeController implements Initializable {
         prgSchoolName.setIndentationLeft(100);
         document.add(prgSchoolName);
 
-        Paragraph prgAddress = new Paragraph("HO CHI MINH", listFont.get(2));
+        Paragraph prgAddress = new Paragraph("THIÊN HÀ TRONG VŨ TRỤ NÀY HOÀI XA XÔI", listFont.get(2));
         prgAddress.setIndentationLeft(100);
         document.add(prgAddress);
 
@@ -440,12 +449,19 @@ public class MyGradeController implements Initializable {
         Paragraph prgId = new Paragraph("Id: " + studentUser.getId(), listFont.get(4));
 
         document.add(prgId);
-        Paragraph prgSchoolYear = new Paragraph("School year: " + yearFilter, listFont.get(4));
-        document.add(prgSchoolYear);
+        if (!yearFilter.equals("All")){
+            int year = Integer.parseInt(yearFilter) + 1;
+            Paragraph prgSchoolYear = new Paragraph("School year: " + yearFilter + "-" + String.valueOf(year), listFont.get(4));
+            document.add(prgSchoolYear);
+        }
 
-        Paragraph prgSemester = new Paragraph("Semester: " + semesterFilter, listFont.get(4));
-        prgSemester.setSpacingAfter(10);
-        document.add(prgSemester);
+
+        Paragraph prgCredit = new Paragraph("Accumulated credits: " + credit, listFont.get(4));
+        document.add(prgCredit);
+
+        Paragraph prgFaculty = new Paragraph("Faculty: " + studentUser.getFaculty(), listFont.get(4));
+        prgFaculty.setSpacingAfter(10);
+        document.add(prgFaculty);
 
         //Header table
         createHeaderTable();
@@ -472,7 +488,7 @@ public class MyGradeController implements Initializable {
                                 transcriptOfStudent.getMark3(),
                                 transcriptOfStudent.getMark4(),
                                 10 // Nữa tạo thêm thuộc tính điểm trung bình
-                                );
+                        );
                     } else if (yearFilter.equals("All") && String.valueOf(subjectClass.getSemester()).equals(semesterFilter)) {
                         addRow(studentCLass.getClassId(),
                                 subject.getSubjectName(),
