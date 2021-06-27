@@ -2,9 +2,16 @@ package GUI.controllers;
 
 import BusinessLogicLayer.TranscriptBLL;
 import DataTransferObject.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
+import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.chart.Axis;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
@@ -12,9 +19,13 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.NumberAxis;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -24,7 +35,7 @@ public class BarChartController implements Initializable{
     private AnchorPane chartPane;
 
     @FXML
-    private BarChart<Integer, Integer> barChart;
+    private BarChart<String, Number> barChart;
 
     @FXML
     private Button btnBack;
@@ -50,12 +61,11 @@ public class BarChartController implements Initializable{
     private SubjectDTO subject = null;
     private SubjectClassDTO subjectClass = null;
 
-    XYChart.Series series1 = new XYChart.Series();
-    List<XYChart.Data> data = new ArrayList<>();
+    XYChart.Series<String, Number> series1 = new XYChart.Series<>();
+    List<XYChart.Data<String, Number>> data = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         data.add(new XYChart.Data<>("0 - 1", 0));
         data.add(new XYChart.Data<>("1 - 2", 0));
         data.add(new XYChart.Data<>("2 - 3", 0));
@@ -66,8 +76,10 @@ public class BarChartController implements Initializable{
         data.add(new XYChart.Data<>("7 - 8", 0));
         data.add(new XYChart.Data<>("8 - 9", 0));
         data.add(new XYChart.Data<>("9 - 10", 0));
-        series1.getData().addAll(data);
-        barChart.getData().addAll(series1);
+
+//        series1.getData().addAll(data);
+        series1.setName("Number Of Student");
+//        barChart.getData().addAll(series1);
     }
 
     @FXML
@@ -90,70 +102,86 @@ public class BarChartController implements Initializable{
 
         //Chart infor
         barChart.setTitle(chartTitle);
+        barChart.setStyle("-fx-font-size: " + 15 + "px;");
         barChart.getXAxis().setLabel(xAxis);
         barChart.getYAxis().setLabel(yAxis);
 
         createDataset(studentList);
-//        addEventForChartColumns();
+        for (int i = 0; i < 10; i++) {
+            final XYChart.Data<String, Number> columnData = data.get(i);
+            columnData.nodeProperty().addListener(new ChangeListener<Node>() {
+                @Override
+                public void changed(ObservableValue<? extends Node> observableValue, Node oldNode, Node node) {
+                    if (node != null){
+//                        setNodeStyle(columnData);
+                        displayLabelForData(columnData);
+                    }
+                }
+            });
+            series1.getData().add(columnData);
+        }
+//        series1.getData().setAll(data);
+        barChart.getData().setAll(series1);
     }
 
     public void createDataset(List<StudentDTO> studentList){
-        data.add(new XYChart.Data<>("0 - 1", 0));
-        data.add(new XYChart.Data<>("1 - 2", 0));
-        data.add(new XYChart.Data<>("2 - 3", 0));
-        data.add(new XYChart.Data<>("3 - 4", 0));
-        data.add(new XYChart.Data<>("4 - 5", 0));
-        data.add(new XYChart.Data<>("5 - 6", 0));
-        data.add(new XYChart.Data<>("6 - 7", 0));
-        data.add(new XYChart.Data<>("7 - 8", 0));
-        data.add(new XYChart.Data<>("8 - 9", 0));
-        data.add(new XYChart.Data<>("9 - 10", 0));
+
+        int maxCount = 0;
         for (StudentDTO student : studentList) {
             TranscriptBLL transcriptBLL = new TranscriptBLL();
             TranscriptDTO transcriptOfOneStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
+
             double finalScore = transcriptOfOneStudent.getTotalScore() / 4;
             int roundedScore = (int)finalScore;
 
-            switch (roundedScore){
-                case 0:
-                    data.get(0).setYValue((int)data.get(0).getYValue() + 1);
-                    break;
-                case 1:
-                    data.get(1).setYValue((int)data.get(1).getYValue() + 1);
-                    break;
-                case 2:
-                    data.get(2).setYValue((int)data.get(2).getYValue() + 1);
-                    break;
-                case 3:
-                    data.get(3).setYValue((int)data.get(3).getYValue() + 1);
-                    break;
-                case 4:
-                    data.get(4).setYValue((int)data.get(4).getYValue() + 1);
-                    break;
-                case 5:
-                    data.get(5).setYValue((int)data.get(5).getYValue() + 1);
-                    break;
-                case 6:
-                    data.get(6).setYValue((int)data.get(6).getYValue() + 1);
-                    break;
-                case 7:
-                    data.get(7).setYValue((int)data.get(7).getYValue() + 1);
-                    break;
-                case 8:
-                    data.get(8).setYValue((int)data.get(8).getYValue() + 1);
-                    break;
-                case 9:
-                    data.get(9).setYValue((int)data.get(9).getYValue() + 1);
-                    break;
+            //count number of score range
+            if (roundedScore >= 0 && roundedScore <= 10){
+                data.get(roundedScore).setYValue((int) data.get(roundedScore).getYValue() + 1);
             }
         }
-//        barChart.getData().removeAll();
-//        barChart.getData().addAll(series1);
+    }
+
+    private void displayLabelForData(XYChart.Data<String, Number> data) {
+        final Node node = data.getNode();
+        final Text dataText = ((int) data.getYValue() != 0) ? new Text(data.getYValue() + "") : new Text("");
+        node.parentProperty().addListener(new ChangeListener<Parent>() {
+            @Override public void changed(ObservableValue<? extends Parent> ov, Parent oldParent, Parent parent) {
+                Group parentGroup = (Group) parent;
+                parentGroup.getChildren().add(dataText);
+            }
+        });
+
+        node.boundsInParentProperty().addListener(new ChangeListener<Bounds>() {
+            @Override public void changed(ObservableValue<? extends Bounds> ov, Bounds oldBounds, Bounds bounds) {
+                dataText.setLayoutX(
+                        Math.round(
+                                bounds.getMinX() + bounds.getWidth() / 2 - dataText.prefWidth(-1) / 2
+                        )
+                );
+                dataText.setLayoutY(
+                        Math.round(
+                                bounds.getMinY() - dataText.prefHeight(-1) * 0.5
+                        )
+                );
+            }
+        });
+    }
+
+    /** Change color of bar if value of i is <5 then red, if >5 then green if i>8 then blue */
+    private void setNodeStyle(XYChart.Data<String, Number> data) {
+        Node node = data.getNode();
+        if (data.getYValue().intValue() > 8) {
+            node.setStyle("-fx-bar-fill: -fx-exceeded;");
+        } else if (data.getYValue().intValue() > 5) {
+            node.setStyle("-fx-bar-fill: -fx-achieved;");
+        } else {
+            node.setStyle("-fx-bar-fill: -fx-not-achieved;");
+        }
     }
 
     public void addEventForChartColumns(){
-        for (XYChart.Series<Integer, Integer> serie: barChart.getData()){
-            for (XYChart.Data<Integer, Integer> item: serie.getData()){
+        for (XYChart.Series<String, Number> serie: barChart.getData()){
+            for (XYChart.Data<String, Number> item: serie.getData()){
                 item.getNode().setOnMousePressed((MouseEvent event) -> {
                     System.out.println("you clicked " + item.toString() + serie.toString());
                 });

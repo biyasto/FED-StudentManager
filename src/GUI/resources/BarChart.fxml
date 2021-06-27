@@ -12,12 +12,12 @@
 
 <AnchorPane fx:id="chartPane" prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.BarChartController">
    <children>
-      <BarChart fx:id="barChart" layoutX="69.0" layoutY="144.0" prefHeight="398.0" prefWidth="578.0">
+      <BarChart fx:id="barChart" layoutX="53.0" layoutY="144.0" prefHeight="398.0" prefWidth="578.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis side="BOTTOM" tickLabelGap="0.0" fx:id="xAxis" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="yAxis" autoRanging="false" side="LEFT" tickLabelGap="5.0" tickLength="6.0" tickUnit="4.0" upperBound="20.0" />
         </yAxis>
       </BarChart>
       <Button fx:id="btnBack" layoutX="7.0" layoutY="565.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="20.0" prefWidth="64.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Back" textFill="WHITE">
