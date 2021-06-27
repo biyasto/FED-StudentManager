@@ -180,6 +180,44 @@ public class StudentDAL {
         }
         return s;
     }
+//
+//    public StudentDTO getStudentBySubjectAndSchoolYear(String subjectId, int schoolYear, int semester) {
+//        String sql = "select s2.studentId from subjectclass s1, studentclass s2 where s1.subjectId = ? and s1.classId = s2.classId and s1.schoolYear = ? and semester = ?";
+//        StudentDTO s = null;
+//        try {
+//            DBU = new DatabaseUtils();
+//            conn = DBU.createConnection();
+//            pres = conn.prepareStatement(sql);
+//            pres.setString(1, subjectId);
+//            pres.setInt(2, schoolYear);
+//            pres.setInt(3, semester);
+//
+//            rs = pres.executeQuery();
+//            if (rs.next()) {
+//                s = new StudentDTO();
+//                s.setId(rs.getString("id"));
+//                s.setName(rs.getString("name"));
+//                s.setGender(rs.getBoolean("gender"));
+//                s.setEmail(rs.getString("email"));
+//                s.setFaculty(rs.getString("faculty"));
+//                s.setBirthDay(rs.getString("birthday"));
+//                s.setPass(rs.getString("pass"));
+//                s.setType(rs.getInt("userType"));
+//            }
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                conn.close();
+//                pres.close();
+//                rs.close();
+//            } catch (Exception ex) {
+//                ex.printStackTrace();
+//            }
+//        }
+//        return s;
+//    }
     public int countStudents() {
         String sql = "select count(*) from Student;";
         int count = 0;

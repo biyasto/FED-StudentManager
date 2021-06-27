@@ -3,6 +3,8 @@ package BusinessLogicLayer;
 import DataAccessLayer.TranscriptDAL;
 import DataTransferObject.TranscriptDTO;
 
+import java.util.List;
+
 public class TranscriptBLL {
     private TranscriptDAL dal = new TranscriptDAL();
 
@@ -21,4 +23,6 @@ public class TranscriptBLL {
     public int InsertTranscript(int transcriptID) {
         return dal.InsertTranscript(transcriptID);
     }
+
+    public List<TranscriptDTO> getTranscriptsByStudentId(String studentID) { return dal.getTranscriptsByStudentId(studentID); }
 }

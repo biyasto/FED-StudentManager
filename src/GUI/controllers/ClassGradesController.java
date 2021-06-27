@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +53,10 @@ public class ClassGradesController {
     private Button btnAddStudent;
 
     @FXML
-    private Button btnExport;
+    private Button btnExportPDF;
+
+    @FXML
+    private Button btnShowChart;
 
     @FXML
     private VBox studentGrades;
@@ -132,8 +136,29 @@ public class ClassGradesController {
         container.getChildren().add(item);
     }
 
+    @FXML
+    void showChartPanel(ActionEvent event) throws IOException {
+        URL urlLayout = new File("src/GUI/resources/BarChart.fxml").toURI().toURL();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(urlLayout);
+        Node item = fxmlLoader.load();
+
+        BarChartController barChartController = fxmlLoader.getController();
+        barChartController.setData(
+                subjectClass.getClassId() + "'s Score Statistic",
+                "Grades",
+                "Count",
+                studentList,
+                teacher,
+                subject,
+                subjectClass
+        );
+
+        container.getChildren().add(item);
+    }
+
     public String selectSaveFilePath() {
-        Stage stage = (Stage) btnExport.getScene().getWindow();
+        Stage stage = (Stage) btnExportPDF.getScene().getWindow();
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save");
         fileChooser.setInitialFileName("ClassScoreBroad");

@@ -110,7 +110,7 @@ public class SubjectDAL {
 
     public List<SubjectDTO> getSubjectsByStudentId(String id){
         List<SubjectDTO> list = new ArrayList<>();
-        String sql = "select s2.subjectId, s2.subjectName, s2.credit, s2.faculty " +
+        String sql = "select s2.* " +
                 "from StudentClass s1, Subject s2, SubjectClass s3 " +
                 "where s1.classId = s3.classId and " +
                 "s2.subjectId = s3.subjectId and " +
@@ -144,4 +144,37 @@ public class SubjectDAL {
         }
         return list;
     }
+
+    public SubjectDTO getSubjectByTranscriptId(String id){
+        SubjectDTO subjectDTO = null;
+        String sql = "select s3.* from studentclass s1, subjectclass s2, subject s3 where s1.classId = s2.classId and s2.subjectId = s3.subjectId and s1.transcriptId = ?";
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, id);
+            rs = pres.executeQuery();
+
+            while (rs.next()) {
+                subjectDTO = new SubjectDTO();
+                subjectDTO.setSubjectID(rs.getString("subjectId"));
+                subjectDTO.setSubjectName(rs.getString("subjectName"));
+                subjectDTO.setCredits(rs.getInt("credit"));
+                subjectDTO.setFaculty(rs.getString("faculty"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return subjectDTO;
+    }
+
+
 }

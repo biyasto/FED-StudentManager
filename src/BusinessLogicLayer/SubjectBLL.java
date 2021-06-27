@@ -21,4 +21,6 @@ public class SubjectBLL {
     }
 
     public List<SubjectDTO> getSubjectsByStudentId(String id){return dal.getSubjectsByStudentId(id);}
+
+    public SubjectDTO getSubjectByTranscriptId(String id){ return dal.getSubjectByTranscriptId(id); }
 }

@@ -18,6 +18,10 @@ public class TranscriptDTO {
         Mark4 = mark4;
     }
 
+    public Double getTotalScore(){
+        return this.Mark1 + this.Mark2 + this.Mark3 + this.Mark4;
+    }
+
     public int getTranscriptId() {
         return TranscriptId;
     }

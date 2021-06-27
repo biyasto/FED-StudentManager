@@ -83,6 +83,42 @@ public class TranscriptDAL {
         return transcriptDTO;
     }
 
+    public List<TranscriptDTO> getTranscriptsByStudentId(String studentID) {
+        List<TranscriptDTO> transcripts = null;
+        String sql = "select t.* from studentclass s, transcript t where s.transcriptId = t.transcriptId and s.studentId = ?";
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+
+            pres.setString(1, studentID);
+
+            rs = pres.executeQuery();
+
+            while (rs.next()) {
+                TranscriptDTO transcriptDTO = new TranscriptDTO();
+                transcriptDTO.setTranscriptId(rs.getInt("transcriptId"));
+                transcriptDTO.setMark1(rs.getDouble("mark1"));
+                transcriptDTO.setMark2(rs.getDouble("mark2"));
+                transcriptDTO.setMark3(rs.getDouble("mark3"));
+                transcriptDTO.setMark4(rs.getDouble("mark4"));
+
+                transcripts.add(transcriptDTO);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return transcripts;
+    }
+
     public int UpdateTranscript(TranscriptDTO transcript) {
         String sql = "update transcript set mark1=?, mark2=?, mark3=?, mark4=? where transcriptid = ?;";
         int result = -1;
