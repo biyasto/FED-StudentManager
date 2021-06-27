@@ -269,7 +269,7 @@ public class ClassGradesController {
         prgSchoolName.setIndentationLeft(100);
         document.add(prgSchoolName);
 
-        Paragraph prgAddress = new Paragraph("HO CHI MINH", listFont.get(2));
+        Paragraph prgAddress = new Paragraph("Thiên Hà Trong Vũ Trụ Này Hoài Xa Xôi", listFont.get(2));
         prgAddress.setIndentationLeft(100);
         document.add(prgAddress);
 
@@ -345,7 +345,8 @@ public class ClassGradesController {
         document.add(prgID);
         Paragraph prgTeacherName = new Paragraph("Teacher: " + teacher.getName(), listFont.get(4));
         document.add(prgTeacherName);
-        Paragraph prgSchoolYear = new Paragraph("School year: " +subjectClass.getSchoolYear() , listFont.get(4));
+        int year = subjectClass.getSchoolYear() + 1;
+        Paragraph prgSchoolYear = new Paragraph("School year: " +subjectClass.getSchoolYear() +"-"+String.valueOf(year) , listFont.get(4));
         document.add(prgSchoolYear);
         Paragraph prgSemester = new Paragraph("Semester: " +subjectClass.getSemester() , listFont.get(4));
         prgSemester.setSpacingAfter(10);

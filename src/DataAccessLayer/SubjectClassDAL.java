@@ -33,7 +33,10 @@ public class SubjectClassDAL {
                 s.setSubjectId(rs.getString("subjectId"));
                 s.setSchoolYear(rs.getInt("schoolYear"));
                 s.setSemester(rs.getInt("semester"));
-
+                s.setAttendance(rs.getInt("attendance"));
+                s.setQuiz(rs.getInt("quiz"));
+                s.setPractice(rs.getInt("practice"));
+                s.setFinal(rs.getInt("final"));
 
                 list.add(s);
             }
@@ -68,6 +71,10 @@ public class SubjectClassDAL {
                 s.setSubjectId(rs.getString("subjectId"));
                 s.setSchoolYear(rs.getInt("schoolYear"));
                 s.setSemester(rs.getInt("semester"));
+                s.setAttendance(rs.getInt("attendance"));
+                s.setQuiz(rs.getInt("quiz"));
+                s.setPractice(rs.getInt("practice"));
+                s.setFinal(rs.getInt("final"));
 
                 list.add(s);
             }
@@ -101,6 +108,10 @@ public class SubjectClassDAL {
                 s.setSubjectId(rs.getString("subjectId"));
                 s.setSchoolYear(rs.getInt("schoolYear"));
                 s.setSemester(rs.getInt("semester"));
+                s.setAttendance(rs.getInt("attendance"));
+                s.setQuiz(rs.getInt("quiz"));
+                s.setPractice(rs.getInt("practice"));
+                s.setFinal(rs.getInt("final"));
 
                 list.add(s);
             }
@@ -136,6 +147,10 @@ public class SubjectClassDAL {
                 subjectClass.setSubjectId(rs.getString("subjectId"));
                 subjectClass.setSchoolYear(rs.getInt("schoolYear"));
                 subjectClass.setSemester(rs.getInt("semester"));
+                subjectClass.setAttendance(rs.getInt("attendance"));
+                subjectClass.setQuiz(rs.getInt("quiz"));
+                subjectClass.setPractice(rs.getInt("practice"));
+                subjectClass.setFinal(rs.getInt("final"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -169,6 +184,10 @@ public class SubjectClassDAL {
                 s.setSubjectId(rs.getString("subjectId"));
                 s.setSchoolYear(rs.getInt("schoolYear"));
                 s.setSemester(rs.getInt("semester"));
+                s.setAttendance(rs.getInt("attendance"));
+                s.setQuiz(rs.getInt("quiz"));
+                s.setPractice(rs.getInt("practice"));
+                s.setFinal(rs.getInt("final"));
 
 
                 list.add(s);
@@ -188,7 +207,7 @@ public class SubjectClassDAL {
     }
 
     public int InsertSubjectClass(SubjectClassDTO s) {
-        String sql = "insert into subjectclass values (?,?,?,?,?);";
+        String sql = "insert into subjectclass values (?,?,?,?,?,?,?,?,?);";
         int result = -1;
         try {
             DBU = new DatabaseUtils();
@@ -199,6 +218,10 @@ public class SubjectClassDAL {
             pres.setString(3, s.getSubjectId());
             pres.setInt(4, s.getSchoolYear());
             pres.setInt(5, s.getSemester());
+            pres.setInt(6, s.getAttendance());
+            pres.setInt(7, s.getQuiz());
+            pres.setInt(8, s.getPractice());
+            pres.setInt(9, s.getFinal());
 
             result = pres.executeUpdate();
 

@@ -60,23 +60,23 @@ public class StudentGradeItemController {
         if(transcriptOfStudent != null) {
             if(transcriptOfStudent.getMark1() != -1) {
                 Grade1Textfield.setText(String.valueOf(transcriptOfStudent.getMark1()));
-                avg += transcriptOfStudent.getMark1() * 0.1;
+                avg += transcriptOfStudent.getMark1() * subjectClass.getAttendance() * 0.1;
             }
             if(transcriptOfStudent.getMark2() != -1) {
                 Grade2Textfield.setText(String.valueOf(transcriptOfStudent.getMark2()));
-                avg += transcriptOfStudent.getMark2() * 0.2;
+                avg += transcriptOfStudent.getMark2() * subjectClass.getQuiz() * 0.1;
             }
             if(transcriptOfStudent.getMark3() != -1) {
                 Grade3Textfield.setText(String.valueOf(transcriptOfStudent.getMark3()));
-                avg += transcriptOfStudent.getMark3() * 0.2;
+                avg += transcriptOfStudent.getMark3() * subjectClass.getPractice() * 0.1;
             }
             if(transcriptOfStudent.getMark4() != -1) {
                 Grade4Textfield.setText(String.valueOf(transcriptOfStudent.getMark4()));
-                avg += transcriptOfStudent.getMark4() * 0.5;
+                avg += transcriptOfStudent.getMark4() * subjectClass.getFinal() * 0.1;
             }
 
         }
-        DecimalFormat df = new DecimalFormat("#.#");
+        DecimalFormat df = new DecimalFormat("#.##");
         lblAvgGrade.setText(df.format(avg));
     }
 }

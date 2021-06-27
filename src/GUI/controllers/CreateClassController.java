@@ -44,6 +44,9 @@ public class CreateClassController implements Initializable {
     private Text lblError;
 
     @FXML
+    private Text lblCoefficient;
+
+    @FXML
     private ChoiceBox<String> FacultyChoiceBox;
 
     @FXML
@@ -57,6 +60,18 @@ public class CreateClassController implements Initializable {
 
     @FXML
     private ChoiceBox<String> SemesterChoiceBox;
+
+    @FXML
+    private ChoiceBox<String> AttendanceChoiceBox;
+
+    @FXML
+    private ChoiceBox<String> QuizChoiceBox;
+
+    @FXML
+    private ChoiceBox<String> PracticeChoiceBox;
+
+    @FXML
+    private ChoiceBox<String> FinalChoiceBox;
 
     @FXML
     private Button btnBack;
@@ -123,6 +138,35 @@ public class CreateClassController implements Initializable {
         ObservableList<String> dataSemester = FXCollections.observableArrayList();
         dataSemester.setAll(optionSemester);
         SemesterChoiceBox.setItems(dataSemester);
+
+        //data for grade's coefficient
+        String[] optionCoefficient = {
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+        };
+        ObservableList<String> dataCoefficient = FXCollections.observableArrayList();
+        dataCoefficient.setAll(optionCoefficient);
+
+        AttendanceChoiceBox.setItems(dataCoefficient);
+        AttendanceChoiceBox.setValue("0");
+
+        QuizChoiceBox.setItems(dataCoefficient);
+        QuizChoiceBox.setValue("0");
+
+        PracticeChoiceBox.setItems(dataCoefficient);
+        PracticeChoiceBox.setValue("0");
+
+        FinalChoiceBox.setItems(dataCoefficient);
+        FinalChoiceBox.setValue("0");
     }
 
     @FXML
@@ -131,6 +175,11 @@ public class CreateClassController implements Initializable {
         String schoolYear = SchoolYearChoiceBox.getValue();
         String semester = SemesterChoiceBox.getValue();
         String classId = ClassID.getText();
+
+        int Attendance = Integer.parseInt(AttendanceChoiceBox.getValue());
+        int Quiz = Integer.parseInt(QuizChoiceBox.getValue());
+        int Practice = Integer.parseInt(PracticeChoiceBox.getValue());
+        int Final = Integer.parseInt(FinalChoiceBox.getValue());
 
         String subjectChoice = SubjectChoiceBox.getValue();
         String teacherChoice = TeacherChoiceBox.getValue();
@@ -144,6 +193,13 @@ public class CreateClassController implements Initializable {
             lblEmpty.setVisible(true);
             lblError.setVisible(false);
             lblSuccess.setVisible(false);
+            lblCoefficient.setVisible(false);
+        }
+        else if((Attendance + Quiz + Practice + Final) != 10) {
+            lblEmpty.setVisible(false);
+            lblError.setVisible(false);
+            lblSuccess.setVisible(false);
+            lblCoefficient.setVisible(true);
         }
         else {
             String[] strSubject = subjectChoice.split("-");
@@ -157,7 +213,11 @@ public class CreateClassController implements Initializable {
                     teacherId,
                     subjectId,
                     Integer.parseInt(schoolYear),
-                    Integer.parseInt(semester)
+                    Integer.parseInt(semester),
+                    Attendance,
+                    Quiz,
+                    Practice,
+                    Final
             );
 
             SubjectClassBLL subjectClassBLL = new SubjectClassBLL();
