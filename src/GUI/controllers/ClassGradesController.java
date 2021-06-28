@@ -23,6 +23,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -53,6 +54,9 @@ public class ClassGradesController {
     private Button btnAddStudent;
 
     @FXML
+    private Button btnExportList;
+
+    @FXML
     private Button btnExportPDF;
 
     @FXML
@@ -65,7 +69,9 @@ public class ClassGradesController {
     private TeacherDTO teacher = null;
     private SubjectDTO subject = null;
     private SubjectClassDTO subjectClass = null;
+    private int count = 1;
     private final static PdfPTable markTable = new PdfPTable(7);
+    private final static PdfPTable studentListTable = new PdfPTable(6);
 
     private final StackPane container = NavigationController.containerNav;
 
@@ -161,7 +167,7 @@ public class ClassGradesController {
         Stage stage = (Stage) btnExportPDF.getScene().getWindow();
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save");
-        fileChooser.setInitialFileName("ClassScoreBroad");
+        fileChooser.setInitialFileName("NameFile");
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("pdf", "*.pdf"));
         File filePath = fileChooser.showSaveDialog(stage);
         return filePath.getAbsolutePath();
@@ -195,7 +201,60 @@ public class ClassGradesController {
         return fontList;
     }
 
-    public void createHeaderTable() throws DocumentException, IOException {
+    public void createHeaderTableStudentList() throws DocumentException, IOException {
+        List<Font> listFont = createFonts();
+        studentListTable.setWidthPercentage(100);
+        studentListTable.setSpacingAfter(10);
+        studentListTable.setSpacingBefore(10);
+
+        float[] table_colW = {40, 100, 180, 150, 150, 100};
+        studentListTable.setWidths(table_colW);
+
+        PdfPCell cellSNo = new PdfPCell(new Paragraph("SNo", listFont.get(3)));
+        cellSNo.setBorderColor(BaseColor.BLACK);
+        cellSNo.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cellSNo.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cellSNo.setMinimumHeight(30);
+        studentListTable.addCell(cellSNo);
+
+        PdfPCell cellStudentId = new PdfPCell(new Paragraph("Student id", listFont.get(3)));
+        cellStudentId.setBorderColor(BaseColor.BLACK);
+        cellStudentId.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cellStudentId.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cellStudentId.setMinimumHeight(30);
+        studentListTable.addCell(cellStudentId);
+
+        PdfPCell cellSubjectName = new PdfPCell(new Paragraph("Student name", listFont.get(3)));
+        cellSubjectName.setBorderColor(BaseColor.BLACK);
+        cellSubjectName.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cellSubjectName.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cellSubjectName.setMinimumHeight(30);
+        studentListTable.addCell(cellSubjectName);
+
+        PdfPCell cellClassId = new PdfPCell(new Paragraph("Class id", listFont.get(3)));
+        cellClassId.setBorderColor(BaseColor.BLACK);
+        cellClassId.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cellClassId.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cellClassId.setMinimumHeight(30);
+        studentListTable.addCell(cellClassId);
+
+        PdfPCell cellFaculty = new PdfPCell(new Paragraph("Faculty", listFont.get(3)));
+        cellFaculty.setBorderColor(BaseColor.BLACK);
+        cellFaculty.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cellFaculty.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cellFaculty.setMinimumHeight(30);
+        studentListTable.addCell(cellFaculty);
+
+        PdfPCell cellNotes = new PdfPCell(new Paragraph("Notes", listFont.get(3)));
+        cellNotes.setBorderColor(BaseColor.BLACK);
+        cellNotes.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cellNotes.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cellNotes.setMinimumHeight(30);
+        studentListTable.addCell(cellNotes);
+
+    }
+
+    public void createHeaderTablePDF() throws DocumentException, IOException {
         List<Font> listFont = createFonts();
         markTable.setWidthPercentage(100);
         markTable.setSpacingAfter(10);
@@ -284,7 +343,53 @@ public class ClassGradesController {
         document.add(prgTitle);
     }
 
-    public void addRow(String studentId, String studentName, double m1, double m2, double m3, double m4, double avg) throws DocumentException, IOException {
+    public void addRowExportStudentList(String c1, String c2, String c3, String c4, String c5, String c6) throws DocumentException, IOException {
+        List<Font> listFont = createFonts();
+
+        PdfPCell cellSNo = new PdfPCell(new Paragraph(c1, listFont.get(5)));
+        cellSNo.setBorderColor(BaseColor.BLACK);
+        cellSNo.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cellSNo.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cellSNo.setMinimumHeight(30);
+        studentListTable.addCell(cellSNo);
+
+        PdfPCell cellStudentId = new PdfPCell(new Paragraph(c2, listFont.get(5)));
+        cellStudentId.setBorderColor(BaseColor.BLACK);
+        cellStudentId.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cellStudentId.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cellStudentId.setMinimumHeight(30);
+        studentListTable.addCell(cellStudentId);
+
+        PdfPCell cellSubjectName = new PdfPCell(new Paragraph(c3, listFont.get(5)));
+        cellSubjectName.setBorderColor(BaseColor.BLACK);
+        cellSubjectName.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cellSubjectName.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cellSubjectName.setMinimumHeight(30);
+        studentListTable.addCell(cellSubjectName);
+
+        PdfPCell cellClassId = new PdfPCell(new Paragraph(c4, listFont.get(5)));
+        cellClassId.setBorderColor(BaseColor.BLACK);
+        cellClassId.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cellClassId.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cellClassId.setMinimumHeight(30);
+        studentListTable.addCell(cellClassId);
+
+        PdfPCell cellFaculty = new PdfPCell(new Paragraph(c5, listFont.get(5)));
+        cellFaculty.setBorderColor(BaseColor.BLACK);
+        cellFaculty.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cellFaculty.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cellFaculty.setMinimumHeight(30);
+        studentListTable.addCell(cellFaculty);
+
+        PdfPCell cellNotes = new PdfPCell(new Paragraph(c6, listFont.get(5)));
+        cellNotes.setBorderColor(BaseColor.BLACK);
+        cellNotes.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cellNotes.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cellNotes.setMinimumHeight(30);
+        studentListTable.addCell(cellNotes);
+    }
+
+    public void addRowExportPDF(String studentId, String studentName, double m1, double m2, double m3, double m4, double avg) throws DocumentException, IOException {
         List<Font> listFont = createFonts();
         PdfPCell cellStudentIdI = new PdfPCell(new Paragraph(studentId, listFont.get(5)));
         cellStudentIdI.setBorderColor(BaseColor.BLACK);
@@ -328,6 +433,7 @@ public class ClassGradesController {
         cellAverageI.setVerticalAlignment(Element.ALIGN_MIDDLE);
         markTable.addCell(cellAverageI);
     }
+
     @FXML
     void export(ActionEvent event) throws DocumentException, IOException {
         String filePath = selectSaveFilePath();
@@ -346,27 +452,27 @@ public class ClassGradesController {
         Paragraph prgTeacherName = new Paragraph("Teacher: " + teacher.getName(), listFont.get(4));
         document.add(prgTeacherName);
         int year = subjectClass.getSchoolYear() + 1;
-        Paragraph prgSchoolYear = new Paragraph("School year: " +subjectClass.getSchoolYear() +"-"+String.valueOf(year) , listFont.get(4));
+        Paragraph prgSchoolYear = new Paragraph("School year: " + subjectClass.getSchoolYear() + "-" + String.valueOf(year), listFont.get(4));
         document.add(prgSchoolYear);
-        Paragraph prgSemester = new Paragraph("Semester: " +subjectClass.getSemester() , listFont.get(4));
+        Paragraph prgSemester = new Paragraph("Semester: " + subjectClass.getSemester(), listFont.get(4));
         prgSemester.setSpacingAfter(10);
         document.add(prgSemester);
 
         //Header table
-        createHeaderTable();
+        createHeaderTablePDF();
 
-        studentList.forEach(student ->{
+        studentList.forEach(student -> {
             TranscriptBLL transcriptBLL = new TranscriptBLL();
             TranscriptDTO transcriptOfOneStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
             try {
-                addRow(student.getId(),
+                addRowExportPDF(student.getId(),
                         student.getName(),
                         transcriptOfOneStudent.getMark1(),
                         transcriptOfOneStudent.getMark2(),
                         transcriptOfOneStudent.getMark3(),
                         transcriptOfOneStudent.getMark4(),
                         10
-                        );
+                );
             } catch (DocumentException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -378,6 +484,52 @@ public class ClassGradesController {
         document.close();
         writer.close();
 
+    }
+
+    @FXML
+    void ExportStudentList() throws IOException, DocumentException {
+        count = 1;
+        String filePath = selectSaveFilePath();
+        Document document = new Document(PageSize.A4);
+        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
+        document.open();
+        List<Font> listFont = createFonts();
+
+        //Head file pdf
+        createHeaderPDF(document);
+
+        //Information class
+        Paragraph prgID = new Paragraph("ClassId: " + subjectClass.getClassId(), listFont.get(4));
+        document.add(prgID);
+        Paragraph prgTeacherName = new Paragraph("Teacher: " + teacher.getName(), listFont.get(4));
+        document.add(prgTeacherName);
+        int year = subjectClass.getSchoolYear() + 1;
+        Paragraph prgSchoolYear = new Paragraph("School year: " + subjectClass.getSchoolYear() + "-" + String.valueOf(year), listFont.get(4));
+        document.add(prgSchoolYear);
+        Paragraph prgSemester = new Paragraph("Semester: " + subjectClass.getSemester(), listFont.get(4));
+        prgSemester.setSpacingAfter(10);
+        document.add(prgSemester);
+
+        createHeaderTableStudentList();
+
+
+
+        studentList.forEach(s -> {
+            try {
+                addRowExportStudentList(String.valueOf(count),s.getId(),s.getName(),subjectClass.getClassId(),s.getFaculty(),"");
+                count = count + 1;
+
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
+
+        document.add(studentListTable);
+        document.close();
+        writer.close();
     }
 
     @FXML
