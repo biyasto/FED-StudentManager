@@ -5,15 +5,15 @@ import DataTransferObject.*;
 import GUI.controllers.NavigationController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.chart.Axis;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,12 +21,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.NumberAxis;
-
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -37,6 +33,12 @@ public class ClassScoresBarChartController implements Initializable{
 
     @FXML
     private BarChart<String, Number> barChart;
+
+    @FXML
+    private CategoryAxis xAxis;
+
+    @FXML
+    private NumberAxis yAxis;
 
     @FXML
     private Button btnBack;
@@ -63,22 +65,28 @@ public class ClassScoresBarChartController implements Initializable{
     private SubjectClassDTO subjectClass = null;
 
     XYChart.Series<String, Number> series1 = new XYChart.Series<>();
-    List<XYChart.Data<String, Number>> data = new ArrayList<>();
+    XYChart.Series<String, Number> series2 = new XYChart.Series<>();
+    XYChart.Series<String, Number> series3 = new XYChart.Series<>();
+    List<XYChart.Data<String, Number>> data1 = new ArrayList<>();
+    List<XYChart.Data<String, Number>> data2 = new ArrayList<>();
+    List<XYChart.Data<String, Number>> data3 = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        data.add(new XYChart.Data<>("0 - 1", 0));
-        data.add(new XYChart.Data<>("1 - 2", 0));
-        data.add(new XYChart.Data<>("2 - 3", 0));
-        data.add(new XYChart.Data<>("3 - 4", 0));
-        data.add(new XYChart.Data<>("4 - 5", 0));
-        data.add(new XYChart.Data<>("5 - 6", 0));
-        data.add(new XYChart.Data<>("6 - 7", 0));
-        data.add(new XYChart.Data<>("7 - 8", 0));
-        data.add(new XYChart.Data<>("8 - 9", 0));
-        data.add(new XYChart.Data<>("9 - 10", 0));
+        data1.add(new XYChart.Data<>("0 - 1", 0));
+        data1.add(new XYChart.Data<>("1 - 2", 0));
+        data1.add(new XYChart.Data<>("2 - 3", 0));
+        data1.add(new XYChart.Data<>("3 - 4", 0));
+        data1.add(new XYChart.Data<>("4 - 5", 0));
+        data2.add(new XYChart.Data<>("5 - 6", 0));
+        data2.add(new XYChart.Data<>("6 - 7", 0));
+        data2.add(new XYChart.Data<>("7 - 8", 0));
+        data3.add(new XYChart.Data<>("8 - 9", 0));
+        data3.add(new XYChart.Data<>("9 - 10", 0));
 
-        series1.setName("Number Of Student");
+        series1.setName("0 - 5");
+        series2.setName("5 - 8");
+        series3.setName("8 - 10");
     }
 
     @FXML
@@ -104,23 +112,49 @@ public class ClassScoresBarChartController implements Initializable{
         barChart.setStyle("-fx-font-size: " + 15 + "px;");
         barChart.getXAxis().setLabel(xAxis);
         barChart.getYAxis().setLabel(yAxis);
-
         createDataset(studentList);
-        for (int i = 0; i < 10; i++) {
-            final XYChart.Data<String, Number> columnData = data.get(i);
+
+        for (int i = 0; i < 5; i++) {
+            final XYChart.Data<String, Number> columnData = data1.get(i);
             columnData.nodeProperty().addListener(new ChangeListener<Node>() {
                 @Override
                 public void changed(ObservableValue<? extends Node> observableValue, Node oldNode, Node node) {
                     if (node != null){
-//                        setNodeStyle(columnData);
+                        setNodeStyle(columnData);
                         displayLabelForData(columnData);
                     }
                 }
             });
             series1.getData().add(columnData);
         }
-//        series1.getData().setAll(data);
-        barChart.getData().setAll(series1);
+        for (int i = 5; i < 8; i++) {
+            final XYChart.Data<String, Number> columnData = data2.get(i - 5);
+            columnData.nodeProperty().addListener(new ChangeListener<Node>() {
+                @Override
+                public void changed(ObservableValue<? extends Node> observableValue, Node oldNode, Node node) {
+                    if (node != null){
+                        setNodeStyle(columnData);
+                        displayLabelForData(columnData);
+                    }
+                }
+            });
+            series2.getData().add(columnData);
+        }
+        for (int i = 8; i < 10; i++) {
+            final XYChart.Data<String, Number> columnData = data3.get(i - 8);
+            columnData.nodeProperty().addListener(new ChangeListener<Node>() {
+                @Override
+                public void changed(ObservableValue<? extends Node> observableValue, Node oldNode, Node node) {
+                    if (node != null){
+                        setNodeStyle(columnData);
+                        displayLabelForData(columnData);
+                    }
+                }
+            });
+            series3.getData().add(columnData);
+        }
+        barChart.getData().setAll(series1, series2, series3);
+
     }
 
     public void createDataset(List<StudentDTO> studentList){
@@ -134,10 +168,34 @@ public class ClassScoresBarChartController implements Initializable{
             int roundedScore = (int)finalScore;
 
             //count number of score range
-            if (roundedScore >= 0 && roundedScore <= 10){
-                data.get(roundedScore).setYValue((int) data.get(roundedScore).getYValue() + 1);
+            if (roundedScore >= 0 && roundedScore <= 4){
+                data1.get(roundedScore).setYValue((int) data1.get(roundedScore).getYValue() + 1);
+                if (maxCount < data1.get(roundedScore).getYValue().intValue()){
+                    maxCount = data1.get(roundedScore).getYValue().intValue();
+                }
+            }else if (roundedScore >= 5 && roundedScore <= 7){
+                data2.get(roundedScore - 5).setYValue((int) data2.get(roundedScore - 5).getYValue() + 1);
+                if (maxCount < data2.get(roundedScore - 5).getYValue().intValue()){
+                    maxCount = data2.get(roundedScore - 5).getYValue().intValue();
+                }
+            }else if (roundedScore >= 8 && roundedScore <= 9){
+                data3.get(roundedScore - 8).setYValue((int) data3.get(roundedScore - 8).getYValue() + 1);
+                if (maxCount < data3.get(roundedScore - 8).getYValue().intValue()){
+                    maxCount = data3.get(roundedScore - 8).getYValue().intValue();
+                }
             }
+
         }
+
+        //change bar width
+        xAxis.categorySpacingProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                recalculateBarPositions();
+            }
+        });
+
+        yAxis.setUpperBound(maxCount + 2);
     }
 
     private void displayLabelForData(XYChart.Data<String, Number> data) {
@@ -169,12 +227,12 @@ public class ClassScoresBarChartController implements Initializable{
     /** Change color of bar if value of i is <5 then red, if >5 then green if i>8 then blue */
     private void setNodeStyle(XYChart.Data<String, Number> data) {
         Node node = data.getNode();
-        if (data.getYValue().intValue() > 8) {
-            node.setStyle("-fx-bar-fill: -fx-exceeded;");
-        } else if (data.getYValue().intValue() > 5) {
-            node.setStyle("-fx-bar-fill: -fx-achieved;");
+        if (Integer.parseInt(String.valueOf(data.getXValue().charAt(0))) >= 8) {
+            node.setStyle("-fx-bar-fill: green;");
+        } else if (Integer.parseInt(String.valueOf(data.getXValue().charAt(0))) >= 5) {
+            node.setStyle("-fx-bar-fill: orange;");
         } else {
-            node.setStyle("-fx-bar-fill: -fx-not-achieved;");
+            node.setStyle("-fx-bar-fill: red;");
         }
     }
 
@@ -186,5 +244,23 @@ public class ClassScoresBarChartController implements Initializable{
                 });
             }
         }
+    }
+
+    private void recalculateBarPositions() {
+        final int seriesCount = barChart.getData().size();
+        final double categoryHeight = xAxis.getCategorySpacing() - barChart.getCategoryGap();
+        final double originalBarHeight = categoryHeight / seriesCount;
+        final double barTranslateX = originalBarHeight * (seriesCount - 1) / 2;
+
+        //find the (bar) node associated with each series data and adjust its size and position
+        barChart.getData().forEach(numberStringSeries ->
+                numberStringSeries.getData().forEach(numberStringData -> {
+                    Node node = numberStringData.getNode();
+
+                    node.setScaleX(3);
+                    //translate the node vertically to center it around the category label
+                    node.setTranslateX(16);
+                })
+        );
     }
 }

@@ -84,6 +84,7 @@ public class StudentScoresBarChart implements Initializable {
 
     XYChart.Series<String, Number> series1 = new XYChart.Series<>();
     List<XYChart.Data<String, Number>> data = new ArrayList<>();
+    private final DecimalFormat df = new DecimalFormat("##.##");
 
 
     @FXML
@@ -131,7 +132,7 @@ public class StudentScoresBarChart implements Initializable {
                 @Override
                 public void changed(ObservableValue<? extends Node> observableValue, Node oldNode, Node node) {
                     if (node != null){
-//                        setNodeStyle(columnData);
+                        setNodeStyle(columnData);
                         displayLabelForData(columnData);
                     }
                 }
@@ -142,6 +143,9 @@ public class StudentScoresBarChart implements Initializable {
     }
 
     private void createDataset(List<StudentCLassDTO> studentCLassList) {
+        double sumGPA = 0.0;
+        int numOfSubjects = 0;
+        credit = 0;
         for (StudentCLassDTO studentCLass : studentCLassList) {
             try {
                 SubjectClassBLL subjectClassBLL = new SubjectClassBLL();
@@ -154,24 +158,39 @@ public class StudentScoresBarChart implements Initializable {
                 TranscriptDTO transcript = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), studentUser.getId());
 
                 if (yearFilter.equals("All") && semesterFilter.equals("All")) {
-                    data.add(new XYChart.Data<>(subject.getSubjectName(),transcriptBLL.calGPAByTranscriptId(transcript.getTranscriptId())));
+                    data.add(new XYChart.Data<>(convertSubjectNameIntoLabel(subject.getSubjectName()), transcriptBLL.calGPAByTranscriptId(transcript.getTranscriptId())));
                     credit += subject.getCredits();
+                    sumGPA += transcriptBLL.calGPAByTranscriptId(transcript.getTranscriptId());
+                    numOfSubjects++;
                 } else if (yearFilter.equals("All") && String.valueOf(subjectClass.getSemester()).equals(semesterFilter)) {
-                    data.add(new XYChart.Data<>(subject.getSubjectName(),transcriptBLL.calGPAByTranscriptId(transcript.getTranscriptId())));
+                    data.add(new XYChart.Data<>(convertSubjectNameIntoLabel(subject.getSubjectName()), transcriptBLL.calGPAByTranscriptId(transcript.getTranscriptId())));
                     credit += subject.getCredits();
+                    sumGPA += transcriptBLL.calGPAByTranscriptId(transcript.getTranscriptId());
+                    numOfSubjects++;
                 } else if (semesterFilter.equals("All") && String.valueOf(subjectClass.getSchoolYear()).equals(yearFilter)) {
-                    data.add(new XYChart.Data<>(subject.getSubjectName(), transcriptBLL.calGPAByTranscriptId(transcript.getTranscriptId())));
+                    data.add(new XYChart.Data<>(convertSubjectNameIntoLabel(subject.getSubjectName()), transcriptBLL.calGPAByTranscriptId(transcript.getTranscriptId())));
                     credit += subject.getCredits();
+                    sumGPA += transcriptBLL.calGPAByTranscriptId(transcript.getTranscriptId());
+                    numOfSubjects++;
                 } else {
                     if (String.valueOf(subjectClass.getSemester()).equals(semesterFilter)
                             && String.valueOf(subjectClass.getSchoolYear()).equals(yearFilter)) {
                         data.add(new XYChart.Data<>(subject.getSubjectName(),transcriptBLL.calGPAByTranscriptId(transcript.getTranscriptId())));
+                        credit += subject.getCredits();
+                        sumGPA += transcriptBLL.calGPAByTranscriptId(transcript.getTranscriptId());
+                        numOfSubjects++;
                     }
                 }
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+        double semesterGPA = sumGPA / numOfSubjects;
+        System.out.println(sumGPA + " " + numOfSubjects);
+        lblCredit.setText("Accumulated credits: " + credit);
+        if (sumGPA > 0){
+            lblGPA.setText("GPA: " + df.format(semesterGPA));
         }
     }
 
@@ -199,6 +218,33 @@ public class StudentScoresBarChart implements Initializable {
                 );
             }
         });
+    }
+
+    /** Change color of bar if value of i is <5 then red, if >5 then green if i>8 then blue */
+    private void setNodeStyle(XYChart.Data<String, Number> data) {
+        Node node = data.getNode();
+        if (data.getYValue().doubleValue() > 8) {
+            node.setStyle("-fx-bar-fill: green;");
+        } else if (data.getYValue().doubleValue() > 5) {
+            node.setStyle("-fx-bar-fill: orange;");
+        } else {
+            node.setStyle("-fx-bar-fill: red;");
+        }
+    }
+
+    private String convertSubjectNameIntoLabel(String subjectName){
+        String result = "";
+        String words[] = subjectName.split(" ");
+        for (int i = 0; i < words.length; i++) {
+            if (i == words.length - 1){
+                result += words[i];
+            }else if (i%2==0)
+                result += words[i] + " ";
+            else {
+                result += words[i] + "\n";
+            }
+        }
+        return result;
     }
 
 }

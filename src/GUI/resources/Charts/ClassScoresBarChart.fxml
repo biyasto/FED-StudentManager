@@ -14,10 +14,10 @@
    <children>
       <BarChart fx:id="barChart" layoutX="53.0" layoutY="144.0" prefHeight="398.0" prefWidth="578.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" tickLabelGap="0.0" fx:id="xAxis" />
+          <CategoryAxis label="Range Of Grades" tickLabelGap="0.0" fx:id="xAxis" />
         </xAxis>
         <yAxis>
-          <NumberAxis fx:id="yAxis" autoRanging="false" side="LEFT" tickLabelGap="5.0" tickLength="6.0" tickUnit="4.0" upperBound="20.0" />
+          <NumberAxis fx:id="yAxis" autoRanging="false" label="Count" minorTickCount="2" side="LEFT" tickLabelGap="5.0" tickLength="6.0" tickUnit="2.0" upperBound="20.0" />
         </yAxis>
       </BarChart>
       <Button fx:id="btnBack" layoutX="7.0" layoutY="565.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="20.0" prefWidth="64.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Back" textFill="WHITE">
