@@ -53,6 +53,12 @@ public class AddExamEventController implements Initializable {
     private ChoiceBox<String> choiceBoxFaculty;
 
     @FXML
+    private ChoiceBox<Integer> choiceBoxSemester;
+
+    @FXML
+    private ChoiceBox<Integer> choiceBoxYear;
+
+    @FXML
     private DatePicker examDate;
 
     @FXML
@@ -69,6 +75,13 @@ public class AddExamEventController implements Initializable {
 
     @FXML
     private Text lblError;
+
+    private final List<String> rooms = Arrays.asList(
+            "A1.1", "A1.2", "A1.3", "A1.4", "A2.1", "A2.2", "A2.3", "A2.4",
+            "B1.1", "B1.2", "B1.3", "B1.4", "B2.1", "B2.2", "B2.3", "B2.4",
+            "C1.1", "C1.2", "C1.3", "C1.4", "C2.1", "C2.2", "C2.3", "C2.4",
+            "E1.1", "E1.2", "E1.3", "E1.4", "E2.1", "E2.2", "E2.3", "E2.4"
+    );
 
     private final StackPane container = NavigationController.containerNav;
     List<SubjectDTO> subjects;
@@ -119,6 +132,8 @@ public class AddExamEventController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadChoiceBoxFaculty();
+        loadChoiceBoxSchoolYear();
+        loadChoiceBoxSemester();
         loadChoiceBoxType();
         loadChoiceBoxShift();
         loadDefaultExamDate();
@@ -127,18 +142,8 @@ public class AddExamEventController implements Initializable {
         choiceBoxFaculty.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-
                 String faculty = choiceBoxFaculty.getItems().get((Integer) t1);
                 loadChoiceBoxSubject(faculty);
-            }
-        });
-        choiceBoxSubject.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                if ((Integer) t1 != -1){
-                    SubjectDTO s = choiceBoxSubject.getItems().get((Integer) t1);
-                    loadChoiceBoxClassId(s.getSubjectID());
-                }
             }
         });
     }
@@ -166,16 +171,19 @@ public class AddExamEventController implements Initializable {
         ObservableList<SubjectDTO> subjectList = FXCollections.observableArrayList(subjectsWithFaculty);
         choiceBoxSubject.setItems(subjectList);
     }
-    void loadChoiceBoxClassId(String subjectId){
-        List<SubjectClassDTO> subjectClasses = new SubjectClassBLL().getAllSubjectClass();
-        List<SubjectClassDTO> subjectClassWithSubjectId = new ArrayList<>();
-        for (SubjectClassDTO s: subjectClasses) {
-            if (s.getSubjectId().equals(subjectId)){
-                subjectClassWithSubjectId.add(s);
-            }
+
+    void loadChoiceBoxSchoolYear(){
+        ObservableList<Integer> values = FXCollections.observableArrayList();
+        int curentYear = LocalDate.now().getYear();
+        for (int i = curentYear; i < curentYear + 5; i++) {
+            values.add(i);
         }
-        ObservableList<SubjectClassDTO> classes = FXCollections.observableArrayList(subjectClassWithSubjectId);
-        choiceBoxClassId.setItems(classes);
+        choiceBoxYear.setItems(values);
+    }
+
+    void loadChoiceBoxSemester(){
+        ObservableList<Integer> values = FXCollections.observableArrayList(1, 2);
+        choiceBoxSemester.setItems(values);
     }
 
     void loadChoiceBoxType(){

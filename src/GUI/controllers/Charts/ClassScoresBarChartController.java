@@ -1,7 +1,8 @@
-package GUI.controllers;
+package GUI.controllers.Charts;
 
 import BusinessLogicLayer.TranscriptBLL;
 import DataTransferObject.*;
+import GUI.controllers.NavigationController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -29,7 +30,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class BarChartController implements Initializable{
+public class ClassScoresBarChartController implements Initializable{
 
     @FXML
     private AnchorPane chartPane;
@@ -77,9 +78,7 @@ public class BarChartController implements Initializable{
         data.add(new XYChart.Data<>("8 - 9", 0));
         data.add(new XYChart.Data<>("9 - 10", 0));
 
-//        series1.getData().addAll(data);
         series1.setName("Number Of Student");
-//        barChart.getData().addAll(series1);
     }
 
     @FXML

@@ -2,6 +2,7 @@ package GUI.controllers;
 
 import BusinessLogicLayer.TranscriptBLL;
 import DataTransferObject.*;
+import GUI.controllers.Charts.ClassScoresBarChartController;
 import GUI.controllers.items.ClassGradeItemController;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BaseFont;
@@ -24,7 +25,6 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -138,15 +138,15 @@ public class ClassGradesController {
 
     @FXML
     void showChartPanel(ActionEvent event) throws IOException {
-        URL urlLayout = new File("src/GUI/resources/BarChart.fxml").toURI().toURL();
+        URL urlLayout = new File("src/GUI/resources/Charts/ClassScoresBarChart.fxml").toURI().toURL();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(urlLayout);
         Node item = fxmlLoader.load();
 
-        BarChartController barChartController = fxmlLoader.getController();
+        ClassScoresBarChartController barChartController = fxmlLoader.getController();
         barChartController.setData(
                 subjectClass.getClassId() + "'s Score Statistic",
-                "Grades",
+                "Range Of Grades",
                 "Count",
                 studentList,
                 teacher,

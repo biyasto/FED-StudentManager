@@ -201,4 +201,48 @@ public class TranscriptDAL {
         }
         return result;
     }
+
+    public double calGPAByTranscriptId(int id){
+        double GPA = 0;
+        String sql = "select * from transcript t, studentclass s1, subjectclass s2 where s1.classId = s2.classId and s1.transcriptId = t.transcriptId and t.transcriptId = ?";
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setInt(1, id);
+            rs = pres.executeQuery();
+
+
+            while (rs.next()) {
+                double mark1 = rs.getDouble("mark1");
+                double mark2 = rs.getDouble("mark2");
+                double mark3 = rs.getDouble("mark3");
+                double mark4 = rs.getDouble("mark4");
+                double attendancePercent = rs.getInt("attendance");
+                double quizPercent = rs.getInt("quiz");
+                double practicePercent = rs.getInt("practice");
+                double finalPercent = rs.getInt("final");
+
+                if(mark1 != -1)
+                    GPA += mark1 * attendancePercent * 0.1;
+                if(mark2 != -1)
+                    GPA += mark2 * quizPercent * 0.1;
+                if(mark3 != -1)
+                    GPA += mark3 * practicePercent * 0.1;
+                if(mark4 != -1)
+                    GPA += mark4 * finalPercent * 0.1;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return GPA;
+    }
 }

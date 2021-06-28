@@ -5,6 +5,8 @@ import BusinessLogicLayer.SubjectBLL;
 import BusinessLogicLayer.SubjectClassBLL;
 import BusinessLogicLayer.TranscriptBLL;
 import DataTransferObject.*;
+import GUI.controllers.Charts.ClassScoresBarChartController;
+import GUI.controllers.Charts.StudentScoresBarChart;
 import GUI.controllers.items.StudentGradeItemController;
 import Utils.DatabaseUtils;
 import com.itextpdf.text.*;
@@ -25,6 +27,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.StrokeLineCap;
 import javafx.stage.FileChooser;
@@ -97,6 +100,9 @@ public class MyGradeController implements Initializable {
     @FXML
     private Button btnPrintPDF;
 
+    @FXML
+    private Button btnShowChart;
+
     private final StudentDTO studentUser = NavigationController.studentUser;
     private final static PdfPTable markTable = new PdfPTable(7);
     private List<StudentCLassDTO> studentCLassList = new ArrayList<>();
@@ -107,6 +113,7 @@ public class MyGradeController implements Initializable {
     private String semesterFilter = "All";
     private final DecimalFormat df = new DecimalFormat("##.##");
     private int credit = 0;
+    private final StackPane container = NavigationController.containerNav;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -538,6 +545,28 @@ public class MyGradeController implements Initializable {
         document.add(markTable);
         document.close();
         writer.close();
+    }
+
+    @FXML
+    void showChart(MouseEvent event) throws IOException {
+        URL urlLayout = new File("src/GUI/resources/Charts/StudentScoresBarChart.fxml").toURI().toURL();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(urlLayout);
+        Node item = fxmlLoader.load();
+
+        StudentScoresBarChart barChartController = fxmlLoader.getController();
+        barChartController.setData(
+                studentUser.getName() + "'s Score Statistic",
+                "Subjects Name",
+                "GPA",
+                studentUser,
+                studentCLassList,
+                yearFilter,
+                semesterFilter,
+                credit
+        );
+
+        container.getChildren().add(item);
     }
 
 }
