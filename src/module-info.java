@@ -5,6 +5,7 @@ module QuanLyHocSInh {
     requires java.sql;
     requires mysql.connector.java;
     requires itextpdf;
+    requires jfreechart;
     opens GUI;
     opens GUI.resources;
     opens GUI.controllers;

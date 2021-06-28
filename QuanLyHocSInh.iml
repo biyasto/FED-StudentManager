@@ -71,5 +71,7 @@
     </orderEntry>
     <orderEntry type="library" name="mysql-connector-java-8.0.24" level="project" />
     <orderEntry type="library" name="itextpdf-5.5.13.2" level="project" />
+    <orderEntry type="library" name="jfreechart-1.0.19" level="project" />
+    <orderEntry type="library" name="jcommon-1.0.23" level="project" />
   </component>
 </module>
