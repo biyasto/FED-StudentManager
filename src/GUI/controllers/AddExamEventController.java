@@ -1,9 +1,8 @@
 package GUI.controllers;
 
-import BusinessLogicLayer.ExamScheduleBLL;
-import BusinessLogicLayer.SubjectBLL;
-import BusinessLogicLayer.SubjectClassBLL;
+import BusinessLogicLayer.*;
 import DataTransferObject.ExamScheduleDTO;
+import DataTransferObject.StudentDTO;
 import DataTransferObject.SubjectClassDTO;
 import DataTransferObject.SubjectDTO;
 import javafx.beans.value.ChangeListener;
@@ -22,7 +21,10 @@ import javafx.scene.text.Text;
 import javafx.util.StringConverter;
 
 import java.net.URL;
+import java.sql.Date;
 import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -36,9 +38,6 @@ public class AddExamEventController implements Initializable {
 
     @FXML
     private ChoiceBox<String> choiceBoxFlag;
-
-    @FXML
-    private ChoiceBox<SubjectClassDTO> choiceBoxClassId;
 
     @FXML
     private ChoiceBox<String> choiceBoxShift;
@@ -82,9 +81,11 @@ public class AddExamEventController implements Initializable {
             "C1.1", "C1.2", "C1.3", "C1.4", "C2.1", "C2.2", "C2.3", "C2.4",
             "E1.1", "E1.2", "E1.3", "E1.4", "E2.1", "E2.2", "E2.3", "E2.4"
     );
+    private int numberOfStudentInOneRoom = 20;
 
     private final StackPane container = NavigationController.containerNav;
     List<SubjectDTO> subjects;
+    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
     @FXML
     void back(MouseEvent event) {
@@ -95,16 +96,20 @@ public class AddExamEventController implements Initializable {
     void createEvent(MouseEvent event) {
         if (choiceBoxFaculty.getSelectionModel().getSelectedItem() == null ||
                 choiceBoxSubject.getSelectionModel().getSelectedItem() == null ||
-                choiceBoxClassId.getSelectionModel().getSelectedItem() == null ||
+                choiceBoxYear.getSelectionModel().getSelectedItem() == null ||
+                choiceBoxSemester.getSelectionModel().getSelectedItem() == null ||
                 choiceBoxFlag.getSelectionModel().getSelectedItem() == null ||
                 choiceBoxShift.getSelectionModel().getSelectedItem() == null ||
-                choiceBoxTotalTime.getSelectionModel().getSelectedItem() == null || examDate.getValue() == null){
+                choiceBoxTotalTime.getSelectionModel().getSelectedItem() == null ||
+                examDate.getValue() == null){
             showLblEmpty();
         }else{
             ExamScheduleDTO exam = new ExamScheduleDTO();
             int selectedIndex;
 
-            exam.setClassId(choiceBoxClassId.getValue().getClassId());
+            exam.setSubjectId(choiceBoxSubject.getValue().getSubjectID());
+            exam.setSchoolYear(choiceBoxYear.getValue());
+            exam.setSemester(choiceBoxSemester.getValue());
 
             selectedIndex = choiceBoxFlag.getSelectionModel().getSelectedIndex();
             exam.setFlag(selectedIndex);
@@ -112,11 +117,14 @@ public class AddExamEventController implements Initializable {
             selectedIndex = choiceBoxShift.getSelectionModel().getSelectedIndex();
             exam.setShift(selectedIndex + 1);
 
-            int min = choiceBoxTotalTime.getValue();
-            exam.setTotalTime(Time.valueOf(LocalTime.of(min/60, min%60, 0)));
+            exam.setExamDate(Date.valueOf(examDate.getValue()));
+
+            int minutes = choiceBoxTotalTime.getValue();
+            exam.setTotalTime(Time.valueOf(LocalTime.of(minutes/60, minutes%60, 0)));
             exam.setExamDate(java.sql.Date.valueOf(examDate.getValue()));
 
             int result = new ExamScheduleBLL().addNewEvent(exam);
+
             if (result >= 0){
                 showLblSuccess();
                 System.out.println("success "+result);
@@ -148,6 +156,37 @@ public class AddExamEventController implements Initializable {
         });
     }
 
+    boolean arrangeStudentIntoExamRoom(ExamScheduleDTO examScheduleDTO){
+        List<SubjectClassDTO> subjectClasses = new SubjectClassBLL().findClassesForExam(
+                examScheduleDTO.getSubjectId(),
+                examScheduleDTO.getSchoolYear(),
+                examScheduleDTO.getSemester()
+        );
+        List<StudentDTO> students = new ArrayList<>();
+
+        //Find student in this exam
+        for (SubjectClassDTO subjectClass : subjectClasses) {
+            students.addAll(new StudentBLL().getStudentsByClassId(subjectClass.getClassId()));
+        }
+
+        //Find empty room
+        List<String> emptyRooms = new ExamRoomBLL().getEmptyRoomForExam(examScheduleDTO);
+
+        //Check if not enough rooms for exam
+        int numberOfExamRooms = (students.size() / numberOfStudentInOneRoom + 1);
+
+        if (numberOfExamRooms <= emptyRooms.size()){
+            ExamRoomBLL examRoomBLL = new ExamRoomBLL();
+            int examScheduleId = new ExamScheduleBLL().getExamScheduleId(examScheduleDTO);
+
+            for (int i = 0; i < numberOfExamRooms; i++) {
+                examRoomBLL.addExamRoom(examScheduleId, emptyRooms.get(i));
+            }
+            return true;
+        }else{
+            return false;
+        }
+    }
     void loadChoiceBoxFaculty(){
         subjects = new SubjectBLL().GetAllSubject();
         List<String> faculties = new ArrayList<>();

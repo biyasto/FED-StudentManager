@@ -27,4 +27,6 @@ public class SubjectClassBLL {
         return dal.InsertSubjectClass(s);
     }
 
+    public List<SubjectClassDTO> findClassesForExam(String subjectId, int schoolYear, int semester){ return dal.findClassesForExam(subjectId, schoolYear, semester); }
+
 }

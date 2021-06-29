@@ -106,9 +106,7 @@ public class ScheduleCalendarController implements Initializable {
     }
 
     void loadDataIntoTable(ExamScheduleDTO examSchedule) {
-        SubjectClassDTO subjectClass = new SubjectClassBLL().getClassById(examSchedule.getClassId());
-        SubjectDTO subjectDTO = new SubjectBLL().GetSubjectById(subjectClass.getSubjectId());
-
+        SubjectDTO subjectDTO = new SubjectBLL().GetSubjectById(examSchedule.getSubjectId());
         bindData(subjectDTO, examSchedule);
     }
 

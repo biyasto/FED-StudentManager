@@ -238,5 +238,47 @@ public class SubjectClassDAL {
         return result;
     }
 
+    public List<SubjectClassDTO> findClassesForExam(String subjectId, int schoolYear, int semester){
+        List<SubjectClassDTO> list = new ArrayList<>();
+        String sql = "select  * from subjectclass where subjectId = ? and schoolYear = ? and semester = ?";
+
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, subjectId);
+            pres.setInt(2, schoolYear);
+            pres.setInt(3, semester);
+            rs = pres.executeQuery();
+
+            while (rs.next()) {
+                SubjectClassDTO s = new SubjectClassDTO();
+                s.setClassId(rs.getString("classId"));
+                s.setHeadMaster(rs.getString("headMaster"));
+                s.setSubjectId(rs.getString("subjectId"));
+                s.setSchoolYear(rs.getInt("schoolYear"));
+                s.setSemester(rs.getInt("semester"));
+                s.setAttendance(rs.getInt("attendance"));
+                s.setQuiz(rs.getInt("quiz"));
+                s.setPractice(rs.getInt("practice"));
+                s.setFinal(rs.getInt("final"));
+
+
+                list.add(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return list;
+    }
+
 
 }

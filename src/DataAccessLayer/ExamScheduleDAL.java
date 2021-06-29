@@ -19,12 +19,7 @@ public class ExamScheduleDAL {
     private Connection conn = null;
     private PreparedStatement pres = null;
     private ResultSet rs = null;
-    private final List<String> rooms = Arrays.asList(
-            "A1.1", "A1.2", "A1.3", "A1.4", "A2.1", "A2.2", "A2.3", "A2.4",
-            "B1.1", "B1.2", "B1.3", "B1.4", "B2.1", "B2.2", "B2.3", "B2.4",
-            "C1.1", "C1.2", "C1.3", "C1.4", "C2.1", "C2.2", "C2.3", "C2.4",
-            "E1.1", "E1.2", "E1.3", "E1.4", "E2.1", "E2.2", "E2.3", "E2.4"
-    );
+
     public List<ExamScheduleDTO> getAllExamSchedule(){
         List<ExamScheduleDTO> list = new ArrayList<>();
         String sql = "select * from ExamSchedule";
@@ -121,5 +116,35 @@ public class ExamScheduleDAL {
             }
         }
         return result;
+    }
+
+    public int getExamScheduleId(ExamScheduleDTO event) {
+        String sqlInsert = "select id from examschedule where subjectId = ? and schoolYear = ? and semester = ? and flag = ?";
+        int id = -1;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sqlInsert);
+
+            pres.setString(1, event.getSubjectId());
+            pres.setInt(2, event.getSchoolYear());
+            pres.setInt(3, event.getSemester());
+            pres.setInt(4, event.getFlag());
+
+            rs = pres.executeQuery();
+            while (rs.next()) {
+                id = rs.getInt("id");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return id;
     }
 }
