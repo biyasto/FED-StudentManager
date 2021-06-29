@@ -1,5 +1,6 @@
 package DataAccessLayer;
 
+import DataTransferObject.ExamScheduleDTO;
 import DataTransferObject.SubjectClassDTO;
 import DataTransferObject.SubjectDTO;
 import Utils.DatabaseUtils;
@@ -205,7 +206,47 @@ public class SubjectClassDAL {
         }
         return list;
     }
+    public List<SubjectClassDTO> getClassesForExamSchedule(ExamScheduleDTO examScheduleDTO){
+        List<SubjectClassDTO> list = new ArrayList<>();
+        String sql = "select * from subjectClass where subjectId = ? and schoolYear = ? and semester = ?";
 
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, examScheduleDTO.getSubjectId());
+            pres.setInt(2, examScheduleDTO.getSchoolYear());
+            pres.setInt(3, examScheduleDTO.getSemester());
+            rs = pres.executeQuery();
+
+            while (rs.next()) {
+                SubjectClassDTO s = new SubjectClassDTO();
+                s.setClassId(rs.getString("classId"));
+                s.setHeadMaster(rs.getString("headMaster"));
+                s.setSubjectId(rs.getString("subjectId"));
+                s.setSchoolYear(rs.getInt("schoolYear"));
+                s.setSemester(rs.getInt("semester"));
+                s.setAttendance(rs.getInt("attendance"));
+                s.setQuiz(rs.getInt("quiz"));
+                s.setPractice(rs.getInt("practice"));
+                s.setFinal(rs.getInt("final"));
+
+
+                list.add(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return list;
+    }
     public int InsertSubjectClass(SubjectClassDTO s) {
         String sql = "insert into subjectclass values (?,?,?,?,?,?,?,?,?);";
         int result = -1;

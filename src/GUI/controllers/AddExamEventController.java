@@ -131,7 +131,6 @@ public class AddExamEventController implements Initializable {
                     showLblSuccess();
                     System.out.println("success "+result);
                 }else{
-                    new ExamScheduleBLL().deleteExamSchedule(exam);
                     showLblError();
                     System.out.println("error dont have enough empty rooms" + result);
                 }
@@ -171,26 +170,21 @@ public class AddExamEventController implements Initializable {
         );
         List<StudentDTO> students = new ArrayList<>();
 
-        //Find student in this exam
-        for (SubjectClassDTO subjectClass : subjectClasses) {
-            students.addAll(new StudentBLL().getStudentsByClassId(subjectClass.getClassId()));
-        }
-
         //Find empty room
         List<String> emptyRooms = new ExamRoomBLL().getEmptyRoomForExam(examScheduleDTO);
 
         //Check if not enough rooms for exam
-        int numberOfExamRooms = (students.size() / numberOfStudentInOneRoom + 1);
-
-        if (numberOfExamRooms <= emptyRooms.size()){
+        if (subjectClasses.size() <= emptyRooms.size() && subjectClasses.size() != 0){
             ExamRoomBLL examRoomBLL = new ExamRoomBLL();
             int examScheduleId = new ExamScheduleBLL().getExamScheduleId(examScheduleDTO);
 
-            for (int i = 0; i < numberOfExamRooms; i++) {
-                examRoomBLL.addExamRoom(examScheduleId, emptyRooms.get(i));
+            for (int i = 0; i < subjectClasses.size(); i++) {
+                examRoomBLL.addExamRoom(examScheduleId, emptyRooms.get(i), subjectClasses.get(i).getClassId());
             }
+            System.out.println(subjectClasses.size());
             return true;
         }else{
+            new ExamScheduleBLL().deleteExamSchedule(examScheduleDTO);
             return false;
         }
     }

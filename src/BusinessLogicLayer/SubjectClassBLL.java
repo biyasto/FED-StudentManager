@@ -1,6 +1,7 @@
 package BusinessLogicLayer;
 
 import DataAccessLayer.SubjectClassDAL;
+import DataTransferObject.ExamScheduleDTO;
 import DataTransferObject.StudentCLassDTO;
 import DataTransferObject.SubjectClassDTO;
 
@@ -28,5 +29,7 @@ public class SubjectClassBLL {
     }
 
     public List<SubjectClassDTO> findClassesForExam(String subjectId, int schoolYear, int semester){ return dal.findClassesForExam(subjectId, schoolYear, semester); }
+
+    public List<SubjectClassDTO> getClassesForExamSchedule(ExamScheduleDTO examScheduleDTO){ return dal.getClassesForExamSchedule(examScheduleDTO); }
 
 }

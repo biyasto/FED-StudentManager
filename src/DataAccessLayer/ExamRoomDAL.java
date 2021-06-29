@@ -26,8 +26,8 @@ public class ExamRoomDAL {
             "E1.1", "E1.2", "E1.3", "E1.4", "E2.1", "E2.2", "E2.3", "E2.4"
     );
 
-    public int addExamRoom(int examId, String room){
-        String sql = "insert into examRoom values (?, ?)";
+    public int addExamRoom(int examId, String room, String classId){
+        String sql = "insert into examRoom values (?, ?, ?)";
         int result = -1;
         try {
             DBU = new DatabaseUtils();
@@ -35,6 +35,7 @@ public class ExamRoomDAL {
             pres = conn.prepareStatement(sql);
             pres.setInt(1, examId);
             pres.setString(2, room);
+            pres.setString(3, classId);
             result = pres.executeUpdate();
             System.out.println(result);
         } catch (Exception e) {
