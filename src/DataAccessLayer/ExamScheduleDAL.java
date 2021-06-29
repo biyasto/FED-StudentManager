@@ -147,4 +147,31 @@ public class ExamScheduleDAL {
         }
         return id;
     }
+
+    public int deleteExamSchedule(ExamScheduleDTO event) {
+        String sqlInsert = "delete from examschedule where subjectId = ? and schoolYear = ? and semester = ? and flag = ?";
+        int result = -1;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sqlInsert);
+
+            pres.setString(1, event.getSubjectId());
+            pres.setInt(2, event.getSchoolYear());
+            pres.setInt(3, event.getSemester());
+            pres.setInt(4, event.getFlag());
+
+            result = pres.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return result;
+    }
 }

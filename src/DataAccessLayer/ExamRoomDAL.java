@@ -36,14 +36,13 @@ public class ExamRoomDAL {
             pres.setInt(1, examId);
             pres.setString(2, room);
             result = pres.executeUpdate();
-
+            System.out.println(result);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
                 conn.close();
                 pres.close();
-                rs.close();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -80,9 +79,17 @@ public class ExamRoomDAL {
             }
         }
 
-        rooms.removeAll(list);
-        return rooms;
+        return removeNotEmptyRooms(list);
     }
 
+    private List<String> removeNotEmptyRooms(List<String> notEmptyRooms){
+        List<String> newList = new ArrayList<>();
+        for (String room : rooms) {
+            if (!notEmptyRooms.contains(room)){
+                newList.add(room);
+            }
+        }
+        return newList;
+    }
 
 }

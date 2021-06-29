@@ -126,8 +126,15 @@ public class AddExamEventController implements Initializable {
             int result = new ExamScheduleBLL().addNewEvent(exam);
 
             if (result >= 0){
-                showLblSuccess();
-                System.out.println("success "+result);
+                boolean isArranged = arrangeStudentIntoExamRoom(exam);
+                if (isArranged){
+                    showLblSuccess();
+                    System.out.println("success "+result);
+                }else{
+                    new ExamScheduleBLL().deleteExamSchedule(exam);
+                    showLblError();
+                    System.out.println("error dont have enough empty rooms" + result);
+                }
 
             }else{
                 showLblError();

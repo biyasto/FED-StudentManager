@@ -13,4 +13,6 @@ public class ExamScheduleBLL {
     public int addNewEvent(ExamScheduleDTO event) { return examSchedule.addNewEvent(event); }
     public List<String> getEmptyRoomForSchedule(Date date, int shift){ return examSchedule.getEmptyRoomForSchedule(date, shift); }
     public int getExamScheduleId(ExamScheduleDTO event) { return examSchedule.getExamScheduleId(event); }
+
+    public int deleteExamSchedule(ExamScheduleDTO event) { return examSchedule.deleteExamSchedule(event); }
 }
