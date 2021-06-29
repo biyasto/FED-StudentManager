@@ -37,10 +37,12 @@ public class ExamScheduleDAL {
 
             while (rs.next()) {
                 ExamScheduleDTO s = new ExamScheduleDTO();
-                s.setClassId(rs.getString("classId"));
-                s.setExamDate(rs.getDate("examdate"));
+                s.setSubjectId(rs.getString("subjectId"));
+                s.setSchoolYear(rs.getInt("schoolYear"));
+                s.setSemester(rs.getInt("semester"));
                 s.setFlag(rs.getInt("flag"));
                 s.setShift(rs.getInt("shift"));
+                s.setExamDate(rs.getDate("examDate"));
                 s.setTotalTime(rs.getTime("totalTime"));
 
                 list.add(s);
@@ -91,18 +93,21 @@ public class ExamScheduleDAL {
     }
 
     public int addNewEvent(ExamScheduleDTO event) {
-        String sqlInsert = "insert into examschedule values (?,?,?,?,?);";
+        String sqlInsert = "insert into examschedule (subjectId, schoolYear, semester, flag, shift, examdate, totalTime) " +
+                            "values (?, ?, ?, ?, ?, ?, ?)";
         int result = -1;
         try {
             DBU = new DatabaseUtils();
             conn = DBU.createConnection();
             pres = conn.prepareStatement(sqlInsert);
 
-            pres.setString(1, event.getClassId());
-            pres.setDate(2, event.getExamDate());
-            pres.setInt(3, event.getFlag());
-            pres.setInt(4, event.getShift());
-            pres.setTime(5, event.getTotalTime());
+            pres.setString(1, event.getSubjectId());
+            pres.setInt(2, event.getSchoolYear());
+            pres.setInt(3, event.getSemester());
+            pres.setInt(4, event.getFlag());
+            pres.setInt(5, event.getShift());
+            pres.setDate(6, event.getExamDate());
+            pres.setTime(7, event.getTotalTime());
 
             result = pres.executeUpdate();
         } catch (Exception e) {
