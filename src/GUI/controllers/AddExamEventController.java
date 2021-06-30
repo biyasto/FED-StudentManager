@@ -75,6 +75,12 @@ public class AddExamEventController implements Initializable {
     @FXML
     private Text lblError;
 
+    @FXML
+    private Text lblNoClass;
+
+    @FXML
+    private Text lblDontEnoughRoom;
+
     private final List<String> rooms = Arrays.asList(
             "A1.1", "A1.2", "A1.3", "A1.4", "A2.1", "A2.2", "A2.3", "A2.4",
             "B1.1", "B1.2", "B1.3", "B1.4", "B2.1", "B2.2", "B2.3", "B2.4",
@@ -131,8 +137,7 @@ public class AddExamEventController implements Initializable {
                     showLblSuccess();
                     System.out.println("success "+result);
                 }else{
-                    showLblError();
-                    System.out.println("error dont have enough empty rooms" + result);
+                    System.out.println("error dont have enough empty rooms or no class with subject" + result);
                 }
 
             }else{
@@ -174,19 +179,29 @@ public class AddExamEventController implements Initializable {
         List<String> emptyRooms = new ExamRoomBLL().getEmptyRoomForExam(examScheduleDTO);
 
         //Check if not enough rooms for exam
-        if (subjectClasses.size() <= emptyRooms.size() && subjectClasses.size() != 0){
-            ExamRoomBLL examRoomBLL = new ExamRoomBLL();
-            int examScheduleId = new ExamScheduleBLL().getExamScheduleId(examScheduleDTO);
+        if (subjectClasses.size() != 0){
+            if (subjectClasses.size() <= emptyRooms.size() ){
+                ExamRoomBLL examRoomBLL = new ExamRoomBLL();
+                int examScheduleId = new ExamScheduleBLL().getExamScheduleId(examScheduleDTO);
 
-            for (int i = 0; i < subjectClasses.size(); i++) {
-                examRoomBLL.addExamRoom(examScheduleId, emptyRooms.get(i), subjectClasses.get(i).getClassId());
+                for (int i = 0; i < subjectClasses.size(); i++) {
+                    examRoomBLL.addExamRoom(examScheduleId, emptyRooms.get(i), subjectClasses.get(i).getClassId());
+                }
+                System.out.println(subjectClasses.size());
+                return true;
+            }else{
+                new ExamScheduleBLL().deleteExamSchedule(examScheduleDTO);
+                System.out.println(emptyRooms.size());
+                System.out.println(subjectClasses.size());
+                showLblDontEnoughRoom();
+                return false;
             }
-            System.out.println(subjectClasses.size());
-            return true;
         }else{
             new ExamScheduleBLL().deleteExamSchedule(examScheduleDTO);
+            showLblNoClass();
             return false;
         }
+
     }
     void loadChoiceBoxFaculty(){
         subjects = new SubjectBLL().GetAllSubject();
@@ -274,21 +289,35 @@ public class AddExamEventController implements Initializable {
         examDate.setValue(LocalDate.now());
     }
 
-    void showLblEmpty(){
-        lblEmpty.setVisible(true);
+    void hideNotiLabel(){
+        lblEmpty.setVisible(false);
         lblError.setVisible(false);
         lblSuccess.setVisible(false);
+        lblNoClass.setVisible(false);
+        lblDontEnoughRoom.setVisible(false);
+    }
+    void showLblEmpty(){
+        hideNotiLabel();
+        lblEmpty.setVisible(true);
     }
 
     void showLblError(){
+        hideNotiLabel();
         lblError.setVisible(true);
-        lblEmpty.setVisible(false);
-        lblSuccess.setVisible(false);
     }
 
     void showLblSuccess(){
+        hideNotiLabel();
         lblSuccess.setVisible(true);
-        lblEmpty.setVisible(false);
-        lblError.setVisible(false);
+    }
+
+    void showLblNoClass(){
+        hideNotiLabel();
+        lblNoClass.setVisible(true);
+    }
+
+    void showLblDontEnoughRoom(){
+        hideNotiLabel();
+        lblDontEnoughRoom.setVisible(true);
     }
 }

@@ -87,6 +87,16 @@
                </font>
             </Text>
             <ChoiceBox fx:id="choiceBoxYear" layoutX="14.0" layoutY="111.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
+            <Text fx:id="lblNoClass" fill="RED" layoutX="20.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error, this subject dont have any class." textAlignment="CENTER" visible="false" wrappingWidth="278.99803924560547">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font>
+            </Text>
+            <Text fx:id="lblDontEnoughRoom" fill="RED" layoutX="20.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error, this time don't have enough empty rooms, please choose another time." textAlignment="CENTER" visible="false" wrappingWidth="278.99803924560547">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
       <ImageView fitHeight="365.0" fitWidth="339.0" layoutX="332.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
