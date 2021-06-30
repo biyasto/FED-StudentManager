@@ -13,5 +13,7 @@ module QuanLyHocSInh {
     opens GUI.controllers;
     opens GUI.resources.items;
     opens GUI.controllers.items;
+    opens GUI.resources.Charts;
+    opens GUI.controllers.Charts;
     opens Model;
 }

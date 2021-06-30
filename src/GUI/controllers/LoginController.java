@@ -96,8 +96,6 @@ public class LoginController {
                     lblFail.setVisible(true);
                     lblEmpty.setVisible(false);
                 } else {
-                    //problem: cannot show label Successful
-                    //TAO THỀ LÀ TAO ĐÉO HIỂU TẠI SAO LUÔN ???
                     lblFail.setVisible(false);
                     lblEmpty.setVisible(false);
                     lblSuccessful.setVisible(true);

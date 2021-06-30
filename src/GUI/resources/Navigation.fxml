@@ -174,24 +174,6 @@
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </Button>
-                        <Button fx:id="GradesButton" alignment="BASELINE_LEFT" layoutX="4.0" layoutY="-4.0" mnemonicParsing="false" onMouseClicked="#OpenGradesScreen" prefHeight="35.0" prefWidth="206.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="    My Grades" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="Arial Bold" size="15.0" />
-                           </font>
-                           <effect>
-                              <Blend />
-                           </effect>
-                           <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../asset/ButtonIcon/Grades.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
                             </children>
                         </AnchorPane>
                     </children>

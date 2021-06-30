@@ -38,11 +38,6 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnShowChart" alignment="CENTER" layoutX="532.0" layoutY="-13.0" mnemonicParsing="false" onMouseClicked="#showChart" prefHeight="34.0" prefWidth="129.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" text="Analyze Statistically" textAlignment="CENTER" textFill="#616161" AnchorPane.topAnchor="0.0">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="InfoBox" layoutX="14.0" layoutY="16.0" prefHeight="190.0" prefWidth="503.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 25px;" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="0.0">
@@ -93,12 +88,17 @@
             </Label>
          </children>
       </AnchorPane>
-      <Button fx:id="RefeshButton" layoutX="534.0" layoutY="124.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" text="Refesh" textFill="#616161">
+      <Button fx:id="btnPrintPDF" layoutX="534.0" layoutY="110.0" mnemonicParsing="false" onAction="#printPDF" onMouseClicked="#printPDF" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" text="Print Grade (PDF)" textFill="#616161">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnPrintPDF" layoutX="534.0" layoutY="76.0" mnemonicParsing="false" onAction="#printPDF" onMouseClicked="#printPDF" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" text="Print Grade (PDF)" textFill="#616161">
+      <Button fx:id="btnShowChart" alignment="CENTER" layoutX="534.0" layoutY="155.0" mnemonicParsing="false" onMouseClicked="#showChart" prefHeight="34.0" prefWidth="129.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" text="Analyze Statistically" textAlignment="CENTER" textFill="#616161" AnchorPane.topAnchor="155.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="backButton" layoutX="613.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#onBack" prefHeight="34.0" prefWidth="66.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" text="Back" textFill="#616161">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

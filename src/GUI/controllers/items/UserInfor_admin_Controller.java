@@ -2,6 +2,7 @@ package GUI.controllers.items;
 
 import BusinessLogicLayer.*;
 import DataTransferObject.*;
+import GUI.controllers.MyGradeController;
 import GUI.controllers.NavigationController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,17 +63,6 @@ public class UserInfor_admin_Controller {
     @FXML
     private Button btnChangePassword;
 
-    //component of grade panel
-
-    @FXML
-    private AnchorPane panelGrade;
-
-    @FXML
-    private VBox gradeScrollPane;
-
-    @FXML
-    private Button btnBack_pnGrade;
-
     //component of change password panel
 
     @FXML
@@ -113,7 +103,6 @@ public class UserInfor_admin_Controller {
         FacultyLabel.setText(student.getFaculty());
         EmailLabel.setText(student.getEmail());
 
-        setDataForGradePane(student);
         setDataForChangePassPane(student);
     }
 
@@ -121,58 +110,22 @@ public class UserInfor_admin_Controller {
         lblCurPass.setText(student.getPass());
     }
 
-    private void setDataForGradePane(StudentDTO student) {
-        StudentClassBLL studentClassBLL = new StudentClassBLL();
-        studentCLassList = studentClassBLL.getAllClassOfStudent(student.getId());
-        if(!studentCLassList.isEmpty()) {
-            for(StudentCLassDTO studentCLass: studentCLassList) {
-                try {
-                    SubjectClassBLL subjectClassBLL = new SubjectClassBLL();
-                    SubjectBLL subjectBLL = new SubjectBLL();
-                    TranscriptBLL transcriptBLL = new TranscriptBLL();
-
-                    //get classId and className to set data for grade item
-                    SubjectClassDTO subjectClass = subjectClassBLL.getClassById(studentCLass.getClassId());
-                    SubjectDTO subject = subjectBLL.GetSubjectById(subjectClass.getSubjectId());
-                    TranscriptDTO transcriptOfStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
-
-                    bindData(subjectClass, subject, transcriptOfStudent);
-                }
-                catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    void bindData(SubjectClassDTO subjectClass, SubjectDTO subject, TranscriptDTO transcriptOfStudent) throws IOException {
-        URL urlLayout = new File("src/GUI/resources/items/StudentGradeItem.fxml").toURI().toURL();
+    @FXML
+    void openStudentGrade(MouseEvent event) throws IOException {
+        URL urlLayout = new File("src/GUI/resources/MyGrade.fxml").toURI().toURL();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(urlLayout);
         Node item = fxmlLoader.load();
 
-        StudentGradeItemController studentGradeItemController = fxmlLoader.getController();
-        studentGradeItemController.setData(subjectClass, subject, transcriptOfStudent);
+        MyGradeController myGradeController = fxmlLoader.getController();
+        myGradeController.setData(student);
 
-        gradeScrollPane.getChildren().addAll(item);
-    }
-
-    @FXML
-    void openStudentGrade(MouseEvent event) {
-        panelMenu.setVisible(false);
-        panelGrade.setVisible(true);
-        panelChangePassword.setVisible(false);
-    }
-
-    @FXML
-    void openStudentStatistic(MouseEvent event) {
-
+        container.getChildren().addAll(item);
     }
 
     @FXML
     void openChangePasswordPane(MouseEvent event) {
         panelMenu.setVisible(false);
-        panelGrade.setVisible(false);
         panelChangePassword.setVisible(true);
     }
 
@@ -214,7 +167,6 @@ public class UserInfor_admin_Controller {
     @FXML
     void backToMenu(MouseEvent event) {
         panelMenu.setVisible(true);
-        panelGrade.setVisible(false);
         panelChangePassword.setVisible(false);
     }
 }

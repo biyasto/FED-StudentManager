@@ -6,7 +6,9 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -20,6 +22,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class NavigationController implements Initializable {
 
@@ -73,23 +76,33 @@ public class NavigationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        containerNav = container;
         if(studentUser != null) {
             CreateAccountButton.setVisible(false);
             SearchUsersButton.setVisible(false);
+            try {
+                openInformationStudentScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         else if(teacherUser != null) {
-            GradesButton.setVisible(false);
             CreateAccountButton.setVisible(false);
+            try {
+                openInformationScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         else {
-            GradesButton.setVisible(false);
+            //admin cannot change password
+            SettingButton.setVisible(false);
+            try {
+                openInformationScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        try {
-            openInformationScreen();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        containerNav = container;
         SetStyle();
     }
 
@@ -107,8 +120,12 @@ public class NavigationController implements Initializable {
 
     @FXML
     void OpenInformationScreen(MouseEvent event) throws IOException {
-        openInformationScreen();
-
+        if(studentUser != null) {
+            openInformationStudentScreen();
+        }
+        else {
+            openInformationScreen();
+        }
     }
 
     @FXML
@@ -143,13 +160,34 @@ public class NavigationController implements Initializable {
     }
 
     @FXML
-    void OpenSettingScreen(MouseEvent event) {
+    void OpenSettingScreen(MouseEvent event) throws IOException {
+        //change password
+        URL urlLayout = new File("src/GUI/resources/ChangePassword.fxml").toURI().toURL();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(urlLayout);
+        Node item = fxmlLoader.load();
 
+        ChangePasswordController ChangePasswordController = fxmlLoader.getController();
+        if(studentUser != null) {
+            ChangePasswordController.setData(studentUser, null);
+        }
+        else if(teacherUser != null) {
+            ChangePasswordController.setData(null, teacherUser);
+        }
+
+        container.getChildren().removeAll();
+        container.getChildren().setAll(item);
     }
 
     void openInformationScreen() throws IOException {
-
         URL url = new File("src/GUI/resources/UserDetail.fxml").toURI().toURL();
+        Parent createAccountScreen = FXMLLoader.load(url);
+        container.getChildren().removeAll();
+        container.getChildren().setAll(createAccountScreen);
+    }
+
+    void openInformationStudentScreen() throws IOException {
+        URL url = new File("src/GUI/resources/MyGrade.fxml").toURI().toURL();
         Parent createAccountScreen = FXMLLoader.load(url);
         container.getChildren().removeAll();
         container.getChildren().setAll(createAccountScreen);
@@ -162,12 +200,27 @@ public class NavigationController implements Initializable {
     }
     @FXML
     public void btnMinimizeAction(MouseEvent mouseEvent) {
-
+        Stage stage = (Stage) Minimizebtn.getScene().getWindow();
+        stage.setIconified(true);
     }
 
     @FXML
     void Logout(MouseEvent event) {
+        try {
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
 
+            //set delay for smooth animation
+            TimeUnit.SECONDS.sleep(1);
+            stage.close();
+
+            URL url = new File("src/GUI/resources/Login.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     void SetStyle()
     {
@@ -178,11 +231,4 @@ public class NavigationController implements Initializable {
         CreateAccountButton.setStyle("");
     }
 
-
-    public void OpenGradesScreen(MouseEvent mouseEvent) throws IOException {
-        URL url = new File("src/GUI/resources/MyGrade.fxml").toURI().toURL();
-        Parent myGradeScreen = FXMLLoader.load(url);
-        container.getChildren().removeAll();
-        container.getChildren().setAll(myGradeScreen);
-    }
 }

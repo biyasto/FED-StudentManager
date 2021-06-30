@@ -95,7 +95,7 @@ public class MyGradeController implements Initializable {
     private Label lblGPA;
 
     @FXML
-    private Button RefeshButton;
+    private Button backButton;
 
     @FXML
     private Button btnPrintPDF;
@@ -104,6 +104,7 @@ public class MyGradeController implements Initializable {
     private Button btnShowChart;
 
     private final StudentDTO studentUser = NavigationController.studentUser;
+    private StudentDTO studentOpenByAdmin = null;
     private final static PdfPTable markTable = new PdfPTable(7);
     private List<StudentCLassDTO> studentCLassList = new ArrayList<>();
     private final List<String> schoolYearList = new ArrayList<>();
@@ -117,15 +118,26 @@ public class MyGradeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(studentUser != null) {
+            initData(studentUser);
+            backButton.setVisible(false);
+        }
+    }
+
+    public void setData(StudentDTO studentDTO) {
+        initData(studentDTO);
+    }
+
+    void initData(StudentDTO studentDTO) {
         //load data for label
-        NameLabel.setText(studentUser.getName());
-        IDLabel.setText(studentUser.getId());
-        FacultyLabel.setText(studentUser.getFaculty());
-        EmailLabel.setText(studentUser.getEmail());
+        NameLabel.setText(studentDTO.getName());
+        IDLabel.setText(studentDTO.getId());
+        FacultyLabel.setText(studentDTO.getFaculty());
+        EmailLabel.setText(studentDTO.getEmail());
         PositionLabel.setText("Student");
 
         //load grade statistic
-        loadGradeFirstTime(studentUser);
+        loadGradeFirstTime(studentDTO);
 
         //init combobox's data
         ObservableList<String> dataSchoolYear = FXCollections.observableArrayList();
@@ -567,6 +579,11 @@ public class MyGradeController implements Initializable {
         );
 
         container.getChildren().add(item);
+    }
+
+    @FXML
+    void onBack(MouseEvent event) {
+        container.getChildren().removeAll(inforPane);
     }
 
 }
