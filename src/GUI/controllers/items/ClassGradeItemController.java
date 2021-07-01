@@ -8,9 +8,7 @@ import GUI.controllers.ClassGradesController;
 import GUI.controllers.LoginController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -18,6 +16,7 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ClassGradeItemController implements Initializable {
@@ -124,69 +123,111 @@ public class ClassGradeItemController implements Initializable {
 
     @FXML
     void updateGrade(MouseEvent event) {
-        try {
-            String str1 = Grade1Textfield.getText();
-            String str2 = Grade2Textfield.getText();
-            String str3 = Grade3Textfield.getText();
-            String str4 = Grade4Textfield.getText();
+        Alert alertConfirm = new Alert(Alert.AlertType.CONFIRMATION);
+        alertConfirm.setTitle("Edit Student's Grades");
+        alertConfirm.setHeaderText("Are you sure want to edit grades of this student?");
+        Optional<ButtonType> option = alertConfirm.showAndWait();
 
-            double mark1 = -1;
-            double mark2 = -1;
-            double mark3 = -1;
-            double mark4 = -1;
+        if (option.get() == ButtonType.OK) {
+            try {
+                String str1 = Grade1Textfield.getText();
+                String str2 = Grade2Textfield.getText();
+                String str3 = Grade3Textfield.getText();
+                String str4 = Grade4Textfield.getText();
 
-            if(!str1.isEmpty())
-                mark1 = Double.parseDouble(str1);
-            if(!str2.isEmpty())
-                mark2 = Double.parseDouble(str2);
-            if(!str3.isEmpty())
-                mark3 = Double.parseDouble(str3);
-            if(!str4.isEmpty())
-                mark4 = Double.parseDouble(str4);
+                double mark1 = -1;
+                double mark2 = -1;
+                double mark3 = -1;
+                double mark4 = -1;
 
-            if(mark1 < -1 || mark1 > 10
-            || mark2 < -1 || mark2 > 10
-            || mark3 < -1 || mark3 > 10
-            || mark4 < -1 || mark4 > 10) {
-                //invalid input, handle here
-            }
-            else {
-                TranscriptBLL transcriptBLL = new TranscriptBLL();
-                int result = -1;
+                if(!str1.isEmpty())
+                    mark1 = Double.parseDouble(str1);
+                if(!str2.isEmpty())
+                    mark2 = Double.parseDouble(str2);
+                if(!str3.isEmpty())
+                    mark3 = Double.parseDouble(str3);
+                if(!str4.isEmpty())
+                    mark4 = Double.parseDouble(str4);
 
-                transcript.setMark1(mark1);
-                transcript.setMark2(mark2);
-                transcript.setMark3(mark3);
-                transcript.setMark4(mark4);
+                if(mark1 < -1 || mark1 > 10
+                        || mark2 < -1 || mark2 > 10
+                        || mark3 < -1 || mark3 > 10
+                        || mark4 < -1 || mark4 > 10) {
+                    //invalid input, handle here
+                    Alert alertInvalid = new Alert(Alert.AlertType.INFORMATION);
+                    alertInvalid.setTitle("Invalid input");
+                    alertInvalid.setHeaderText(null);
+                    alertInvalid.setContentText("Invalid grade's input, please check again!");
+                    alertInvalid.showAndWait();
+                }
+                else {
+                    TranscriptBLL transcriptBLL = new TranscriptBLL();
+                    int result = -1;
 
-                result = transcriptBLL.UpdateTranscript(transcript);
+                    transcript.setMark1(mark1);
+                    transcript.setMark2(mark2);
+                    transcript.setMark3(mark3);
+                    transcript.setMark4(mark4);
 
-                if(result != -1) {
-                    //update successfully
-                    btnOK.setVisible(false);
-                    Grade1Textfield.setEditable(false);
-                    Grade2Textfield.setEditable(false);
-                    Grade3Textfield.setEditable(false);
-                    Grade4Textfield.setEditable(false);
+                    result = transcriptBLL.UpdateTranscript(transcript);
+
+                    if(result != -1) {
+                        //update successfully
+                        btnOK.setVisible(false);
+                        Grade1Textfield.setEditable(false);
+                        Grade2Textfield.setEditable(false);
+                        Grade3Textfield.setEditable(false);
+                        Grade4Textfield.setEditable(false);
+
+                        Alert alertSuccess = new Alert(Alert.AlertType.INFORMATION);
+                        alertSuccess.setTitle("Update Student's Grades");
+                        alertSuccess.setHeaderText(null);
+                        alertSuccess.setContentText("Update successfully!");
+                        alertSuccess.showAndWait();
+                    }
+                    else {
+                        Alert alertFail = new Alert(Alert.AlertType.INFORMATION);
+                        alertFail.setTitle("Update Student's Grades");
+                        alertFail.setHeaderText(null);
+                        alertFail.setContentText("Update failed!");
+                        alertFail.showAndWait();
+                    }
                 }
             }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+            catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @FXML
     void deleteStudent(MouseEvent event) {
-        StudentClassBLL studentClassBLL = new StudentClassBLL();
-        int result = studentClassBLL.DeleteStudent(student.getId(), classID, transcript.getTranscriptId());
+        Alert alertConfirm = new Alert(Alert.AlertType.CONFIRMATION);
+        alertConfirm.setTitle("Remove Student");
+        alertConfirm.setHeaderText("Are you sure want to remove this student?");
+        Optional<ButtonType> option = alertConfirm.showAndWait();
 
-        if(result != -1) {
-            //success, handle here
-            container.getChildren().removeAll(StudentInfoBox);
-        }
-        else {
-            //fail
+        if (option.get() == ButtonType.OK) {
+            StudentClassBLL studentClassBLL = new StudentClassBLL();
+            int result = studentClassBLL.DeleteStudent(student.getId(), classID, transcript.getTranscriptId());
+
+            if(result != -1) {
+                //success, handle here
+                container.getChildren().removeAll(StudentInfoBox);
+                Alert alertSuccess = new Alert(Alert.AlertType.INFORMATION);
+                alertSuccess.setTitle("Result");
+                alertSuccess.setHeaderText(null);
+                alertSuccess.setContentText("Removed successfully!");
+                alertSuccess.showAndWait();
+            }
+            else {
+                //fail
+                Alert alertFail = new Alert(Alert.AlertType.INFORMATION);
+                alertFail.setTitle("Result");
+                alertFail.setHeaderText(null);
+                alertFail.setContentText("Remove failed, please try again!");
+                alertFail.showAndWait();
+            }
         }
     }
 
