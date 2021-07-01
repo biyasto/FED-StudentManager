@@ -78,23 +78,17 @@ public class EventItemController {
         lblShift.setText(String.valueOf(shift));
         lblStartTime.setText(loadStartTime(examSchedule.getShift()));
         lblEndTime.setText(loadEndTime(examSchedule.getShift(),examSchedule.getTotalTime()));
-        lblRoom.setText(new ExamRoomBLL().getRoomByStudentAndExamSchedule(studentUser, examSchedule).getRoom());
+        if (studentUser != null){
+            lblRoom.setText(new ExamRoomBLL().getRoomByStudentAndExamSchedule(studentUser, examSchedule).getRoom());
+        }
     }
 
     public String loadStartTime(int shift) {
         switch (shift) {
-            case 1:
-                startTime = "07:30:00";
-                break;
-            case 2:
-                startTime = "09:30:00";
-                break;
-            case 3:
-                startTime = "13:30:00";
-                break;
-            case 4:
-                startTime = "15:30:00";
-                break;
+            case 1 -> startTime = "07:30:00";
+            case 2 -> startTime = "09:30:00";
+            case 3 -> startTime = "13:30:00";
+            case 4 -> startTime = "15:30:00";
         }
         return startTime;
     }
