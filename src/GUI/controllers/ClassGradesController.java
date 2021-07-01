@@ -170,6 +170,7 @@ public class ClassGradesController {
         fileChooser.setInitialFileName("NameFile");
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("pdf", "*.pdf"));
         File filePath = fileChooser.showSaveDialog(stage);
+        if (filePath == null) return "";
         return filePath.getAbsolutePath();
     }
 
@@ -336,11 +337,6 @@ public class ClassGradesController {
         prgSoDT.setIndentationLeft(100);
         document.add(prgSoDT);
 
-        Paragraph prgTitle = new Paragraph("CLASS SCOREBOARD", listFont.get(0));
-        prgTitle.setAlignment(Element.ALIGN_CENTER);
-        prgTitle.setSpacingBefore(10);
-        prgTitle.setSpacingAfter(10);
-        document.add(prgTitle);
     }
 
     public void addRowExportStudentList(String c1, String c2, String c3, String c4, String c5, String c6) throws DocumentException, IOException {
@@ -389,6 +385,11 @@ public class ClassGradesController {
         studentListTable.addCell(cellNotes);
     }
 
+    public String checkMark(double m) {
+        if (m == -1.0) return "";
+        return String.valueOf(m);
+    }
+
     public void addRowExportPDF(String studentId, String studentName, double m1, double m2, double m3, double m4, double avg) throws DocumentException, IOException {
         List<Font> listFont = createFonts();
         PdfPCell cellStudentIdI = new PdfPCell(new Paragraph(studentId, listFont.get(5)));
@@ -403,40 +404,56 @@ public class ClassGradesController {
         cellStudentNameI.setVerticalAlignment(Element.ALIGN_MIDDLE);
         markTable.addCell(cellStudentNameI);
 
-        PdfPCell cellMark1 = new PdfPCell(new Paragraph(String.valueOf(m1), listFont.get(5)));
+        PdfPCell cellMark1 = new PdfPCell(new Paragraph(checkMark(m1), listFont.get(5)));
         cellMark1.setBorderColor(BaseColor.BLACK);
         cellMark1.setHorizontalAlignment(Element.ALIGN_CENTER);
         cellMark1.setVerticalAlignment(Element.ALIGN_MIDDLE);
         markTable.addCell(cellMark1);
 
-        PdfPCell cellMark2 = new PdfPCell(new Paragraph(String.valueOf(m2), listFont.get(5)));
+        PdfPCell cellMark2 = new PdfPCell(new Paragraph(checkMark(m2), listFont.get(5)));
         cellMark2.setBorderColor(BaseColor.BLACK);
         cellMark2.setHorizontalAlignment(Element.ALIGN_CENTER);
         cellMark2.setVerticalAlignment(Element.ALIGN_MIDDLE);
         markTable.addCell(cellMark2);
 
-        PdfPCell cellMark3 = new PdfPCell(new Paragraph(String.valueOf(m3), listFont.get(5)));
+        PdfPCell cellMark3 = new PdfPCell(new Paragraph(checkMark(m3), listFont.get(5)));
         cellMark3.setBorderColor(BaseColor.BLACK);
         cellMark3.setHorizontalAlignment(Element.ALIGN_CENTER);
         cellMark3.setVerticalAlignment(Element.ALIGN_MIDDLE);
         markTable.addCell(cellMark3);
 
-        PdfPCell cellMark4 = new PdfPCell(new Paragraph(String.valueOf(m4), listFont.get(5)));
+        PdfPCell cellMark4 = new PdfPCell(new Paragraph(checkMark(m4), listFont.get(5)));
         cellMark4.setBorderColor(BaseColor.BLACK);
         cellMark4.setHorizontalAlignment(Element.ALIGN_CENTER);
         cellMark4.setVerticalAlignment(Element.ALIGN_MIDDLE);
         markTable.addCell(cellMark4);
 
-        PdfPCell cellAverageI = new PdfPCell(new Paragraph("10", listFont.get(5)));
+        PdfPCell cellAverageI = new PdfPCell(new Paragraph(checkMark(avg), listFont.get(5)));
         cellAverageI.setBorderColor(BaseColor.BLACK);
         cellAverageI.setHorizontalAlignment(Element.ALIGN_CENTER);
         cellAverageI.setVerticalAlignment(Element.ALIGN_MIDDLE);
         markTable.addCell(cellAverageI);
     }
 
+    double calculateAvg(SubjectClassDTO subjectClass, TranscriptDTO transcript) {
+        double avg = 0;
+        if (transcript != null) {
+            if (transcript.getMark1() != -1)
+                avg += transcript.getMark1() * subjectClass.getAttendance() * 0.01;
+            if (transcript.getMark2() != -1)
+                avg += transcript.getMark2() * subjectClass.getQuiz() * 0.01;
+            if (transcript.getMark3() != -1)
+                if (transcript.getMark4() != -1)
+                    avg += transcript.getMark4() * subjectClass.getFinal() * 0.01;
+            avg += transcript.getMark3() * subjectClass.getPractice() * 0.01;
+        }
+        return avg;
+    }
+
     @FXML
     void export(ActionEvent event) throws DocumentException, IOException {
         String filePath = selectSaveFilePath();
+        if (filePath.equals("")) return;
         Document document = new Document(PageSize.A4);
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
         document.open();
@@ -445,6 +462,12 @@ public class ClassGradesController {
         //Head file pdf
         createHeaderPDF(document);
 
+
+        Paragraph prgTitle = new Paragraph("CLASS SCOREBOARD", listFont.get(0));
+        prgTitle.setAlignment(Element.ALIGN_CENTER);
+        prgTitle.setSpacingBefore(10);
+        prgTitle.setSpacingAfter(10);
+        document.add(prgTitle);
 
         //Information class
         Paragraph prgID = new Paragraph("ClassId: " + subjectClass.getClassId(), listFont.get(4));
@@ -455,9 +478,10 @@ public class ClassGradesController {
         Paragraph prgSchoolYear = new Paragraph("School year: " + subjectClass.getSchoolYear() + "-" + String.valueOf(year), listFont.get(4));
         document.add(prgSchoolYear);
         Paragraph prgSemester = new Paragraph("Semester: " + subjectClass.getSemester(), listFont.get(4));
-        prgSemester.setSpacingAfter(10);
         document.add(prgSemester);
-
+        Paragraph prgFaculty = new Paragraph("Faculty: " + subject.getFaculty(), listFont.get(4));
+        prgFaculty.setSpacingAfter(10);
+        document.add(prgFaculty);
         //Header table
         createHeaderTablePDF();
 
@@ -471,7 +495,7 @@ public class ClassGradesController {
                         transcriptOfOneStudent.getMark2(),
                         transcriptOfOneStudent.getMark3(),
                         transcriptOfOneStudent.getMark4(),
-                        10
+                        calculateAvg(subjectClass, transcriptOfOneStudent)
                 );
             } catch (DocumentException e) {
                 e.printStackTrace();
@@ -490,6 +514,7 @@ public class ClassGradesController {
     void ExportStudentList() throws IOException, DocumentException {
         count = 1;
         String filePath = selectSaveFilePath();
+        if (filePath.equals("")) return;
         Document document = new Document(PageSize.A4);
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
         document.open();
@@ -497,6 +522,13 @@ public class ClassGradesController {
 
         //Head file pdf
         createHeaderPDF(document);
+
+
+        Paragraph prgTitle = new Paragraph("STUDENT LIST", listFont.get(0));
+        prgTitle.setAlignment(Element.ALIGN_CENTER);
+        prgTitle.setSpacingBefore(10);
+        prgTitle.setSpacingAfter(10);
+        document.add(prgTitle);
 
         //Information class
         Paragraph prgID = new Paragraph("ClassId: " + subjectClass.getClassId(), listFont.get(4));
@@ -513,10 +545,9 @@ public class ClassGradesController {
         createHeaderTableStudentList();
 
 
-
         studentList.forEach(s -> {
             try {
-                addRowExportStudentList(String.valueOf(count),s.getId(),s.getName(),subjectClass.getClassId(),s.getFaculty(),"");
+                addRowExportStudentList(String.valueOf(count), s.getId(), s.getName(), subjectClass.getClassId(), s.getFaculty(), "");
                 count = count + 1;
 
             } catch (DocumentException e) {
