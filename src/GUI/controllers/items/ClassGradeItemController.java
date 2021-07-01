@@ -5,7 +5,9 @@ import BusinessLogicLayer.TranscriptBLL;
 import DataTransferObject.StudentDTO;
 import DataTransferObject.TranscriptDTO;
 import GUI.controllers.ClassGradesController;
+import GUI.controllers.LoginController;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -13,10 +15,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.util.ResourceBundle;
 
-public class ClassGradeItemController {
+public class ClassGradeItemController implements Initializable {
 
     @FXML
     private AnchorPane StudentInfoBox;
@@ -70,6 +74,7 @@ public class ClassGradeItemController {
     private Button btnDelete;
 
 
+    public static StudentDTO studentUser = LoginController.studentUser;
     private StudentDTO student = null;
     private TranscriptDTO transcript = null;
     private String classID = null;
@@ -185,4 +190,12 @@ public class ClassGradeItemController {
         }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (studentUser != null)
+        {
+            btnDelete.setVisible(false);
+            btnEdit.setVisible(false);
+        }
+    }
 }
