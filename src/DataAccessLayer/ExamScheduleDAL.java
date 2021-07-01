@@ -2,6 +2,7 @@ package DataAccessLayer;
 
 import DataTransferObject.ExamScheduleDTO;
 import DataTransferObject.StudentDTO;
+import DataTransferObject.TeacherDTO;
 import Utils.DatabaseUtils;
 
 import java.sql.Connection;
@@ -27,6 +28,85 @@ public class ExamScheduleDAL {
             DBU = new DatabaseUtils();
             conn = DBU.createConnection();
             pres = conn.prepareStatement(sql);
+            rs = pres.executeQuery();
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+            while (rs.next()) {
+                ExamScheduleDTO s = new ExamScheduleDTO();
+                s.setSubjectId(rs.getString("subjectId"));
+                s.setSchoolYear(rs.getInt("schoolYear"));
+                s.setSemester(rs.getInt("semester"));
+                s.setFlag(rs.getInt("flag"));
+                s.setShift(rs.getInt("shift"));
+                s.setExamDate(rs.getDate("examDate"));
+                s.setTotalTime(rs.getTime("totalTime"));
+
+                list.add(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return list;
+    }
+
+    public List<ExamScheduleDTO> getAllExamScheduleByStudent(StudentDTO student){
+        List<ExamScheduleDTO> list = new ArrayList<>();
+        String sql = " select e.* from subjectclass s1, studentclass s2, examschedule e where " +
+                "s1.classId = s2.classId " +
+                "and s2.studentId = ? " +
+                "and s1.subjectId = e.subjectId " +
+                "and s1.schoolYear = e.schoolYear " +
+                "and s1.semester = e.semester;";
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, student.getId());
+            rs = pres.executeQuery();
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+            while (rs.next()) {
+                ExamScheduleDTO s = new ExamScheduleDTO();
+                s.setSubjectId(rs.getString("subjectId"));
+                s.setSchoolYear(rs.getInt("schoolYear"));
+                s.setSemester(rs.getInt("semester"));
+                s.setFlag(rs.getInt("flag"));
+                s.setShift(rs.getInt("shift"));
+                s.setExamDate(rs.getDate("examDate"));
+                s.setTotalTime(rs.getTime("totalTime"));
+
+                list.add(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return list;
+    }
+
+    public List<ExamScheduleDTO> getAllExamScheduleByTeacher(TeacherDTO teacher){
+        List<ExamScheduleDTO> list = new ArrayList<>();
+        String sql = " select e.* from subjectclass s, examschedule e  where s.headmaster = ? and s.schoolYear = e.schoolyear and s.semester = e.semester and s.subjectid = e.subjectid";
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, teacher.getId());
             rs = pres.executeQuery();
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 

@@ -45,6 +45,10 @@ public class ScheduleCalendarController implements Initializable {
     @FXML
     public VBox eventScrollPane;
 
+    public static StudentDTO studentUser = LoginController.studentUser;
+    public static TeacherDTO teacherUser = LoginController.teacherUser;
+    public static boolean isAdmin = LoginController.isAdmin;
+
     private StackPane container = NavigationController.containerNav;
     private List<ExamScheduleDTO> eventList = new ArrayList<>();
 
@@ -53,9 +57,17 @@ public class ScheduleCalendarController implements Initializable {
         loadChoiceBoxMonth();
         loadChoiceBoxYear();
 
-        eventList = new ExamScheduleBLL().getAllExamSchedule();
+        if (studentUser != null){
+            eventList = new ExamScheduleBLL().getAllExamScheduleByStudent(studentUser);
+        }else if (teacherUser != null){
+            eventList = new ExamScheduleBLL().getAllExamScheduleByTeacher(teacherUser);
+        }else if (isAdmin){
+            eventList = new ExamScheduleBLL().getAllExamSchedule();
+        }
+
         //sort theo event date
         eventList.sort(Comparator.comparing(d -> d.getExamDate().toLocalDate()));
+
 
         //load all class into table
         for(ExamScheduleDTO event: eventList)
