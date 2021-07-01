@@ -26,7 +26,7 @@ public class LoginController {
 
     public static StudentDTO studentUser = null;
     public static TeacherDTO teacherUser = null;
-
+    public static boolean isAdmin = false;
     @FXML
     private PasswordField PasswordField;
 
@@ -66,6 +66,7 @@ public class LoginController {
             lblEmpty.setVisible(true);
         } else {
             if (userName.equals("admin") && password.equals("admin")) {
+                isAdmin = true;
                 //call main menu of admin account
                 try {
                     Node node = (Node) event.getSource();
