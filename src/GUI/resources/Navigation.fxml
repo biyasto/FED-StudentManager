@@ -46,9 +46,9 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                         </Button>
-                        <Button fx:id="Minimizebtn" layoutX="86.0" layoutY="6.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="27.0" prefWidth="31.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;" styleClass="label" stylesheets="@../css/Style1.css">
+                        <Button fx:id="Minimizebtn" layoutX="86.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#btnMinimizeAction" pickOnBounds="false" prefHeight="27.0" prefWidth="31.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;" styleClass="label" stylesheets="@../css/Style1.css">
                             <graphic>
-                                <ImageView disable="true" fitHeight="29.0" fitWidth="20.0" onMouseClicked="#btnMinimizeAction" preserveRatio="true">
+                                <ImageView disable="true" fitHeight="29.0" fitWidth="20.0" preserveRatio="true">
                                     <image>
                                         <Image url="@../asset/ButtonIcon/minimize.png" />
                                     </image>
@@ -62,7 +62,7 @@
                             <graphic>
                                 <ImageView accessibleRole="BUTTON" disable="true" fitHeight="33.0" fitWidth="23.0" preserveRatio="true">
                                     <image>
-                                        <Image url="@../asset/ButtonIcon/SettingButton.png" />
+                                        <Image url="@../asset/ButtonIcon/door-key%20-%20Copy.png" />
                                     </image>
                                 </ImageView>
                             </graphic>

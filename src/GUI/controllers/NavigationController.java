@@ -201,6 +201,7 @@ public class NavigationController implements Initializable {
     }
     @FXML
     public void btnMinimizeAction(MouseEvent mouseEvent) {
+        System.out.println("minimize");
         Stage stage = (Stage) Minimizebtn.getScene().getWindow();
         stage.setIconified(true);
     }
