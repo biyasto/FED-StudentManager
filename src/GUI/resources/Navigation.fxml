@@ -62,7 +62,7 @@
                             <graphic>
                                 <ImageView accessibleRole="BUTTON" disable="true" fitHeight="33.0" fitWidth="23.0" preserveRatio="true">
                                     <image>
-                                        <Image url="@../asset/ButtonIcon/SettingButton.png" />
+                                        <Image url="@../asset/ButtonIcon/door-key%20-%20Copy.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
