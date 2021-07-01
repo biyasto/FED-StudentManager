@@ -52,7 +52,7 @@
                <graphic>
                   <ImageView fitHeight="19.0" fitWidth="21.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../asset/ButtonIcon/Classes_black.png" />
+                        <Image url="@../asset/ButtonIcon/book.png" />
                      </image>
                   </ImageView>
                </graphic>

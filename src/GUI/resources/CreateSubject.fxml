@@ -55,9 +55,9 @@
             <ChoiceBox fx:id="creditChoiceBox" layoutX="16.0" layoutY="188.0" prefHeight="33.0" prefWidth="124.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;" />
          </children>
       </Pane>
-      <ImageView fitHeight="365.0" fitWidth="339.0" layoutX="330.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="347.0" fitWidth="348.0" layoutX="323.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../asset/Picture/CreateAccountPic.png" />
+            <Image url="@../asset/Picture/pic4.jpg" />
          </image>
       </ImageView>
       <Label layoutX="203.0" layoutY="27.0" prefHeight="54.0" prefWidth="266.0" text="Create Subject" textFill="#616161">

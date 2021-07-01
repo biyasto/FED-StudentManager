@@ -1,14 +1,17 @@
 package GUI.controllers.items;
 
+import BusinessLogicLayer.StudentClassBLL;
 import BusinessLogicLayer.TranscriptBLL;
 import DataTransferObject.StudentDTO;
 import DataTransferObject.TranscriptDTO;
+import GUI.controllers.ClassGradesController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -63,14 +66,20 @@ public class ClassGradeItemController {
     @FXML
     private Button btnBack;
 
+    @FXML
+    private Button btnDelete;
+
 
     private StudentDTO student = null;
     private TranscriptDTO transcript = null;
+    private String classID = null;
 
+    private final VBox container = ClassGradesController.studentGrade;
 
-    public void setData(StudentDTO student, TranscriptDTO transcriptDTO) {
+    public void setData(String classID ,StudentDTO student, TranscriptDTO transcriptDTO) {
         this.student = student;
         this.transcript = transcriptDTO;
+        this.classID = classID;
 
         StudentName.setText(student.getName());
         StudentID.setText(student.getId());
@@ -159,6 +168,20 @@ public class ClassGradeItemController {
         }
         catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void deleteStudent(MouseEvent event) {
+        StudentClassBLL studentClassBLL = new StudentClassBLL();
+        int result = studentClassBLL.DeleteStudent(student.getId(), classID, transcript.getTranscriptId());
+
+        if(result != -1) {
+            //success, handle here
+            container.getChildren().removeAll(StudentInfoBox);
+        }
+        else {
+            //fail
         }
     }
 

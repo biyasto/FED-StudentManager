@@ -18,4 +18,8 @@ public class StudentClassBLL {
     public int InsertStudent(String studentID, String classID, int transcriptID) {
         return studentClass.InsertStudent(studentID, classID, transcriptID);
     }
+
+    public int DeleteStudent(String studentID, String classID, int transcriptID) {
+        return studentClass.DeleteStudent(studentID, classID, transcriptID);
+    }
 }
