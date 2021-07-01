@@ -74,8 +74,12 @@ public class ClassGradesController {
     private final static PdfPTable studentListTable = new PdfPTable(6);
 
     private final StackPane container = NavigationController.containerNav;
+    public static VBox studentGrade = null;
 
     public void setData(List<StudentDTO> studentList, TeacherDTO teacher, SubjectDTO subject, SubjectClassDTO subjectClass) {
+        //use for update studentGrades pane when delete
+        studentGrade = studentGrades;
+
         this.studentList = studentList;
         this.teacher = teacher;
         this.subject = subject;
@@ -102,7 +106,7 @@ public class ClassGradesController {
                 Node item = fxmlLoader.load();
 
                 ClassGradeItemController classGradeItemController = fxmlLoader.getController();
-                classGradeItemController.setData(student, transcriptOfOneStudent);
+                classGradeItemController.setData(subjectClass.getClassId(), student, transcriptOfOneStudent);
 
                 studentGrades.getChildren().addAll(item);
             } catch (Exception e) {

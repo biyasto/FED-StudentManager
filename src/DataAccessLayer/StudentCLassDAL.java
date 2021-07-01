@@ -105,4 +105,31 @@ public class StudentCLassDAL {
         }
         return result;
     }
+
+    public int DeleteStudent(String studentID, String classID, int transcriptID) {
+        String sql = "delete from studentclass where studentid = ? and classid = ? and transcriptId = ?;";
+        int result = -1;
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+
+            pres.setString(1, studentID);
+            pres.setString(2, classID);
+            pres.setInt(3, transcriptID);
+
+            result = pres.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return result;
+    }
 }
