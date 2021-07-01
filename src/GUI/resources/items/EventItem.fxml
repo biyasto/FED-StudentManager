@@ -101,12 +101,12 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblRoom" alignment="CENTER" layoutX="94.0" layoutY="114.0" prefHeight="21.0" prefWidth="89.0" text="1">
+                  <Label fx:id="lblRoom" alignment="CENTER" layoutX="94.0" layoutY="114.0" prefHeight="21.0" prefWidth="89.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="8.0" layoutY="114.0" prefHeight="21.0" prefWidth="52.0" text="Room:">
+                  <Label fx:id="lblRoom1" layoutX="8.0" layoutY="114.0" prefHeight="21.0" prefWidth="52.0" text="Room:" visible="false">
                      <font>
                         <Font size="15.0" />
                      </font>

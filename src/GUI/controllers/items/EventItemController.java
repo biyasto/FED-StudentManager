@@ -50,6 +50,9 @@ public class EventItemController {
     @FXML
     private Label lblRoom;
 
+    @FXML
+    private Label lblRoom1;
+
     private String startTime = null;
     private ExamScheduleDTO examSchedule = null;
     private SubjectDTO subject = null;
@@ -79,6 +82,7 @@ public class EventItemController {
         lblStartTime.setText(loadStartTime(examSchedule.getShift()));
         lblEndTime.setText(loadEndTime(examSchedule.getShift(),examSchedule.getTotalTime()));
         if (studentUser != null){
+            lblRoom1.setVisible(true);
             lblRoom.setText(new ExamRoomBLL().getRoomByStudentAndExamSchedule(studentUser, examSchedule).getRoom());
         }
     }
