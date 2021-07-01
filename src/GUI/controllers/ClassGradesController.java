@@ -12,6 +12,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,8 +30,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class ClassGradesController {
+public class ClassGradesController implements Initializable {
 
     @FXML
     private AnchorPane classPane;
@@ -63,8 +65,12 @@ public class ClassGradesController {
     private Button btnShowChart;
 
     @FXML
+    private Button btnInputGrade;
+
+    @FXML
     private VBox studentGrades;
 
+    public static StudentDTO studentUser = LoginController.studentUser;
     private List<StudentDTO> studentList = null;
     private TeacherDTO teacher = null;
     private SubjectDTO subject = null;
@@ -570,5 +576,16 @@ public class ClassGradesController {
     @FXML
     void back(MouseEvent event) {
         container.getChildren().removeAll(classPane);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (studentUser != null)
+        {
+            btnAddStudent.setVisible(false);
+            btnShowChart.setVisible(false);
+            btnExportPDF.setVisible(false);
+            btnInputGrade.setVisible(false);
+        }
     }
 }

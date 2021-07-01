@@ -55,7 +55,7 @@
                 <Font name="Arial Black" size="11.0" />
             </font>
         </Button>
-        <Button fx:id="btnInputGrade" layoutX="550.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#inputGrades" prefHeight="27.0" prefWidth="127.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Input Grades" textFill="WHITE">
+        <Button fx:id="btnInputGrade" layoutX="310.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#inputGrades" prefHeight="27.0" prefWidth="127.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Input Grades" textFill="WHITE">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -70,7 +70,7 @@
             </ImageView>
          </graphic>
         </Button>
-      <Button fx:id="btnAddStudent" layoutX="428.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#addStudents" prefHeight="28.0" prefWidth="118.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Add Student" textFill="WHITE">
+      <Button fx:id="btnAddStudent" layoutX="444.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#addStudents" prefHeight="28.0" prefWidth="118.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Add Student" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -85,7 +85,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnExportPDF" layoutX="185.0" layoutY="563.0" mnemonicParsing="false" onAction="#export" onMouseClicked="#addStudents" prefHeight="28.0" prefWidth="127.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Export Grades" textFill="WHITE">
+      <Button fx:id="btnExportPDF" layoutX="176.0" layoutY="563.0" mnemonicParsing="false" onAction="#export" onMouseClicked="#addStudents" prefHeight="28.0" prefWidth="127.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Export Grades" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -100,7 +100,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnShowChart" layoutX="319.0" layoutY="563.0" mnemonicParsing="false" onAction="#showChartPanel" prefHeight="28.0" prefWidth="102.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Analyze " textFill="WHITE">
+      <Button fx:id="btnShowChart" layoutX="67.0" layoutY="563.0" mnemonicParsing="false" onAction="#showChartPanel" prefHeight="28.0" prefWidth="102.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Analyze " textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -115,7 +115,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnExportList" layoutX="69.0" layoutY="563.0" mnemonicParsing="false" onAction="#ExportStudentList" onMouseClicked="#addStudents" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Export List" textFill="WHITE">
+      <Button fx:id="btnExportList" layoutX="568.0" layoutY="563.0" mnemonicParsing="false" onAction="#ExportStudentList" onMouseClicked="#addStudents" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Export List" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
