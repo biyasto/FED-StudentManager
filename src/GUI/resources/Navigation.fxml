@@ -94,7 +94,7 @@
                     <children>
                         <AnchorPane layoutY="76.0" prefHeight="286.0" prefWidth="215.0">
                             <children>
-                                <Button fx:id="InfoButton" alignment="BASELINE_LEFT" layoutX="4.0" layoutY="43.0" mnemonicParsing="false" onMouseClicked="#OpenInformationScreen" prefHeight="35.0" prefWidth="206.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="    My Information" textFill="WHITE">
+                                <Button fx:id="InfoButton" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="43.0" mnemonicParsing="false" onMouseClicked="#OpenInformationScreen" prefHeight="35.0" prefWidth="209.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="    My Information" textFill="WHITE">
                                     <font>
                                         <Font name="Arial Bold" size="15.0" />
                                     </font>
@@ -127,7 +127,7 @@
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </Button>
-                                <Button fx:id="ScheduleButton" alignment="BASELINE_LEFT" layoutX="2.0" layoutY="93.0" mnemonicParsing="false" onMouseClicked="#OpenScheduleScreen" prefHeight="30.0" prefWidth="211.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="    My Schedule" textFill="WHITE">
+                                <Button fx:id="ScheduleButton" alignment="BASELINE_LEFT" layoutX="2.0" layoutY="93.0" mnemonicParsing="false" onMouseClicked="#OpenScheduleScreen" prefHeight="30.0" prefWidth="211.0" style="-fx-background-color: transparent; -fx-background-radius: 10px;" styleClass="menu-item" stylesheets="@../css/Style1.css" text="    Exam Schedule" textFill="WHITE">
                                     <font>
                                         <Font name="Arial Bold" size="15.0" />
                                     </font>
