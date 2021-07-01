@@ -109,10 +109,20 @@ public class LoginController {
                         TimeUnit.SECONDS.sleep(1);
                         stage.close();
 
-                        URL url = new File("src/GUI/resources/Navigation.fxml").toURI().toURL();
-                        Parent root = FXMLLoader.load(url);
-                        stage.setScene(new Scene(root));
+                        URL urlLayout = new File("src/GUI/resources/Navigation.fxml").toURI().toURL();
+                        FXMLLoader fxmlLoader = new FXMLLoader();
+                        fxmlLoader.setLocation(urlLayout);
+                        Parent item = fxmlLoader.load();
+
+                        NavigationController navigationController = fxmlLoader.getController();
+                        if(studentUser != null)
+                            navigationController.setData(studentUser, null);
+                        else if(teacherUser != null)
+                            navigationController.setData(null, teacherUser);
+
+                        stage.setScene(new Scene(item));
                         stage.show();
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

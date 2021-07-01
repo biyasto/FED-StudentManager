@@ -5,7 +5,6 @@ import BusinessLogicLayer.SubjectClassBLL;
 import BusinessLogicLayer.TranscriptBLL;
 import DataTransferObject.*;
 import GUI.controllers.NavigationController;
-import com.itextpdf.text.pdf.PdfPTable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;

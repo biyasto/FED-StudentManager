@@ -2,7 +2,6 @@ package GUI.controllers;
 
 import DataTransferObject.StudentDTO;
 import DataTransferObject.TeacherDTO;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,13 +12,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
@@ -65,8 +62,12 @@ public class NavigationController implements Initializable {
     @FXML
     private Button GradesButton;
 
-    public static StudentDTO studentUser = LoginController.studentUser;
-    public static TeacherDTO teacherUser = LoginController.teacherUser;
+    public StudentDTO studentAccount = LoginController.studentUser;
+    public TeacherDTO teacherAccount = LoginController.teacherUser;
+
+    public static StudentDTO studentUser = null;
+    public static TeacherDTO teacherUser = null;
+
     public static boolean isAdmin = LoginController.isAdmin;
 
     //this is a reference of container above, use for pass data to another screen
@@ -75,10 +76,21 @@ public class NavigationController implements Initializable {
     public NavigationController() {
     }
 
+    public void setData(StudentDTO studentDTO, TeacherDTO teacherDTO) {
+        if(studentDTO != null) {
+            this.studentAccount = studentDTO;
+        }
+        else if(teacherDTO != null) {
+            this.teacherAccount = teacherDTO;
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        studentUser = studentAccount;
+        teacherUser = teacherAccount;
         containerNav = container;
-        if(studentUser != null) {
+        if(studentAccount != null) {
             CreateAccountButton.setVisible(false);
             SearchUsersButton.setVisible(false);
             try {
@@ -87,7 +99,7 @@ public class NavigationController implements Initializable {
                 e.printStackTrace();
             }
         }
-        else if(teacherUser != null) {
+        else if(teacherAccount != null) {
             CreateAccountButton.setVisible(false);
             try {
                 openInformationScreen();
@@ -121,7 +133,7 @@ public class NavigationController implements Initializable {
 
     @FXML
     void OpenInformationScreen(MouseEvent event) throws IOException {
-        if(studentUser != null) {
+        if(studentAccount != null) {
             openInformationStudentScreen();
         }
         else {
@@ -169,11 +181,11 @@ public class NavigationController implements Initializable {
         Node item = fxmlLoader.load();
 
         ChangePasswordController ChangePasswordController = fxmlLoader.getController();
-        if(studentUser != null) {
-            ChangePasswordController.setData(studentUser, null);
+        if(studentAccount != null) {
+            ChangePasswordController.setData(studentAccount, null);
         }
-        else if(teacherUser != null) {
-            ChangePasswordController.setData(null, teacherUser);
+        else if(teacherAccount != null) {
+            ChangePasswordController.setData(null, teacherAccount);
         }
 
         container.getChildren().removeAll();
@@ -209,6 +221,9 @@ public class NavigationController implements Initializable {
     @FXML
     void Logout(MouseEvent event) {
         try {
+            LoginController.studentUser = null;
+            LoginController.teacherUser = null;
+
             Node node = (Node) event.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
 
