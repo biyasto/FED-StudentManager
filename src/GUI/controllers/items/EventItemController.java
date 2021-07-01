@@ -1,6 +1,8 @@
 package GUI.controllers.items;
 
+import BusinessLogicLayer.ExamRoomBLL;
 import DataTransferObject.*;
+import GUI.controllers.LoginController;
 import GUI.controllers.NavigationController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -45,11 +47,16 @@ public class EventItemController {
     @FXML
     private Label lblTypeExam;
 
+    @FXML
+    private Label lblRoom;
+
     private String startTime = null;
     private ExamScheduleDTO examSchedule = null;
     private SubjectDTO subject = null;
 
     public static StackPane container = NavigationController.containerNav;
+    public static StudentDTO studentUser = LoginController.studentUser;
+
 
     public void setData(SubjectDTO subject, ExamScheduleDTO examSchedule) {
         this.subject = subject;
@@ -69,10 +76,9 @@ public class EventItemController {
 
         int shift = examSchedule.getShift();
         lblShift.setText(String.valueOf(shift));
-
         lblStartTime.setText(loadStartTime(examSchedule.getShift()));
-
         lblEndTime.setText(loadEndTime(examSchedule.getShift(),examSchedule.getTotalTime()));
+        lblRoom.setText(new ExamRoomBLL().getRoomByStudentAndExamSchedule(studentUser, examSchedule).getRoom());
     }
 
     public String loadStartTime(int shift) {

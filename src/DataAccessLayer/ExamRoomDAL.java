@@ -2,6 +2,7 @@ package DataAccessLayer;
 
 import DataTransferObject.ExamRoomDTO;
 import DataTransferObject.ExamScheduleDTO;
+import DataTransferObject.StudentDTO;
 import Utils.DatabaseUtils;
 
 import java.sql.Connection;
@@ -91,6 +92,49 @@ public class ExamRoomDAL {
             }
         }
         return newList;
+    }
+
+    public ExamRoomDTO getRoomByStudentAndExamSchedule(StudentDTO student, ExamScheduleDTO exam){
+        ExamRoomDTO examRoom = new ExamRoomDTO();
+        String sql = "select e2.* from subjectclass s1, studentclass s2, examschedule e1, examroom e2 where " +
+                "s2.classId = s1.classId and " +
+                "s2.studentId = ? and " +
+                "s1.subjectId = ? and " +
+                "s1.schoolyear = ? and " +
+                "s1.semester = ? and " +
+                "e1.id = e2.examId and " +
+                "e2.classId = s2.classId;";
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setString(1, student.getId());
+            pres.setString(2, exam.getSubjectId());
+            pres.setInt(3, exam.getSchoolYear());
+            pres.setInt(4, exam.getSemester());
+            pres.setInt(4, exam.getSemester());
+
+            rs = pres.executeQuery();
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+            while (rs.next()) {
+                examRoom.setExamId(rs.getInt("examId"));
+                examRoom.setClassId(rs.getString("classId"));
+                examRoom.setRoom(rs.getString("room"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return examRoom;
     }
 
 }
