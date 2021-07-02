@@ -45,9 +45,9 @@ public class ScheduleCalendarController implements Initializable {
     @FXML
     public VBox eventScrollPane;
 
-    public static StudentDTO studentUser = LoginController.studentUser;
-    public static TeacherDTO teacherUser = LoginController.teacherUser;
-    public static boolean isAdmin = LoginController.isAdmin;
+    public  StudentDTO studentUser = NavigationController.studentUser;
+    public  TeacherDTO teacherUser = NavigationController.teacherUser;
+    public  boolean isAdmin = LoginController.isAdmin;
 
     private StackPane container = NavigationController.containerNav;
     private List<ExamScheduleDTO> eventList = new ArrayList<>();
