@@ -37,7 +37,7 @@ public class ExamRoomDAL {
             pres.setInt(1, examId);
             pres.setString(2, room);
             pres.setString(3, classId);
-            result = pres.executeUpdate();
+            result = pres.  executeUpdate();
             System.out.println(result);
         } catch (Exception e) {
             e.printStackTrace();

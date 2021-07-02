@@ -137,7 +137,7 @@ public class AddExamEventController implements Initializable {
                     showLblSuccess();
                     System.out.println("success "+result);
                 }else{
-                    System.out.println("error dont have enough empty rooms or no class with subject" + result);
+                    System.out.println("error don't have enough empty rooms or no class with subject" + result);
                 }
 
             }else{

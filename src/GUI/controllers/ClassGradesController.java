@@ -28,6 +28,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -339,7 +340,7 @@ public class ClassGradesController implements Initializable {
         prgSchoolName.setIndentationLeft(100);
         document.add(prgSchoolName);
 
-        Paragraph prgAddress = new Paragraph("Thiên Hà Trong Vũ Trụ Này Hoài Xa Xôi", listFont.get(2));
+        Paragraph prgAddress = new Paragraph("THIÊN HÀ THỨ BẢY TRONG HỆ VŨ TRỤ", listFont.get(2));
         prgAddress.setIndentationLeft(100);
         document.add(prgAddress);
 
@@ -457,7 +458,8 @@ public class ClassGradesController implements Initializable {
             if (transcript.getMark4() != -1)
                 avg += transcript.getMark4() * subjectClass.getFinal();
         }
-        return avg * 0.1;
+        DecimalFormat df = new DecimalFormat("#.##");
+        return  Double.parseDouble(df.format(avg*0.1));
     }
 
     @FXML

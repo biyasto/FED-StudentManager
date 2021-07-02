@@ -100,7 +100,7 @@ public class MyGradeController implements Initializable {
     private final StudentDTO studentUserOpenByAdmin = null;
     private StudentDTO studentUser = null;
 
-    private final static PdfPTable markTable = new PdfPTable(7);
+    private static PdfPTable markTable = new PdfPTable(7);
     private List<StudentCLassDTO> studentCLassList = new ArrayList<>();
     private final List<String> schoolYearList = new ArrayList<>();
     private final List<String> semesterList = new ArrayList<>();
@@ -268,7 +268,8 @@ public class MyGradeController implements Initializable {
             if (transcript.getMark4() != -1)
                 avg += transcript.getMark4() * subjectClass.getFinal();
         }
-        return avg * 0.1;
+        DecimalFormat df = new DecimalFormat("#.##");
+        return  Double.parseDouble(df.format(avg*0.1));
     }
 
     void bindData(SubjectClassDTO subjectClass, SubjectDTO subject, TranscriptDTO transcriptOfStudent) throws IOException {
@@ -462,6 +463,8 @@ public class MyGradeController implements Initializable {
 
     @FXML
     void printPDF(ActionEvent event) throws IOException, DocumentException, SQLException {
+        PdfPTable Table = new PdfPTable(7);
+        markTable = Table;
         //get save file path
         String filePath = selectSaveFilePath();
         Document document = new Document(PageSize.A4);
