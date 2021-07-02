@@ -49,8 +49,6 @@ public class SearchUsersController implements Initializable {
     private List<StudentDTO> studentList = new ArrayList<>();
     private List<TeacherDTO> teacherList = new ArrayList<>();
 
-    private String position;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //get all current students from database
@@ -76,10 +74,9 @@ public class SearchUsersController implements Initializable {
 
         //handler on data change action
         PositionChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            position = newValue;
             if(newValue.equals("Student"))
                 loadStudents();
-            else
+            else if(newValue.equals("Teacher"))
                 loadTeachers();
         });
     }
@@ -119,6 +116,7 @@ public class SearchUsersController implements Initializable {
 
         SearchIDTextfield.clear();
         SearchNameTextfield.clear();
+        PositionChoiceBox.setValue("");
     }
 
     private void findByID(String findID) {
@@ -148,6 +146,9 @@ public class SearchUsersController implements Initializable {
         else {
             lblEmpty.setVisible(false);
             lblNotFound.setVisible(true);
+
+            //clear layout if not found
+            studentScrollPane.getChildren().clear();
         }
     }
 
@@ -179,6 +180,9 @@ public class SearchUsersController implements Initializable {
         if(studentFound.isEmpty() && teacherFound.isEmpty()) {
             lblNotFound.setVisible(true);
             lblEmpty.setVisible(false);
+
+            //clear layout if not found
+            studentScrollPane.getChildren().clear();
         }
     }
 

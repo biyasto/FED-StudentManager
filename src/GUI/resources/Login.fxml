@@ -26,11 +26,11 @@
                <font>
                   <Font size="14.0" />
                </font></TextField>
-            <PasswordField fx:id="PasswordField" layoutX="170.0" layoutY="316.0" prefHeight="40.0" prefWidth="250.0" promptText="Password" style="-fx-background-color: #EEE0E0; -fx-background-radius: 0 45 45 0;">
+            <PasswordField fx:id="PasswordField" layoutX="170.0" layoutY="316.0" onAction="#login" prefHeight="40.0" prefWidth="250.0" promptText="Password" style="-fx-background-color: #EEE0E0; -fx-background-radius: 0 45 45 0;">
                <font>
                   <Font size="14.0" />
                </font></PasswordField>
-            <Button fx:id="LoginButton" layoutX="292.0" layoutY="395.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Log in" textFill="WHITE">
+            <Button fx:id="LoginButton" layoutX="292.0" layoutY="395.0" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Log in" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

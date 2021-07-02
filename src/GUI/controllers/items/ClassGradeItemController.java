@@ -6,6 +6,7 @@ import DataTransferObject.StudentDTO;
 import DataTransferObject.TranscriptDTO;
 import GUI.controllers.ClassGradesController;
 import GUI.controllers.LoginController;
+import GUI.controllers.NavigationController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -73,7 +74,7 @@ public class ClassGradeItemController implements Initializable {
     private Button btnDelete;
 
 
-    public static StudentDTO studentUser = LoginController.studentUser;
+    public StudentDTO studentUser = NavigationController.studentUser;
     private StudentDTO student = null;
     private TranscriptDTO transcript = null;
     private String classID = null;
@@ -119,6 +120,14 @@ public class ClassGradeItemController implements Initializable {
         Grade3Textfield.setEditable(true);
         Grade4Textfield.setEditable(true);
         btnOK.setVisible(true);
+    }
+
+    void disableEdit() {
+        Grade1Textfield.setEditable(false);
+        Grade2Textfield.setEditable(false);
+        Grade3Textfield.setEditable(false);
+        Grade4Textfield.setEditable(false);
+        btnOK.setVisible(false);
     }
 
     @FXML
@@ -184,6 +193,7 @@ public class ClassGradeItemController implements Initializable {
                         alertSuccess.setHeaderText(null);
                         alertSuccess.setContentText("Update successfully!");
                         alertSuccess.showAndWait();
+                        disableEdit();
                     }
                     else {
                         Alert alertFail = new Alert(Alert.AlertType.INFORMATION);
@@ -197,6 +207,9 @@ public class ClassGradeItemController implements Initializable {
             catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+        else {
+            disableEdit();
         }
     }
 
