@@ -48,7 +48,7 @@ public class ClassItemController {
     private SubjectDTO subject = null;
     private SubjectClassDTO subjectClass = null;
 
-    public static StackPane container = NavigationController.containerNav;
+    public StackPane container = NavigationController.containerNav;
 
     public void setData(List<StudentDTO> studentList, TeacherDTO teacher, SubjectDTO subject, SubjectClassDTO subjectClass) {
         this.studentList = studentList;
@@ -72,7 +72,7 @@ public class ClassItemController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(urlLayout);
         Node item = fxmlLoader.load();
-
+        System.out.println(1);
         ClassGradesController classGradesController = fxmlLoader.getController();
         classGradesController.setData(studentList, teacher, subject, subjectClass);
 

@@ -68,8 +68,6 @@ public class NavigationController implements Initializable {
     public static StudentDTO studentUser = null;
     public static TeacherDTO teacherUser = null;
 
-    public static boolean isAdmin = LoginController.isAdmin;
-
     //this is a reference of container above, use for pass data to another screen
     public static StackPane containerNav = null;
 

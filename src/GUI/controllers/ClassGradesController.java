@@ -70,7 +70,7 @@ public class ClassGradesController implements Initializable {
     @FXML
     private VBox studentGrades;
 
-    public static StudentDTO studentUser = LoginController.studentUser;
+    public StudentDTO studentUser = NavigationController.studentUser;
     private List<StudentDTO> studentList = null;
     private TeacherDTO teacher = null;
     private SubjectDTO subject = null;
@@ -449,15 +449,15 @@ public class ClassGradesController implements Initializable {
         double avg = 0;
         if (transcript != null) {
             if (transcript.getMark1() != -1)
-                avg += transcript.getMark1() * subjectClass.getAttendance() * 0.01;
+                avg += transcript.getMark1() * subjectClass.getAttendance();
             if (transcript.getMark2() != -1)
-                avg += transcript.getMark2() * subjectClass.getQuiz() * 0.01;
+                avg += transcript.getMark2() * subjectClass.getQuiz();
             if (transcript.getMark3() != -1)
-                if (transcript.getMark4() != -1)
-                    avg += transcript.getMark4() * subjectClass.getFinal() * 0.01;
-            avg += transcript.getMark3() * subjectClass.getPractice() * 0.01;
+                avg += transcript.getMark3() * subjectClass.getPractice();
+            if (transcript.getMark4() != -1)
+                avg += transcript.getMark4() * subjectClass.getFinal();
         }
-        return avg;
+        return avg * 0.1;
     }
 
     @FXML
@@ -560,9 +560,7 @@ public class ClassGradesController implements Initializable {
                 addRowExportStudentList(String.valueOf(count), s.getId(), s.getName(), subjectClass.getClassId(), s.getFaculty(), "");
                 count = count + 1;
 
-            } catch (DocumentException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
+            } catch (DocumentException | IOException e) {
                 e.printStackTrace();
             }
 
@@ -580,8 +578,7 @@ public class ClassGradesController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if (studentUser != null)
-        {
+        if (studentUser != null) {
             btnAddStudent.setVisible(false);
             btnShowChart.setVisible(false);
             btnExportPDF.setVisible(false);

@@ -102,7 +102,7 @@ public class AddStudentController {
                         lblSuccess.setVisible(true);
                         lblFailed.setVisible(false);
                         lblExist.setVisible(false);
-                        Textfield.setText(Textfield.getText().replace(studentId, ""));
+                        Textfield.setText(removeAdded(Textfield.getText(), studentId));
                     }
                     catch (Exception e) {
                         e.printStackTrace();
@@ -125,6 +125,16 @@ public class AddStudentController {
                 break;
             }
         }
+    }
+
+    String removeAdded(String textField, String id) {
+        String[] str = textField.split("\n");
+        String result = "";
+        for (String s : str) {
+            if (!s.equals(id))
+                result += s + "\n";
+        }
+        return result;
     }
 
     @FXML

@@ -46,10 +46,10 @@ public class SearchClassesController implements Initializable {
     @FXML
     private Label lblEmpty;
 
-    public static StudentDTO student = NavigationController.studentUser;
-    public static TeacherDTO teacher = NavigationController.teacherUser;
+    public StudentDTO student = NavigationController.studentUser;
+    public TeacherDTO teacher = NavigationController.teacherUser;
     private static SubjectClassBLL subjectClassBLL = new SubjectClassBLL();
-    private StackPane container = NavigationController.containerNav;
+    private final StackPane container = NavigationController.containerNav;
     private List<SubjectClassDTO> classList = new ArrayList<>();
 
     @Override
@@ -145,17 +145,4 @@ public class SearchClassesController implements Initializable {
         }
     }
 
-    @FXML
-    void createNewClass(MouseEvent event) {
-        try {
-            URL urlLayout = new File("src/GUI/resources/CreateClass.fxml").toURI().toURL();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(urlLayout);
-            Node item = fxmlLoader.load();
-
-            container.getChildren().add(item);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }
