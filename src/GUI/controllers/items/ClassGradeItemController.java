@@ -11,10 +11,13 @@ import GUI.controllers.NavigationController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
+import java.io.File;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -76,6 +79,9 @@ public class ClassGradeItemController implements Initializable {
     @FXML
     private Button btnDelete;
 
+    @FXML
+    private ImageView Avatar;
+
 
     public StudentDTO studentUser;
     private StudentDTO student = null;
@@ -91,6 +97,11 @@ public class ClassGradeItemController implements Initializable {
 
         StudentName.setText(student.getName());
         StudentID.setText(student.getId());
+        if(!student.isGender()) {
+            File file = new File("src/GUI/asset/Picture/UserAvatar2.png");
+            Image image = new Image(file.toURI().toString());
+            Avatar.setImage(image);
+        }
 
         double avg = 0;
         if (transcript != null) {

@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -98,6 +99,11 @@ public class UserInfor_admin_Controller {
             EmailLabel.setText(student.getEmail());
             lblCurPass.setText(student.getPass());
             PositionLabel.setText("Student");
+            if(!student.isGender()) {
+                File file = new File("src/GUI/asset/Picture/UserAvatar2.png");
+                Image image = new Image(file.toURI().toString());
+                UserAvatar.setImage(image);
+            }
         }
         else if( teacher != null) {
             //set data for main menu of student's information
@@ -109,6 +115,11 @@ public class UserInfor_admin_Controller {
             lblCurPass.setText(teacher.getPass());
             PositionLabel.setText("Teacher");
             btnGetGrade.setVisible(false);
+            if(!teacher.isGender()) {
+                File file = new File("src/GUI/asset/Picture/UserAvatar2.png");
+                Image image = new Image(file.toURI().toString());
+                UserAvatar.setImage(image);
+            }
         }
     }
 

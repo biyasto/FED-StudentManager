@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -48,6 +49,11 @@ public class StudentItemController {
         NameLabel.setText(studentDTO.getName());
         IDLabel.setText("ID: " + studentDTO.getId());
         FacultyLabel.setText("Faculty: " + studentDTO.getFaculty());
+        if(!studentDTO.isGender()) {
+            File file = new File("src/GUI/asset/Picture/UserAvatar2.png");
+            Image image = new Image(file.toURI().toString());
+            Avatar.setImage(image);
+        }
     }
 
     public void setDataTeacher(TeacherDTO teacher) {
@@ -56,6 +62,11 @@ public class StudentItemController {
         NameLabel.setText(teacherDTO.getName());
         IDLabel.setText("ID: " + teacherDTO.getId());
         FacultyLabel.setText("Faculty: " + teacherDTO.getFaculty());
+        if(!teacherDTO.isGender()) {
+            File file = new File("src/GUI/asset/Picture/UserAvatar2.png");
+            Image image = new Image(file.toURI().toString());
+            Avatar.setImage(image);
+        }
     }
 
     @FXML

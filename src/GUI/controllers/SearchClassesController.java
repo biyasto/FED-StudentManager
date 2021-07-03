@@ -154,6 +154,8 @@ public class SearchClassesController implements Initializable {
     @FXML
     void refresh(MouseEvent event) {
         loadDataFirstTime();
+        lblNotFound.setVisible(false);
+        lblEmpty.setVisible(false);
     }
 
 }

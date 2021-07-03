@@ -132,6 +132,11 @@ public class MyGradeController implements Initializable {
         FacultyLabel.setText(studentDTO.getFaculty());
         EmailLabel.setText(studentDTO.getEmail());
         PositionLabel.setText("Student");
+        if(!studentDTO.isGender()) {
+            File file = new File("src/GUI/asset/Picture/UserAvatar2.png");
+            javafx.scene.image.Image image = new javafx.scene.image.Image(file.toURI().toString());
+            UserAvatar.setImage(image);
+        }
 
         //load grade statistic
         loadGradeFirstTime(studentDTO);

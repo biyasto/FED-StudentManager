@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -60,6 +61,11 @@ public class UserDetailController implements Initializable {
             FacultyLabel.setText(teacherUser.getFaculty());
             EmailLabel.setText(teacherUser.getEmail());
             PositionLabel.setText("Teacher");
+            if(!teacherUser.isGender()) {
+                File file = new File("src/GUI/asset/Picture/UserAvatar2.png");
+                Image image = new Image(file.toURI().toString());
+                UserAvatar.setImage(image);
+            }
             teacherUser = null;
         }
         else {
