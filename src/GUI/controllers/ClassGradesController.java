@@ -71,7 +71,7 @@ public class ClassGradesController implements Initializable {
     @FXML
     private VBox studentGrades;
 
-    public StudentDTO studentUser = NavigationController.studentUser;
+    public StudentDTO studentUser;
     private List<StudentDTO> studentList = null;
     private TeacherDTO teacher = null;
     private SubjectDTO subject = null;
@@ -580,6 +580,7 @@ public class ClassGradesController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        studentUser = NavigationController.studentUser;
         if (studentUser != null) {
             btnAddStudent.setVisible(false);
             btnShowChart.setVisible(false);

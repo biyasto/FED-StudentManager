@@ -5,6 +5,7 @@ import DataTransferObject.TeacherDTO;
 import GUI.controllers.NavigationController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -15,6 +16,7 @@ import javafx.scene.layout.StackPane;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
 public class StudentItemController {
     @FXML
@@ -38,6 +40,7 @@ public class StudentItemController {
     private StudentDTO studentDTO = null;
     private TeacherDTO teacherDTO = null;
 
+    private StudentDTO student;
     public static StackPane container = NavigationController.containerNav;
 
     public void setDataStudent(StudentDTO student) {
@@ -67,4 +70,5 @@ public class StudentItemController {
 
         container.getChildren().addAll(item);
     }
+
 }
