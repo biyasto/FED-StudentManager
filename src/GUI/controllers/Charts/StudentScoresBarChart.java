@@ -200,7 +200,9 @@ public class StudentScoresBarChart implements Initializable {
 
     private void displayLabelForData(XYChart.Data<String, Number> data) {
         final Node node = data.getNode();
-        final Text dataText = ((Double) data.getYValue() != 0) ? new Text(data.getYValue() + "") : new Text("");
+        DecimalFormat df = new DecimalFormat("#.#");
+
+        final Text dataText = ((Double) data.getYValue() != 0) ? new Text(df.format(data.getYValue())) : new Text("");
         node.parentProperty().addListener(new ChangeListener<Parent>() {
             @Override public void changed(ObservableValue<? extends Parent> ov, Parent oldParent, Parent parent) {
                 Group parentGroup = (Group) parent;
