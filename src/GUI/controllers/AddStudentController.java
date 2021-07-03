@@ -61,6 +61,8 @@ public class AddStudentController {
 
     private String classID = "";
     private final List<String> studentIDList = new ArrayList<>();
+    //private List<StudentDTO> studentList = null;
+    //public static List<StudentDTO> studentDTOList = new ArrayList<>();
 
     private final StackPane container = NavigationController.containerNav;
 
@@ -70,6 +72,8 @@ public class AddStudentController {
         facultyName.setText("Faculty: " + subject.getFaculty());
         teacherName.setText("Teacher: " + teacher.getName());
         attendantNum.setText("Attendants: " + studentList.size());
+        //this.studentList = studentList;
+        //studentDTOList = studentList;
 
         classID = subjectClass.getClassId();
         for(StudentDTO studentDTO: studentList) {
@@ -103,6 +107,14 @@ public class AddStudentController {
                         lblFailed.setVisible(false);
                         lblExist.setVisible(false);
                         Textfield.setText(removeAdded(Textfield.getText(), studentId));
+
+                        //add new student to list in order to update layout
+                        StudentDTO newStudent = getStudentByID(studentId);
+                        if(newStudent != null) {
+                            //studentList.add(newStudent);
+                            //studentDTOList = studentList;
+                            ClassGradesController.addedStudents.add(newStudent);
+                        }
                     }
                     catch (Exception e) {
                         e.printStackTrace();
@@ -135,6 +147,11 @@ public class AddStudentController {
                 result += s + "\n";
         }
         return result;
+    }
+
+    StudentDTO getStudentByID(String id) {
+        StudentBLL studentBLL = new StudentBLL();
+        return studentBLL.GetStudentByID(id);
     }
 
     @FXML

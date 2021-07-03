@@ -18,6 +18,8 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -230,6 +232,7 @@ public class ClassGradeItemController implements Initializable {
                 alertSuccess.setHeaderText(null);
                 alertSuccess.setContentText("Removed successfully!");
                 alertSuccess.showAndWait();
+                ClassGradesController.deletedStudents.add(student);
             } else {
                 //fail
                 Alert alertFail = new Alert(Alert.AlertType.INFORMATION);

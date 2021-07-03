@@ -35,6 +35,9 @@ public class SearchClassesController implements Initializable {
     private Button NewClassButton;
 
     @FXML
+    private Button btnRefresh;
+
+    @FXML
     private TextField SubjectNameTextfield;
 
     @FXML
@@ -48,13 +51,15 @@ public class SearchClassesController implements Initializable {
 
     public StudentDTO student = NavigationController.studentUser;
     public TeacherDTO teacher = NavigationController.teacherUser;
-    private static SubjectClassBLL subjectClassBLL = new SubjectClassBLL();
-    private final StackPane container = NavigationController.containerNav;
+    private SubjectClassBLL subjectClassBLL = new SubjectClassBLL();
     private List<SubjectClassDTO> classList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadDataFirstTime();
+    }
 
+    public void loadDataFirstTime() {
         if (student != null) {
             classList = subjectClassBLL.getClassesByStudentId(student.getId());
         } else if (teacher != null) {
@@ -62,7 +67,9 @@ public class SearchClassesController implements Initializable {
         } else {
             classList = subjectClassBLL.getAllSubjectClass();
         }
+
         //load class into table
+        classScrollPane.getChildren().clear();
         for (SubjectClassDTO subjectClass : classList) {
             loadDataIntoTable(subjectClass);
         }
@@ -91,7 +98,6 @@ public class SearchClassesController implements Initializable {
 
             ClassItemController classItemController = fxmlLoader.getController();
             classItemController.setData(studentList, teacher, subject, subjectClass);
-            System.out.println(teacher);
 
             classScrollPane.getChildren().add(item);
         } catch (Exception e) {
@@ -143,6 +149,11 @@ public class SearchClassesController implements Initializable {
                 lblEmpty.setVisible(false);
             }
         }
+    }
+
+    @FXML
+    void refresh(MouseEvent event) {
+        loadDataFirstTime();
     }
 
 }

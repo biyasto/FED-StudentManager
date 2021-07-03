@@ -69,6 +69,9 @@ public class ClassGradesController implements Initializable {
     private Button btnInputGrade;
 
     @FXML
+    private Button btnRefresh;
+
+    @FXML
     private VBox studentGrades;
 
     public StudentDTO studentUser;
@@ -79,6 +82,9 @@ public class ClassGradesController implements Initializable {
     private int count = 1;
     private final static PdfPTable markTable = new PdfPTable(7);
     private final static PdfPTable studentListTable = new PdfPTable(6);
+
+    public static List<StudentDTO> deletedStudents = new ArrayList<>();
+    public static List<StudentDTO> addedStudents = new ArrayList<>();
 
     private final StackPane container = NavigationController.containerNav;
     public static VBox studentGrade = null;
@@ -102,6 +108,7 @@ public class ClassGradesController implements Initializable {
     }
 
     void showClass() {
+        studentGrades.getChildren().clear();
         for (StudentDTO student : studentList) {
             TranscriptBLL transcriptBLL = new TranscriptBLL();
             TranscriptDTO transcriptOfOneStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
@@ -121,6 +128,22 @@ public class ClassGradesController implements Initializable {
             }
         }
     }
+
+    @FXML
+    void refresh(MouseEvent event) {
+        if(!addedStudents.isEmpty()) {
+            studentList.addAll(addedStudents);
+            setData(studentList, teacher, subject, subjectClass);
+            addedStudents.clear();
+        }
+
+        if(!deletedStudents.isEmpty()) {
+            studentList.removeAll(deletedStudents);
+            setData(studentList, teacher, subject, subjectClass);
+            deletedStudents.clear();
+        }
+    }
+
 
     @FXML
     void inputGrades(MouseEvent event) {
