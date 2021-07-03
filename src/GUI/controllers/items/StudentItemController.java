@@ -40,7 +40,6 @@ public class StudentItemController {
     private StudentDTO studentDTO = null;
     private TeacherDTO teacherDTO = null;
 
-    private StudentDTO student;
     public StackPane container = NavigationController.containerNav;
 
     public void setDataStudent(StudentDTO student) {
@@ -67,7 +66,8 @@ public class StudentItemController {
         Node item = fxmlLoader.load();
 
         UserInfor_admin_Controller userInfor_admin_controller = fxmlLoader.getController();
-        userInfor_admin_controller.setData(studentDTO);
+        userInfor_admin_controller.setData(studentDTO, teacherDTO);
+
         container.getChildren().addAll(item);
     }
 

@@ -113,7 +113,7 @@ public class ClassGradesController implements Initializable {
                 Node item = fxmlLoader.load();
 
                 ClassGradeItemController classGradeItemController = fxmlLoader.getController();
-                classGradeItemController.setData(subjectClass.getClassId(), student, transcriptOfOneStudent);
+                classGradeItemController.setData(subjectClass, student, transcriptOfOneStudent);
 
                 studentGrades.getChildren().addAll(item);
             } catch (Exception e) {

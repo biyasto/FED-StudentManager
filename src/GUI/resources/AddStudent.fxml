@@ -34,14 +34,6 @@
             <Image url="@../asset/Picture/LoginPic.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnDelete" layoutX="372.0" layoutY="550.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="129.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Delete Users" textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="Arial Black" size="11.0" />
-         </font>
-      </Button>
       <Pane layoutX="1.0" prefHeight="136.0" prefWidth="686.0" style="-fx-background-radius: 45 45 45 45; -fx-background-color: #AD9BAA;">
          <children>
             <Label fx:id="SubjectName" alignment="CENTER" layoutX="237.0" layoutY="12.0" prefHeight="70.0" prefWidth="424.0" text="Introduce to Game development">

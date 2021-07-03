@@ -3,6 +3,7 @@ package GUI.controllers.items;
 import BusinessLogicLayer.StudentClassBLL;
 import BusinessLogicLayer.TranscriptBLL;
 import DataTransferObject.StudentDTO;
+import DataTransferObject.SubjectClassDTO;
 import DataTransferObject.TranscriptDTO;
 import GUI.controllers.ClassGradesController;
 import GUI.controllers.LoginController;
@@ -77,14 +78,14 @@ public class ClassGradeItemController implements Initializable {
     public StudentDTO studentUser;
     private StudentDTO student = null;
     private TranscriptDTO transcript = null;
-    private String classID = null;
+    private SubjectClassDTO subjectClass = null;
 
     private final VBox container = ClassGradesController.studentGrade;
 
-    public void setData(String classID, StudentDTO student, TranscriptDTO transcriptDTO) {
+    public void setData(SubjectClassDTO subjectClass, StudentDTO student, TranscriptDTO transcriptDTO) {
         this.student = student;
         this.transcript = transcriptDTO;
-        this.classID = classID;
+        this.subjectClass = subjectClass;
 
         StudentName.setText(student.getName());
         StudentID.setText(student.getId());
@@ -193,6 +194,7 @@ public class ClassGradeItemController implements Initializable {
                         alertSuccess.setContentText("Update successfully!");
                         alertSuccess.showAndWait();
                         disableEdit();
+                        setData(subjectClass, student, transcript);
                     } else {
                         Alert alertFail = new Alert(Alert.AlertType.INFORMATION);
                         alertFail.setTitle("Update Student's Grades");
@@ -218,7 +220,7 @@ public class ClassGradeItemController implements Initializable {
 
         if (option.get() == ButtonType.OK) {
             StudentClassBLL studentClassBLL = new StudentClassBLL();
-            int result = studentClassBLL.DeleteStudent(student.getId(), classID, transcript.getTranscriptId());
+            int result = studentClassBLL.DeleteStudent(student.getId(), subjectClass.getClassId(), transcript.getTranscriptId());
 
             if (result != -1) {
                 //success, handle here
