@@ -14,24 +14,31 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SearchClassesController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" layoutX="5.0" layoutY="126.0" prefHeight="476.0" prefWidth="675.0" style="-fx-background-color: #958FA3;" vbarPolicy="ALWAYS">
+      <ScrollPane hbarPolicy="NEVER" layoutX="5.0" layoutY="109.0" prefHeight="493.0" prefWidth="675.0" style="-fx-background-color: #958FA3;" vbarPolicy="ALWAYS">
          <content>
             <VBox fx:id="classScrollPane" alignment="TOP_CENTER" prefHeight="475.0" prefWidth="674.0" />
          </content>
       </ScrollPane>
       <Pane layoutX="51.0" layoutY="2.0" prefHeight="118.0" prefWidth="665.0" style="-fx-background-color: transparent; -fx-background-radius: 20 0 20 0;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
-            <TextField fx:id="ClassIDTextfield" layoutX="79.0" layoutY="51.0" prefHeight="30.0" prefWidth="263.0" promptText="Search by Class ID" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+            <TextField fx:id="ClassIDTextfield" layoutX="39.0" layoutY="55.0" prefHeight="30.0" prefWidth="447.0" promptText="Search by Class ID" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="FindButton" layoutX="368.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#findClass" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="FIND" textFill="WHITE">
+            <Button fx:id="FindButton" layoutX="531.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#findClass" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #5F3566; -fx-background-radius: 20px;" text="Find" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../asset/ButtonIcon/search2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <TextField fx:id="SubjectNameTextfield" layoutX="79.0" layoutY="14.0" prefHeight="30.0" prefWidth="368.0" promptText="Search by Name of subject" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
+            <TextField fx:id="SubjectNameTextfield" layoutX="39.0" layoutY="18.0" prefHeight="30.0" prefWidth="447.0" promptText="Search by Name of subject" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45px;">
                <font>
                   <Font size="14.0" />
                </font>
@@ -46,7 +53,7 @@
                   <Font name="System Italic" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="btnRefresh" layoutX="465.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#refresh" prefHeight="28.0" prefWidth="102.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Refresh" textFill="WHITE">
+            <Button fx:id="btnRefresh" layoutX="531.0" layoutY="56.0" mnemonicParsing="false" onMouseClicked="#refresh" prefHeight="28.0" prefWidth="102.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Refresh" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
