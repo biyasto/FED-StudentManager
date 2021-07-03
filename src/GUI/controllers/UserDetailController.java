@@ -72,47 +72,50 @@ public class UserDetailController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(studentUser != null) {
-            //load data
-            NameLabel.setText(studentUser.getName());
-            IDLabel.setText(studentUser.getId());
-            FacultyLabel.setText(studentUser.getFaculty());
-            EmailLabel.setText(studentUser.getEmail());
-            PositionLabel.setText("Student");
-
-            //disable feature
-
-            //load grade statistic
-            loadGradeFirstTime(studentUser);
-
-            //init combobox's data
-            ObservableList<Integer> dataSchoolYear = FXCollections.observableArrayList();
-            dataSchoolYear.setAll(schoolList);
-            SchoolYearChoiceBox.setItems(dataSchoolYear);
-            SchoolYearChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                    yearFilter = newValue;
-                    if(semesterFilter != 0) {
-                        loadGradeFilter();
-                    }
-            });
-
-            ObservableList<Integer> dataSemester = FXCollections.observableArrayList();
-            dataSemester.setAll(semesterList);
-            SemesterChoiceBox.setItems(dataSemester);
-            SemesterChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                semesterFilter = newValue;
-                if(yearFilter != 0) {
-                    loadGradeFilter();
-                }
-            });
-        }
-        else if(teacherUser != null) {
+//        if(studentUser != null) {
+//            //load data
+//            NameLabel.setText(studentUser.getName());
+//            IDLabel.setText(studentUser.getId());
+//            FacultyLabel.setText(studentUser.getFaculty());
+//            EmailLabel.setText(studentUser.getEmail());
+//            PositionLabel.setText("Student");
+//
+//            //disable feature
+//
+//            //load grade statistic
+//            loadGradeFirstTime(studentUser);
+//
+//            //init combobox's data
+//            ObservableList<Integer> dataSchoolYear = FXCollections.observableArrayList();
+//            dataSchoolYear.setAll(schoolList);
+//            SchoolYearChoiceBox.setItems(dataSchoolYear);
+//            SchoolYearChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//                    yearFilter = newValue;
+//                    if(semesterFilter != 0) {
+//                        loadGradeFilter();
+//                    }
+//            });
+//
+//            ObservableList<Integer> dataSemester = FXCollections.observableArrayList();
+//            dataSemester.setAll(semesterList);
+//            SemesterChoiceBox.setItems(dataSemester);
+//            SemesterChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//                semesterFilter = newValue;
+//                if(yearFilter != 0) {
+//                    loadGradeFilter();
+//                }
+//            });
+//        }
+//        else
+        teacherUser = NavigationController.teacherUser;
+        if(teacherUser != null) {
             //load data
             NameLabel.setText(teacherUser.getName());
             IDLabel.setText(teacherUser.getId());
             FacultyLabel.setText(teacherUser.getFaculty());
             EmailLabel.setText(teacherUser.getEmail());
             PositionLabel.setText("Teacher");
+            teacherUser = null;
         }
         else {
             //load data

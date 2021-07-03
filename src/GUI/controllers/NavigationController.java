@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 public class NavigationController implements Initializable {
 
     @FXML
-    private  Button Minimizebtn;
+    private Button Minimizebtn;
 
     @FXML
     private Button SearchClassButton;
@@ -75,10 +75,9 @@ public class NavigationController implements Initializable {
     }
 
     public void setData(StudentDTO studentDTO, TeacherDTO teacherDTO) {
-        if(studentDTO != null) {
+        if (studentDTO != null) {
             this.studentAccount = studentDTO;
-        }
-        else if(teacherDTO != null) {
+        } else if (teacherDTO != null) {
             this.teacherAccount = teacherDTO;
         }
     }
@@ -88,7 +87,7 @@ public class NavigationController implements Initializable {
         studentUser = studentAccount;
         teacherUser = teacherAccount;
         containerNav = container;
-        if(studentAccount != null) {
+        if (studentAccount != null) {
             CreateAccountButton.setVisible(false);
             SearchUsersButton.setVisible(false);
             try {
@@ -96,16 +95,14 @@ public class NavigationController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        else if(teacherAccount != null) {
+        } else if (teacherAccount != null) {
             CreateAccountButton.setVisible(false);
             try {
                 openInformationScreen();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        else {
+        } else {
             //admin cannot change password
             SettingButton.setVisible(false);
             try {
@@ -116,7 +113,6 @@ public class NavigationController implements Initializable {
         }
         SetStyle();
     }
-
 
 
     @FXML
@@ -131,10 +127,9 @@ public class NavigationController implements Initializable {
 
     @FXML
     void OpenInformationScreen(MouseEvent event) throws IOException {
-        if(studentAccount != null) {
+        if (studentAccount != null) {
             openInformationStudentScreen();
-        }
-        else {
+        } else {
             openInformationScreen();
         }
     }
@@ -179,10 +174,9 @@ public class NavigationController implements Initializable {
         Node item = fxmlLoader.load();
 
         ChangePasswordController ChangePasswordController = fxmlLoader.getController();
-        if(studentAccount != null) {
+        if (studentAccount != null) {
             ChangePasswordController.setData(studentAccount, null);
-        }
-        else if(teacherAccount != null) {
+        } else if (teacherAccount != null) {
             ChangePasswordController.setData(null, teacherAccount);
         }
 
@@ -209,6 +203,7 @@ public class NavigationController implements Initializable {
         System.out.println("close");
         System.exit(0);
     }
+
     @FXML
     public void btnMinimizeAction(MouseEvent mouseEvent) {
         System.out.println("minimize");
@@ -219,6 +214,8 @@ public class NavigationController implements Initializable {
     @FXML
     void Logout(MouseEvent event) {
         try {
+            studentUser = null;
+            teacherUser = null;
             LoginController.studentUser = null;
             LoginController.teacherUser = null;
 
@@ -237,8 +234,8 @@ public class NavigationController implements Initializable {
             e.printStackTrace();
         }
     }
-    void SetStyle()
-    {
+
+    void SetStyle() {
         InfoButton.setStyle("");
         ScheduleButton.setStyle("");
         SearchClassButton.setStyle("");
