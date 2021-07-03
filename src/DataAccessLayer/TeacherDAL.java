@@ -192,7 +192,7 @@ public class TeacherDAL {
             pres = conn.prepareStatement(sql);
 
             rs = pres.executeQuery();
-            if(rs.next())
+            if (rs.next())
                 count = rs.getInt("count(*)");
 
         } catch (Exception e) {

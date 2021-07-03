@@ -156,7 +156,7 @@ public class TranscriptDAL {
             pres = conn.prepareStatement(sql);
 
             rs = pres.executeQuery();
-            if(rs.next())
+            if (rs.next())
                 count = rs.getInt("count(*)");
 
         } catch (Exception e) {
@@ -202,7 +202,7 @@ public class TranscriptDAL {
         return result;
     }
 
-    public double calGPAByTranscriptId(int id){
+    public double calGPAByTranscriptId(int id) {
         double GPA = 0;
         String sql = "select * from transcript t, studentclass s1, subjectclass s2 where s1.classId = s2.classId and s1.transcriptId = t.transcriptId and t.transcriptId = ?";
         try {
@@ -223,13 +223,13 @@ public class TranscriptDAL {
                 double practicePercent = rs.getInt("practice");
                 double finalPercent = rs.getInt("final");
 
-                if(mark1 != -1)
+                if (mark1 != -1)
                     GPA += mark1 * attendancePercent * 0.1;
-                if(mark2 != -1)
+                if (mark2 != -1)
                     GPA += mark2 * quizPercent * 0.1;
-                if(mark3 != -1)
+                if (mark3 != -1)
                     GPA += mark3 * practicePercent * 0.1;
-                if(mark4 != -1)
+                if (mark4 != -1)
                     GPA += mark4 * finalPercent * 0.1;
             }
         } catch (Exception e) {

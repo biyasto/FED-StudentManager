@@ -54,8 +54,8 @@ public class CreateSubjectController implements Initializable {
         List<SubjectDTO> subjectList = subjectBLL.GetAllSubject();
 
         List<String> facultyList = new ArrayList<>();
-        for(SubjectDTO subject: subjectList) {
-            if(!facultyList.contains(subject.getFaculty())) {
+        for (SubjectDTO subject : subjectList) {
+            if (!facultyList.contains(subject.getFaculty())) {
                 facultyList.add(subject.getFaculty());
             }
         }
@@ -64,7 +64,9 @@ public class CreateSubjectController implements Initializable {
         ObservableList<String> dataFaculty = FXCollections.observableArrayList();
         dataFaculty.setAll(facultyList);
         FacultyChoiceBox.setItems(dataFaculty);
-        FacultyChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> { faculty = newValue; });
+        FacultyChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            faculty = newValue;
+        });
 
         //data for credit
         String[] optionCredit = {
@@ -75,27 +77,28 @@ public class CreateSubjectController implements Initializable {
         ObservableList<String> dataCredit = FXCollections.observableArrayList();
         dataCredit.setAll(optionCredit);
         creditChoiceBox.setItems(dataCredit);
-        creditChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> { credit = Integer.parseInt(newValue); });
+        creditChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            credit = Integer.parseInt(newValue);
+        });
     }
 
     @FXML
     void createSubject(MouseEvent event) {
         subjectName = SubjectName.getText();
-        if(faculty.isEmpty() || subjectName.isEmpty() || credit == 0) {
+        if (faculty.isEmpty() || subjectName.isEmpty() || credit == 0) {
             lblEmpty.setVisible(true);
             lblSuccess.setVisible(false);
             lblError.setVisible(false);
-        }
-        else {
+        } else {
             SubjectBLL subjectBLL = new SubjectBLL();
             int id = subjectBLL.countSubject() + 1;
             String strID = String.valueOf(id);
 
-            if(strID.length() == 1)
+            if (strID.length() == 1)
                 strID = "000" + strID;
-            else if(strID.length() == 2)
+            else if (strID.length() == 2)
                 strID = "00" + strID;
-            else if(strID.length() == 3)
+            else if (strID.length() == 3)
                 strID = "0" + strID;
 
             SubjectDTO subject = new SubjectDTO(
@@ -106,12 +109,11 @@ public class CreateSubjectController implements Initializable {
             );
 
             int result = subjectBLL.InsertSubject(subject);
-            if(result != -1) {
+            if (result != -1) {
                 lblEmpty.setVisible(false);
                 lblSuccess.setVisible(true);
                 lblError.setVisible(false);
-            }
-            else {
+            } else {
                 lblEmpty.setVisible(false);
                 lblSuccess.setVisible(false);
                 lblError.setVisible(true);

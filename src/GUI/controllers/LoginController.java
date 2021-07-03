@@ -115,9 +115,9 @@ public class LoginController {
                         Parent item = fxmlLoader.load();
 
                         NavigationController navigationController = fxmlLoader.getController();
-                        if(studentUser != null)
+                        if (studentUser != null)
                             navigationController.setData(studentUser, null);
-                        else if(teacherUser != null)
+                        else if (teacherUser != null)
                             navigationController.setData(null, teacherUser);
 
                         stage.setScene(new Scene(item));
