@@ -59,10 +59,13 @@ public class ClassItemController {
         ClassIDLabel.setText(subjectClass.getClassId());
         SubjectLabel.setText(subject.getSubjectName());
         FacultyLabel.setText("Faculty: " + subject.getFaculty());
-        if (teacher.getName() != null)
-        {
-            TeacherLabel.setText("Teacher: " + teacher.getName());
+        if (teacher != null){
+            if (teacher.getName() != null)
+            {
+                TeacherLabel.setText("Teacher: " + teacher.getName());
+            }
         }
+
         AttendantsLabel.setText("Attendants: " + studentList.size());
     }
 

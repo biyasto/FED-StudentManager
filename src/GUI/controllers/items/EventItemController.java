@@ -58,7 +58,7 @@ public class EventItemController {
     private SubjectDTO subject = null;
 
     public static StackPane container = NavigationController.containerNav;
-    public static StudentDTO studentUser = LoginController.studentUser;
+    public static StudentDTO studentUser = NavigationController.studentUser;
 
 
     public void setData(SubjectDTO subject, ExamScheduleDTO examSchedule) {
@@ -84,6 +84,9 @@ public class EventItemController {
         if (studentUser != null){
             lblRoom1.setVisible(true);
             lblRoom.setText(new ExamRoomBLL().getRoomByStudentAndExamSchedule(studentUser, examSchedule).getRoom());
+        }else{
+            lblRoom1.setVisible(true);
+            lblRoom.setText(new ExamRoomBLL().getRooms(examSchedule));
         }
     }
 

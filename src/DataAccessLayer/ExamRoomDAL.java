@@ -1,5 +1,6 @@
 package DataAccessLayer;
 
+import BusinessLogicLayer.ExamScheduleBLL;
 import DataTransferObject.ExamRoomDTO;
 import DataTransferObject.ExamScheduleDTO;
 import DataTransferObject.StudentDTO;
@@ -135,6 +136,38 @@ public class ExamRoomDAL {
         }
 
         return examRoom;
+    }
+
+    public String getRooms(ExamScheduleDTO examScheduleDTO){
+        List<String> list = new ArrayList<>();
+        int examId = new ExamScheduleBLL().getExamScheduleId(examScheduleDTO);
+
+        String sql = "select * from examroom where examId = ?";
+        try {
+            DBU = new DatabaseUtils();
+            conn = DBU.createConnection();
+            pres = conn.prepareStatement(sql);
+            pres.setInt(1, examId);
+            rs = pres.executeQuery();
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+            while (rs.next()) {
+                String s = rs.getString("room");
+                list.add(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pres.close();
+                rs.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return String.join(", ", list);
     }
 
 }

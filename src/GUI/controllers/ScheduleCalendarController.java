@@ -47,7 +47,6 @@ public class ScheduleCalendarController implements Initializable {
 
     public  StudentDTO studentUser = NavigationController.studentUser;
     public  TeacherDTO teacherUser = NavigationController.teacherUser;
-    public  boolean isAdmin = LoginController.isAdmin;
 
     private StackPane container = NavigationController.containerNav;
     private List<ExamScheduleDTO> eventList = new ArrayList<>();
@@ -61,7 +60,7 @@ public class ScheduleCalendarController implements Initializable {
             eventList = new ExamScheduleBLL().getAllExamScheduleByStudent(studentUser);
         }else if (teacherUser != null){
             eventList = new ExamScheduleBLL().getAllExamScheduleByTeacher(teacherUser);
-        }else if (isAdmin){
+        }else{
             eventList = new ExamScheduleBLL().getAllExamSchedule();
         }
 

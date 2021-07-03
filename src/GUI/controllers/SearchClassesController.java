@@ -91,7 +91,7 @@ public class SearchClassesController implements Initializable {
 
             ClassItemController classItemController = fxmlLoader.getController();
             classItemController.setData(studentList, teacher, subject, subjectClass);
-
+            System.out.println(teacher);
 
             classScrollPane.getChildren().add(item);
         } catch (Exception e) {

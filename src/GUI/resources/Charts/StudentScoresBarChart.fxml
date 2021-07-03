@@ -19,7 +19,7 @@
             <CategoryAxis label="Subject" side="BOTTOM" tickLabelGap="0.0" fx:id="xAxis" />
          </xAxis>
          <yAxis>
-            <NumberAxis fx:id="yAxis" label="GPA" minorTickCount="2" side="LEFT" tickLabelGap="5.0" tickLength="6.0" tickUnit="1.0" upperBound="10.0" />
+            <NumberAxis fx:id="yAxis" autoRanging="false" label="GPA" minorTickCount="2" side="LEFT" tickLabelGap="5.0" tickLength="6.0" tickUnit="1.0" upperBound="11.0" />
          </yAxis>
       </BarChart>
       <Button fx:id="btnBack" layoutX="7.0" layoutY="565.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="20.0" prefWidth="64.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Back" textFill="WHITE">

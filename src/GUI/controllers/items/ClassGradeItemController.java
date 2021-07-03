@@ -6,6 +6,7 @@ import DataTransferObject.StudentDTO;
 import DataTransferObject.TranscriptDTO;
 import GUI.controllers.ClassGradesController;
 import GUI.controllers.LoginController;
+import GUI.controllers.NavigationController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -73,7 +74,7 @@ public class ClassGradeItemController implements Initializable {
     private Button btnDelete;
 
 
-    public static StudentDTO studentUser = LoginController.studentUser;
+    public static StudentDTO studentUser = NavigationController.studentUser;
     private StudentDTO student = null;
     private TranscriptDTO transcript = null;
     private String classID = null;

@@ -22,6 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -164,27 +165,49 @@ public class ClassScoresBarChartController implements Initializable{
             TranscriptBLL transcriptBLL = new TranscriptBLL();
             TranscriptDTO transcriptOfOneStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
 
-            double finalScore = transcriptOfOneStudent.getTotalScore() / 4;
-            int roundedScore = (int)finalScore;
+            double avg = 0;
+            if(transcriptOfOneStudent != null) {
+                if(transcriptOfOneStudent.getMark1() != -1) {
+                    avg += transcriptOfOneStudent.getMark1() * 0.1;
+                }
+                if(transcriptOfOneStudent.getMark2() != -1) {
+                    avg += transcriptOfOneStudent.getMark2() * 0.2;
+                }
+                if(transcriptOfOneStudent.getMark3() != -1) {
+                    avg += transcriptOfOneStudent.getMark3() * 0.2;
+                }
+                if(transcriptOfOneStudent.getMark4() != -1) {
+                    avg += transcriptOfOneStudent.getMark4() * 0.5;
+                }
 
+            }
+            DecimalFormat df = new DecimalFormat("#.#");
+//            SumGradeLabel.setText(df.format(avg));
+            double finalScore = avg;
+            int roundedScore = (int)finalScore;
+            System.out.println(subjectClass.getClassId() + " / " + roundedScore);
             //count number of score range
             if (roundedScore >= 0 && roundedScore <= 4){
                 data1.get(roundedScore).setYValue((int) data1.get(roundedScore).getYValue() + 1);
                 if (maxCount < data1.get(roundedScore).getYValue().intValue()){
                     maxCount = data1.get(roundedScore).getYValue().intValue();
                 }
+//                System.out.println(data1.get(roundedScore).getYValue());
             }else if (roundedScore >= 5 && roundedScore <= 7){
                 data2.get(roundedScore - 5).setYValue((int) data2.get(roundedScore - 5).getYValue() + 1);
                 if (maxCount < data2.get(roundedScore - 5).getYValue().intValue()){
                     maxCount = data2.get(roundedScore - 5).getYValue().intValue();
                 }
+//                System.out.println(data2.get(roundedScore - 5).getYValue());
+
             }else if (roundedScore >= 8 && roundedScore <= 9){
                 data3.get(roundedScore - 8).setYValue((int) data3.get(roundedScore - 8).getYValue() + 1);
                 if (maxCount < data3.get(roundedScore - 8).getYValue().intValue()){
                     maxCount = data3.get(roundedScore - 8).getYValue().intValue();
                 }
-            }
+//                System.out.println(data3.get(roundedScore - 8).getYValue());
 
+            }
         }
 
         //change bar width
@@ -200,7 +223,9 @@ public class ClassScoresBarChartController implements Initializable{
 
     private void displayLabelForData(XYChart.Data<String, Number> data) {
         final Node node = data.getNode();
-        final Text dataText = ((int) data.getYValue() != 0) ? new Text(data.getYValue() + "") : new Text("");
+        DecimalFormat df = new DecimalFormat("#.#");
+
+        final Text dataText = ((int) data.getYValue() != 0) ? new Text(df.format(data.getYValue())) : new Text("");
         node.parentProperty().addListener(new ChangeListener<Parent>() {
             @Override public void changed(ObservableValue<? extends Parent> ov, Parent oldParent, Parent parent) {
                 Group parentGroup = (Group) parent;

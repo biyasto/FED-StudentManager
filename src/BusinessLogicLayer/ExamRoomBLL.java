@@ -16,4 +16,6 @@ public class ExamRoomBLL {
     public List<String> getEmptyRoomForExam(ExamScheduleDTO examScheduleDTO){ return dal.getEmptyRoomForExam(examScheduleDTO); }
 
     public ExamRoomDTO getRoomByStudentAndExamSchedule(StudentDTO student, ExamScheduleDTO exam){ return dal.getRoomByStudentAndExamSchedule(student, exam); }
+
+    public String getRooms(ExamScheduleDTO examScheduleDTO){ return dal.getRooms(examScheduleDTO); }
 }

@@ -29,6 +29,7 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class StudentScoresBarChart implements Initializable {
@@ -94,6 +95,7 @@ public class StudentScoresBarChart implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         series1.setName("Subject");
+        yAxis.setUpperBound(11.0d);
     }
 
     public void setData(String chartTitle,
@@ -124,8 +126,10 @@ public class StudentScoresBarChart implements Initializable {
         barChart.getXAxis().setLabel(xAxis);
         barChart.getYAxis().setLabel(yAxis);
 
+
         createDataset(studentCLassList);
-        for (int i = 0; i < studentCLassList.size(); i++) {
+
+        for (int i = 0; i < data.size(); i++) {
             final XYChart.Data<String, Number> columnData = data.get(i);
             columnData.nodeProperty().addListener(new ChangeListener<Node>() {
                 @Override
@@ -138,6 +142,7 @@ public class StudentScoresBarChart implements Initializable {
             });
             series1.getData().add(columnData);
         }
+
         barChart.getData().setAll(series1);
     }
 
@@ -186,11 +191,11 @@ public class StudentScoresBarChart implements Initializable {
             }
         }
         double semesterGPA = sumGPA / numOfSubjects;
-        System.out.println(sumGPA + " " + numOfSubjects);
         lblCredit.setText("Accumulated credits: " + credit);
         if (sumGPA > 0){
             lblGPA.setText("GPA: " + df.format(semesterGPA));
         }
+
     }
 
     private void displayLabelForData(XYChart.Data<String, Number> data) {
@@ -233,7 +238,7 @@ public class StudentScoresBarChart implements Initializable {
 
     private String convertSubjectNameIntoLabel(String subjectName){
         String result = "";
-        String words[] = subjectName.split(" ");
+        String[] words = subjectName.split(" ");
         for (int i = 0; i < words.length; i++) {
             if (i == words.length - 1){
                 result += words[i];
