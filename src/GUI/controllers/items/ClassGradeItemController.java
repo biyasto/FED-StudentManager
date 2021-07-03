@@ -122,6 +122,14 @@ public class ClassGradeItemController implements Initializable {
         btnOK.setVisible(true);
     }
 
+    void disableEdit() {
+        Grade1Textfield.setEditable(false);
+        Grade2Textfield.setEditable(false);
+        Grade3Textfield.setEditable(false);
+        Grade4Textfield.setEditable(false);
+        btnOK.setVisible(false);
+    }
+
     @FXML
     void updateGrade(MouseEvent event) {
         Alert alertConfirm = new Alert(Alert.AlertType.CONFIRMATION);
@@ -185,6 +193,7 @@ public class ClassGradeItemController implements Initializable {
                         alertSuccess.setHeaderText(null);
                         alertSuccess.setContentText("Update successfully!");
                         alertSuccess.showAndWait();
+                        disableEdit();
                     }
                     else {
                         Alert alertFail = new Alert(Alert.AlertType.INFORMATION);
@@ -198,6 +207,9 @@ public class ClassGradeItemController implements Initializable {
             catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+        else {
+            disableEdit();
         }
     }
 

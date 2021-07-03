@@ -13,9 +13,9 @@
 
 <AnchorPane fx:id="StudentInfoBox" prefHeight="155.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.items.ClassGradeItemController">
    <children>
-      <AnchorPane fx:id="GradeBox" layoutY="10.0" prefHeight="136.0" prefWidth="675.0" style="-fx-background-color: #EAE0D5; -fx-background-radius: 0 45 0 45;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+      <AnchorPane fx:id="GradeBox" layoutY="10.0" prefHeight="138.0" prefWidth="652.0" style="-fx-background-color: #EAE0D5; -fx-background-radius: 0 45 0 45;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="18.0">
          <children>
-            <AnchorPane layoutX="203.0" layoutY="33.0" prefHeight="87.0" prefWidth="394.0" style="-fx-background-color: #4A1B88; -fx-background-radius: 35px;">
+            <AnchorPane layoutX="186.0" layoutY="33.0" prefHeight="87.0" prefWidth="394.0" style="-fx-background-color: #4A1B88; -fx-background-radius: 35px;">
                <children>
                   <Label fx:id="Grade1Label" layoutX="13.0" layoutY="22.0" text="Attendance" textFill="WHITE" />
                   <TextField fx:id="Grade1Textfield" editable="false" layoutX="13.0" layoutY="40.0" prefHeight="26.0" prefWidth="60.0" />
@@ -50,7 +50,7 @@
                   <Label fx:id="StudentID" alignment="CENTER" layoutX="3.0" layoutY="107.0" prefHeight="17.0" prefWidth="159.0" text="19520406" />
                </children>
             </Pane>
-            <Button fx:id="btnOK" layoutX="635.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#updateGrade" pickOnBounds="false" prefHeight="39.0" prefWidth="20.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;" visible="false">
+            <Button fx:id="btnOK" layoutX="608.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#updateGrade" pickOnBounds="false" prefHeight="39.0" prefWidth="20.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;" visible="false">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -62,7 +62,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnEdit" layoutX="603.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#enableEdit" pickOnBounds="false" prefHeight="39.0" prefWidth="20.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;">
+            <Button fx:id="btnEdit" layoutX="575.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#enableEdit" pickOnBounds="false" prefHeight="39.0" prefWidth="20.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -74,7 +74,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnDelete" layoutX="603.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#deleteStudent" pickOnBounds="false" prefHeight="28.0" prefWidth="37.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;">
+            <Button fx:id="btnDelete" layoutX="576.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#deleteStudent" pickOnBounds="false" prefHeight="28.0" prefWidth="37.0" style="-fx-background-radius: 45px; -fx-background-color: transparent;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

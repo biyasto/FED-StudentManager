@@ -20,7 +20,7 @@
             <Font name="Arial Black" size="11.0" />
          </font>
       </Button>
-      <Button fx:id="btnAdd" layoutX="527.0" layoutY="543.0" mnemonicParsing="false" onMouseClicked="#addStudents" prefHeight="24.0" prefWidth="130.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Add Users" textFill="WHITE">
+      <Button fx:id="btnAdd" layoutX="527.0" layoutY="550.0" mnemonicParsing="false" onMouseClicked="#addStudents" prefHeight="24.0" prefWidth="130.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Add Users" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -28,13 +28,13 @@
             <Font name="Arial Black" size="11.0" />
          </font>
       </Button>
-      <TextArea fx:id="Textfield" layoutX="372.0" layoutY="163.0" prefHeight="342.0" prefWidth="286.0" />
+      <TextArea fx:id="Textfield" layoutX="372.0" layoutY="177.0" prefHeight="342.0" prefWidth="286.0" />
       <ImageView fitHeight="360.0" fitWidth="316.0" layoutX="30.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asset/Picture/LoginPic.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnDelete" layoutX="372.0" layoutY="543.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="129.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Delete Users" textFill="WHITE">
+      <Button fx:id="btnDelete" layoutX="372.0" layoutY="550.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="129.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Delete Users" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -71,19 +71,24 @@
             </Label>
          </children>
       </Pane>
-      <Label fx:id="lblSuccess" layoutX="372.0" layoutY="515.0" text="Added Successfully!" textFill="#0ac400" visible="false">
+      <Label fx:id="lblSuccess" layoutX="372.0" layoutY="527.0" text="Added Successfully!" textFill="#0ac400" visible="false">
          <font>
             <Font name="System Italic" size="11.0" />
          </font>
       </Label>
-      <Label fx:id="lblFailed" layoutX="372.0" layoutY="515.0" text="Error, please try again" textFill="RED" visible="false">
+      <Label fx:id="lblFailed" layoutX="372.0" layoutY="527.0" text="Error, please try again" textFill="RED" visible="false">
          <font>
             <Font name="System Italic" size="11.0" />
          </font>
       </Label>
-      <Label fx:id="lblExist" layoutX="372.0" layoutY="515.0" text="This student has already existed in this class" textFill="RED" visible="false">
+      <Label fx:id="lblExist" layoutX="372.0" layoutY="527.0" text="This student has already existed in this class" textFill="RED" visible="false">
          <font>
             <Font name="System Italic" size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSuccess1" layoutX="372.0" layoutY="154.0" text="Enter studentID here, one ID in one line">
+         <font>
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
    </children>

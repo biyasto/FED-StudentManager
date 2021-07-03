@@ -55,7 +55,7 @@ public class LoginController {
     private Label lblEmpty;
 
     @FXML
-    void login(MouseEvent event) {
+    void login(ActionEvent event) {
         String userName = UserTextField.getText();
         String password = PasswordField.getText();
 

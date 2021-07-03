@@ -75,7 +75,7 @@ public class ClassItemController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(urlLayout);
         Node item = fxmlLoader.load();
-        System.out.println(1);
+
         ClassGradesController classGradesController = fxmlLoader.getController();
         classGradesController.setData(studentList, teacher, subject, subjectClass);
 
