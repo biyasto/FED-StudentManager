@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="classPane" prefHeight="600.0" prefWidth="685.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.ClassGradesController">
     <children>
-        <Pane layoutX="7.0" layoutY="3.0" prefHeight="109.0" prefWidth="671.0" style="-fx-background-radius: 45 45 45 45; -fx-background-color: #AD9BAA;" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0">
+        <Pane layoutX="7.0" layoutY="3.0" prefHeight="119.0" prefWidth="671.0" style="-fx-background-radius: 45 45 45 45; -fx-background-color: #AD9BAA;" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0">
             <children>
                 <Label fx:id="SubjectName" alignment="CENTER" layoutX="237.0" layoutY="-9.0" prefHeight="70.0" prefWidth="424.0" text="Introduce to Game development">
                     <font>
@@ -42,7 +42,7 @@
                 </Label>
             </children>
         </Pane>
-        <ScrollPane fx:id="GradesPanel" hbarPolicy="NEVER" layoutX="2.0" layoutY="153.0" prefHeight="397.0" prefWidth="680.0">
+        <ScrollPane fx:id="GradesPanel" hbarPolicy="NEVER" layoutX="2.0" layoutY="177.0" prefHeight="374.0" prefWidth="680.0">
             <content>
                 <VBox fx:id="studentGrades" prefHeight="375.0" prefWidth="678.0" />
             </content>
@@ -62,7 +62,7 @@
             </ImageView>
          </graphic>
         </Button>
-        <Button fx:id="btnInputGrade" layoutX="32.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#inputGrades" prefHeight="27.0" prefWidth="127.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Input Grades" textFill="WHITE">
+        <Button fx:id="btnInputGrade" layoutX="29.0" layoutY="146.0" mnemonicParsing="false" onMouseClicked="#inputGrades" prefHeight="27.0" prefWidth="127.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Input Grades" textFill="WHITE">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -77,7 +77,7 @@
             </ImageView>
          </graphic>
         </Button>
-      <Button fx:id="btnAddStudent" layoutX="531.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#addStudents" prefHeight="28.0" prefWidth="127.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Add Student" textFill="WHITE">
+      <Button fx:id="btnAddStudent" layoutX="528.0" layoutY="146.0" mnemonicParsing="false" onMouseClicked="#addStudents" prefHeight="28.0" prefWidth="127.0" style="-fx-background-color: #5F3566; -fx-background-radius: 15px;" text="Add Student" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
