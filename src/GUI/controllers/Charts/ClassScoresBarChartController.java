@@ -179,34 +179,58 @@ public class ClassScoresBarChartController implements Initializable{
                 if(transcriptOfOneStudent.getMark4() != -1) {
                     avg += transcriptOfOneStudent.getMark4() * 0.5;
                 }
-
             }
-            DecimalFormat df = new DecimalFormat("#.#");
-//            SumGradeLabel.setText(df.format(avg));
-            double finalScore = avg;
-            int roundedScore = (int)finalScore;
-            System.out.println(subjectClass.getClassId() + " / " + roundedScore);
-            //count number of score range
-            if (roundedScore >= 0 && roundedScore <= 4){
-                data1.get(roundedScore).setYValue((int) data1.get(roundedScore).getYValue() + 1);
-                if (maxCount < data1.get(roundedScore).getYValue().intValue()){
-                    maxCount = data1.get(roundedScore).getYValue().intValue();
-                }
-//                System.out.println(data1.get(roundedScore).getYValue());
-            }else if (roundedScore >= 5 && roundedScore <= 7){
-                data2.get(roundedScore - 5).setYValue((int) data2.get(roundedScore - 5).getYValue() + 1);
-                if (maxCount < data2.get(roundedScore - 5).getYValue().intValue()){
-                    maxCount = data2.get(roundedScore - 5).getYValue().intValue();
-                }
-//                System.out.println(data2.get(roundedScore - 5).getYValue());
 
-            }else if (roundedScore >= 8 && roundedScore <= 9){
-                data3.get(roundedScore - 8).setYValue((int) data3.get(roundedScore - 8).getYValue() + 1);
-                if (maxCount < data3.get(roundedScore - 8).getYValue().intValue()){
-                    maxCount = data3.get(roundedScore - 8).getYValue().intValue();
+            if (avg>=0 && avg <= 1){
+                data1.get(0).setYValue((int) data1.get(0).getYValue() + 1);
+                if (maxCount < data1.get(0).getYValue().intValue()){
+                    maxCount = data1.get(0).getYValue().intValue();
                 }
-//                System.out.println(data3.get(roundedScore - 8).getYValue());
-
+            }else if (avg <= 2){
+                data1.get(1).setYValue((int) data1.get(1).getYValue() + 1);
+                if (maxCount < data1.get(1).getYValue().intValue()){
+                    maxCount = data1.get(1).getYValue().intValue();
+                }
+            }else if (avg <= 3){
+                data1.get(2).setYValue((int) data1.get(2).getYValue() + 1);
+                if (maxCount < data1.get(2).getYValue().intValue()){
+                    maxCount = data1.get(2).getYValue().intValue();
+                }
+            }else if (avg <= 4){
+                data1.get(3).setYValue((int) data1.get(3).getYValue() + 1);
+                if (maxCount < data1.get(3).getYValue().intValue()){
+                    maxCount = data1.get(3).getYValue().intValue();
+                }
+            }else if (avg <= 5){
+                data1.get(4).setYValue((int) data1.get(4).getYValue() + 1);
+                if (maxCount < data1.get(4).getYValue().intValue()){
+                    maxCount = data1.get(4).getYValue().intValue();
+                }
+            }else if (avg <= 6){
+                data2.get(0).setYValue((int) data2.get(0).getYValue() + 1);
+                if (maxCount < data2.get(0).getYValue().intValue()){
+                    maxCount = data2.get(0).getYValue().intValue();
+                }
+            }else if (avg <= 7){
+                data2.get(1).setYValue((int) data2.get(1).getYValue() + 1);
+                if (maxCount < data2.get(1).getYValue().intValue()){
+                    maxCount = data2.get(1).getYValue().intValue();
+                }
+            }else if (avg <= 8){
+                data2.get(2).setYValue((int) data2.get(2).getYValue() + 1);
+                if (maxCount < data2.get(2).getYValue().intValue()){
+                    maxCount = data2.get(2).getYValue().intValue();
+                }
+            }else if (avg <= 9){
+                data3.get(0).setYValue((int) data3.get(0).getYValue() + 1);
+                if (maxCount < data3.get(0).getYValue().intValue()){
+                    maxCount = data3.get(0).getYValue().intValue();
+                }
+            }else if (avg <= 10){
+                data3.get(1).setYValue((int) data3.get(1).getYValue() + 1);
+                if (maxCount < data3.get(1).getYValue().intValue()){
+                    maxCount = data3.get(1).getYValue().intValue();
+                }
             }
         }
 
@@ -217,7 +241,7 @@ public class ClassScoresBarChartController implements Initializable{
                 recalculateBarPositions();
             }
         });
-
+//        yAxis.setAutoRanging(true);
         yAxis.setUpperBound(maxCount + 2);
     }
 
