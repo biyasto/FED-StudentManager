@@ -28,7 +28,7 @@ public class ExamRoomDAL {
             "E1.1", "E1.2", "E1.3", "E1.4", "E2.1", "E2.2", "E2.3", "E2.4"
     );
 
-    public int addExamRoom(int examId, String room, String classId){
+    public int addExamRoom(int examId, String room, String classId) {
         String sql = "insert into examRoom values (?, ?, ?)";
         int result = -1;
         try {
@@ -38,7 +38,7 @@ public class ExamRoomDAL {
             pres.setInt(1, examId);
             pres.setString(2, room);
             pres.setString(3, classId);
-            result = pres.  executeUpdate();
+            result = pres.executeUpdate();
             System.out.println(result);
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,7 +54,7 @@ public class ExamRoomDAL {
         return result;
     }
 
-    public List<String> getEmptyRoomForExam(ExamScheduleDTO examScheduleDTO){
+    public List<String> getEmptyRoomForExam(ExamScheduleDTO examScheduleDTO) {
         List<String> list = new ArrayList<>();
         String sql = " select e2.* from examschedule e1, examroom e2 where e1.id = e2.examId and e1.examDate = ? and shift = ?";
         try {
@@ -85,17 +85,17 @@ public class ExamRoomDAL {
         return removeNotEmptyRooms(list);
     }
 
-    private List<String> removeNotEmptyRooms(List<String> notEmptyRooms){
+    private List<String> removeNotEmptyRooms(List<String> notEmptyRooms) {
         List<String> newList = new ArrayList<>();
         for (String room : rooms) {
-            if (!notEmptyRooms.contains(room)){
+            if (!notEmptyRooms.contains(room)) {
                 newList.add(room);
             }
         }
         return newList;
     }
 
-    public ExamRoomDTO getRoomByStudentAndExamSchedule(StudentDTO student, ExamScheduleDTO exam){
+    public ExamRoomDTO getRoomByStudentAndExamSchedule(StudentDTO student, ExamScheduleDTO exam) {
         ExamRoomDTO examRoom = new ExamRoomDTO();
         String sql = "select e2.* from subjectclass s1, studentclass s2, examschedule e1, examroom e2 where " +
                 "s2.classId = s1.classId and " +
@@ -138,7 +138,7 @@ public class ExamRoomDAL {
         return examRoom;
     }
 
-    public String getRooms(ExamScheduleDTO examScheduleDTO){
+    public String getRooms(ExamScheduleDTO examScheduleDTO) {
         List<String> list = new ArrayList<>();
         int examId = new ExamScheduleBLL().getExamScheduleId(examScheduleDTO);
 

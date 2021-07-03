@@ -84,7 +84,7 @@ public class SubjectDAL {
             pres = conn.prepareStatement(sql);
 
             rs = pres.executeQuery();
-            if(rs.next())
+            if (rs.next())
                 count = rs.getInt("count(*)");
 
         } catch (Exception e) {
@@ -134,7 +134,7 @@ public class SubjectDAL {
         return subjectDTO;
     }
 
-    public List<SubjectDTO> getSubjectsByStudentId(String id){
+    public List<SubjectDTO> getSubjectsByStudentId(String id) {
         List<SubjectDTO> list = new ArrayList<>();
         String sql = "select s2.* " +
                 "from StudentClass s1, Subject s2, SubjectClass s3 " +
@@ -171,7 +171,7 @@ public class SubjectDAL {
         return list;
     }
 
-    public SubjectDTO getSubjectByTranscriptId(String id){
+    public SubjectDTO getSubjectByTranscriptId(String id) {
         SubjectDTO subjectDTO = null;
         String sql = "select s3.* from studentclass s1, subjectclass s2, subject s3 where s1.classId = s2.classId and s2.subjectId = s3.subjectId and s1.transcriptId = ?";
         try {

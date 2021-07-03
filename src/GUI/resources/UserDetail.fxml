@@ -16,11 +16,6 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label fx:id="PositionLabel" alignment="CENTER" layoutX="30.0" layoutY="23.0" text="Student">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
             <Label fx:id="FacultyLabel" alignment="CENTER" layoutX="260.0" layoutY="117.0" prefWidth="260.0" text="Software Engineering" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
@@ -33,12 +28,17 @@
             </Label>
             <Pane prefHeight="190.0" prefWidth="219.0" style="-fx-background-color: #6FC3B6; -fx-background-radius: 25 0 25 25;">
                <children>
-                  <ImageView fx:id="UserAvatar" fitHeight="101.0" fitWidth="130.0" layoutX="59.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 10px;">
+                  <ImageView fx:id="UserAvatar" fitHeight="101.0" fitWidth="130.0" layoutX="59.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 10px;">
                      <image>
                         <Image url="@../asset/Picture/UserAvatar.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="IDLabel" alignment="CENTER" layoutX="26.0" layoutY="132.0" prefHeight="22.0" prefWidth="168.0" text="19520207" textAlignment="CENTER">
+                  <Label fx:id="IDLabel" alignment="CENTER" layoutX="26.0" layoutY="153.0" prefHeight="22.0" prefWidth="168.0" text="19520207" textAlignment="CENTER">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="PositionLabel" alignment="TOP_LEFT" layoutX="16.0" layoutY="3.0" prefHeight="22.0" prefWidth="117.0" text="Teacher" textAlignment="CENTER">
                      <font>
                         <Font size="15.0" />
                      </font>

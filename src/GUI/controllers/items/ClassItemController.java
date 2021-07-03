@@ -8,8 +8,10 @@ import GUI.controllers.ClassGradesController;
 import GUI.controllers.NavigationController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -20,6 +22,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class ClassItemController {
     @FXML
@@ -59,9 +62,8 @@ public class ClassItemController {
         ClassIDLabel.setText(subjectClass.getClassId());
         SubjectLabel.setText(subject.getSubjectName());
         FacultyLabel.setText("Faculty: " + subject.getFaculty());
-        if (teacher != null){
-            if (teacher.getName() != null)
-            {
+        if (teacher != null) {
+            if (teacher.getName() != null) {
                 TeacherLabel.setText("Teacher: " + teacher.getName());
             }
         }
@@ -81,4 +83,6 @@ public class ClassItemController {
 
         container.getChildren().add(item);
     }
+
+
 }

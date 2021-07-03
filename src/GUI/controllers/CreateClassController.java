@@ -227,11 +227,13 @@ public class CreateClassController implements Initializable {
                 lblEmpty.setVisible(false);
                 lblError.setVisible(false);
                 lblSuccess.setVisible(true);
+                lblCoefficient.setVisible(false);
             }
             else {
                 lblEmpty.setVisible(false);
                 lblError.setVisible(true);
                 lblSuccess.setVisible(false);
+                lblCoefficient.setVisible(false);
             }
         }
     }

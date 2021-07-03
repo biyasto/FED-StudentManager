@@ -21,7 +21,7 @@ public class ExamScheduleDAL {
     private PreparedStatement pres = null;
     private ResultSet rs = null;
 
-    public List<ExamScheduleDTO> getAllExamSchedule(){
+    public List<ExamScheduleDTO> getAllExamSchedule() {
         List<ExamScheduleDTO> list = new ArrayList<>();
         String sql = "select * from ExamSchedule";
         try {
@@ -57,7 +57,7 @@ public class ExamScheduleDAL {
         return list;
     }
 
-    public List<ExamScheduleDTO> getAllExamScheduleByStudent(StudentDTO student){
+    public List<ExamScheduleDTO> getAllExamScheduleByStudent(StudentDTO student) {
         List<ExamScheduleDTO> list = new ArrayList<>();
         String sql = " select e.* from subjectclass s1, studentclass s2, examschedule e where " +
                 "s1.classId = s2.classId " +
@@ -99,7 +99,7 @@ public class ExamScheduleDAL {
         return list;
     }
 
-    public List<ExamScheduleDTO> getAllExamScheduleByTeacher(TeacherDTO teacher){
+    public List<ExamScheduleDTO> getAllExamScheduleByTeacher(TeacherDTO teacher) {
         List<ExamScheduleDTO> list = new ArrayList<>();
         String sql = " select e.* from subjectclass s, examschedule e  where s.headmaster = ? and s.schoolYear = e.schoolyear and s.semester = e.semester and s.subjectid = e.subjectid";
         try {
@@ -136,7 +136,7 @@ public class ExamScheduleDAL {
         return list;
     }
 
-    public List<String> getEmptyRoomForSchedule(Date date, int shift){
+    public List<String> getEmptyRoomForSchedule(Date date, int shift) {
         List<String> list = new ArrayList<>();
         String sql = " select e2.room from examschedule e1, examroom e2 where e1.id = e2.examId and e1.examDate = ? and shift = ?";
         try {
@@ -169,7 +169,7 @@ public class ExamScheduleDAL {
 
     public int addNewEvent(ExamScheduleDTO event) {
         String sqlInsert = "insert into examschedule (subjectId, schoolYear, semester, flag, shift, examdate, totalTime) " +
-                            "values (?, ?, ?, ?, ?, ?, ?)";
+                "values (?, ?, ?, ?, ?, ?, ?)";
         int result = -1;
         try {
             DBU = new DatabaseUtils();

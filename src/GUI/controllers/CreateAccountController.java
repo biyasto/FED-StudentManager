@@ -151,11 +151,6 @@ public class CreateAccountController implements Initializable {
             lblError.setVisible(false);
             lblSuccess.setVisible(false);
         }
-        else if(id.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            lblEmpty.setVisible(false);
-            lblError.setVisible(true);
-            lblSuccess.setVisible(false);
-        }
         else {
             boolean gder = true;
             if(gender.equals("Female"))
@@ -163,6 +158,13 @@ public class CreateAccountController implements Initializable {
 
             if(position.equals("Student")) {
                 createID(1);
+                if(id.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                    lblEmpty.setVisible(false);
+                    lblError.setVisible(true);
+                    lblSuccess.setVisible(false);
+                    return;
+                }
+
                 StudentDTO studentDTO = new StudentDTO(
                         id,
                         fullName,
@@ -189,6 +191,13 @@ public class CreateAccountController implements Initializable {
             }
             else {
                 createID(2);
+                if(id.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                    lblEmpty.setVisible(false);
+                    lblError.setVisible(true);
+                    lblSuccess.setVisible(false);
+                    return;
+                }
+
                 TeacherDTO teacherDTO = new TeacherDTO(
                         id,
                         fullName,

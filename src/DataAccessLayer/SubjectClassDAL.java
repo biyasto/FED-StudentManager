@@ -18,7 +18,7 @@ public class SubjectClassDAL {
     private ResultSet rs = null;
 
 
-    public List<SubjectClassDTO> getAllSubjectClass(){
+    public List<SubjectClassDTO> getAllSubjectClass() {
         List<SubjectClassDTO> list = new ArrayList<>();
         String sql = "select * from SubjectClass";
         try {
@@ -54,7 +54,8 @@ public class SubjectClassDAL {
         }
         return list;
     }
-    public List<SubjectClassDTO> getClassesByTeacherId(String id){
+
+    public List<SubjectClassDTO> getClassesByTeacherId(String id) {
         List<SubjectClassDTO> list = new ArrayList<>();
         String sql = "select s.* from SubjectClass s , Teacher t \n" +
                 "where s.headMaster = t.id and t.id = ?;";
@@ -92,7 +93,8 @@ public class SubjectClassDAL {
         }
         return list;
     }
-    public List<SubjectClassDTO> getClassesByStudentId(String id){
+
+    public List<SubjectClassDTO> getClassesByStudentId(String id) {
         List<SubjectClassDTO> list = new ArrayList<>();
         String sql = "select s1.* from subjectclass s1, studentclass s2 where s1.classId = s2.classId and s2.studentId = ?";
         try {
@@ -131,7 +133,7 @@ public class SubjectClassDAL {
     }
 
 
-    public SubjectClassDTO getClassById(String id){
+    public SubjectClassDTO getClassById(String id) {
         SubjectClassDTO subjectClass = null;
         String sql = "select * from subjectclass where classId = ?";
         try {
@@ -167,7 +169,7 @@ public class SubjectClassDAL {
         return subjectClass;
     }
 
-    public List<SubjectClassDTO> getClassesBySubjectName(String name){
+    public List<SubjectClassDTO> getClassesBySubjectName(String name) {
         List<SubjectClassDTO> list = new ArrayList<>();
         String sql = "select s1.* from subjectclass s1, subject s2 where s2.subjectname = ? and s1.subjectId = s2.subjectId";
 
@@ -206,7 +208,8 @@ public class SubjectClassDAL {
         }
         return list;
     }
-    public List<SubjectClassDTO> getClassesForExamSchedule(ExamScheduleDTO examScheduleDTO){
+
+    public List<SubjectClassDTO> getClassesForExamSchedule(ExamScheduleDTO examScheduleDTO) {
         List<SubjectClassDTO> list = new ArrayList<>();
         String sql = "select * from subjectClass where subjectId = ? and schoolYear = ? and semester = ?";
 
@@ -247,6 +250,7 @@ public class SubjectClassDAL {
         }
         return list;
     }
+
     public int InsertSubjectClass(SubjectClassDTO s) {
         String sql = "insert into subjectclass values (?,?,?,?,?,?,?,?,?);";
         int result = -1;
@@ -279,7 +283,7 @@ public class SubjectClassDAL {
         return result;
     }
 
-    public List<SubjectClassDTO> findClassesForExam(String subjectId, int schoolYear, int semester){
+    public List<SubjectClassDTO> findClassesForExam(String subjectId, int schoolYear, int semester) {
         List<SubjectClassDTO> list = new ArrayList<>();
         String sql = "select  * from subjectclass where subjectId = ? and schoolYear = ? and semester = ?";
 

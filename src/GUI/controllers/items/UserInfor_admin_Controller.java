@@ -6,7 +6,6 @@ import GUI.controllers.MyGradeController;
 import GUI.controllers.NavigationController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,15 +14,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
 
 public class UserInfor_admin_Controller {
 
@@ -90,24 +85,31 @@ public class UserInfor_admin_Controller {
     private Text lblError;
 
     private StudentDTO student = null;
+    private TeacherDTO teacher = null;
     private StackPane container = NavigationController.containerNav;
 
-    private List<StudentCLassDTO> studentCLassList = new ArrayList<>();
-
-    public void setData(StudentDTO student) {
-        this.student = student;
-
-        //set data for main menu of student's information
-        NameLabel.setText(student.getName());
-        IDLabel.setText(student.getId());
-        FacultyLabel.setText(student.getFaculty());
-        EmailLabel.setText(student.getEmail());
-
-        setDataForChangePassPane(student);
-    }
-
-    private void setDataForChangePassPane(StudentDTO student) {
-        lblCurPass.setText(student.getPass());
+    public void setData(StudentDTO student, TeacherDTO teacher) {
+        if(student != null) {
+            //set data for main menu of student's information
+            this.student = student;
+            NameLabel.setText(student.getName());
+            IDLabel.setText(student.getId());
+            FacultyLabel.setText(student.getFaculty());
+            EmailLabel.setText(student.getEmail());
+            lblCurPass.setText(student.getPass());
+            PositionLabel.setText("Student");
+        }
+        else if( teacher != null) {
+            //set data for main menu of student's information
+            this.teacher = teacher;
+            NameLabel.setText(teacher.getName());
+            IDLabel.setText(teacher.getId());
+            FacultyLabel.setText(teacher.getFaculty());
+            EmailLabel.setText(teacher.getEmail());
+            lblCurPass.setText(teacher.getPass());
+            PositionLabel.setText("Teacher");
+            btnGetGrade.setVisible(false);
+        }
     }
 
     @FXML
@@ -144,12 +146,24 @@ public class UserInfor_admin_Controller {
             lblSuccess.setVisible(false);
         }
         else {
-            StudentBLL studentBLL = new StudentBLL();
-            int result = studentBLL.UpdatePassword(IDLabel.getText(), password);
+            int result = -1;
+
+            if(student != null) {
+                StudentBLL studentBLL = new StudentBLL();
+                result = studentBLL.UpdatePassword(IDLabel.getText(), password);
+            }
+            else if(teacher != null) {
+                TeacherDTO teacherTemp = teacher;
+                TeacherBLL teacherBLL = new TeacherBLL();
+                teacherTemp.setPass(password);
+                result = teacherBLL.UpdatePassword(teacherTemp);
+            }
+
             if(result != -1) {
                 lblEmpty.setVisible(false);
                 lblError.setVisible(false);
                 lblSuccess.setVisible(true);
+                afterUpdateSuccess(password);
             }
             else {
                 lblEmpty.setVisible(false);
@@ -157,6 +171,17 @@ public class UserInfor_admin_Controller {
                 lblSuccess.setVisible(false);
             }
         }
+    }
+
+    private void afterUpdateSuccess(String newPassword) {
+        lblCurPass.setText(newPassword);
+        txtPass.clear();
+        txtConfirmPass.clear();
+
+        if(student != null)
+            student.setPass(newPassword);
+        else if(teacher != null)
+            teacher.setPass(newPassword);
     }
 
     @FXML

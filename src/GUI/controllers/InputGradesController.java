@@ -92,7 +92,7 @@ public class InputGradesController {
 
     private void loadTable() {
         ObservableList<StudentGrade> list = FXCollections.observableArrayList();
-        for(StudentDTO student: studentList) {
+        for (StudentDTO student : studentList) {
             TranscriptBLL transcriptBLL = new TranscriptBLL();
             TranscriptDTO transcriptOfOneStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
 
@@ -101,13 +101,13 @@ public class InputGradesController {
             Double mark3 = null;
             Double mark4 = null;
 
-            if(transcriptOfOneStudent.getMark1() != -1)
+            if (transcriptOfOneStudent.getMark1() != -1)
                 mark1 = transcriptOfOneStudent.getMark1();
-            if(transcriptOfOneStudent.getMark2() != -1)
+            if (transcriptOfOneStudent.getMark2() != -1)
                 mark2 = transcriptOfOneStudent.getMark2();
-            if(transcriptOfOneStudent.getMark3() != -1)
+            if (transcriptOfOneStudent.getMark3() != -1)
                 mark3 = transcriptOfOneStudent.getMark3();
-            if(transcriptOfOneStudent.getMark4() != -1)
+            if (transcriptOfOneStudent.getMark4() != -1)
                 mark4 = transcriptOfOneStudent.getMark4();
 
             StudentGrade studentGrade = new StudentGrade(
@@ -145,13 +145,13 @@ public class InputGradesController {
         Double mark3 = studentGrade.getMark3();
         Double mark4 = studentGrade.getMark4();
 
-        if(mark1 == null)
+        if (mark1 == null)
             mark1 = -1.0;
-        if(mark2 == null)
+        if (mark2 == null)
             mark2 = -1.0;
-        if(mark3 == null)
+        if (mark3 == null)
             mark3 = -1.0;
-        if(mark4 == null)
+        if (mark4 == null)
             mark4 = -1.0;
 
         TranscriptDTO transcript = new TranscriptDTO(

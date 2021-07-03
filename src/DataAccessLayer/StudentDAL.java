@@ -145,6 +145,7 @@ public class StudentDAL {
         }
         return s;
     }
+
     public StudentDTO GetStudentByID(String id) {
         String sql = "select * from student where id =?";
         StudentDTO s = null;
@@ -180,7 +181,8 @@ public class StudentDAL {
         }
         return s;
     }
-//
+
+    //
 //    public StudentDTO getStudentBySubjectAndSchoolYear(String subjectId, int schoolYear, int semester) {
 //        String sql = "select s2.studentId from subjectclass s1, studentclass s2 where s1.subjectId = ? and s1.classId = s2.classId and s1.schoolYear = ? and semester = ?";
 //        StudentDTO s = null;
@@ -227,7 +229,7 @@ public class StudentDAL {
             pres = conn.prepareStatement(sql);
 
             rs = pres.executeQuery();
-            if(rs.next())
+            if (rs.next())
                 count = rs.getInt("count(*)");
 
         } catch (Exception e) {
@@ -244,7 +246,7 @@ public class StudentDAL {
         return count;
     }
 
-    public List<StudentDTO> getStudentsByClassId(String classID){
+    public List<StudentDTO> getStudentsByClassId(String classID) {
         List<StudentDTO> list = new ArrayList<>();
         String sql = "select s3.* from subjectclass s1, studentclass s2, student s3 where s1.classId = ? and s1.classId = s2.classId and s2.studentId = s3.id;";
         try {
@@ -291,7 +293,7 @@ public class StudentDAL {
             pres.setString(1, id);
 
             rs = pres.executeQuery();
-            if(rs.next())
+            if (rs.next())
                 result = true;
 
         } catch (Exception e) {

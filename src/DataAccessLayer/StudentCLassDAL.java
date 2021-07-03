@@ -16,7 +16,7 @@ public class StudentCLassDAL {
     private PreparedStatement pres = null;
     private ResultSet rs = null;
 
-    public List<StudentCLassDTO> getAllStudentClass(){
+    public List<StudentCLassDTO> getAllStudentClass() {
         List<StudentCLassDTO> list = new ArrayList<>();
         String sql = "select * from StudentClass";
         try {
@@ -47,7 +47,7 @@ public class StudentCLassDAL {
         return list;
     }
 
-    public List<StudentCLassDTO> getAllClassOfStudent(String id){
+    public List<StudentCLassDTO> getAllClassOfStudent(String id) {
         List<StudentCLassDTO> list = new ArrayList<>();
         String sql = "select * from StudentClass where studentId = ?";
         try {

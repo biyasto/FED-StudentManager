@@ -42,7 +42,7 @@ public class ForgotPasswordFindAccountController {
     private TeacherBLL teacherBll = new TeacherBLL();
 
 
-    public static String IDENTIFICATION_CODE = "thaibinhdeptrai";
+    public static String IDENTIFICATION_CODE = "fed";
 
     @FXML
     void nextButtonEvent(ActionEvent event) throws InterruptedException, IOException {
