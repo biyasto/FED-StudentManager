@@ -401,11 +401,11 @@ public class MyGradeController implements Initializable {
         prgSchoolName.setIndentationLeft(100);
         document.add(prgSchoolName);
 
-        Paragraph prgAddress = new Paragraph("THIÊN HÀ TRONG VŨ TRỤ NÀY HOÀI XA XÔI", listFont.get(2));
+        Paragraph prgAddress = new Paragraph("SONG HÀNH, KHU PHỐ 6, THỦ ĐỨC, HỒ CHÍ MINH", listFont.get(2));
         prgAddress.setIndentationLeft(100);
         document.add(prgAddress);
 
-        Paragraph prgSoDT = new Paragraph("CONTACT: 99999999999", listFont.get(2));
+        Paragraph prgSoDT = new Paragraph("CONTACT: 028 3725 2002", listFont.get(2));
         prgSoDT.setIndentationLeft(100);
         document.add(prgSoDT);
 
