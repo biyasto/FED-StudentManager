@@ -74,7 +74,8 @@ public class ClassGradesController implements Initializable {
     @FXML
     private VBox studentGrades;
 
-    public StudentDTO studentUser;
+    private StudentDTO studentUser = null;
+    private TeacherDTO teacherUser = null;
     private List<StudentDTO> studentList = null;
     private TeacherDTO teacher = null;
     private SubjectDTO subject = null;
@@ -133,15 +134,17 @@ public class ClassGradesController implements Initializable {
     void refresh(MouseEvent event) {
         if (!addedStudents.isEmpty()) {
             studentList.addAll(addedStudents);
-            setData(studentList, teacher, subject, subjectClass);
+            //setData(studentList, teacher, subject, subjectClass);
             addedStudents.clear();
         }
 
         if (!deletedStudents.isEmpty()) {
             studentList.removeAll(deletedStudents);
-            setData(studentList, teacher, subject, subjectClass);
+            //setData(studentList, teacher, subject, subjectClass);
             deletedStudents.clear();
         }
+
+        setData(studentList, teacher, subject, subjectClass);
     }
 
 
@@ -606,11 +609,16 @@ public class ClassGradesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         studentUser = NavigationController.studentUser;
+        teacherUser = NavigationController.teacherUser;
+
         if (studentUser != null) {
             btnAddStudent.setVisible(false);
             btnShowChart.setVisible(false);
             btnExportPDF.setVisible(false);
             btnInputGrade.setVisible(false);
+        }
+        else if(teacherUser != null) {
+            btnAddStudent.setVisible(false);
         }
     }
 }

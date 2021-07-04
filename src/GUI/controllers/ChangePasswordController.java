@@ -79,8 +79,10 @@ public class ChangePasswordController {
                 result = studentBLL.UpdatePassword(studentDTO.getId(), password);
             }
             else if(teacherDTO != null) {
+                TeacherDTO temp = teacherDTO;
+                temp.setPass(password);
                 TeacherBLL teacherBLL = new TeacherBLL();
-                result = teacherBLL.UpdatePassword(teacherDTO);
+                result = teacherBLL.UpdatePassword(temp);
             }
             if(result != -1) {
                 lblEmpty.setVisible(false);

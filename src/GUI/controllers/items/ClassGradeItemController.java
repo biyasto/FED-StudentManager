@@ -4,6 +4,7 @@ import BusinessLogicLayer.StudentClassBLL;
 import BusinessLogicLayer.TranscriptBLL;
 import DataTransferObject.StudentDTO;
 import DataTransferObject.SubjectClassDTO;
+import DataTransferObject.TeacherDTO;
 import DataTransferObject.TranscriptDTO;
 import GUI.controllers.ClassGradesController;
 import GUI.controllers.LoginController;
@@ -83,7 +84,9 @@ public class ClassGradeItemController implements Initializable {
     private ImageView Avatar;
 
 
-    public StudentDTO studentUser;
+    private StudentDTO studentUser = null;
+    private TeacherDTO teacherUser = null;
+
     private StudentDTO student = null;
     private TranscriptDTO transcript = null;
     private SubjectClassDTO subjectClass = null;
@@ -107,24 +110,24 @@ public class ClassGradeItemController implements Initializable {
         if (transcript != null) {
             if (transcript.getMark1() != -1) {
                 Grade1Textfield.setText(String.valueOf(transcript.getMark1()));
-                avg += transcript.getMark1() * 0.1;
+                avg += transcript.getMark1() * subjectClass.getAttendance();
             }
             if (transcript.getMark2() != -1) {
                 Grade2Textfield.setText(String.valueOf(transcript.getMark2()));
-                avg += transcript.getMark2() * 0.2;
+                avg += transcript.getMark2() * subjectClass.getQuiz();
             }
             if (transcript.getMark3() != -1) {
                 Grade3Textfield.setText(String.valueOf(transcript.getMark3()));
-                avg += transcript.getMark3() * 0.2;
+                avg += transcript.getMark3() * subjectClass.getPractice();
             }
             if (transcript.getMark4() != -1) {
                 Grade4Textfield.setText(String.valueOf(transcript.getMark4()));
-                avg += transcript.getMark4() * 0.5;
+                avg += transcript.getMark4() * subjectClass.getFinal();
             }
 
         }
         DecimalFormat df = new DecimalFormat("#.#");
-        SumGradeLabel.setText(df.format(avg));
+        SumGradeLabel.setText(df.format(avg * 0.1));
     }
 
     @FXML
@@ -163,25 +166,41 @@ public class ClassGradeItemController implements Initializable {
                 double mark3 = -1;
                 double mark4 = -1;
 
-                if (!str1.isEmpty())
-                    mark1 = Double.parseDouble(str1);
-                if (!str2.isEmpty())
-                    mark2 = Double.parseDouble(str2);
-                if (!str3.isEmpty())
-                    mark3 = Double.parseDouble(str3);
-                if (!str4.isEmpty())
-                    mark4 = Double.parseDouble(str4);
+                try {
+                    if (!str1.isEmpty())
+                        mark1 = Double.parseDouble(str1);
+                    if (!str2.isEmpty())
+                        mark2 = Double.parseDouble(str2);
+                    if (!str3.isEmpty())
+                        mark3 = Double.parseDouble(str3);
+                    if (!str4.isEmpty())
+                        mark4 = Double.parseDouble(str4);
+                }
+                catch (Exception e) {
+                    Alert alertInvalid = new Alert(Alert.AlertType.INFORMATION);
+                    alertInvalid.setTitle("Invalid input");
+                    alertInvalid.setHeaderText(null);
+                    alertInvalid.setContentText("Invalid grade's input, please check again!");
+                    alertInvalid.showAndWait();
+                    //reset grade when invalid input
+                    btnOK.setVisible(false);
+                    setData(subjectClass, student, transcript);
+                    return;
+                }
 
                 if (mark1 < -1 || mark1 > 10
-                        || mark2 < -1 || mark2 > 10
-                        || mark3 < -1 || mark3 > 10
-                        || mark4 < -1 || mark4 > 10) {
+                 || mark2 < -1 || mark2 > 10
+                 || mark3 < -1 || mark3 > 10
+                 || mark4 < -1 || mark4 > 10) {
                     //invalid input, handle here
                     Alert alertInvalid = new Alert(Alert.AlertType.INFORMATION);
                     alertInvalid.setTitle("Invalid input");
                     alertInvalid.setHeaderText(null);
                     alertInvalid.setContentText("Invalid grade's input, please check again!");
                     alertInvalid.showAndWait();
+                    //reset grade when invalid input
+                    btnOK.setVisible(false);
+                    setData(subjectClass, student, transcript);
                 } else {
                     TranscriptBLL transcriptBLL = new TranscriptBLL();
                     int result = -1;
@@ -258,9 +277,13 @@ public class ClassGradeItemController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         studentUser = NavigationController.studentUser;
+        teacherUser = NavigationController.teacherUser;
+
         if (studentUser != null) {
             btnDelete.setVisible(false);
             btnEdit.setVisible(false);
+        }
+        else if(teacherUser != null) {
             btnDelete.setVisible(false);
         }
     }
