@@ -16,4 +16,5 @@ module QuanLyHocSInh {
     opens GUI.resources.Charts;
     opens GUI.controllers.Charts;
     opens Model;
+    opens Launcher;
 }
