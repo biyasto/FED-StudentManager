@@ -80,8 +80,8 @@ public class ClassGradesController implements Initializable {
     private SubjectDTO subject = null;
     private SubjectClassDTO subjectClass = null;
     private int count = 1;
-    private final static PdfPTable markTable = new PdfPTable(7);
-    private final static PdfPTable studentListTable = new PdfPTable(6);
+    private PdfPTable markTable = new PdfPTable(7);
+    private PdfPTable studentListTable = new PdfPTable(6);
 
     public static List<StudentDTO> deletedStudents = new ArrayList<>();
     public static List<StudentDTO> addedStudents = new ArrayList<>();
@@ -131,13 +131,13 @@ public class ClassGradesController implements Initializable {
 
     @FXML
     void refresh(MouseEvent event) {
-        if(!addedStudents.isEmpty()) {
+        if (!addedStudents.isEmpty()) {
             studentList.addAll(addedStudents);
             setData(studentList, teacher, subject, subjectClass);
             addedStudents.clear();
         }
 
-        if(!deletedStudents.isEmpty()) {
+        if (!deletedStudents.isEmpty()) {
             studentList.removeAll(deletedStudents);
             setData(studentList, teacher, subject, subjectClass);
             deletedStudents.clear();
@@ -482,11 +482,12 @@ public class ClassGradesController implements Initializable {
                 avg += transcript.getMark4() * subjectClass.getFinal();
         }
         DecimalFormat df = new DecimalFormat("#.##");
-        return  Double.parseDouble(df.format(avg*0.1));
+        return Double.parseDouble(df.format(avg * 0.1));
     }
 
     @FXML
     void export(ActionEvent event) throws DocumentException, IOException {
+        markTable = new PdfPTable(7);
         String filePath = selectSaveFilePath();
         if (filePath.equals("")) return;
         Document document = new Document(PageSize.A4);
@@ -547,6 +548,7 @@ public class ClassGradesController implements Initializable {
 
     @FXML
     void ExportStudentList() throws IOException, DocumentException {
+        studentListTable = new PdfPTable(6);
         count = 1;
         String filePath = selectSaveFilePath();
         if (filePath.equals("")) return;
