@@ -33,7 +33,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Label fx:id="lblSemesterGPA" alignment="TOP_LEFT" layoutX="368.0" layoutY="-7.0" prefHeight="22.0" prefWidth="159.0" text="semester GPA:" textAlignment="CENTER" textFill="#665b5b" AnchorPane.topAnchor="7.0">
+            <Label fx:id="lblSemesterGPA" alignment="TOP_LEFT" layoutX="368.0" layoutY="-7.0" prefHeight="22.0" prefWidth="159.0" text="Semester GPA:" textAlignment="CENTER" textFill="#665b5b" AnchorPane.topAnchor="7.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

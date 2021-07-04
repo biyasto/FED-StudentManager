@@ -253,7 +253,7 @@ public class MyGradeController implements Initializable {
             }
             if (num != 0) {
                 double semesterGPA = sumGPA / num;
-                lblSemesterGPA.setText("semester GPA: " + df.format(semesterGPA));
+                lblSemesterGPA.setText("Semester GPA: " + df.format(semesterGPA));
                 lblCredit.setText("Accumulated credits: " + credit);
                 lblGPA.setText("GPA: " + df.format(semesterGPA));
             }

@@ -38,7 +38,7 @@
             <ChoiceBox fx:id="choiceBoxFlag" layoutX="14.0" layoutY="178.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
             <ChoiceBox fx:id="choiceBoxShift" layoutX="164.0" layoutY="178.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
             <ChoiceBox fx:id="choiceBoxTotalTime" layoutX="159.0" layoutY="244.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #EEE0E0; -fx-background-radius: 45;" />
-            <Text fill="#665b5b" layoutX="166.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="During (min)">
+            <Text fill="#665b5b" layoutX="166.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration(min)">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
