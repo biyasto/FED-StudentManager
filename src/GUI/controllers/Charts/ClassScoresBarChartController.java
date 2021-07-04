@@ -187,7 +187,7 @@ public class ClassScoresBarChartController implements Initializable{
                 if (maxCount < data1.get(3).getYValue().intValue()){
                     maxCount = data1.get(3).getYValue().intValue();
                 }
-            }else if (avg <= 5){
+            }else if (avg < 5){
                 data1.get(4).setYValue((int) data1.get(4).getYValue() + 1);
                 if (maxCount < data1.get(4).getYValue().intValue()){
                     maxCount = data1.get(4).getYValue().intValue();
@@ -202,7 +202,7 @@ public class ClassScoresBarChartController implements Initializable{
                 if (maxCount < data2.get(1).getYValue().intValue()){
                     maxCount = data2.get(1).getYValue().intValue();
                 }
-            }else if (avg <= 8){
+            }else if (avg < 8){
                 data2.get(2).setYValue((int) data2.get(2).getYValue() + 1);
                 if (maxCount < data2.get(2).getYValue().intValue()){
                     maxCount = data2.get(2).getYValue().intValue();
