@@ -38,8 +38,10 @@ public class StudentItemController {
     @FXML
     private ImageView Avatar;
 
+    public TeacherDTO teacherAccount = NavigationController.teacherUser;
     private StudentDTO studentDTO = null;
     private TeacherDTO teacherDTO = null;
+
 
     public StackPane container = NavigationController.containerNav;
 
@@ -49,7 +51,7 @@ public class StudentItemController {
         NameLabel.setText(studentDTO.getName());
         IDLabel.setText("ID: " + studentDTO.getId());
         FacultyLabel.setText("Faculty: " + studentDTO.getFaculty());
-        if(!studentDTO.isGender()) {
+        if (!studentDTO.isGender()) {
             File file = new File("src/GUI/asset/Picture/UserAvatar2.png");
             Image image = new Image(file.toURI().toString());
             Avatar.setImage(image);
@@ -62,7 +64,7 @@ public class StudentItemController {
         NameLabel.setText(teacherDTO.getName());
         IDLabel.setText("ID: " + teacherDTO.getId());
         FacultyLabel.setText("Faculty: " + teacherDTO.getFaculty());
-        if(!teacherDTO.isGender()) {
+        if (!teacherDTO.isGender()) {
             File file = new File("src/GUI/asset/Picture/UserAvatar2.png");
             Image image = new Image(file.toURI().toString());
             Avatar.setImage(image);
@@ -71,6 +73,7 @@ public class StudentItemController {
 
     @FXML
     public void openUserInfo(MouseEvent mouseEvent) throws IOException {
+        if (teacherAccount != null) return;
         URL urlLayout = new File("src/GUI/resources/items/UserInfor_admin.fxml").toURI().toURL();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(urlLayout);
@@ -81,5 +84,6 @@ public class StudentItemController {
 
         container.getChildren().addAll(item);
     }
+
 
 }
