@@ -165,23 +165,9 @@ public class ClassScoresBarChartController implements Initializable{
             TranscriptBLL transcriptBLL = new TranscriptBLL();
             TranscriptDTO transcriptOfOneStudent = transcriptBLL.GetTranscriptOfClass(subjectClass.getClassId(), student.getId());
 
-            double avg = 0;
-            if(transcriptOfOneStudent != null) {
-                if(transcriptOfOneStudent.getMark1() != -1) {
-                    avg += transcriptOfOneStudent.getMark1() * 0.1;
-                }
-                if(transcriptOfOneStudent.getMark2() != -1) {
-                    avg += transcriptOfOneStudent.getMark2() * 0.2;
-                }
-                if(transcriptOfOneStudent.getMark3() != -1) {
-                    avg += transcriptOfOneStudent.getMark3() * 0.2;
-                }
-                if(transcriptOfOneStudent.getMark4() != -1) {
-                    avg += transcriptOfOneStudent.getMark4() * 0.5;
-                }
-            }
+            double avg = new TranscriptBLL().calGPAByTranscriptId(transcriptOfOneStudent.getTranscriptId());
 
-            if (avg>=0 && avg <= 1){
+            if (avg >= 0 && avg <= 1){
                 data1.get(0).setYValue((int) data1.get(0).getYValue() + 1);
                 if (maxCount < data1.get(0).getYValue().intValue()){
                     maxCount = data1.get(0).getYValue().intValue();

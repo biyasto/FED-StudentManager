@@ -128,6 +128,8 @@ public class ClassGradeItemController implements Initializable {
         }
         DecimalFormat df = new DecimalFormat("#.#");
         SumGradeLabel.setText(df.format(avg * 0.1));
+        System.out.println(avg);
+        System.out.println(new TranscriptBLL().calGPAByTranscriptId(transcript.getTranscriptId()));
     }
 
     @FXML
