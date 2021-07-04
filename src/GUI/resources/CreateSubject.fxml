@@ -26,7 +26,7 @@
                   <Font name="System Italic" size="10.0" />
                </font>
             </Text>
-            <Text fx:id="lblSuccess" fill="#06a600" layoutX="26.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Create Success!" visible="false">
+            <Text fx:id="lblSuccess" fill="#06a600" layoutX="26.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject Create Success!" visible="false">
                <font>
                   <Font name="System Italic" size="10.0" />
                </font>
