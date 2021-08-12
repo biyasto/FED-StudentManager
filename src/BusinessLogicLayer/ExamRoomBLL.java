@@ -18,4 +18,5 @@ public class ExamRoomBLL {
     public ExamRoomDTO getRoomByStudentAndExamSchedule(StudentDTO student, ExamScheduleDTO exam){ return dal.getRoomByStudentAndExamSchedule(student, exam); }
 
     public String getRooms(ExamScheduleDTO examScheduleDTO){ return dal.getRooms(examScheduleDTO); }
+    //loz khoa mới bày edit code online
 }
