@@ -6,7 +6,6 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.25.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/itextpdf-5.5.13.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jfreechart-1.0.19.jar" path-in-jar="/" />
-      <element id="library" level="project" name="mysql-connector-java-8.0.24" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jcommon-1.0.23.jar" path-in-jar="/" />
       <element id="library" level="module" name="JUnit4" module-name="QuanLyHocSInh" />
       <element id="library" level="module" name="JUnit5.7.0" module-name="QuanLyHocSInh" />
